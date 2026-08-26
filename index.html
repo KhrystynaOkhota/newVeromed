@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Veromed</title>
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+
+    <link rel="stylesheet" href="assets/css/app.min.css" />
+
+</head>
+
+<body>
+
+    <header class="header">
+        <!-- Topbar Desktop -->
+        <div class="header__topbar" data-desktop-only>
+            <div class="header__topbar-container container">
+                <div class="header__location">
+                    <div class="dropdown" data-dropdown>
+                        <span class="header__location-label">
+                            <svg width="14" height="18" aria-hidden="true" class="icon-pin">
+                                <use href="assets/img/sprite.svg#icon-pin"></use>
+                            </svg>
+                            Оберіть ваше місто:
+                        </span>
+                        <button type="button" class="dropdown__toggle" aria-expanded="false"
+                            aria-controls="city-dropdown">
+                            <strong>Львів</strong>
+                            <svg width="10" height="6" aria-hidden="true" class="dropdown__arrow">
+                                <use href="assets/img/sprite.svg#icon-chevron-down"></use>
+                            </svg>
+                        </button>
+                        <ul class="dropdown__menu" id="city-dropdown" hidden>
+                            <li><a href="#" class="dropdown__link">Ужгород</a></li>
+                            <li><a href="#" class="dropdown__link">Мукачево</a></li>
+                            <li><a href="#" class="dropdown__link">Івано-Франківськ</a></li>
+                        </ul>
+                    </div>
+
+                    <address class="header__address">
+                        <svg width="14" height="18" aria-hidden="true" class="icon-pin">
+                            <use href="assets/img/sprite.svg#icon-pin"></use>
+                        </svg>
+                        Львів, вул. Генерала Юнаківа, 9
+                    </address>
+                </div>
+
+                <div class="header__topbar-right">
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__mail">
+                        <svg width="16" height="14" aria-hidden="true">
+                            <use href="assets/img/sprite.svg#icon-mail"></use>
+                        </svg>
+                        call.centre.veromed@gmail.com
+                    </a>
+
+                    <div class="lang-switch" role="navigation" aria-label="Language selection">
+                        <a href="#" class="lang-switch__item is-active" aria-current="page" lang="uk"
+                            title="Українська">
+                            <img src="assets/img/flag-ua.svg" alt="UA" width="20" height="20">
+                        </a>
+                        <a href="#" class="lang-switch__item" lang="en" title="English">
+                            <img src="assets/img/flag-us.svg" alt="EN" width="20" height="20">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header Bar -->
+        <div class="header__main">
+            <div class="header__main-container container">
+                <a href="/" class="header__logo" aria-label="VEROMED Головна">
+                    <img src="assets/img/logo.svg" alt="VEROMED" width="180" height="48" loading="eager">
+                </a>
+
+                <!-- Search Desktop -->
+                <div class="header__search" data-desktop-only>
+                    <form class="search-form" role="search" action="/search" method="get">
+                        <label for="desktop-search" class="visually-hidden">Пошук по сайту</label>
+                        <input type="search" id="desktop-search" name="s" placeholder="Пошук" autocomplete="off">
+                        <button type="submit" aria-label="Знайти">
+                            <svg width="18" height="18" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-search"></use>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Desktop Actions -->
+                <div class="header__actions" data-desktop-only>
+                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262-66-80</a>
+
+                    <div class="socials">
+                        <a href="#" aria-label="Telegram" class="socials__link socials__link--tg">
+                            <svg width="24" height="24" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-tg"></use>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="socials__link socials__link--wa">
+                            <svg width="24" height="24" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-wa"></use>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Viber" class="socials__link socials__link--viber">
+                            <svg width="24" height="24" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-viber"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <a href="#appointment" class="btn btn--primary">Записатися на прийом</a>
+                </div>
+
+                <!-- Mobile Controls Header -->
+                <div class="header__mobile-controls" data-mobile-only>
+                    <a href="tel:+380672626680" class="header__icon-btn" aria-label="Зателефонувати">
+                        <svg width="22" height="22" aria-hidden="true">
+                            <use href="assets/img/sprite.svg#icon-phone"></use>
+                        </svg>
+                    </a>
+                    <button type="button" class="burger-toggle" id="burgerToggle" aria-expanded="false"
+                        aria-controls="mobileDialog" aria-label="Відкрити меню">
+                        <span class="burger-toggle__bar" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Desktop -->
+        <nav class="header__nav" aria-label="Головна навігація" data-desktop-only>
+            <div class="container">
+                <ul id="menu-primary" class="header-menu">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#">Послуги</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="#">Терапія</a></li>
+                            <li class="menu-item"><a href="#">Хірургія</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#">Вартість послуг</a></li>
+                    <li class="menu-item"><a href="#">Результати</a></li>
+                    <li class="menu-item"><a href="#">Блог</a></li>
+                    <li class="menu-item"><a href="#">Наші лікарі</a></li>
+                    <li class="menu-item"><a href="#">Питання лікарю</a></li>
+                    <li class="menu-item"><a href="#">Про нас</a></li>
+                    <li class="menu-item"><a href="#">Контакт</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer (Dialog API) -->
+        <dialog class="mobile-drawer" id="mobileDialog" aria-label="Мобільне меню">
+            <div class="mobile-drawer__content">
+                <!-- Header inside Drawer -->
+                <div class="mobile-drawer__header">
+                    <a href="/" class="header__logo">
+                        <img src="assets/img/logo.svg" alt="VEROMED" width="140" height="37">
+                    </a>
+                    <div class="mobile-drawer__controls">
+                        <a href="tel:+380672626680" class="header__icon-btn" aria-label="Зателефонувати">
+                            <svg width="20" height="20" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-phone"></use>
+                            </svg>
+                        </a>
+                        <button type="button" class="mobile-drawer__close" id="dialogClose" aria-label="Закрити меню">
+                            <svg width="18" height="18" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-close"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mobile-drawer__body">
+                    <!-- Search Mobile -->
+                    <form class="search-form search-form--mobile" role="search" action="/search" method="get">
+                        <label for="mobile-search" class="visually-hidden">Пошук по сайту</label>
+                        <input type="search" id="mobile-search" name="s" placeholder="Пошук">
+                        <button type="submit" aria-label="Знайти">
+                            <svg width="18" height="18" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-search"></use>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Navigation Mobile -->
+                    <nav class="mobile-drawer__nav" aria-label="Мобільна навігація">
+                        <ul id="menu-mobile" class="mobile-menu">
+                            <li class="menu-item menu-item-has-children">
+                                <a href="#">Послуги</a>
+                                <button type="button" class="sub-menu-toggle" aria-expanded="false"
+                                    aria-label="Розгорнути підменю"></button>
+                                <ul class="sub-menu">
+                                    <li class="menu-item"><a href="#">Терапія</a></li>
+                                    <li class="menu-item"><a href="#">Хірургія</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="#">Вартість послуг</a></li>
+                            <li class="menu-item"><a href="#">Результати</a></li>
+                            <li class="menu-item"><a href="#">Блог</a></li>
+                            <li class="menu-item"><a href="#">Наші лікарі</a></li>
+                            <li class="menu-item"><a href="#">Питання лікарю</a></li>
+                            <li class="menu-item"><a href="#">Про нас</a></li>
+                            <li class="menu-item"><a href="#">Контакт</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Footer Mobile (Exact design match) -->
+                    <div class="mobile-drawer__footer">
+                        <a href="mailto:call.centre.veromed@gmail.com" class="mobile-drawer__mail">
+                            <svg width="16" height="14" aria-hidden="true">
+                                <use href="assets/img/sprite.svg#icon-mail"></use>
+                            </svg>
+                            call.centre.veromed@gmail.com
+                        </a>
+
+                        <div class="mobile-drawer__contacts-row">
+                            <a href="tel:+380672626680" class="mobile-drawer__phone">+380 (67) 262-66-80</a>
+                            <div class="socials socials--compact">
+                                <a href="#" aria-label="Telegram" class="socials__link"><svg width="24" height="24"
+                                        aria-hidden="true">
+                                        <use href="assets/img/sprite.svg#icon-tg"></use>
+                                    </svg></a>
+                                <a href="#" aria-label="WhatsApp" class="socials__link"><svg width="24" height="24"
+                                        aria-hidden="true">
+                                        <use href="assets/img/sprite.svg#icon-wa"></use>
+                                    </svg></a>
+                                <a href="#" aria-label="Viber" class="socials__link"><svg width="24" height="24"
+                                        aria-hidden="true">
+                                        <use href="assets/img/sprite.svg#icon-viber"></use>
+                                    </svg></a>
+                            </div>
+                        </div>
+
+                        <div class="lang-switch lang-switch--center">
+                            <a href="#" class="lang-switch__item is-active" aria-current="page" lang="uk">
+                                <img src="assets/img/flag-ua.svg" alt="UA" width="20" height="20">
+                            </a>
+                            <a href="#" class="lang-switch__item" lang="en">
+                                <img src="assets/img/flag-us.svg" alt="EN" width="20" height="20">
+                            </a>
+                        </div>
+
+                        <a href="#appointment" class="btn btn--primary btn--full">Записатися на прийом</a>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </header>
+
+
+    <main class="main ">
+
+        <section class="hero-banner section">
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+
+                        <div class="hero-slider swiper-entry">
+                            <div class="swiper-container"
+                                data-options='{"speed": 1200, "parallax": true, "slidesPerView": 1, "spaceBetween": 0, "loop": false, "customFraction": true}'>
+
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide hero-slide">
+                                        <div class="hero-slide__inner">
+
+                                            <div class="hero-slide__parallax-bg parallax-bg">
+                                                <div class="hero-slide__bg hero-slide__bg--desktop rellax full_bg_slider"
+                                                    data-swiper-parallax="30%"
+                                                    style="background-image: url('assets/img/hero-1.png');">
+                                                </div>
+                                                <div class="hero-slide__bg hero-slide__bg--mobile rellax full_bg_slider"
+                                                    data-swiper-parallax="30%"
+                                                    style="background-image: url('assets/img/category-3.png');">
+                                                </div>
+                                            </div>
+
+                                            <div class="hero-slide__overlay opacity"></div>
+
+                                            <div class="hero-slide__content banner__content">
+                                                <h1 class="hero-slide__title heading-font overlap">“Горицвіт”</h1>
+                                                <p class="hero-slide__description heading-font overlap">
+                                                    - весняна капсульна колекція MOTYV
+                                                </p>
+                                                <a href="catalog.html"
+                                                    class="hero-slide__btn btn btn-transparent__white overlap">
+                                                    До каталогу <i class="icon-ar-right"></i>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide hero-slide">
+                                        <div class="hero-slide__inner">
+
+                                            <div class="hero-slide__parallax-bg parallax-bg">
+                                                <div class="hero-slide__bg hero-slide__bg--desktop rellax full_bg_slider"
+                                                    data-swiper-parallax="30%"
+                                                    style="background-image: url('assets/img/hero-1.png');">
+                                                </div>
+                                                <div class="hero-slide__bg hero-slide__bg--mobile rellax full_bg_slider"
+                                                    data-swiper-parallax="30%"
+                                                    style="background-image: url('assets/img/category-3.png');">
+                                                </div>
+                                            </div>
+
+                                            <div class="hero-slide__overlay opacity"></div>
+
+                                            <div class="hero-slide__content banner__content">
+                                                <h1 class="hero-slide__title heading-font overlap">Медичний центр у
+                                                    Львові</h1>
+                                                <p class="hero-slide__description heading-font overlap">
+                                                    У VeroMed ми поєднуємо експертність, сучасні підходи та щиру
+                                                    турботу, щоб ви почувалися у надійних руках.
+                                                </p>
+                                                <a href="catalog.html"
+                                                    class="hero-slide__btn btn btn-transparent__white overlap">
+                                                    Записатися на прийом
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Елементи керування -->
+                                <div class="hero-slider__controls swiper-controls d-flex align-items-center">
+                                    <button type="button"
+                                        class="hero-slider__btn swiper-button-prev d-flex align-items-center justify-content-center">
+                                        <i class="icon-arrow-left"></i>
+                                    </button>
+
+                                    <div
+                                        class="hero-slider__fraction custom-fraction-wrap d-flex align-items-center justify-content-center">
+                                        <span class="custom-current"></span>
+                                        <span class="custom-fraction-separator">/</span>
+                                        <span class="custom-total"></span>
+                                    </div>
+
+                                    <button type="button"
+                                        class="hero-slider__btn swiper-button-next d-flex align-items-center justify-content-center">
+                                        <i class="icon-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-popular-services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <h2 class="heading h2 text-bold">
+                            Наші послуги
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+
+                        <div class="service__grid">
+                            <div class="service">
+                                <div class="service__icon-wrap d-flex align-center align-middle"><img
+                                        src="assets/img/services-1.svg" alt="Поліклінічні послуги"
+                                        class="service__icon"></div>
+                                <div class="service__name text-semibold">Поліклінічні послуги</div>
+                            </div>
+                            <div class="service">
+                                <div class="service__icon-wrap d-flex align-center align-middle"><img
+                                        src="assets/img/services-2.svg" alt="Діагностика" class="service__icon"></div>
+                                <div class="service__name text-semibold ">Діагностика</div>
+                            </div>
+                            <div class="service">
+                                <div class="service__icon-wrap d-flex align-center align-middle"><img
+                                        src="assets/img/services-3.svg" alt="Операції та процедури"
+                                        class="service__icon"></div>
+                                <div class="service__name text-semibold">Операції та процедури</div>
+                            </div>
+                            <div class="service">
+                                <div class="service__icon-wrap d-flex align-center align-middle"><img
+                                        src="assets/img/services-4.svg" alt="Пластична хірургія та косметологія"
+                                        class="service__icon"></div>
+                                <div class="service__name text-semibold">Пластична хірургія та косметологія</div>
+                            </div>
+                            <div class="service">
+                                <div class="service__icon-wrap d-flex align-center align-middle"><img
+                                        src="assets/img/services-5.svg" alt="Трансплантація волосся"
+                                        class="service__icon"></div>
+                                <div class="service__name text-semibold">Трансплантація волосся</div>
+                            </div>
+                            <a href="services.html">Всі послуги</a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="s-stats">
+            <div class="s-stats__inner">
+                <div class="container">
+                    <div class="row m-row align-middle">
+                        <div class="column col-xl-8 col-lg-8 col-md-16 col-sm-16 col-xs-16">
+                            <h2 class="heading h2 text-bold">Чому пацієнти обирають <span
+                                    class="heading-accent">VeroMed</span></h2>
+                        </div>
+                        <div class="column col-xl-8 col-lg-8 col-md-16 col-sm-16 col-xs-16 ">
+                            <div class="description text-s">Крім сучасного комплексу обладнання, передових методик
+                                лікування та індивідуального підходу, ми пропонуємо те, чого немає в інших
+                                багатопрофільних
+                                медичних центрах.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-row">
+                        <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                            <div class="stats__grid | animated">
+                                <div class="stats">
+                                    <div class="stats__value text-extrabold">
+                                        <span class="stats__value--symbol">></span>
+                                        <span class="stats__value--number">20</span>
+
+                                    </div>
+                                    <div class="stats__label text-light text-s">Років на ринку, висока довіра пацієнтів
+                                    </div>
+                                </div>
+
+
+                                <div class="stats">
+                                    <div class="stats__value text-extrabold">
+                                        <span class="stats__value--number">20</span>
+                                        <span class="stats__value--symbol">+</span>
+                                    </div>
+                                    <div class="stats__label text-light text-s">Лікарі з досвідом більше 20 років</div>
+                                </div>
+
+
+                                <div class="stats">
+                                    <div class="stats__value text-extrabold">
+                                        <span class="stats__value--number">340</span>
+                                        <span class="stats__value--symbol">+</span>
+                                    </div>
+                                    <div class="stats__label text-light text-s">Оцінка 5/5 на основі 340 відгуків</div>
+                                </div>
+
+
+                                <div class="stats">
+                                    <div class="stats__value text-extrabold">
+                                        <span class="stats__value--number">20</span>
+                                        <span class="stats__value--symbol">+</span>
+                                    </div>
+                                    <div class="stats__label text-light text-s">Медичних напрямків та власна лабораторія
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-doctors swiper-entry">
+            <div class="container">
+                <div class="row m-row">
+                    <div
+                        class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 d-flex align-justify align-middle">
+                        <h3 class="heading h2 heading-font text-bold">Наші лікарі</h3>
+                        <a href="blog.html" class="btn btn--outline d-none d-md-inline-block">Всі лікарі клініки</a>
+
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+
+                        <div class="swiper-container" data-options='{"loop":true,"slidesPerView": 1,  "spaceBetween": 15,"loop": false, "customFraction": true,
+                         "breakpoints": {
+                         "520": {"slidesPerView":1.3},
+                          "767": {"slidesPerView": 2},
+                          "1200": {"slidesPerView": 4}}}'>
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                            <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                            <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                            <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                           <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                           <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                            <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="doctor-card">
+                                        <div class="doctor-card__img-wrap">
+                                            <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                                class="doctor-card__img">
+                                            <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                                aria-label="Детальніше про лікаря">
+                                                <i class="icon-arrow-top-right"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="doctor-card__content">
+                                            <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                            <p class="doctor-card__specialty">
+                                                Хірург-флеболог, фахівець УЗ-діагностики
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Елементи керування -->
+                            <div class="hero-slider__controls swiper-controls d-flex align-items-center">
+                                <button type="button"
+                                    class="hero-slider__btn swiper-button-prev d-flex align-items-center justify-content-center">
+                                    <i class="icon-arrow-left"></i>
+                                </button>
+
+                                <div
+                                    class="hero-slider__fraction custom-fraction-wrap d-flex align-items-center justify-content-center">
+                                    <span class="custom-current"></span>
+                                    <span class="custom-fraction-separator">/</span>
+                                    <span class="custom-total"></span>
+                                </div>
+
+                                <button type="button"
+                                    class="hero-slider__btn swiper-button-next d-flex align-items-center justify-content-center">
+                                    <i class="icon-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <a href="blog.html" class="btn btn-primary d-block d-md-none">Усі новини</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-cta">cta</section>
+
+
+        <section class="s-reviews swiper-entry">
+            <div class="container">
+                <div class="row m-row">
+                    <div
+                        class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 d-flex align-justify align-middle">
+                        <h2 class="heading h2 text-bold">Відгуки пацієнтів</h2>
+                        <a href="reviews.html" class="btn btn--outline d-none d-md-inline-block">Всі відгуки</a>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="description text-s">
+                            Ми завжди прагнемо підвищити рівень сервісу надаваних медичних послуг в мережі клінік
+                            "Veromed", і вдячні вам за залишений позитивний відгук. Ми беремо до уваги всі коментарі та
+                            побажання, які відносяться до нашої роботи. Дякуємо за ваш вибір.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-container"
+                            data-options='{"slidesPerView": 1, "spaceBetween": 30, "loop": false, "customFraction": true, "breakpoints": {"520": {"slidesPerView": 1}, "767": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}}'>
+
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+                                                <div class="review-card__rating" aria-label="Оцінка: 4 з 5">
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star" aria-hidden="true"></i>
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department">
+                                            Відділення: <a href="#"
+                                                class="review-card__department-link">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more">Детальніше</a>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">MZ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Mykola Zarudniak</h3>
+                                                <div class="review-card__rating" aria-label="Оцінка: 4 з 5">
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star is-active" aria-hidden="true"></i>
+                                                    <i class="icon-star" aria-hidden="true"></i>
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department">
+                                            Відділення: <a href="#"
+                                                class="review-card__department-link">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more">Детальніше</a>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- Елементи керування -->
+                            <div class="hero-slider__controls swiper-controls d-flex align-items-center">
+                                <button type="button"
+                                    class="hero-slider__btn swiper-button-prev d-flex align-items-center justify-content-center"
+                                    aria-label="Попередній слайд">
+                                    <i class="icon-arrow-left" aria-hidden="true"></i>
+                                </button>
+
+                                <div
+                                    class="hero-slider__fraction custom-fraction-wrap d-flex align-items-center justify-content-center">
+                                    <span class="custom-current"></span>
+                                    <span class="custom-fraction-separator">/</span>
+                                    <span class="custom-total"></span>
+                                </div>
+
+                                <button type="button"
+                                    class="hero-slider__btn swiper-button-next d-flex align-items-center justify-content-center"
+                                    aria-label="Наступний слайд">
+                                    <i class="icon-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <a href="reviews.html" class="btn btn-primary d-block d-md-none">Всі відгуки</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-special-offers ">
+            <div class="container">
+                <div class="row m-row">
+                    <div
+                        class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 d-flex align-justify align-middle">
+                        <h3 class="heading h2 text-bold">Спеціальні пропозиції</h3>
+                        <a href="" class="btn btn--outline d-none d-md-inline-block">Всі акції</a>
+                    </div>
+                </div>
+                special-offers
+            </div>
+        </section>
+
+        <section class="s-locations">
+            <div class="s-locations__inner">
+                <div class="container">
+                    <div class="row m-row">
+                        <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                            <h3 class="heading h2 heading-font text-bold">Наші локації</h3>
+                        </div>
+                    </div>
+                    <div class="row m-row">
+                        <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                            <div class="location-card__grid">
+                                <div class="location-card">
+                                    <div class="location-card__img-wrap">
+                                        <img src="assets/img/location-1.png" alt=" Львів" class="location-card__img">
+                                    </div>
+                                    <div class="location-card__city text-bold">
+                                        Львів
+                                    </div>
+                                    <div class="location-card__street text-light text-s">вул. Генерала Юнаківа, будинок
+                                        9</div>
+                                    <div class="location-card__btn btn btn--round">link</div>
+                                </div>
+                                <div class="location-card">
+                                    <div class="location-card__img-wrap">
+                                        <img src="assets/img/location-2.png" alt="Ужгород" class="location-card__img">
+                                    </div>
+                                    <div class="location-card__city text-bold">
+                                        Ужгород
+                                    </div>
+                                    <div class="location-card__street text-light text-s">вул. Минайська, 54</div>
+                                    <div class="location-card__btn btn btn--round">link</div>
+                                </div>
+                                <div class="location-card">
+                                    <div class="location-card__img-wrap">
+                                        <img src="assets/img/location-3.png" alt="Мукачево" class="location-card__img">
+                                    </div>
+                                    <div class="location-card__city text-bold">
+                                        Мукачево
+                                    </div>
+                                    <div class="location-card__street text-light text-s">вул.Вокзальна,2А</div>
+                                    <div class="location-card__btn btn btn--round">link</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-news swiper-entry">
+            <div class="container">
+
+                <div class="row align-items-center justify-content-between m-row">
+                    <div class="column col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <h2 class="heading h2 heading-font text-bold">Новини останні</h2>
+                    </div>
+                    <div class="column col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-4 text-right">
+                        <a href="news.html" class="btn btn--outline">Всі новини</a>
+                    </div>
+                </div>
+
+                <!-- Слайдер з новинами -->
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-container"
+                            data-options='{"slidesPerView": 1, "spaceBetween": 24, "loop": false, "customFraction": true, "breakpoints": {"576": {"slidesPerView": 1}, "768": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}}'>
+
+                            <div class="swiper-wrapper">
+                                <!-- Новина 1 -->
+                                <div class="swiper-slide">
+                                    <article class="news-card">
+                                        <div class="news-card__media">
+                                            <img src="img/news-1.jpg"
+                                                alt="Варикоз: симптоми, стадії та лікування у флеболога у Львові"
+                                                class="news-card__img" loading="lazy">
+                                            <a href="news-single.html" class="news-card__arrow-btn"
+                                                aria-label="Читати детальніше">
+                                                <i class="icon-arrow-top-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="news-card__content">
+                                            <h3 class="news-card__title">
+                                                <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
+                                                    флеболога у Львові</a>
+                                            </h3>
+
+                                            <p class="news-card__author">
+                                                Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
+                                                Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                            </p>
+
+                                            <time class="news-card__date" datetime="2026-05-23">Травень 23, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Новина 2 -->
+                                <div class="swiper-slide">
+                                    <article class="news-card">
+                                        <div class="news-card__media">
+                                            <img src="img/news-2.jpg"
+                                                alt="Як розрізнити небезпечну родимку від звичайної"
+                                                class="news-card__img" loading="lazy">
+                                            <a href="news-single.html" class="news-card__arrow-btn"
+                                                aria-label="Читати детальніше">
+                                                <i class="icon-arrow-top-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="news-card__content">
+                                            <h3 class="news-card__title">
+                                                <a href="news-single.html">Як розрізнити небезпечну родимку від
+                                                    звичайної: дерматоскопія та коли видаляти</a>
+                                            </h3>
+
+                                            <p class="news-card__author">
+                                                Автор: Токарська Диана Михайлівна, дерматолог, хірург-дерматолог,
+                                                трихолог. Стаж 8 років. Медичний центр VeroMed, Львів.
+                                            </p>
+
+                                            <time class="news-card__date" datetime="2026-05-20">Травень 20, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Новина 3 -->
+                                <div class="swiper-slide">
+                                    <article class="news-card">
+                                        <div class="news-card__media">
+                                            <img src="img/news-3.jpg" alt="Болючі місячні (дісменорея)"
+                                                class="news-card__img" loading="lazy">
+                                            <a href="news-single.html" class="news-card__arrow-btn"
+                                                aria-label="Читати детальніше">
+                                                <i class="icon-arrow-top-right" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="news-card__content">
+                                            <h3 class="news-card__title">
+                                                <a href="news-single.html">Болючі місячні (дисменорея): коли це норма, а
+                                                    коли — симптом захворювання</a>
+                                            </h3>
+
+                                            <p class="news-card__excerpt">
+                                                Болючі місячні (дисменорея) — це не те, що треба «перетерпіти» чи
+                                                «перерости». У половині випадків біль внизу живота під час...
+                                            </p>
+
+                                            <time class="news-card__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <!-- Нижній блок навігації та фракція -->
+                            <div class="s-news__bottom d-flex align-items-center justify-content-between">
+                                <div class="custom-fraction-wrap d-flex align-items-center">
+                                    <span class="custom-current">01</span>
+                                    <span class="custom-fraction-separator">/</span>
+                                    <span class="custom-total">05</span>
+                                </div>
+
+                                <div class="swiper-controls d-flex align-items-center">
+                                    <button type="button" class="swiper-button-prev" aria-label="Попередній слайд">
+                                        <i class="icon-arrow-left" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="swiper-button-next" aria-label="Наступний слайд">
+                                        <i class="icon-arrow-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>>
+
+        <section class="s-visit-cta">
+            <div class="container">
+                <div class="visit-cta">
+                    <!-- Двомовне/декоративне зображення лікарів на фоні або через absolute -->
+                    <div class="visit-cta__bg d-none d-lg-block">
+                        <img src="img/doctors.png" alt="Наші лікарі" class="visit-cta__img">
+                    </div>
+
+                    <div class="row align-items-center">
+                        <!-- Ліва колонка -->
+                        <div class="column col-xl-8 col-lg-8 col-md-16">
+                            <div class="visit-cta__content">
+                                <h2 class="visit-cta__title heading h2 text-bold">
+                                    Запишись на візит онлайн
+                                </h2>
+                                <p class="visit-cta__desc">
+                                    Наші кваліфіковані лікарі чекають на ваш дзвінок!
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Права колонка -->
+                        <div class="column col-xl-8 col-lg-8 col-md-16">
+                            <div class="visit-cta__action text-center">
+                                <p class="visit-cta__action-text">
+                                    Заповни, будь ласка, форму. Ми зв'яжемося та узгодимо усі деталі
+                                </p>
+
+                                <a href="#appointment-modal" class="btn btn--primary visit-cta__btn" data-fancybox>
+                                    Записатися на прийом
+                                </a>
+
+                                <div class="visit-cta__phone-wrap">
+                                    <span class="visit-cta__phone-label">або телефонуй</span>
+                                    <a href="tel:+380677916884" class="visit-cta__phone text-bold">
+                                        +38 (067) 791-68-84
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section class="s-popular-recipes">
+            <div class="container">
+
+                <div class="row m-row tab  align-middle">
+                    <div
+                        class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column d-flex align-middle align-justify mb-50">
+                        <div class="tab__list ">
+                            <div class="tab__item text-medium text-center">Львів</div>
+                            <div class="tab__item text-medium text-center">Мукачево</div>
+                            <div class="tab__item text-medium text-center">Ужгород</div>
+                            <div class="tab__item text-medium text-center">Івано-Франківськ</div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column ">
+                        <div class="tab__content">
+                            <div class="tab__content-item --relative ">
+
+                            </div>
+
+                            <div class="tab__content-item --relative ">
+
+                            </div>
+                            <div class="tab__content-item --relative ">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="s-faq">
+            <div class="container">
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <h3 class="heading h2 heading-font text-bold">Питання відповіді</h3>
+                    </div>
+                </div>
+                <div class="row m-row">
+
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="accordeon">
+                            <!-- Item 1 -->
+                            <div class="accordeon-item">
+                                <div class="accordeon-title" role="button" tabindex="0" aria-expanded="false">
+                                    <span>Чи працює приватний медичний центр у Львові VeroMed у вихідні?</span>
+                                    <i class="accordeon-icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="accordeon-content">
+                                    <div class="accordeon-inner">
+                                        <p>Первинний огляд включає консультацію лікаря, збір анамнезу, первинну
+                                            діагностику та складання індивідуального плану лікування.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="accordeon-item">
+                                <div class="accordeon-title" role="button" tabindex="0" aria-expanded="false">
+                                    <span>Як скасувати запис?</span>
+                                    <i class="accordeon-icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="accordeon-content">
+                                    <div class="accordeon-inner">
+                                        <p>Якщо ви не можете прийти на запланований прийом, будь ласка, повідомте нас
+                                            про це заздалегідь.
+                                            Для скасування або перенесення запису зв’яжіться з нами за телефоном +380
+                                            (67) 120-74-52 або напишіть у месенджер. Ми допоможемо скасувати запис або
+                                            обрати іншу зручну дату та час.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="accordeon-item">
+                                <div class="accordeon-title" role="button" tabindex="0" aria-expanded="false">
+                                    <span>Як швидко я можу записатися у медичний центр VeroMed у Львові?</span>
+                                    <i class="accordeon-icon" aria-hidden="true"></i>
+                                </div>
+                                <div class="accordeon-content">
+                                    <div class="accordeon-inner">
+                                        <p>Якщо ви не можете прийти на запланований прийом, будь ласка, повідомте нас
+                                            про це заздалегідь.
+                                            Для скасування або перенесення запису зв’яжіться з нами за телефоном +380
+                                            (67) 120-74-52 або напишіть у месенджер. Ми допоможемо скасувати запис або
+                                            обрати іншу зручну дату та час.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-contacts ">
+            <div class="container overlap">
+                <div class="row m-row align-middle s-contacts__inner">
+                    <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 column">
+                        <h3 class="heading heading-accent h2 text-bold">Контакти</h3>
+                        <div class="description text-medium">Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse
+                            cillum dolore eu fugiat nulla pariatur.
+                        </div>
+
+                        <div class="contacts__wrapper">
+
+                            <div class="contacts__item">
+                                <a href="https://maps.google.com/?q=22-я+Садовая+Київ"
+                                    class="contacts__link contacts__link--location" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <img src="assets/img/place.svg" alt=""
+                                        class="contacts__icon  contacts__icon--location" aria-hidden="true">
+                                    <strong class="contacts__city">Київ</strong>
+                                </a>
+                                <p class="contacts__text">22-я Садовая, Київ, Київська область 02000 </p>
+                            </div>
+
+                            <div class="contacts__item">
+                                <a href="tel:080078904" class="contacts__link contacts__link--phone">
+                                    0 800 78 904
+                                </a>
+                                <p class="contacts__text">Щоденно з 8:00 до 21:00</p>
+
+                                <ul class="social d-flex social--messengers">
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-viber"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-telegram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social__item">
+                                        <a href="#" target="_self" class="d-flex align-center align-middle">
+                                            <i class="icon-whatsapp"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="contacts__item">
+                                <a href="mailto:info@rybnuy-kombinat.com" class="contacts__link contacts__link--email">
+                                    <img src="assets/img/email.svg" alt="" class="contacts__icon" aria-hidden="true">
+                                    info@rybnuy-kombinat.com
+                                </a>
+                            </div>
+                            <ul class="social d-flex ">
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+
+                                        <svg width="15" height="15" class="icon-youtube">
+                                            <use href="/assets/img/symbols.svg#youtube" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="social__item">
+                                    <a href="#" target="_self" class="d-flex align-center align-middle">
+                                        <i class="icon-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-xs-12 column">
+
+                        <div class="map-wrapper">
+                            <div id="map"></div>
+                            <!--<img src="assets/img/about.png" alt="">-->
+
+
+
+                            <div class="map-info">
+                                <img src="assets/img/map-pin.png" alt="location" class="map-info__icon">
+                                <div class="map-info__location --relative">22-я Садовая, Київ, Київська область 02000
+                                </div>
+                                <div id="link1"
+                                    class="map-info__more show-map text-medium text-uppercase  d-flex align-middle">
+                                    Подивитись на карті <svg width="16" height="16" class="icon-arrow">
+                                        <use href="/assets/img/symbols.svg#ar-right" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="container">
+
+                <h2 class="visually-hidden">Інформація про компанію та навігація</h2>
+
+
+                <div class="footer__top">
+                    <address class="contacts-inline">
+                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="contacts-inline__item">
+                            <svg class="icon" aria-hidden="true" width="18" height="18">
+                                <use href="img/icons/sprite.svg#icon-location"></use>
+                            </svg>
+                            <span>м. Львів, вул. Генерала Юнаківа, 9</span>
+                        </a>
+                        <a href="tel:+380671207452" class="contacts-inline__item">
+                            <svg class="icon" aria-hidden="true" width="18" height="18">
+                                <use href="img/icons/sprite.svg#icon-phone"></use>
+                            </svg>
+                            <span>+380 (67) 120-74-52</span>
+                        </a>
+                        <a href="mailto:call.centre.veromed@gmail.com" class="contacts-inline__item">
+                            <svg class="icon" aria-hidden="true" width="18" height="18">
+                                <use href="img/icons/sprite.svg#icon-mail"></use>
+                            </svg>
+                            <span>call.centre.veromed@gmail.com</span>
+                        </a>
+                    </address>
+
+                    <div class="socials socials--light">
+                        <ul class="socials__list" role="list">
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="Instagram" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="img/icons/sprite.svg#icon-instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="Facebook" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="img/icons/sprite.svg#icon-facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="YouTube" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="img/icons/sprite.svg#icon-youtube"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="TikTok" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="img/icons/sprite.svg#icon-tiktok"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="footer__body">
+                    <a href="/" class="footer__logo" aria-label="VeroMed — На головну">
+                        <img src="assets/img/logo.svg" alt="" width="180" height="60" loading="lazy">
+                    </a>
+
+                    <div class="footer-nav">
+
+                        <div class="footer-nav__col">
+                            <h3 class="footer-nav__title">Веромед</h3>
+                            <div class="menu-footer-company-container">
+                                <ul id="menu-footer-company" class="menu">
+                                    <li class="menu-item "><a href="#">Спеціальні пропозиції</a></li>
+                                    <li class="menu-item "><a href="#">Блог</a></li>
+                                    <li class="menu-item current-menu-item ">
+                                        <a href="#" aria-current="page">Про нас</a>
+                                    </li>
+                                    <li class="menu-item "><a href="#">Наші лікарі</a></li>
+                                    <li class="menu-item "><a href="#">Наші партнери</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="footer-nav__col">
+                            <span class="footer-nav__title footer-nav__title--empty" aria-hidden="true"></span>
+                            <div class="menu-footer-info-container">
+                                <ul id="menu-footer-info" class="menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="#">Питання лікарю</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="#">Вартість послуг</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="#">Публічна оферта</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="#">Статті</a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a
+                                            href="#">Відгуки</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Колонка 3 -->
+                        <div class="footer-nav__col">
+                            <h3 class="footer-nav__title">Послуги</h3>
+                            <div class="menu-footer-services-1-container">
+                                <ul id="menu-footer-services-1" class="menu">
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Флебологія</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Блефаропластика</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Ліпосакція</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Абдомінопластика у Львові</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Трансплантація волосся</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Колонка 4 -->
+                        <div class="footer-nav__col">
+                            <span class="footer-nav__title footer-nav__title--empty" aria-hidden="true"></span>
+                            <div class="menu-footer-services-2-container">
+                                <ul id="menu-footer-services-2" class="menu">
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Трихологія</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Дерматолог у Львові</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Дерматоонкологія</a></li>
+                                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
+                                            href="#">Проктолог у Львові</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer__bottom">
+                    <div class="footer__description">
+                        <p>«VeroMed» — це багатопрофільний медичний центр, що відповідає найвищим світовим стандартам
+                            надання медичної допомоги.</p>
+                        <p>Наші спеціалісти забезпечать Вас лише якісним медичним обслуговуванням. Колектив центру — це
+                            велика дружня сім'я. І ми з великою любов'ю і турботою відносимось до кожного нашого
+                            пацієнта. Лікарі медичного центру «VeroMed» постійно підтримують і підвищують рівень своїх
+                            професійних навиків на основі передових досягнень світової медицини. І все це завдяки
+                            вузькій спеціалізації кожного нашого працівника.</p>
+                    </div>
+
+                    <div class="footer__copyright">
+                        <p>© 2026 Веромед. Всі права захищені. Заборонено використання матеріалів сайту без згоди його
+                            авторів і зворотнього посилання. Ми використовуємо за замовчуванням державну мову, але
+                            повідомляємо, що сайт може відкриватися на мові, яка встановлена на браузері/інтерфейсі
+                            користувача</p>
+                        <p class="footer__developer">Design and development — WebTune</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup-wrapper">
+        <div class="bg-layer"></div>
+
+        <div class="popup-content cta" data-rel="cta">
+            <div class="layer-close"></div>
+            <div class="popup-container ">
+                <div class="btn-close d-flex align-middle align-center"><img src="assets/img/close.svg"
+                        alt="close icon">
+                </div>
+
+                <div class="popup-form text-center">
+                    <h4 class="popup-form__heading heading-accent h2 text-bold">Зв’язатися</h4>
+                    <form>
+                        <div class="row m-row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <div class="form-control">
+                                    <input class="form-control__input" type="text" name="" value="" placeholder="Ім’я"
+                                        title="">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <div class="form-control">
+                                    <input class="form-control__input" type="tel" name="" value="" placeholder="Телефон"
+                                        title="">
+
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <div class="form-control">
+                                    <input class="form-control__input" type="text" name="" value=""
+                                        placeholder="Компанія" title="">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <input type="submit" value="Відправити" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content cta" data-rel="login">
+            <div class="layer-close"></div>
+            <div class="popup-container ">
+                <div class="btn-close d-flex align-middle align-center"><img src="assets/img/close.svg"
+                        alt="close icon">
+                </div>
+
+                <div class="popup-form text-center">
+                    <h4 class="popup-form__heading heading-accent h2 text-bold">Вхід</h4>
+                    <form>
+                        <div class="row m-row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <div class="form-control">
+                                    <input class="form-control__input" type="email" name="" value=""
+                                        placeholder="E-mail" title="">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <div class="form-control">
+                                    <input class="form-control__input" type="password" name="password" value=""
+                                        placeholder="Пароль" title="">
+
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 column">
+                                <input type="submit" value="Вхід" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+
+                    <a href="" class="reset-pass">Забули пароль?</a>
+
+                    <div class="social-auth">
+                        <p class="social-auth__title">Увійти через:</p>
+
+                        <div class="social-auth__grid">
+                            <button type="button" class="social-btn social-btn--facebook">
+
+                                <img src="assets/img/facebook.svg" alt="" class="social-btn__icon">
+
+                            </button>
+
+                            <button type="button" class="social-btn social-btn--google">
+                                <img src="assets/img/google.svg" alt="" class="social-btn__icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4mHyxxXpYptpuoSF9C2EYfJJsLTmLSkM"
+        type="text/javascript"></script>
+
+    <script src="./assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/app-swiper.js"></script>
+    <script src="src/scripts/app.js"></script>
+    <script src="src/scripts/js_app.js"></script>
+
+    <script src="src/scripts/app_map.js"></script>
+</body>
+
+</html>
