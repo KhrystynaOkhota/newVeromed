@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.doctor-card {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    object-fit: contain;
+
+    &-wrap {
+      background: #F2F2F2;
+      margin-bottom: fluid(16, 20);
+    }
+
+  }
+
+  &__name {
+    font-size: fluid(18, 20);
+    margin-bottom: 10px;
+  }
+
+  &__specialty {
+    font-size: fluid(15, 18);
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

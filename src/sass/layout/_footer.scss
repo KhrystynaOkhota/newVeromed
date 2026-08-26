@@ -1,0 +1,218 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+// 1. Module: Inline Contacts
+.contacts-inline {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 30px);
+  font-style: normal;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: currentColor;
+    text-decoration: none;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+// 2. Module: Social Media Links
+.socials {
+  --social-bg: #931d1d;
+  --social-color: #ffffff;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--social-bg);
+    color: var(--social-color);
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+
+  &--light {
+    --social-bg: #ffffff;
+    --social-color: #1a1a1a;
+  }
+}
+
+// 3. WordPress Nav Menu Integration
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+
+  &__title {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-block-start: 0;
+    margin-block-end: 16px;
+
+    &--empty {
+      display: block;
+      height: 1.2em;
+    }
+  }
+
+  // Стандартні класи меню WordPress: ul.menu, li.menu-item
+  ul.menu,
+  .menu {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+
+    .menu-item,
+    li {
+      margin-block-end: 10px;
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+
+      // Активний стан сторінки за стандартами WP
+      &.current-menu-item,
+      &.current-menu-ancestor,
+      &.current-menu-parent {
+        >a {
+          color: #ffffff;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// 4. Main Footer Block
+.footer {
+  @media (min-width: 1300px) {
+    padding: 40px 50px;
+
+  }
+
+  &__inner {
+    background-color: #1E1E1E;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 50px 0;
+
+    @media (min-width: 1300px) {
+      border-radius: 0 0 50px 50px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-block-end: 25px;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.1);
+    margin-block-end: 35px;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) 1fr;
+    gap: clamp(20px, 4vw, 40px);
+    padding-block-end: 35px;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.1);
+    margin-block-end: 30px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__logo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__bottom {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__description {
+    margin-block-end: 20px;
+
+    p {
+      margin-block: 0 10px;
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  &__copyright {
+    p {
+      margin-block: 0 8px;
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  &__developer {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,83 @@
+@mixin transition($time) {
+  -webkit-transition: all $time + 0s ease-out;
+  -moz-transition: all $time + 0s ease-out;
+  -o-transition: all $time + 0s ease-out;
+  transition: all $time + 0s ease-out;
+}
+
+@mixin grid-size($size) {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 $size;
+  -ms-flex: 0 0 $size;
+  flex: 0 0 $size;
+  max-width: $size;
+}
+
+@mixin text-ellipsis($strokes) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $strokes;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fontSize($minSize, $maxSize) {
+  font-size: $maxSize + 0px;
+  font-size: -webkit-calc(#{$minSize + 0px} + (#{$maxSize} - #{$minSize}) * ((100vw - 300px) / (1920 - 300)));
+  font-size: -moz-calc(#{$minSize + 0px} + (#{$maxSize} - #{$minSize}) * ((100vw - 300px) / (1920 - 300)));
+  font-size: calc(#{$minSize + 0px} + (#{$maxSize} - #{$minSize}) * ((100vw - 300px) / (1920 - 300)));
+}
+
+@mixin order($number) {
+  order: $number;
+}
+@mixin font-weight($weight) {
+  $weights: (
+          thin: 100,
+          extra-light: 200,
+          ultra-light: 200,
+          light: 300,
+          normal: 400,
+          book: 400,
+          regular: 400,
+          medium: 500,
+          semi-bold: 600,
+          demi-bold: 600,
+          bold: 700,
+          extra-bold: 800,
+          ultra-bold: 900,
+          heavy: 900,
+          black: 900,
+          ultra: 900,
+          ultra-black: 900,
+          extra-ultra: 900
+  );
+
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}
+
+
+@function fluid($min, $max, $min-vw: 375, $max-vw: 1440) {
+  @return clamp(
+                  #{$min}px,
+                  calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$min-vw}px) / (#{$max-vw} - #{$min-vw}))),
+                  #{$max}px
+  );
+}
+
+@mixin line-clamp($lines: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines; // Додаємо стандартну властивість
+    overflow: hidden;
+    
+    // Додатковий захист для 2026:
+    // overflow-wrap допомагає з довгими словами краще за word-break
+    overflow-wrap: anywhere; 
+}

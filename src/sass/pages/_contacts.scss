@@ -1,0 +1,282 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.s-contacts {
+  padding: fluid(40, 80) 0 fluid(0, 100) 0;
+  background: rgba(244, 244, 244, 1);
+
+  .map-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    padding: 14px;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+
+    @media (max-width: $breakpoint-md) {
+
+      width: 100%;
+      max-width: 285px;
+
+      transform: translate(0, -50%);
+      left: 0;
+
+    }
+
+    &__icon {
+      position: absolute;
+      top: -45px;
+      right: 55px;
+      z-index: 3;
+      width: 38px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    &__location {
+      margin-bottom: 32px;
+      font-size: 14px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 16px);
+        left: 0;
+        width: 80%;
+        height: 1px;
+        background: rgba(238, 238, 253, 1);
+
+        @media (max-width: $breakpoint-md) {
+          width: 100%;
+        }
+      }
+    }
+
+    &__more {
+      @include fontSize(14, 18);
+      color: rgba(232, 16, 16, 1);
+      cursor: pointer;
+
+      i {
+        padding-left: 16px;
+      }
+
+      & svg {
+        fill: currentColor;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__inner {
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .heading {
+    margin-bottom: fluid(12, 40);
+  }
+
+  .description {
+    margin-bottom: fluid(15, 40);
+    font-size: fluid(14, 16);
+    line-height: 1.4;
+  }
+
+  .social {
+    gap: 10px;
+
+    &--messengers {
+      margin-top: 16px;
+    }
+
+    &__item {
+      a {
+        display: inline-flex; // Ensures block/alignment controls work perfectly for dimensions
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 0;
+        box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+       
+
+        i {
+          color: $accent-color;
+          font-size: 15px;
+        }
+
+        & svg {
+          color: $accent-color;
+          fill: $accent-color;
+           transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        &:hover {
+          & svg{
+            color:#ff3c00;
+            fill:#ff3c00;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    &__wrap {
+      display: grid;
+      gap: 24px;
+      padding: 32px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        object-fit: contain;
+      }
+
+      .text {
+        @include fontSize(12, 14);
+        margin-top: 8px;
+        color: rgba(27, 27, 27, 1);
+      }
+    }
+  }
+
+  .contacts {
+    font-style: normal;
+    /* Resets standard address tag italics */
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 32px;
+      background: #fff;
+      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
+    }
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--wp--preset--color--main-text, #000);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--wp--preset--color--primary);
+      }
+
+      &--phone {
+        color: rgba(255, 60, 0, 1);
+      }
+
+      &--email {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+
+    &__icon {
+      width: 16px;
+      height: auto;
+      flex-shrink: 0;
+
+      &--location {
+        width: 12px
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      color: rgba(27, 27, 27, 1);
+    }
+  }
+}
+
+.s-cta {
+  margin-bottom: fluid(100, 200);
+
+  .heading {
+    @include fontSize(24, 32); // Swapped to match fluid syntax intent if applicable, or kept as property:
+    font-size: fluid(24, 32);
+    line-height: 1.4;
+    margin-bottom: fluid(16, 24);
+  }
+
+  .description {
+    margin-bottom: fluid(24, 32);
+  }
+
+  .btn-primary {
+    width: 100%;
+    background: rgba(255, 60, 0, 1);
+  }
+
+  .decor-large {
+    position: absolute;
+    bottom: 250px;
+    right: -128px;
+    width: 365px;
+    height: 525px;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    padding: fluid(24, 40);
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &__wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      width: 55%;
+      height: 100%;
+
+      @media (max-width: $breakpoint-md) {
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 75%;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+
+        @media (max-width: $breakpoint-md) {
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+        }
+      }
+    }
+  }
+}

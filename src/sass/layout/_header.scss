@@ -1,0 +1,633 @@
+// ==========================================
+// 1. ЗМІННІ ТА НАЛАШТУВАННЯ
+// ==========================================
+$color-primary: #9e1b21;          // Бордовий акцентний колір
+$color-primary-dark: #7d1318;     // Темно-бордовий для ховеру
+$color-text: #222222;             // Основний колір тексту
+$color-text-muted: #666666;       // Вторинний сірий колір
+$color-bg-light: #f4f5f7;         // Світлий фон пошуку/елементів
+$color-border: #eaedf1;           // Колір бордерів
+
+// Соцмережі
+$color-tg: #27a6e5;
+$color-viber: #7d539d;
+$color-wa: #25d366;
+
+// Брейкпоінти
+$desktop-bp: 1024px;
+
+// Скидання базових стилів
+* {
+  box-sizing: border-box;
+}
+
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+[data-desktop-only] {
+  @media (max-width: #{$desktop-bp - 1px}) {
+    display: none !important;
+  }
+}
+
+[data-mobile-only] {
+  @media (min-width: $desktop-bp) {
+    display: none !important;
+  }
+}
+
+// ==========================================
+// 2. HEADER BLOCK
+// ==========================================
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+
+  // --- Topbar (Верхня лінія) ---
+  &__topbar {
+    font-size: 13px;
+    border-bottom: 1px solid $color-border;
+    padding: 6px 0;
+    color: $color-text-muted;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__location-label {
+    color: $color-text-muted;
+  }
+
+  &__address {
+    font-style: normal;
+    color: $color-text-muted;
+  }
+
+  &__topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__mail {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // --- Main Bar ---
+  &__main {
+    padding: 12px 0;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      height: auto;
+    }
+  }
+
+  &__phone {
+    font-weight: 700;
+    font-size: 14px;
+    color: $color-text;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+// ==========================================
+// 3. UI ЕЛЕМЕНТИ (Dropdown, Search, Buttons)
+// ==========================================
+
+// Округлий випадаючий список селектора міста
+.dropdown {
+  position: relative;
+
+  &__toggle {
+    background: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: 14px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-text;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+
+    &::after {
+      content: '▾';
+      font-size: 10px;
+      color: $color-text-muted;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+    z-index: 10;
+    min-width: 140px;
+
+    li a {
+      display: block;
+      padding: 6px 14px;
+      color: $color-text;
+      text-decoration: none;
+      font-size: 13px;
+
+      &:hover {
+        background-color: $color-bg-light;
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+// Овальне сіре поле пошуку з лупою
+.search-form {
+  position: relative;
+  width: 190px;
+
+  input[type="search"] {
+    width: 100%;
+    height: 38px;
+    padding: 0 36px 0 16px;
+    border: none;
+    border-radius: 19px;
+    background-color: $color-bg-light;
+    font-size: 13px;
+    outline: none;
+    transition: background-color 0.2s;
+
+    &:focus {
+      background-color: #ffffff;
+      box-shadow: 0 0 0 1px $color-primary;
+    }
+
+    &::placeholder {
+      color: #999999;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #777777;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &--mobile {
+    width: 100%;
+
+    input[type="search"] {
+      height: 42px;
+      border-radius: 21px;
+    }
+  }
+}
+
+// Перемикач мов
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__item {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    transition: color 0.2s;
+
+    &.is-active,
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &--center {
+    justify-content: center;
+  }
+}
+
+// Круглі кольорові іконки соцмереж
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &__link {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    svg {
+      fill: #ffffff;
+    }
+
+    // Автоматичне розфарбовування кружечків соцмереж
+    &:nth-child(1) { background-color: $color-tg; }
+    &:nth-child(2) { background-color: $color-viber; }
+    &:nth-child(3) { background-color: $color-wa; }
+  }
+
+  &--center {
+    justify-content: center;
+  }
+}
+/*
+// Бордова овальна кнопка прийому
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 22px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s, transform 0.2s;
+
+  &--primary {
+    background-color: $color-primary;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &--full {
+    width: 100%;
+    height: 46px;
+    border-radius: 23px;
+    font-size: 14px;
+  }
+}
+*/
+// Кнопка бургера (3 лінії)
+.burger-toggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__bar,
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: $color-text;
+    border-radius: 1px;
+  }
+}
+
+// ==========================================
+// 4. WORDPRESS NAV DESKTOP (.header-menu)
+// ==========================================
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.3vw, 22px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .menu-item {
+    position: relative;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+      font-weight: 500;
+      font-size: 13.5px;
+      padding: 6px 0;
+      display: block;
+      white-space: nowrap;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    // WP Active state
+    &.current-menu-item,
+    &.current-menu-ancestor {
+      > a {
+        color: $color-primary;
+        font-weight: 600;
+      }
+    }
+
+    // Випадаючий список в десктопі
+    &.menu-item-has-children {
+      &:hover > .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 8px 0;
+    list-style: none;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.2s ease;
+    z-index: 20;
+
+    .menu-item {
+      a {
+        padding: 8px 16px;
+        font-size: 13px;
+
+        &:hover {
+          background-color: $color-bg-light;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================
+// 5. MOBILE DRAWER & MENU (меню 1 375px)
+// ==========================================
+.mobile-drawer {
+  inset: 0 0 0 auto;
+  width: 100%;
+  max-width: 375px;
+  height: 100dvh;
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: #ffffff;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), display 0.3s allow-discrete;
+
+  &[open] {
+    transform: translateX(0);
+    @starting-style { transform: translateX(100%); }
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s, display 0.3s allow-discrete;
+  }
+
+  &[open]::backdrop {
+    opacity: 1;
+    @starting-style { opacity: 0; }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    color: $color-text;
+    padding: 0 4px;
+  }
+
+  &__body {
+    padding: 8px 20px 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+  }
+
+  &__mail {
+    color: $color-primary;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  &__phone {
+    color: $color-text;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
+// Центрований список мобільного меню за макетом
+.mobile-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  .menu-item {
+    text-align: center;
+    width: 100%;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-block;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    &.current-menu-item > a {
+      color: $color-primary;
+      font-weight: 600;
+    }
+
+    // Раскрывающиеся пункты меню на мобильном
+    &.menu-item-has-children {
+      position: relative;
+
+      .sub-menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 8px;
+        margin-left: 4px;
+
+        &::after {
+          content: '▾';
+          font-size: 12px;
+          color: $color-text-muted;
+        }
+
+        &[aria-expanded="true"]::after {
+          content: '▴';
+        }
+      }
+
+      .sub-menu {
+        display: none;
+        list-style: none;
+        padding: 8px 0 0;
+        margin: 0;
+
+        &.is-open {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        a {
+          font-size: 13px;
+          color: $color-text-muted;
+        }
+      }
+    }
+  }
+}
+
+body:has(.mobile-drawer[open]) {
+  overflow: hidden;
+}

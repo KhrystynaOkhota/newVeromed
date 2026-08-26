@@ -1,0 +1,270 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+
+  &.overflow-menu,
+  &.overflow-menu body {
+    overflow: hidden;
+  }
+
+  &.overflow-hidden,
+  &.overflow-hidden body {
+    overflow: hidden;
+  }
+}
+
+.decor-line {
+  height: 1px;
+  width: 100%;
+  max-width: 1296px;
+  margin: 0 auto;
+  background-color: rgb(45, 45, 45);
+}
+
+.decor {
+  width: 100%;
+
+  &__wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+.border-radius {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+html:not(.touch-screen) {
+  &::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+
+  &::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: $accent-color !important;
+  }
+}
+
+html, body {
+  & .hide-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
+
+  &::selection {
+    background-color: transparent;
+  }
+}
+
+.default-icon {
+  width: 100%;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.--relative {
+  position: relative;
+}
+
+.overlap {
+  position: relative;
+  z-index: 3;
+}
+
+.lg-img-wrap img {
+  -webkit-user-drag: none;
+}
+
+.body-padding {
+  height: 145px;
+
+  @media (max-width: $breakpoint-xl) {
+    height: 104px;
+  }
+  @media (max-width: $breakpoint-md) {
+    height: 105px;
+  }
+}
+
+.section {
+  overflow: hidden;
+  position: relative;
+}
+
+.main {
+  overflow: hidden;
+  min-height: 50vh;
+
+  &-wrapper {
+    z-index: 1;
+  }
+}
+
+.swiper {
+  &-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    width: 100%;
+    opacity: 0;
+
+    &.swiper-initialized {
+      opacity: 1;
+    }
+
+    &:not(.swiper-no-swiping) {
+      cursor: grab;
+    }
+  }
+
+  &-pagination {
+    position: relative;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2 !important;
+    display: flex;
+    margin-top: 21px;
+    gap: 10px;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+
+    &.swiper-pagination-horizontal {
+      width: auto;
+    }
+
+    &-bullet {
+      font-size: 0;
+      width: 50px;
+      height: 5px;
+      background: rgba(200, 198, 229, 0.5);
+      
+      border-radius: 0;
+      @include transition(.4);
+
+      &-active {
+        background: rgba(255, 60, 0, 1);
+      }
+    }
+  }
+
+  &-controls {
+    @media (max-width: $breakpoint-md) {
+      margin-top: 50px;
+    }
+  }
+
+  &-button {
+    &__wrap {
+      cursor: auto;
+      gap: 40px;
+
+      @media (max-width: $breakpoint-md) {
+        gap: 20px;
+      }
+    }
+
+    &-next,
+    &-prev {
+      background: transparent;
+      border: 1px solid rgba(200, 198, 229, 1);
+      color:#c8c6e5;
+      border-radius: 0;
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: calc(50% - 30px);
+      @include transition(.5);
+
+      @media (max-width: $breakpoint-md) {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: 0;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      i {
+        color: rgba(200, 198, 229, 1);
+        font-size: fluid(12,15);
+        @include transition(.5);
+      }
+
+      &:hover {
+        background: #C8C6E5;
+color:#fff;
+        & i {
+          color: #fff;
+        }
+      }
+    }
+
+    &-next {
+      right: -90px;
+
+      @media (max-width: $breakpoint-md) {
+        right: 0;
+      }
+    }
+
+    &-prev {
+      left: -90px;
+
+      @media (max-width: $breakpoint-md) {
+        left: 0;
+      }
+    }
+  }
+}
+
+/*html, body {
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADUElEQVRYR8WXe0jTURTHv97m3Nyc09m0vIymmSgWREbSg6gIidIe9F9B9SDoP6H+6YGoUIn8p6AsgugfRZZgYgZlYpYmSg7NzDeZ7mZu7m7vbtfX37YpbpvbeXvghYv7O+ece37n3N85YmZGMYvFcoAxlmGMpTKZ7DAAnmYwGAorKys1f0u8g2A9n9VqPcoYyxpSGIwBwHqZTLafMVaSlZWlZ7lcbg0AlorFYoS69wFwB41GMz3S0fD9DMDpYmNjI5RKpXAo7VcA7uNtbW2C/0gSDAwMQD6f33Y4AGfQaDQhQ873vP8EwK/Kzs4W6uXz+VAqlU8G9Kby8/M/6pXy+fx/AtBrtVq53vX19UEikbwf6Wjs76vGxsZCv6YwGNvW1vY6NDSUFv1/BqDX6XRwX6S7g4yVlJScGB6A6uH+yGAwmE4A9vR07g8PwN8vLCz8YDAY6gDYv0+hUKD+4D6E8Hg8B3fUajWyZ/T7wYMwX6vVYv/+RCLZp1Ao9vM4AAYALof6o7y8XGv7gYSEBFYI9Hw+HwsEgl0A9jDGMgHYu7v8q8p7A3V1dYrV1VWw2WwmGo0iGAwiFAohGAwiHA5DqVQiOjoasbGxiImJQVRUFGJiYmCxWECpVI76+vphFovF7WbO9wAcaV97Lz09Hfv3JiYmIi0tDampqUhNTYVWqwWlUglNTQ3KyspAURR2U0T0E9FoFOFwmN1nFv5vCggEAnEwGERPTw+8Xi98Ph9GRkbg8/kwODiI3t5edHV1wWq1or6+HkVFRejv70dvby8YwO+D/Cg8wAsvLCzEunZ0dKC1tRWNjY0oLCxEYWEhSkpKUFpaCpVKBZPJBLVajZqaGtTU1MBisSApKQksLCyMMcaOsg+Vp07v7/VwS6PRQC6XIzk5GZqams8SCAQX8fHxYWEfKg8X/97v38PNbW1tbYvJZNo91D9bIBAIhFf9L8g8wWw27/Kfr/BffM8ZgMv0Z6bX1NQU0w+wF6F/K8E8gUqlOmVjGGPpAFKHYgSgA9D2+wUikWhbYmLiNidw9uzZ7NraWkUYDGYD0I7Ozs7X6enp8wDEpAnhcBjrWkdHB/R6fV1sbOxscHCwY2IClMvl5xUKxW6RSMRfN2Gv1wutVvvs+vXrnwGgUqn0lJyc/GlsD9DpdKcYAMuE6fP5v96wVvQ/Yl9uX5P/ACZAr+o9Zq3gAAAAAElFTkSuQmCC') 0 0, auto;
+}
+
+a, button {
+    cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADUElEQVRYR8WXe0jTURTHv97m3Nyc09m0vIymmSgWREbSg6gIidIe9F9B9SDoP6H+6YGoUIn8p6AsgugfRZZgYgZlYpYmSg7NzDeZ7mZu7m7vbtfX37YpbpvbeXvghYv7O+ece37n3N85YmZGMYvFcoAxlmGMpTKZ7DAAnmYwGAorKys1f0u8g2A9n9VqPcoYyxpSGIwBwHqZTLafMVaSlZWlZ7lcbg0AlorFYoS69wFwB41GMz3S0fD9DMDpYmNjI5RKpXAo7VcA7uNtbW2C/0gSDAwMQD6f33Y4AGfQaDQhQ873vP8EwK/Kzs4W6uXz+VAqlU8G9Kby8/M/6pXy+fx/AtBrtVq53vX19UEikbwf6Wjs76vGxsZCv6YwGNvW1vY6NDSUFv1/BqDX6XRwX6S7g4yVlJScGB6A6uH+yGAwmE4A9vR07g8PwN8vLCz8YDAY6gDYv0+hUKD+4D6E8Hg8B3fUajWyZ/T7wYMwX6vVYv/+RCLZp1Ao9vM4AAYALof6o7y8XGv7gYSEBFYI9Hw+HwsEgl0A9jDGMgHYu7v8q8p7A3V1dYrV1VWw2WwmGo0iGAwiFAohGAwiHA5DqVQiOjoasbGxiImJQVRUFGJiYmCxWECpVI76+vphFovF7WbO9wAcaV97Lz09Hfv3JiYmIi0tDampqUhNTYVWqwWlUglNTQ3KyspAURR2U0T0E9FoFOFwmN1nFv5vCggEAnEwGERPTw+8Xi98Ph9GRkbg8/kwODiI3t5edHV1wWq1or6+HkVFRejv70dvby8YwO+D/Cg8wAsvLCzEunZ0dKC1tRWNjY0oLCxEYWEhSkpKUFpaCpVKBZPJBLVajZqaGtTU1MBisSApKQksLCyMMcaOsg+Vp07v7/VwS6PRQC6XIzk5GZqams8SCAQX8fHxYWEfKg8X/97v38PNbW1tbYvJZNo91D9bIBAIhFf9L8g8wWw27/Kfr/BffM8ZgMv0Z6bX1NQU0w+wF6F/K8E8gUqlOmVjGGPpAFKHYgSgA9D2+wUikWhbYmLiNidw9uzZ7NraWkUYDGYD0I7Ozs7X6enp8wDEpAnhcBjrWkdHB/R6fV1sbOxscHCwY2IClMvl5xUKxW6RSMRfN2Gv1wutVvvs+vXrnwGgUqn0lJyc/GlsD9DpdKcYAMuE6fP5v96wVvQ/Yl9uX5P/ACZAr+o9Zq3gAAAAAElFTkSuQmCC') 0 0, pointer;
+}*/

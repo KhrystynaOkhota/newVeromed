@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.social {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+
+  &-item {
+
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 100%;
+    @include transition(.5);
+    @media (max-width: $breakpoint-md) {
+
+    }
+
+    & i {
+      color: $whiteColor;
+      @include fontSize(18, 30);
+      @include transition(.5);
+    }
+& svg{
+  width:20px;
+  height:20px;
+}
+    & a {
+      height: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      & i {
+        color: rgba(89, 69, 55, 1);
+      }
+    }
+
+
+  }
+}
+

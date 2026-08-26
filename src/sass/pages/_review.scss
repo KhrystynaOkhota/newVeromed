@@ -1,0 +1,130 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================
+// VARIABLES
+// ==========================================
+$color-bg-card: #F2F2F2; // Рожевувато-бежевий фон картки
+$color-text-main: #2b1a1a; // Темний колір тексту/заголовка
+$color-text-muted: #8c7a7a; // М'який сіро-коричневий для дат/тексту
+$color-accent: #a02828; // Бордовий акцент для посилань і активних зірок
+$color-star-inactive: #d1c4c4; // Колір неактивної зірки
+
+$font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+
+// ==========================================
+// REVIEWS SECTION & CARDS
+// ==========================================
+.reviews {
+  padding: 40px 0;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  background-color: $color-bg-card;
+  border-radius: 20px;
+  font-family: $font-main;
+
+  // --- Верхня частина (Аватар + Інфо) ---
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    background-color: rgba(#ffffff, 1);
+    border-radius: 50%;
+    font-size: 22px;
+
+    color: #CDCBC6;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__author {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-text-main;
+    line-height: 1.2;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 4px;
+    font-size: 14px;
+    color: $color-star-inactive;
+
+    .icon-star {
+      &.is-active {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__date {
+    font-size: 13px;
+    color: $color-text-muted;
+  }
+
+  // --- Основний текст ---
+  &__text {
+    margin: 0 0 15px 0;
+    font-size: fluid(15, 17);
+    line-height: 1.5;
+    color: $color-text-main;
+    flex-grow: 1; // Забезпечує однакову висоту карткам
+  }
+
+  // --- Відділення та кнопка "Детальніше" ---
+  &__department {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: $color-text-main;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  &__department-link {
+    color: $color-accent;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+  }
+
+  &__more {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-accent;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+      transform: translateX(3px);
+    }
+  }
+}

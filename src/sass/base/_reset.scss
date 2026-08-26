@@ -1,0 +1,58 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, div, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6,
+ol, ul, li, dl, dt, dd,
+figure, figcaption, img, 
+fieldset, form, label, legend,
+article, aside, details, embed, footer, header, menu, nav, section, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+body {
+  position: relative;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #1b1b1b;
+  line-height: 1.5;
+  overflow: hidden !important;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+blockquote, q {
+  quotes: none;
+
+  &::before,
+  &::after {
+    content: '';
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #1b1b1b;
+  outline-offset: 2px;
+}

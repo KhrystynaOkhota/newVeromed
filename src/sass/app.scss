@@ -1,0 +1,68 @@
+// ==========================================================================
+// 1. ABSTRACTS (Глобальні налаштування — без генерації реального CSS)
+// ==========================================================================
+@use "abstracts/_variables";
+@use "abstracts/_mixins";
+
+// ==========================================================================
+// 2. BASE (Скидання стилів, шрифти та базові правила для HTML/Body)
+// ==========================================================================
+@use "base/_reset";
+@use "base/_fonts";
+@use "base/_typography";
+@use "base/_base";
+@use "base/_animations";
+
+// ==========================================================================
+// 3. LAYOUT (Структурна сітка сайту та глобальні блоки макету)
+// ==========================================================================
+@use "layout/_grid";
+@use "layout/_header";
+@use "layout/_footer";
+
+// ==========================================================================
+// 4. COMPONENTS (Дрібні перевикористовувані модулі та UI-елементи)
+// ==========================================================================
+// Базові елементи інтерфейсу
+@use "components/_social";
+@use "components/_buttons";
+@use "components/_forms";
+@use "components/_breadcrumb";
+@use "components/_pagination";
+
+// Складніші інтерактивні UI-компоненти
+@use "components/_modals";
+@use "components/_tabs";
+@use "components/_accordeon";
+@use "components/_filter";
+
+// Специфічні блоки та віджети
+//@use "components/_same-sections"; // Схожі секції
+//@use "components/_subscription";  // Блок підписки
+//@use "components/_editor-style";  // Стилі для контенту з адмінки (WYSIWYG)
+
+// ==========================================================================
+// 5. PAGES (Стилі для конкретних сторінок вашого сайту)
+// ==========================================================================
+// Головна та інформаційні сторінки
+@use "pages/_home";
+//@use "pages/_about";
+//@use "pages/_direction";
+//@use "pages/_contacts";
+//@use "pages/_career";
+
+// Блог та контент
+@use "pages/_blog";
+//@use "pages/_recipe";
+
+// Інтернет-магазин (Каталог, Картки, Процес замовлення)
+@use "pages/_doctors";
+@use "pages/_review";
+@use "pages/_services";
+//@use "pages/_checkout";
+//@use "pages/_delivery";
+
+
+//@use "pages/_account";
+//@use "pages/_other";
+//@use "pages/_woocommerce";

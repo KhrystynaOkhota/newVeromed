@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px; // Округлі кути як на макеті
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  // Модифікатор: заповнена бордова кнопка
+  &--primary {
+    background-color: #8b1818; // Ваша бордова заливка
+    color: #ffffff;
+    border-color: #8b1818;
+
+    &:hover {
+      background-color: #6d1212;
+      border-color: #6d1212;
+    }
+  }
+
+  // Модифікатор: кнопка з бордовою рамкою
+  &--outline {
+    background-color: transparent;
+    color: #8b1818;
+    border-color: #8b1818;
+
+    &:hover {
+      background-color: #8b1818;
+      color: #ffffff;
+    }
+  }
+
+  &--round {
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    padding: 0;
+    background-color: #1E1E1E;
+  }
+}

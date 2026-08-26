@@ -1,0 +1,89 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.accordeon {
+  width: 100%;
+
+  &-item {
+    border-bottom: 1px solid #e5e5e5;
+
+    &:first-child {
+      border-top: 1px solid #e5e5e5;
+    }
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #b82828; // Ваш акцентний колір
+    }
+
+    // Стан коли аккордеон відкритий
+    &.active {
+      color: #b82828;
+
+      .accordeon-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Іконка стрілки (чистий CSS без картинок)
+  &-icon {
+    position: relative;
+    flex-shrink: 0;
+    width:  fluid(40,50);
+    height: fluid(40,50);
+    margin-left: 16px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 0px 20px 0px #00000026;
+    border-radius: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translate(-50%, -75%) rotate(45deg);
+    }
+  }
+
+  // Блок з контентом
+  &-content {
+    display: none; // Сховано за замовчуванням (JS керує через slideToggle)
+    overflow: hidden;
+  }
+
+  &-inner {
+    padding-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555555;
+
+    p {
+      margin: 0;
+
+      &+p {
+        margin-top: 10px;
+      }
+    }
+  }
+}

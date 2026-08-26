@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.text {
+  &-right {
+    text-align: right;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-light {
+    font-weight: 300;
+  }
+
+  &-regular {
+    font-weight: 400;
+  }
+
+  &-medium {
+    font-weight: 500;
+  }
+
+  &-semibold {
+    font-weight: 600;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-extrabold {
+    font-weight: 800;
+  }
+
+  &-black {
+    font-weight: 900;
+  }
+
+  &-xl {
+    @include fontSize(36, 60);
+    line-height: 1.22;
+  }
+
+  &-l {
+    @include fontSize(18, 24);
+    line-height: 1.3;
+  }
+
+  &-m {
+    @include fontSize(16, 18);
+    line-height: 1.3;
+  }
+
+  &-s {
+    font-size: fluid(15, 18);
+    line-height: 1.66;
+  }
+}
+
+.heading{
+  &-accent{
+    color:#8B1E1E;
+  }
+}
+.letter-spacing {
+  letter-spacing: 0.1em;
+}
+
+.h1 {
+  @include fontSize(40, 70);
+  line-height: 1.1;
+}
+
+.h2 {
+  @include fontSize(35, 50);
+  line-height: 1.3;
+}
+
+.h3 {
+  @include fontSize(16, 18);
+  line-height: 1.3;
+}
+
+.h4 {
+  @include fontSize(25, 30);
+}
+
+.h5 {
+  @include fontSize(20, 25);
+}
+
+.h6 {
+  @include fontSize(15, 17);
+}

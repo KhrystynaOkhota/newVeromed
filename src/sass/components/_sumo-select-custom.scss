@@ -1,0 +1,163 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.SumoSelect {
+  width: 100%;
+  padding: 20px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+    background: #fff;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
+    transition: var(--transition);
+    inset: 0;
+
+   // clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px, 1px calc(8px + 0.41px), 1px calc(100% - 8px - 0.41px), calc(8px + 0.41px) calc(100% - 1px), calc(100% - 8px - 0.41px) calc(100% - 1px), calc(100% - 1px) calc(100% - 8px - 0.41px), calc(100% - 1px) calc(8px + 0.41px), calc(100% - 8px - 0.41px) 1px, calc(8px + 0.41px) 1px, 1px calc(8px + 0.41px));
+    clip-path: polygon(0 4px,4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px),0 4px,1px  calc(4px + 0.41px),1px calc(100% - 4px - 0.41px),calc(4px + 0.41px) calc(100% - 1px),calc(100% - 4px - 0.41px) calc(100% - 1px),calc(100% - 1px) calc(100% - 4px - 0.41px),calc(100% - 1px) calc(4px + 0.41px),calc(100% - 4px - 0.41px) 1px,calc(4px + 0.41px) 1px,1px calc(4px + 0.41px));
+  }
+
+  & > .CaptionCont {
+    background: transparent;
+    border: none;
+    min-height: 14px;
+    border-radius: 0;
+    padding: 0;
+
+    & span, & span.placeholder {
+      font-style: normal;
+      font-size: 16px;
+      font-weight: 300;
+      color: #fff;
+
+      cursor: pointer;
+      @include transition(.4);
+    }
+
+    & > label {
+      cursor: pointer;
+      width: 18px;
+
+      & > i {
+        background: transparent;
+        opacity: 1;
+        width: 10px;
+        height: 16px;
+
+        &:before {
+          content: "\e902";
+          font-family: 'icomoon' !important;
+          font-style: normal;
+          font-size: 16px;
+          color: rgba(255, 255, 255, 1);
+          @include transition(.4);
+        }
+      }
+    }
+  }
+
+  & > .optWrapper {
+    min-width: 247px;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    @include transition(.4);
+    right: 0;
+    left: auto;
+    top: 100%;
+    background: #1d1f21;
+    padding: 24px 29px;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+
+
+    box-sizing: border-box;
+    background: rgba(249, 244, 238, 1);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+    display: block;
+    text-align: right;
+
+    & > .options {
+      border-radius: 0;
+
+      & li.opt {
+        padding: 0;
+        position: relative;
+        border-bottom: none;
+
+        & label {
+          font-size: 16px;
+          font-weight: 300;
+          // font-family: "Merriweather", serif;
+          @include transition(.4);
+        }
+
+        &:first-child {
+          border-radius: 0;
+        }
+
+        &:not(&:last-child) {
+          margin-bottom: 6px;
+        }
+
+        &:hover, &.selected {
+          background: transparent;
+
+          & label {
+            color: #b46650;
+
+          }
+        }
+      }
+    }
+  }
+
+  &:hover, &:focus, &.open {
+    & > .CaptionCont {
+      box-shadow: none;
+      border: none;
+    }
+  }
+
+  &.open {
+    & > .CaptionCont {
+      & span {
+        color: #b46650;
+      }
+
+      & > label {
+        & > i {
+          &:before {
+            color: #b46650;
+          }
+        }
+      }
+    }
+
+    & > .optWrapper {
+      top: 100%;
+      pointer-events: all;
+      visibility: visible;
+      opacity: 1;
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+      z-index: 5;
+    }
+  }
+
+}
+
