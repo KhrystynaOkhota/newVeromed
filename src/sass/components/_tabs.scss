@@ -4,9 +4,9 @@
 
 .tab {
   &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 120px);
-    justify-content: left;
+   display: flex;
+    align-items: center;
+    gap: 12px;
     gap: fluid(10, 20);
 
     @media (max-width: $breakpoint-md) {
@@ -16,6 +16,7 @@
   }
 
   &__item {
+    white-space: nowrap; // Запобігає переносу довгих назв
     border: 1px solid #FF3C00;
     color: #FF3C00;
     background: transparent;
@@ -24,7 +25,7 @@
     position: relative;
     @include transition(.5);
     font-size: fluid(14, 16);
-    max-width: fluid(105, 120);
+
 
     @media (max-width: $breakpoint-md) {
       max-width: 100%;
@@ -37,13 +38,13 @@
     }
   }
 
-  &__content {
-    &-item {
-      display: none;
+  &__panel {
 
-      &.is--active {
-        display: block;
-      }
+    display: none;
+
+    &.is--active {
+      display: block;
     }
+
   }
 }

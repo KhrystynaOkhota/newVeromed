@@ -1,45 +1,39 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-.social {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 30px;
+.socials {
+  --social-bg: #8B1E1E;
+  --social-color: #ffffff;
 
-  &-item {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    border-radius: 100%;
-    @include transition(.5);
-    @media (max-width: $breakpoint-md) {
-
-    }
-
-    & i {
-      color: $whiteColor;
-      @include fontSize(18, 30);
-      @include transition(.5);
-    }
-& svg{
-  width:20px;
-  height:20px;
-}
-    & a {
-      height: 100%;
-      width: 100%;
-    }
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fluid(35,40);
+    height: fluid(35,40);
+    border-radius: 50%;
+    background-color: var(--social-bg);
+    color: var(--social-color);
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 
     &:hover {
-      & i {
-        color: rgba(89, 69, 55, 1);
-      }
+      transform: translateY(-2px);
+      opacity: 0.9;
     }
+  }
 
-
+  &--light {
+    --social-bg: #ffffff;
+    --social-color: #1E1E1E;
   }
 }
-

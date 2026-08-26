@@ -1,56 +1,103 @@
-//*===========
-//*  SWIPER  =
-//*===========
 jQuery(function ($) {
   "use strict";
-  // Options set Swiper
+
+  // Глобальний об'єкт для функцій (якщо він використовується у вашому проекті)
+  window._functions = window._functions || {};
+
+  // ==========================================
+  // 1. Функція розрахунку трансформацій слайдів
+  // ==========================================
+_functions.applyOffersTransform = function (swiper) {
+  const slides = swiper.slides;
+  if (!slides || !slides.length) return;
+
+  for (let i = 0; i < slides.length; i++) {
+    const slide = slides[i];
+    const $card = $(slide).find(".article, .offer-card");
+    if (!$card.length) continue;
+
+    const progress = slide.progress;
+    const absProgress = Math.abs(progress);
+
+    // Масштаб бокових карток 0.75 та opacity 0.85
+    const scale = 1 - Math.min(absProgress * 0.25, 0.25);
+    const opacity = 1 - Math.min(absProgress * 0.15, 0.15);
+
+    let translateXpx = 0;
+    let translateYPercent = 0;
+
+    if (progress > 0) {
+      // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
+      // піднімаємо ВГОРУ (-) і зсуваємо ВПРАВО (+px) до центру
+      translateYPercent = -absProgress * 16;
+      translateXpx = absProgress * 125; // Зсув у px для перекриття порожнечі від scale
+    } else if (progress < 0) {
+      // НАСТУПНИЙ СЛАЙД (Праворуч):
+      // опускаємо ВНИЗ (+) і зсуваємо ВЛІВО (-px) до центру
+      translateYPercent = absProgress * 16;
+      translateXpx = -absProgress * 125; // Зсув у px для перекриття порожнечі від scale
+    }
+
+    $card.css({
+      "transform-origin": "center center",
+      "transform": `scale(${scale}) translate(${translateXpx}px, ${translateYPercent}%)`,
+    });
+
+    $(slide).css({
+      opacity: opacity,
+      zIndex: Math.round(10 - absProgress),
+    });
+  }
+};
+  // ==========================================
+  // 2. Формування опцій Swiper
+  // ==========================================
   _functions.getSwOptions = function (swiper) {
     let options = swiper.data("options");
     options = !options || typeof options !== "object" ? {} : options;
     const $p = swiper.closest(".swiper-entry"),
       slidesLength = swiper.find(".swiper-wrapper>.swiper-slide").length;
 
-    if (!options.pagination)
+    if (!options.pagination) {
       options.pagination = {
         el: $p.find(".swiper-pagination")[0],
         clickable: true,
-        dynamicBullets: slidesLength > 6 ? true : false,
+        dynamicBullets: slidesLength > 6,
       };
+    }
 
-
-
-    console.log(options);
-    console.log(options.customFraction);
     if (options.customFraction) {
-
-
-
-      alert("dfghjkjhgf");
-      $p.addClass('custom-fraction');
-      if (slidesLength > 1 && slidesLength < 10) {
-        $p.find('.custom-current').text('01');
-        $p.find('.custom-total').text('0' + slidesLength);
-      } else if (slidesLength > 1) {
-        $p.find('.custom-current').text('01');
-        $p.find('.custom-total').text('0' + slidesLength);
+      $p.addClass("custom-fraction");
+      if (slidesLength > 1) {
+        $p.find(".custom-current").text("01");
+        $p.find(".custom-total").text(
+          slidesLength < 10 ? "0" + slidesLength : slidesLength
+        );
       }
-    };
-    if (!options.navigation)
+    }
+
+    if (!options.navigation) {
       options.navigation = {
         nextEl: $p.find(".swiper-button-next")[0],
         prevEl: $p.find(".swiper-button-prev")[0],
       };
-    if (options.arrowsOut)
+    }
+
+    if (options.arrowsOut) {
       options.navigation = {
         nextEl: $p.closest(".section").find(".swiper-button-next")[0],
         prevEl: $p.closest(".section").find(".swiper-button-prev")[0],
       };
-    if (options.paginationOut)
+    }
+
+    if (options.paginationOut) {
       options.pagination = {
         el: $p.closest(".section").find(".swiper-pagination")[0],
         clickable: true,
-        dynamicBullets: slidesLength > 5 ? true : false,
+        dynamicBullets: slidesLength > 5,
       };
+    }
+
     options.preloadImages = false;
     options.lazy = {
       loadPrevNext: true,
@@ -59,63 +106,114 @@ jQuery(function ($) {
     options.observeParents = true;
     options.watchOverflow = true;
     options.centerInsufficientSlides = true;
-    if (!options.speed) options.speed = 1000;
+    if (!options.speed) options.speed = 700;
     options.roundLengths = true;
+
     if (slidesLength <= 1) {
       options.loop = false;
+    }
+
+    // --- Кастомний ефект для слайдера спецпропозицій ---
+    if (options.offersTransform || swiper.closest(".offers-slider").length) {
+      options.watchSlidesProgress = true;
+      options.on = options.on || {};
+
+      // Ініціалізація без стартового стрибка
+      options.on.init = function (sw) {
+        requestAnimationFrame(function () {
+          sw.update();
+          _functions.applyOffersTransform(sw);
+        });
+      };
+
+      // Плавний перерахунок під час драгу / скролу
+      options.on.setTranslate = function (sw) {
+        _functions.applyOffersTransform(sw);
+      };
+
+      // Плавний transition при закінченні перемикання
+      options.on.setTransition = function (sw, duration) {
+        const easing = "cubic-bezier(0.25, 1, 0.5, 1)";
+        $(sw.slides).css({
+          transitionDuration: `${duration}ms`,
+          transitionTimingFunction: easing,
+        });
+        $(sw.slides)
+          .find(".article, .offer-card")
+          .css({
+            transitionDuration: `${duration}ms`,
+            transitionTimingFunction: easing,
+          });
+      };
     }
 
     return options;
   };
 
-  // Init each Swiper
+  // ==========================================
+  // 3. Ініціалізація всіх Swiper контейнерів
+  // ==========================================
   _functions.initSwiper = function (el) {
+    if (!el || !el.length) return;
     const swiper = new Swiper(el[0], _functions.getSwOptions(el));
   };
+
   $(".swiper-entry .swiper-container").each(function () {
     _functions.initSwiper($(this));
   });
 
-  // Thumbs Swiper
+  // ==========================================
+  // 4. Product Gallery Thumbs
+  // ==========================================
   $(".product-gallery").each(function () {
     if ($(".product-gallery__main").length && $(".product-gallery__thumbs").length) {
       let t = $(this);
-      let top = t.find(".product-gallery__main>.swiper-container")[0].swiper,
-        bottom = t.find(".product-gallery__thumbs>.swiper-container")[0].swiper;
-      top.thumbs.swiper = bottom;
-      top.thumbs.init();
-      top.thumbs.update();
+      let topContainer = t.find(".product-gallery__main>.swiper-container")[0],
+        bottomContainer = t.find(".product-gallery__thumbs>.swiper-container")[0];
 
-      if (top.slides.length < 2) {
-        t.addClass("hide-bottom");
+      if (topContainer && bottomContainer && topContainer.swiper && bottomContainer.swiper) {
+        let top = topContainer.swiper,
+          bottom = bottomContainer.swiper;
+
+        top.thumbs.swiper = bottom;
+        top.thumbs.init();
+        top.thumbs.update();
+
+        if (top.slides.length < 2) {
+          t.addClass("hide-bottom");
+        }
       }
     }
   });
 
-  //custom fraction
-  $('.custom-fraction').each(function () {
+  // ==========================================
+  // 5. Custom Fraction Handler
+  // ==========================================
+  $(".custom-fraction").each(function () {
     let $this = $(this),
-        $thisSwiper = $(this).find('.swiper-container')[0].swiper,
-        currentSlide = $thisSwiper.realIndex + 1;
-    $thisSwiper.on('slideChange', function () {
-      $this.find('.custom-current').text(
-          function () {
-            currentSlide = $thisSwiper.realIndex + 1;
-            if ($thisSwiper.realIndex < 9) {
-              return ('0' + currentSlide)
-            } else {
-              return '0' + currentSlide
-            }
-          }
-      )
-    });
+      swiperEl = $(this).find(".swiper-container")[0];
+
+    if (swiperEl && swiperEl.swiper) {
+      let $thisSwiper = swiperEl.swiper;
+
+      $thisSwiper.on("slideChange", function () {
+        $this.find(".custom-current").text(function () {
+          let currentSlide = $thisSwiper.realIndex + 1;
+          return currentSlide < 10 ? "0" + currentSlide : currentSlide;
+        });
+      });
+    }
   });
 
-  // Banner Video Play/Pause
+  // ==========================================
+  // 6. Banner Slider & Custom Controls
+  // ==========================================
   $(".banner-slider").each(function () {
-    let $thisSwiper = $(this).find(".swiper-container")[0].swiper;
+    let swiperEl = $(this).find(".swiper-container")[0];
+    if (!swiperEl || !swiperEl.swiper) return;
 
-    // Custom Controls Hide/Show
+    let $thisSwiper = swiperEl.swiper;
+
     if ($thisSwiper.slides.length <= 2) {
       $(".swiper-controls-wrap").addClass("custom-btn-lock");
     } else {
@@ -134,10 +232,15 @@ jQuery(function ($) {
     $(".banner-btn").on("click", function () {
       const slideIndex = $(this).data("index");
       $thisSwiper.slideToLoop(slideIndex);
-      $thisSwiper.autoplay.start();
+      if ($thisSwiper.autoplay) {
+        $thisSwiper.autoplay.start();
+      }
     });
   });
 
+  // ==========================================
+  // 7. Вспоміжні функції для Banner
+  // ==========================================
   _functions.customSlide = function (swiperObj, $customSlides) {
     var slideTo = $customSlides.eq(swiperObj.activeIndex),
       slideFrom = $customSlides.eq(swiperObj.previousIndex);
@@ -165,21 +268,26 @@ jQuery(function ($) {
     $(".banner-btn-progress").eq(swiperObj.realIndex).addClass("active");
   };
 
-
-
-
-  // thumbs Swiper
+  // ==========================================
+  // 8. General Swiper Thumbs
+  // ==========================================
   $(".swiper-thumbs").each(function () {
     if ($(".swiper-thumbs-top").length && $(".swiper-thumbs-bottom").length) {
       let t = $(this);
-      let top = t.find(".swiper-thumbs-top>.swiper-container")[0].swiper,
-          bottom = t.find(".swiper-thumbs-bottom>.swiper-container")[0].swiper;
-      top.thumbs.swiper = bottom;
-      top.thumbs.init();
-      top.thumbs.update();
+      let topContainer = t.find(".swiper-thumbs-top>.swiper-container")[0],
+        bottomContainer = t.find(".swiper-thumbs-bottom>.swiper-container")[0];
 
-      if (top.slides.length < 2) {
-        t.addClass("hide-bottom");
+      if (topContainer && bottomContainer && topContainer.swiper && bottomContainer.swiper) {
+        let top = topContainer.swiper,
+          bottom = bottomContainer.swiper;
+
+        top.thumbs.swiper = bottom;
+        top.thumbs.init();
+        top.thumbs.update();
+
+        if (top.slides.length < 2) {
+          t.addClass("hide-bottom");
+        }
       }
     }
   });

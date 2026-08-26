@@ -22,7 +22,7 @@
   }
 
   &__specialty {
-    font-size: fluid(15, 18);
+    
   }
 
   &__link {
@@ -30,4 +30,8 @@
     top: 0;
     right: 0;
   }
+}
+
+.s-doctors{
+  padding: fluid(50,100);
 }

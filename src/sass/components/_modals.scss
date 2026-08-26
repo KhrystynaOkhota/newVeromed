@@ -92,73 +92,10 @@
     height: 625rem;
   }
 
-  &[data-rel="inspection"] {
-    & .popup {
-      &-container {
-        padding: fluid(20, 90) fluid(10, 120);
-        max-width: fluid(355, 830);
-        background: rgba(44, 56, 55, 1);
-      }
-
-      &-info {
-        & .heading {
-          margin-bottom: 40px;
-          @include fontSize(30, 60);
-
-          @media (max-width: $breakpoint-md) {
-            margin-bottom: 25px;
-          }
-        }
-      }
-    }
-  }
-
-  &[data-rel="quick-buy"] {
-    & .popup {
-      &-form__heading {
-        font-size: fluid(30, 50);
-      }
-
-      &-container {
-        padding: 40px fluid(10, 50);
-
-        & .field__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    }
-  }
-
-  & .form-control {
-    &:not(&.no-margin) {
-      margin-bottom: 20px;
-
-    }
-
-    &__input {
-      padding: 17px 20px 16px 20px;
-
-    }
-  }
-
-  & .btn-primary {
-    margin: 0 auto;
-
-    display: block;
-    width: 100%;
-    max-width: 304px;
-  }
-
-  &[data-rel="login"] {
-    & .popup-container {
 
 
-      @media (max-width: $breakpoint-md) {
-        padding: 40px 10px;
-      }
+ 
 
-    }
-  }
 }
 
 
@@ -168,7 +105,7 @@
   vertical-align: middle;
   width: 100%;
   max-width: 585px;
-  padding: 40px 101px;
+  padding: 30px 51px 40px 51px;
   background: #fff;
   border-radius: 0;
   text-align: center;

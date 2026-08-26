@@ -9,17 +9,6 @@
     display: block;
     margin-bottom: 20px;
     cursor: pointer;
-
-    .line {
-      width: 100%;
-      height: 1px;
-      margin: fluid(15, 24) 0;
-      background: rgba(238, 238, 253, 1);
-    }
-
-    .btn-more {
-      font-size: fluid(14,18);
-    }
   }
 
   &__info {
@@ -28,27 +17,21 @@
     box-shadow: 0px 4px 16px 0px #0000000F;
   }
 
-  &__img-wrap {
-    position: relative;
-    overflow: hidden;
-    min-height: 130px;
-    max-height: 130px;
-    padding-bottom: 62%;
-  }
 
   &__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
+    width: 100%;
     object-fit: cover;
+
+    &--wrap {
+      aspect-ratio: 3/2;
+      margin-bottom: 20px;
+    }
   }
 
   &__date {
-    margin-bottom: fluid(15, 24);
-    font-size: 14px;
-    color: rgba(23, 4, 84, 0.44);
+    font-size: fluid(13,18);
+    color: #6F6F6F;
   }
 
   &__title {
@@ -56,42 +39,32 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     overflow: hidden;
-    font-size: fluid(16, 20);
+    font-size: fluid(18, 20);
     line-height: 1.4;
     text-overflow: ellipsis;
+    color:#8B1E1E;
   }
 
-  &__desc {
+  &__excerpt {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
     overflow: hidden;
-    font-size: fluid(14, 16);
+
     line-height: 1.4;
-    color: rgba(0, 0, 0, 1);
+    color: #1E1E1E;
     text-overflow: ellipsis;
+    margin-bottom: fluid(14, 24);
   }
 
   &__btn {
-    display: block;
-    margin-top: 37px;
-    color: #A59389;
-    @include fontSize(14, 16);
-
-    i {
-      padding-left: 12px;
-      font-size: 10px;
-      @include transition(0.5);
-    }
-
-    &:hover {
-      i {
-        padding-left: 22px;
-      }
-    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
   }
 }
 

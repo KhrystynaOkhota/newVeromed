@@ -47,18 +47,9 @@ button {
   }
 }
 
-.field {
+.form-field {
   position: relative;
 
-  /*
-  &:not(&.no-margin) {
-    margin-bottom: 20px;
-
-    @media (max-width: $breakpoint-lg) {
-      margin-bottom: 20px;
-    }
-  }
-*/
   &__grid {
     display: grid;
     gap: 20px;
@@ -68,24 +59,38 @@ button {
       grid-template-columns: 1fr;
     }
   }
+display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+  &__label {
+    display: block;
+    font-size: fluid(15, 16);
+    color: #6F6F6F;
+    
+  }
 
   &__input,
   &__textarea {
-    background: #fff;
+    background: #F7F8F8;
     border: none;
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-radius: 0;
+    border: 1px solid #EAEAEA;
+    border-radius: 50px;
     cursor: pointer;
     display: block;
     width: 100%;
     font-size: 16px;
     line-height: 1;
     font-family: 'Gilroy', sans-serif;
-    font-weight: 400;
-    color: rgba(27, 27, 27, 1);
+    font-weight: 300;
+    color: #1E1E1E;
 
     resize: none;
-    padding: 14px 20px 15px 20px;
+    padding: 15px 20px 14px 20px;
 
     &--accent {
       border-color: rgba(15, 14, 104, 1);

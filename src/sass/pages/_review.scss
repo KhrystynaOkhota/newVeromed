@@ -18,7 +18,27 @@ $font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
 .reviews {
   padding: 40px 0;
 }
+.rating {
+  --rating: 5;
+  --star-empty: #e0e0e0;
+  --star-fill: #8b1a1a;
 
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 2px;
+
+  &::before {
+    content: '★★★★★';
+    background: linear-gradient(
+      to right,
+      var(--star-fill) calc(var(--rating) / 5 * 100%),
+      var(--star-empty) calc(var(--rating) / 5 * 100%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 .review-card {
   display: flex;
   flex-direction: column;
