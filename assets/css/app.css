@@ -318,6 +318,11 @@ img::selection {
   z-index: 1;
 }
 
+.swiper-entry__bottom-bar {
+  margin-top: clamp(20px, 20px + (35 - 20) * (100vw - 375px) / (1440 - 375), 35px);
+  padding-top: clamp(20px, 20px + (34 - 20) * (100vw - 375px) / (1440 - 375), 34px);
+  border-top: 1px solid rgba(111, 111, 111, 0.2);
+}
 .swiper-container {
   margin-left: auto;
   margin-right: auto;
@@ -1849,7 +1854,7 @@ img::selection {
   border-radius: 1px;
 }
 
-.header-menu {
+.header-menu .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1860,15 +1865,18 @@ img::selection {
   list-style: none;
   margin: 0;
   padding: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .header-menu .menu-item {
   position: relative;
 }
 .header-menu .menu-item a {
   text-decoration: none;
-  color: #222222;
-  font-weight: 500;
-  font-size: 13.5px;
+  color: rgb(30, 30, 30);
+  font-weight: 700;
+  font-size: 18px;
   padding: 6px 0;
   display: block;
   white-space: nowrap;
@@ -1889,7 +1897,7 @@ img::selection {
       -ms-transform: translateY(0);
           transform: translateY(0);
 }
-.header-menu .sub-menu {
+.header-menu .menu .sub-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -1910,11 +1918,11 @@ img::selection {
   transition: all 0.2s ease;
   z-index: 20;
 }
-.header-menu .sub-menu .menu-item a {
+.header-menu .menu .sub-menu .menu-item a {
   padding: 8px 16px;
   font-size: 13px;
 }
-.header-menu .sub-menu .menu-item a:hover {
+.header-menu .menu .sub-menu .menu-item a:hover {
   background-color: #f4f5f7;
   color: #9e1b21;
 }
@@ -2442,15 +2450,17 @@ body:has(.mobile-drawer[open]) {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 12px 28px;
+  padding: 15px 40px 16px 40px;
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  text-align: center;
 }
 .btn--primary {
   background-color: #8b1818;
@@ -2485,6 +2495,14 @@ body:has(.mobile-drawer[open]) {
   border-radius: 100%;
   padding: 0;
   background-color: #1E1E1E;
+  color: #fff;
+}
+.btn--round .icon {
+  width: 14px;
+  -webkit-transition: -webkit-transform 0.25s ease;
+  transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
 }
 
 .visually-hidden {
@@ -3658,6 +3676,11 @@ select:-webkit-autofill:focus {
     border-radius: 20px;
   }
 }
+@media (max-width: 767px) {
+  .s-stats .heading {
+    margin-bottom: 30px;
+  }
+}
 .s-stats .stats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -3672,6 +3695,12 @@ select:-webkit-autofill:focus {
 .s-stats .stats__value {
   font-size: clamp(50px, 50px + (60 - 50) * (100vw - 375px) / (1440 - 375), 60px);
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .s-stats .stats__value--symbol {
   color: #8B1E1E;
@@ -3797,6 +3826,113 @@ select:-webkit-autofill:focus {
 .s-special-offers .swiper-slide {
   height: auto;
 }
+.select-entry {
+  min-height: 50px;
+}
+.select-entry select {
+  opacity: 0;
+}
+
+/* Перевизначаємо дефолтну стрілку SumoSelect */
+.SumoSelect > .CaptionCont > label > i {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0.292893 0.296503C-0.0976308 0.687028 -0.0976313 1.32019 0.292893 1.71072L5.18512 6.59816C5.96628 7.37856 7.23208 7.37825 8.01286 6.59747L12.9032 1.70711C13.2937 1.31658 13.2937 0.683417 12.9032 0.292894C12.5127 -0.0976321 11.8795 -0.0976302 11.489 0.292894L7.30336 4.47854C6.91284 4.86907 6.27967 4.86907 5.88915 4.47854L1.70711 0.296503C1.31658 -0.0940211 0.683417 -0.0940211 0.292893 0.296503Z" fill="%236F6F6F"/></svg>') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 14px 8px !important;
+  width: 14px !important;
+  height: 8px !important;
+  border: none !important;
+  /* Прибираємо дефолтні css-бордери стрілки, якщо вони є */
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  right: 20px !important;
+}
+
+/* Опціонально: анімація повороту стрілки при відкритті селекту */
+.SumoSelect.open > .CaptionCont > label > i {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.SelectBox {
+  padding: 16px 20px;
+}
+
+.SumoSelect {
+  width: 100%;
+}
+
+.SumoSelect > .CaptionCont {
+  position: relative;
+  background: #f7f8f8;
+  border: none;
+  border: 1px solid #eaeaea;
+  border-radius: 50px;
+  min-height: 14px;
+  border-radius: 50px;
+  margin: 0;
+}
+
+.SumoSelect > .CaptionCont > span.placeholder {
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 300;
+  color: #1e1e1e;
+  font-style: normal;
+}
+
+.SumoSelect.open > .CaptionCont,
+.SumoSelect:focus > .CaptionCont,
+.SumoSelect:hover > .CaptionCont {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-color: #eaeaea !important;
+}
+
+.select-box {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.custom-native-select {
+  width: 100%;
+  height: 42px;
+  padding: 0 40px 0 16px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  /* Приховуємо дефолтну стрілку браузера (Chrome, Safari, Firefox, Edge) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Вставляємо вашу SVG стрілку безпосередньо у CSS */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0.292893 0.296503C-0.0976308 0.687028 -0.0976313 1.32019 0.292893 1.71072L5.18512 6.59816C5.96628 7.37856 7.23208 7.37825 8.01286 6.59747L12.9032 1.70711C13.2937 1.31658 13.2937 0.683417 12.9032 0.292894C12.5127 -0.0976321 11.8795 -0.0976302 11.489 0.292894L7.30336 4.47854C6.91284 4.86907 6.27967 4.86907 5.88915 4.47854L1.70711 0.296503C1.31658 -0.0940211 0.683417 -0.0940211 0.292893 0.296503Z" fill="%236F6F6F"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 8px;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+.custom-native-select:focus {
+  border-color: #8b1e22;
+}
+
+/* Прибираємо дефолтну стрілку для застарілих версій IE/Edge */
+.custom-native-select::-ms-expand {
+  display: none;
+}
+
 /*
 .s-contacts {
   padding: fluid(40, 80) 0 fluid(0, 100) 0;
@@ -4155,6 +4291,108 @@ select:-webkit-autofill:focus {
   background-color: #fff;
 }
 
+.offer-card {
+  --title-size: clamp(30px, 30px + (50 - 30) * (100vw - 375px) / (1440 - 375), 50px);
+  --desc-size: 20px;
+  --card-padding: clamp(30px, 30px + (60 - 30) * (100vw - 375px) / (1440 - 375), 60px) clamp(10px, 10px + (60 - 10) * (100vw - 375px) / (1440 - 375), 60px) clamp(24px, 24px + (100 - 24) * (100vw - 375px) / (1440 - 375), 100px) clamp(10px, 10px + (60 - 10) * (100vw - 375px) / (1440 - 375), 60px);
+  --gap-bottom: 24px;
+}
+.offer-card--sm {
+  --title-size: 35px;
+  --desc-size: 17px;
+  --card-padding: 28px;
+  --gap-bottom: 16px;
+}
+.offer-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: var(--card-padding);
+  border-radius: 24px;
+  background-color: #f9f5f3;
+  overflow: hidden;
+}
+.offer-card__content {
+  position: relative;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-width: 58%;
+}
+@media (max-width: 768px) {
+  .offer-card__content {
+    max-width: 100%;
+  }
+}
+.offer-card__title {
+  font-size: var(--title-size);
+  line-height: 1.15;
+  font-weight: 400;
+  margin: 0 0 var(--gap-bottom) 0;
+  max-width: 250px;
+}
+.offer-card__title .highlight {
+  font-weight: 700;
+}
+.offer-card__description {
+  font-size: var(--desc-size);
+  line-height: 1.35;
+  color: #666;
+  margin: 0 0 auto 0;
+  padding-bottom: var(--gap-bottom);
+}
+.offer-card__action {
+  margin-top: auto;
+}
+.offer-card__image-ibg {
+  position: absolute;
+  right: 0;
+  width: 48%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.offer-card__image-ibg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.offer-card--img-top .offer-card__image-ibg {
+  top: 0;
+  bottom: auto;
+}
+.offer-card--img-top .offer-card__image-ibg img {
+  -o-object-position: right top;
+     object-position: right top;
+}
+.offer-card--img-bottom .offer-card__image-ibg {
+  top: auto;
+  bottom: 0;
+}
+.offer-card--img-bottom .offer-card__image-ibg img {
+  -o-object-position: right bottom;
+     object-position: right bottom;
+}
+
 .article__item {
   display: block;
   margin-bottom: 20px;
@@ -4208,6 +4446,20 @@ select:-webkit-autofill:focus {
   top: 0;
   right: 0;
   z-index: 3;
+}
+
+.s-last-news {
+  padding: clamp(50px, 50px + (100 - 50) * (100vw - 375px) / (1440 - 375), 100px) 0;
+}
+.s-last-news__inner {
+  margin-bottom: clamp(21px, 21px + (40 - 21) * (100vw - 375px) / (1440 - 375), 40px);
+}
+@media (max-width: 767px) {
+  .s-last-news .btn--outline {
+    width: 100%;
+    max-width: 345px;
+    margin: 30px auto 0 auto;
+  }
 }
 
 .s-news {
@@ -4560,6 +4812,10 @@ select:-webkit-autofill:focus {
   font-size: clamp(18px, 18px + (20 - 18) * (100vw - 375px) / (1440 - 375), 20px);
   margin-bottom: 10px;
 }
+.doctor-card__specialty {
+  color: rgb(111, 111, 111);
+  width: 80%;
+}
 .doctor-card__link {
   position: absolute;
   top: 0;
@@ -4567,7 +4823,27 @@ select:-webkit-autofill:focus {
 }
 
 .s-doctors {
-  padding: clamp(50px, 50px + (100 - 50) * (100vw - 375px) / (1440 - 375), 100px);
+  padding: clamp(50px, 50px + (100 - 50) * (100vw - 375px) / (1440 - 375), 100px) 0;
+}
+@media (min-width: 767px) {
+  .s-doctors__inner {
+    margin-bottom: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+@media (max-width: 767px) {
+  .s-doctors .heading {
+    text-align: center;
+    margin-bottom: 21px;
+  }
 }
 
 .reviews {
@@ -4722,7 +4998,12 @@ select:-webkit-autofill:focus {
           align-items: center;
   border-radius: 10px;
   border: 1px solid #EAEAEB;
-  padding: 20px;
+  padding: clamp(10px, 10px + (20 - 10) * (100vw - 375px) / (1440 - 375), 20px);
+}
+@media (max-width: 767px) {
+  .service {
+    gap: 30px;
+  }
 }
 .service__grid {
   display: grid;
@@ -4762,4 +5043,14 @@ select:-webkit-autofill:focus {
 }
 .s-popular-services .heading {
   margin-bottom: clamp(21px, 21px + (37 - 21) * (100vw - 375px) / (1440 - 375), 37px);
+}
+@media (max-width: 767px) {
+  .s-popular-services .heading {
+    text-align: center;
+  }
+}
+.s-popular-services .btn--outline {
+  border-radius: 10px;
+  font-size: clamp(18px, 18px + (20 - 18) * (100vw - 375px) / (1440 - 375), 20px);
+  min-height: 85px;
 }/*# sourceMappingURL=app.css.map */

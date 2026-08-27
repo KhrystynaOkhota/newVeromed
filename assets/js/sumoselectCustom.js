@@ -13,14 +13,17 @@
 });*/
 
 jQuery(document).ready(function () {
-    jQuery('.orderby').each(function() {
-        // Беремо текст першої опції як плейсхолдер (для підтримки багатомовності)
-        var placeholderText = jQuery(this).find('option:first').text();
-        
-        jQuery(this).SumoSelect({
-            placeholder: placeholderText,
-            forceCustomRendering: true,
-            csvDispCount: 3
+    if ($('.select-entry').length) {
+        jQuery('.select-entry select').each(function () {
+            // Беремо текст першої опції як плейсхолдер (для підтримки багатомовності)
+            var placeholderText = jQuery(this).find('option:first').text();
+
+            jQuery(this).SumoSelect({
+                placeholder: placeholderText,
+                forceCustomRendering: true,
+                csvDispCount: 3
+            });
         });
-    });
+    }
 });
+
