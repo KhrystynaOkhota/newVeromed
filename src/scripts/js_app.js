@@ -374,4 +374,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+
+
+    // =============================
+    // SumoSelect
+    // =============================
+
+   /* if (jQuery('.select-entry').length) {
+        jQuery('select').SumoSelect();
+    };*/
 });

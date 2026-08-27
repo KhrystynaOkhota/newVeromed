@@ -19,28 +19,30 @@ _functions.applyOffersTransform = function (swiper) {
     const progress = slide.progress;
     const absProgress = Math.abs(progress);
 
-    // Масштаб бокових карток 0.75 та opacity 0.85
-    const scale = 1 - Math.min(absProgress * 0.25, 0.25);
-    const opacity = 1 - Math.min(absProgress * 0.15, 0.15);
+    const scale = 1 - Math.min(absProgress * 0.35, 0.35); // scale 0.65
+    const opacity = 1 - Math.min(absProgress * 0.2, 0.2);
 
     let translateXpx = 0;
     let translateYPercent = 0;
+    let transformOrigin = "center center"; // Дефолтне значення для центрального слайда
 
-    if (progress > 0) {
+    if (progress < 0) {
       // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
-      // піднімаємо ВГОРУ (-) і зсуваємо ВПРАВО (+px) до центру
-      translateYPercent = -absProgress * 16;
-      translateXpx = absProgress * 125; // Зсув у px для перекриття порожнечі від scale
-    } else if (progress < 0) {
+      // Вгору (-18%), зсув вправо та прив'язка до правої грані
+      translateYPercent = -absProgress * 18;
+      translateXpx = absProgress * 20;
+      transformOrigin = "center left";
+    } else if (progress > 0) {
       // НАСТУПНИЙ СЛАЙД (Праворуч):
-      // опускаємо ВНИЗ (+) і зсуваємо ВЛІВО (-px) до центру
-      translateYPercent = absProgress * 16;
-      translateXpx = -absProgress * 125; // Зсув у px для перекриття порожнечі від scale
+      // Вниз (+18%), зсув вліво та прив'язка до лівої грані
+      translateYPercent = absProgress * 18; // Замініть на -absProgress * 18, якщо треба вгору
+      translateXpx = -absProgress * 20;
+      transformOrigin = "center right";
     }
 
     $card.css({
-      "transform-origin": "center center",
-      "transform": `scale(${scale}) translate(${translateXpx}px, ${translateYPercent}%)`,
+      "transform-origin": transformOrigin, // Передаємо індивідуальну точку якіря
+      "transform": `translate(${translateXpx}px, ${translateYPercent}%) scale(${scale})`,
     });
 
     $(slide).css({

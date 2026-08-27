@@ -8,7 +8,11 @@
   align-items: center;
   border-radius: 10px;
   border: 1px solid #EAEAEB;
-  padding: 20px;
+  padding: fluid(10, 20);
+
+  @media (max-width: $breakpoint-md) {
+    gap: 30px;
+  }
 
   &__grid {
     display: grid;
@@ -27,7 +31,7 @@
   }
 
   &__name {
-   
+
     font-size: fluid(18, 20);
   }
 
@@ -49,6 +53,16 @@
   padding: fluid(50, 100) 0;
 
   & .heading {
-    margin-bottom: fluid(21,37);
+    margin-bottom: fluid(21, 37);
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+    }
+  }
+
+  & .btn--outline {
+    border-radius: 10px;
+    font-size: fluid(18, 20);
+    min-height: 85px;
   }
 }

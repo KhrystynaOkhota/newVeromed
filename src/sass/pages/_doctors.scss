@@ -22,7 +22,8 @@
   }
 
   &__specialty {
-    
+    color: rgba(111, 111, 111, 1);
+    width: 80%;
   }
 
   &__link {
@@ -32,6 +33,22 @@
   }
 }
 
-.s-doctors{
-  padding: fluid(50,100);
+.s-doctors {
+  padding: fluid(50, 100) 0;
+
+  &__inner {
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .heading {
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      margin-bottom: 21px;
+    }
+  }
 }

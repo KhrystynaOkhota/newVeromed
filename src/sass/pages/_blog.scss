@@ -1,9 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-// ==========================================
-// 1. КОМПОНЕНТ: Article (Картка статті/новини)
-// ==========================================
+
 .article {
   &__item {
     display: block;
@@ -30,7 +28,7 @@
   }
 
   &__date {
-    font-size: fluid(13,18);
+    font-size: fluid(13, 18);
     color: #6F6F6F;
   }
 
@@ -44,7 +42,7 @@
     font-size: fluid(18, 20);
     line-height: 1.4;
     text-overflow: ellipsis;
-    color:#8B1E1E;
+    color: #8B1E1E;
   }
 
   &__excerpt {
@@ -68,9 +66,22 @@
   }
 }
 
-// ==========================================
-// 2. СЕКЦІЯ: News (Списку новин)
-// ==========================================
+.s-last-news {
+  padding: fluid(50, 100) 0;
+
+  &__inner {
+    margin-bottom: fluid(21, 40);
+  }
+
+  & .btn--outline {
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      max-width: 345px;
+      margin: 30px auto 0 auto;
+    }
+  }
+}
+
 .s-news {
   padding-top: 56px;
   padding-bottom: fluid(100, 200);
