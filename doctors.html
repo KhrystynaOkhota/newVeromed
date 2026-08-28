@@ -17,413 +17,6 @@
     <link rel="stylesheet" href="assets/css/app.css" />
 
 </head>
-<!--
-<style>
-    :root {
-        --color-primary: #8b1e22;
-        --color-primary-hover: #6d171b;
-        --color-text-main: #333333;
-        --color-text-muted: #666666;
-        --color-border: #e2e8f0;
-
-        --tg-color: #2da5e1;
-        --wa-color: #43d854;
-        --viber-color: #7d51a0;
-
-        --font-family: 'Montserrat', sans-serif;
-        --container-width: 1200px;
-    }
-
-
-
-    .site-header {
-        width: 100%;
-        background: #fff;
-        border-bottom: 1px solid var(--color-border);
-        position: relative;
-        z-index: 1000;
-    }
-
-    /* Desktop header top */
-    .header-top {
-        border-bottom: 1px solid #f0f0f0;
-        font-size: 13px;
-        color: var(--color-text-muted);
-        padding: 8px 0;
-    }
-
-    .header-top__container {
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: 0 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .header-top__left,
-    .header-top__right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .header-top__item {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: #555;
-    }
-
-    .header-top__item .icon {
-        color: var(--color-primary);
-    }
-
-    .header-top__city-select {
-        border: none;
-        background: transparent;
-        font-weight: 600;
-        color: var(--color-text-main);
-        cursor: pointer;
-        outline: none;
-    }
-
-    /* WP Language Switcher */
-    .lang-switcher,
-    .polylang-switcher {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    .lang-switcher .lang-item a,
-    .polylang-switcher .lang-item a {
-        display: block;
-        opacity: 0.6;
-        transition: opacity 0.2s;
-    }
-
-    .lang-switcher .lang-item.current-lang a,
-    .polylang-switcher .lang-item.current-lang a {
-        opacity: 1;
-    }
-
-    .lang-switcher img,
-    .polylang-switcher img {
-        border-radius: 50%;
-        object-fit: cover;
-        display: block;
-    }
-
-    /* Header Main */
-    .header-main {
-        padding: 15px 0;
-        background: #fff;
-        position: relative;
-        z-index: 1002;
-    }
-
-    .header-main__container {
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: 0 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .logo {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .logo__title {
-        font-size: 26px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        color: var(--color-primary);
-        line-height: 1;
-    }
-
-    .logo__subtitle {
-        font-size: 8px;
-        letter-spacing: 1.5px;
-        color: var(--color-primary);
-        margin-top: 4px;
-    }
-
-    /* Search Form */
-    .search-form {
-        position: relative;
-        width: 280px;
-    }
-
-    .search-form__input {
-        width: 100%;
-        padding: 10px 40px 10px 18px;
-        border: 1px solid #e0e0e0;
-        border-radius: 25px;
-        font-size: 14px;
-        outline: none;
-        background: #fafafa;
-    }
-
-    .search-form__input:focus {
-        border-color: var(--color-primary);
-        background: #fff;
-    }
-
-    .search-form__btn {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: var(--color-primary);
-        display: flex;
-    }
-
-    /* Contacts & Socials */
-    .header-main__contacts {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .header-main__phone {
-        font-weight: 700;
-        font-size: 15px;
-    }
-
-    .socials {
-        display: flex;
-        gap: 8px;
-    }
-
-    .socials__link {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 10px;
-        font-weight: bold;
-    }
-
-    .socials__link--tg {
-        background-color: var(--tg-color);
-    }
-
-    .socials__link--wa {
-        background-color: var(--wa-color);
-    }
-
-    .socials__link--viber {
-        background-color: var(--viber-color);
-    }
-
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.2s;
-        cursor: pointer;
-        border: none;
-    }
-
-    .btn--primary {
-        background-color: var(--color-primary);
-        color: #fff;
-        box-shadow: 0 4px 12px rgba(139, 30, 34, 0.25);
-    }
-
-    .btn--primary:hover {
-        background-color: var(--color-primary-hover);
-    }
-
-    .btn--full {
-        width: 100%;
-    }
-
-    /* Navigation Desktop */
-    .header-nav {
-        padding: 10px 0;
-        border-top: 1px solid #f5f5f5;
-    }
-
-    .header-nav__container {
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: 0 15px;
-    }
-
-    .main-navigation .menu {
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-        padding: 0;
-    }
-
-    .main-navigation .menu-item a {
-        text-decoration: none;
-        color: rgba(30, 30, 30, 1);
-        font-weight: 700;
-        font-size: 18px;
-        padding: 6px 0;
-        display: block;
-        white-space: nowrap;
-        -webkit-transition: color .2s;
-        transition: color .2s;
-    }
-
-    .main-navigation .menu-item a:hover,
-    .main-navigation .menu-item.current-menu-item>a {
-        color: var(--color-primary);
-    }
-
-    .burger-btn,
-    .header-main__mobile-phone,
-    .mobile-dropdown {
-        display: none;
-    }
-
-    /* Мобільні стилі */
-    @media (max-width: 991px) {
-
-        .header-top,
-        .header-nav,
-        .header-main__search,
-        .header-main__contacts,
-        .header-main__btn {
-            display: none;
-        }
-
-        .header-main__mobile-phone {
-            display: flex;
-        }
-
-        .header-main__container {
-            gap: 15px;
-        }
-
-        /* Бургер -> Хрестик */
-        .burger-btn {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 22px;
-            height: 16px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .burger-btn__line {
-            width: 100%;
-            height: 2px;
-            background-color: var(--color-primary);
-            border-radius: 2px;
-            transition: transform 0.25s ease, opacity 0.2s ease;
-        }
-
-        .burger-btn.is-active .burger-btn__line:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .burger-btn.is-active .burger-btn__line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-btn.is-active .burger-btn__line:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Випадаючий блок меню під шапкою */
-        .mobile-dropdown {
-            display: block;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            background: #fff;
-            border-top: 1px solid transparent;
-        }
-
-        .site-header.is-open .mobile-dropdown {
-            max-height: 90vh;
-            overflow-y: auto;
-            border-top-color: var(--color-border);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .mobile-dropdown__container {
-            padding: 20px 20px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .mobile-dropdown__search-target {
-            width: 100%;
-        }
-
-        .mobile-dropdown__search-target .search-form {
-            width: 100%;
-        }
-
-        .mobile-dropdown__nav-target {
-            width: 100%;
-        }
-
-        .mobile-dropdown__nav-target .menu {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-dropdown__nav-target .menu-item a {
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .mobile-dropdown__nav-target .menu-item.current-menu-item>a {
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        .mobile-dropdown__footer {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 20px;
-        }
-
-        .mobile-dropdown__footer .header-top__link {
-            font-size: 14px;
-            color: var(--color-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-    }
-</style>-->
 
 <body>
 
@@ -550,7 +143,7 @@
 
     <main class="main">
 
-        <section class="s-news">
+        <section class="s-doctors">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
@@ -559,17 +152,14 @@
                                 <a href="" itemprop="item">
                                     <span>Головна</span>
                                 </a>
-                                <span class="kb_sep"> <i class="icon-arrow-forward"></i></span>
-                                <span class="kb_title">Блог</span>
+                                <span class="kb_sep">></span>
+                                <span class="kb_title"> Наші лікарі</span>
                             </span>
                         </div>
                         <h1 class="heading h2 text-bold">
-                            Блог
+                            Наші лікарі
                         </h1>
-                        <div class="description text-s ">
-                            Актуальні статті, поради лікарів та корисна інформація про здоровя, профілактику,
-                            діагностику й сучасні методи лікування.
-                        </div>
+            
                     </div>
                 </div>
                 <div class="row">
@@ -577,7 +167,7 @@
                         <div class="recipes__filter d-flex align-middle align-justify">
                             <div class="filter-bar d-flex align-left align-middle">
                                 <div class="filter-bar__item">
-                                   
+
                                     <div class="select-entry">
                                         <label class="f" for="user-direction">Напрямок/спеціальність</label>
                                         <select class="form-field__select" name="direction">
@@ -602,7 +192,7 @@
 
                                 </div>
                                 <div class="filter-bar__item">
-                                   <div class="select-entry">
+                                    <div class="select-entry">
                                         <label class="f" for="user-direction">Тип матеріалу</label>
                                         <select class="form-field__select" name="direction">
                                             <option value="" disabled selected hidden>Вибрати</option>
@@ -627,169 +217,128 @@
                 </div>
                 <div class="row m-row ">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                        <div class="article__grid">
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
+                        <div class="doctor-card__grid">
+                            <div class="doctor-card">
+                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                    aria-label="Детальніше про лікаря">
                                     <svg class="icon">
                                         <use href="assets/img/sprite.svg#arrow-top-right"></use>
                                     </svg>
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
+                                <div class="doctor-card__img-wrap inverted-radius-top">
+                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                        class="doctor-card__img">
 
                                 </div>
 
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                <div class="doctor-card__content">
+                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                    <p class="doctor-card__specialty text-s">
+                                        Хірург-флеболог, фахівець УЗ-діагностики
                                     </p>
 
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
                                 </div>
-                            </article>
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
+
+                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
+                                    Записатися на прийом
+                                </a>
+                            </div>
+                            <div class="doctor-card">
+                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                    aria-label="Детальніше про лікаря">
                                     <svg class="icon">
                                         <use href="assets/img/sprite.svg#arrow-top-right"></use>
                                     </svg>
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
+                                <div class="doctor-card__img-wrap inverted-radius-top">
+                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                        class="doctor-card__img">
 
                                 </div>
 
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                <div class="doctor-card__content">
+                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                    <p class="doctor-card__specialty text-s">
+                                        Хірург-флеболог, фахівець УЗ-діагностики
                                     </p>
 
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
                                 </div>
-                            </article>
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
+                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
+                                    Записатися на прийом
+                                </a>
+                            </div>
+                            <div class="doctor-card">
+                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                    aria-label="Детальніше про лікаря">
                                     <svg class="icon">
                                         <use href="assets/img/sprite.svg#arrow-top-right"></use>
                                     </svg>
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
+                                <div class="doctor-card__img-wrap inverted-radius-top">
+                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                        class="doctor-card__img">
 
                                 </div>
 
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                <div class="doctor-card__content">
+                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                    <p class="doctor-card__specialty text-s">
+                                        Хірург-флеболог, фахівець УЗ-діагностики
                                     </p>
 
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
                                 </div>
-                            </article>
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
+                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
+                                    Записатися на прийом
+                                </a>
+                            </div>
+                            <div class="doctor-card">
+                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                    aria-label="Детальніше про лікаря">
                                     <svg class="icon">
                                         <use href="assets/img/sprite.svg#arrow-top-right"></use>
                                     </svg>
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
+                                <div class="doctor-card__img-wrap inverted-radius-top">
+                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                        class="doctor-card__img">
 
                                 </div>
 
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                <div class="doctor-card__content">
+                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                    <p class="doctor-card__specialty text-s">
+                                        Хірург-флеболог, фахівець УЗ-діагностики
                                     </p>
 
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
                                 </div>
-                            </article>
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
+                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
+                                    Записатися на прийом
+                                </a>
+                            </div>
+                            <div class="doctor-card">
+                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
+                                    aria-label="Детальніше про лікаря">
                                     <svg class="icon">
                                         <use href="assets/img/sprite.svg#arrow-top-right"></use>
                                     </svg>
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
+                                <div class="doctor-card__img-wrap inverted-radius-top">
+                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
+                                        class="doctor-card__img">
 
                                 </div>
 
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                <div class="doctor-card__content">
+                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
+                                    <p class="doctor-card__specialty text-s">
+                                        Хірург-флеболог, фахівець УЗ-діагностики
                                     </p>
 
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
                                 </div>
-                            </article>
-                            <article class="article">
-                                <a href="article.html" class="article__btn btn btn--round"
-                                    aria-label="Читати детальніше">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
+                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
+                                    Записатися на прийом
                                 </a>
-                                <div class="article__img--wrap inverted-radius-top">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
-                                        loading="lazy">
-
-                                </div>
-
-                                <div class="article__content">
-                                    <h3 class="article__title">
-                                        <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
-                                            флеболога у Львові</a>
-                                    </h3>
-
-                                    <p class="article__excerpt text-s">
-                                        Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
-                                        Стаж — понад 23 роки. Виконав понад 7 000 процедур
-                                    </p>
-
-                                    <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
-                                </div>
-                            </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -826,19 +375,17 @@
 
 
         <section class="s-contacts ">
-            <div class="map__wrap">
-                <div id="map" class="map"></div>
-            </div>
+
             <div class="container ">
                 <div class="row m-row ">
-                    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 col-xs-12 column">
+                    <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
                         <div class="s-contacts__inner overlap">
                             <div class="tab">
                                 <div class="tab__list ">
-                                    <div class="tab__item text-medium text-center">Львів</div>
-                                    <div class="tab__item text-medium text-center">Мукачево</div>
-                                    <div class="tab__item text-medium text-center">Ужгород</div>
-                                    <div class="tab__item text-medium text-center">Івано-Франківськ</div>
+                                    <div class="tab__item text-semibold text-center">Львів</div>
+                                    <div class="tab__item text-semibold text-center">Мукачево</div>
+                                    <div class="tab__item text-semibold text-center">Ужгород</div>
+                                    <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
                                 </div>
 
 
@@ -927,7 +474,26 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <div class="schedule">
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Графік роботи</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00 – 15:00</li>
+                                                    <li class="schedule__item">Нд: вихідний</li>
+                                                </ul>
+                                            </div>
 
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Час роботи call-центру</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00–15:00</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <a href="" class="btn btn--primary">Записатися на прийом</a>
                                     </div>
 
 
@@ -946,7 +512,11 @@
                     </div>
                 </div>
             </div>
+            <div class="map__wrap">
+                <div id="map" class="map"></div>
+            </div>
         </section>
+
     </main>
 
     <footer class="footer">
@@ -1173,49 +743,7 @@
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const burgerToggle = document.getElementById('burgerToggle');
-            const siteHeader = document.getElementById('siteHeader');
 
-            const searchForm = document.querySelector('.js-search-form');
-            const menuSource = document.querySelector('.js-menu-source .menu');
-            const emailLink = document.querySelector('.js-email-link');
-            const contactsSource = document.querySelector('.js-contacts-source');
-            const langSource = document.querySelector('.js-lang-source');
-            const ctaBtn = document.querySelector('.js-cta-btn');
-
-            const searchTarget = document.querySelector('.mobile-dropdown__search-target');
-            const navTarget = document.querySelector('.mobile-dropdown__nav-target');
-            const footerTarget = document.getElementById('mobileDropdownFooter');
-
-            if (searchForm && searchTarget) {
-                searchTarget.appendChild(searchForm.cloneNode(true));
-            }
-
-            if (menuSource && navTarget) {
-                navTarget.appendChild(menuSource.cloneNode(true));
-            }
-
-            if (footerTarget) {
-                if (emailLink) footerTarget.appendChild(emailLink.cloneNode(true));
-                if (contactsSource) footerTarget.appendChild(contactsSource.cloneNode(true));
-                if (langSource) footerTarget.appendChild(langSource.cloneNode(true));
-                if (ctaBtn) {
-                    const clonedBtn = ctaBtn.cloneNode(true);
-                    clonedBtn.classList.add('btn--full');
-                    footerTarget.appendChild(clonedBtn);
-                }
-            }
-
-            if (burgerToggle && siteHeader) {
-                burgerToggle.addEventListener('click', () => {
-                    burgerToggle.classList.toggle('is-active');
-                    siteHeader.classList.toggle('is-open');
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

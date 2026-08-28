@@ -476,7 +476,7 @@
             </div>
         </section>
 
-        <section class="s-doctors swiper-entry">
+        <section class="s-doctors-slider swiper-entry">
             <div class="container">
                 <div class="row m-row">
                     <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16  s-doctors__inner">
@@ -736,13 +736,7 @@
                                                 <option value="2">Напрямок 2</option>
                                             </select>
                                         </div>
-                                        <div class="select-box">
-                                            <select class="custom-native-select">
-                                                <option value="" disabled selected hidden>Вибрати</option>
-                                                <option value="1">Напрямок 1</option>
-                                                <option value="2">Напрямок 2</option>
-                                            </select>
-                                        </div>
+
                                     </div>
 
                                     <div class="form-field form-field--full">
@@ -791,12 +785,38 @@
                                             <div class="review-card__avatar text-black">БМ</div>
                                             <div class="review-card__info">
                                                 <h3 class="review-card__author text-bold">Богдана Мацина</h3>
-                                                <div class="review-card__rating" aria-label="Оцінка: 4 з 5">
-                                                    <i class="icon-star is-active" aria-hidden="true"></i>
-                                                    <i class="icon-star is-active" aria-hidden="true"></i>
-                                                    <i class="icon-star is-active" aria-hidden="true"></i>
-                                                    <i class="icon-star is-active" aria-hidden="true"></i>
-                                                    <i class="icon-star" aria-hidden="true"></i>
+
+                                                <div class="review-card__rating" style="--rating: 3;"
+                                                    aria-label="Оцінка: 3 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text text-s">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department ">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+
+                                                <div class="review-card__rating" style="--rating: 4;"
+                                                    aria-label="Оцінка: 4 з 5">
                                                 </div>
                                                 <time class="review-card__date" datetime="2026-04-12">12 квітня
                                                     2026</time>
@@ -809,8 +829,8 @@
                                         </p>
 
                                         <p class="review-card__department">
-                                            Відділення: <a href="#"
-                                                class="review-card__department-link">Ревматологія</a>
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
                                         </p>
 
                                         <a href="#" class="review-card__more">Детальніше</a>
@@ -819,10 +839,39 @@
                                 <div class="swiper-slide">
                                     <article class="review-card">
                                         <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+
+                                                <div class="review-card__rating" style="--rating: 0;"
+                                                    aria-label="Оцінка: 0 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text text-s">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department text-s">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
                                             <div class="review-card__avatar text-black">MZ</div>
                                             <div class="review-card__info">
                                                 <h3 class="review-card__author text-bold">Mykola Zarudniak</h3>
-                                                <div class="rating" style="--rating: 3;" aria-label="Оцінка: 3 з 5">
+                                                <div class="review-card__rating" style="--rating: 3;"
+                                                    aria-label="Оцінка: 3 з 5">
                                                 </div>
                                                 <time class="review-card__date" datetime="2026-04-12">12 квітня
                                                     2026</time>
@@ -834,12 +883,12 @@
                                             Євгенівни. Дуже хороша лікарка, яка назначила...
                                         </p>
 
-                                        <p class="review-card__department">
-                                            Відділення: <a href="#"
-                                                class="review-card__department-link">Ревматологія</a>
+                                        <p class="review-card__department text-s">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
                                         </p>
 
-                                        <a href="#" class="review-card__more">Детальніше</a>
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
                                     </article>
                                 </div>
                             </div>
@@ -879,7 +928,7 @@
                     <div
                         class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 d-flex align-justify align-middle">
                         <h3 class="heading h2 text-bold">Спеціальні пропозиції</h3>
-                        <a href="" class="btn btn--outline d-none d-md-inline-block">Всі акції</a>
+                        <a href="promotions.html" class="btn btn--outline d-none d-md-inline-block">Всі акції</a>
                     </div>
                 </div>
                 <div class="row m-row">
@@ -1459,19 +1508,17 @@
         </section>
 
         <section class="s-contacts ">
-            <div class="map__wrap">
-                <div id="map" class="map"></div>
-            </div>
+
             <div class="container ">
                 <div class="row m-row ">
-                    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 col-xs-12 column">
+                    <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
                         <div class="s-contacts__inner overlap">
                             <div class="tab">
                                 <div class="tab__list ">
-                                    <div class="tab__item text-medium text-center">Львів</div>
-                                    <div class="tab__item text-medium text-center">Мукачево</div>
-                                    <div class="tab__item text-medium text-center">Ужгород</div>
-                                    <div class="tab__item text-medium text-center">Івано-Франківськ</div>
+                                    <div class="tab__item text-semibold text-center">Львів</div>
+                                    <div class="tab__item text-semibold text-center">Мукачево</div>
+                                    <div class="tab__item text-semibold text-center">Ужгород</div>
+                                    <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
                                 </div>
 
 
@@ -1560,7 +1607,26 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <div class="schedule">
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Графік роботи</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00 – 15:00</li>
+                                                    <li class="schedule__item">Нд: вихідний</li>
+                                                </ul>
+                                            </div>
 
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Час роботи call-центру</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00–15:00</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <a href="" class="btn btn--primary">Записатися на прийом</a>
                                     </div>
 
 
@@ -1578,6 +1644,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="map__wrap">
+                <div id="map" class="map"></div>
             </div>
         </section>
 
