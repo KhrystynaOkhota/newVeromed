@@ -40,6 +40,7 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    gap: 20px;
 
     .page-numbers {
       display: flex;
@@ -50,72 +51,25 @@
       -ms-flex-align: center;
       align-items: center;
 
-      font-size: 14px;
-      font-weight: 300;
+      font-size: 18px;
+      font-weight: 700;
       text-align: center;
-      color: #2D2D2D;
-      width: fluid(50, 60);
-      height: fluid(50, 60);
-      background: transparent;
-      box-shadow: 0px 0px 30px 0px transparent;
-      border-radius: 0;
+      color: rgba(30, 30, 30, 1);
+      width: 50px;
+      height: 50px;
+      background: rgba(242, 242, 242, 1);
+      border-radius: 10px;
       cursor: pointer;
       @include transition(.4);
-
       margin: 0;
 
       @media (max-width: $breakpoint-md) {}
 
-      &.next,
-      &.prev {
-
-        border: 1px solid rgba(200, 198, 229, 1);
-        @include transition(.3);
-
-        & i {
-          font-size: 12px;
-          color: rgba(200, 198, 229, 1);
-          @include transition(.3);
-        }
-
-        & svg {
-          color: rgba(200, 198, 229, 1);
-          @include transition(.3);
-        }
-
-        &:hover {
-          background: rgba(200, 198, 229, 1);
-
-          & i {
-
-            color: rgba(255, 255, 255, 1);
-          }
-
-          & svg {
-            color: rgba(255, 255, 255, 1);
-            @include transition(.3);
-          }
-        }
+      &:hover,
+      &.current {
+        color:rgba(242, 242, 242, 1);
+        background: rgba(139, 30, 30, 1);
       }
-
-      &.next {
-        margin-left: 32px;
-      }
-
-      &.prev {
-        margin-right: 32px;
-      }
-
-      &:not(&.next, &.prev, &.end, &.start) {
-
-        &:hover,
-        &.current {
-          background: #fff;
-          box-shadow: 0px 0px 30px 0px rgba(60, 80, 114, 0.2);
-
-        }
-      }
-
     }
   }
 

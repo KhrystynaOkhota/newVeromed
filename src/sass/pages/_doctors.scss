@@ -31,9 +31,13 @@
     top: 0;
     right: 0;
   }
+
+  &__btn {
+    margin-top: 14px;
+  }
 }
 
-.s-doctors {
+.s-doctors-slider {
   padding: fluid(50, 100) 0;
 
   &__inner {
@@ -49,6 +53,16 @@
     @media (max-width: $breakpoint-md) {
       text-align: center;
       margin-bottom: 21px;
+    }
+  }
+}
+
+.s-doctors {
+  & .doctor-card {
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px 20px;
     }
   }
 }

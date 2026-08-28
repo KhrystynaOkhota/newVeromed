@@ -46,10 +46,10 @@
 // ==========================================================================
 // Головна та інформаційні сторінки
 @use "pages/_home";
-//@use "pages/_about";
+@use "pages/_about";
 //@use "pages/_direction";
 @use "pages/_contacts";
-@use "pages/_offers";
+@use "pages/_promo";
 
 // Блог та контент
 @use "pages/_blog";

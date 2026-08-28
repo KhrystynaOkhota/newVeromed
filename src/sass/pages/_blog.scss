@@ -3,6 +3,8 @@
 
 
 .article {
+  position: relative;
+
   &__item {
     display: block;
     margin-bottom: 20px;
@@ -86,12 +88,24 @@
   padding-top: 56px;
   padding-bottom: fluid(100, 200);
 
-  .decor__wrap {
-    bottom: 0;
-  }
-
   .pagination {
     margin-top: fluid(40, 50);
+  }
+
+  & .article {
+    &__grid {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 70px 30px;
+
+      &>* {
+        flex: 0 0 calc((100% - 60px) / 3);
+
+      }
+
+      ;
+    }
   }
 }
 

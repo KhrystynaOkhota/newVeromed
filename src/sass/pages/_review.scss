@@ -1,54 +1,34 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-// ==========================================
-// VARIABLES
-// ==========================================
-$color-bg-card: #F2F2F2; // Рожевувато-бежевий фон картки
-$color-text-main: #2b1a1a; // Темний колір тексту/заголовка
-$color-text-muted: #8c7a7a; // М'який сіро-коричневий для дат/тексту
-$color-accent: #a02828; // Бордовий акцент для посилань і активних зірок
-$color-star-inactive: #d1c4c4; // Колір неактивної зірки
-
-$font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
-
-// ==========================================
-// REVIEWS SECTION & CARDS
-// ==========================================
 .reviews {
   padding: 40px 0;
 }
-.rating {
-  --rating: 5;
-  --star-empty: #e0e0e0;
-  --star-fill: #8b1a1a;
 
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 2px;
 
-  &::before {
-    content: '★★★★★';
-    background: linear-gradient(
-      to right,
-      var(--star-fill) calc(var(--rating) / 5 * 100%),
-      var(--star-empty) calc(var(--rating) / 5 * 100%)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+:root {
+  --star-fill: rgba(139, 30, 30, 1);
+  /* Колір активних зірок */
+  --star-empty: rgba(202, 202, 202, 1);
+  /* Колір неактивних зірок */
+  --star-size: 15px;
+  /* Точна ширина SVG */
+  --star-height: 15px;
+  /* Точна висота SVG */
+  --star-gap: 4px;
+  /* Відступ між зірками */
 }
+
+
+
 .review-card {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 24px;
-  background-color: $color-bg-card;
-  border-radius: 20px;
-  font-family: $font-main;
+  padding: fluid(15, 20);
+  background-color: rgba(242, 242, 242, 1);
+  border-radius:  20px;
 
-  // --- Верхня частина (Аватар + Інфо) ---
   &__top {
     display: flex;
     align-items: center;
@@ -78,44 +58,44 @@ $font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
 
   &__author {
     margin: 0;
-    font-size: 18px;
+    font-size: fluid(17, 20);
     font-weight: 700;
-    color: $color-text-main;
-    line-height: 1.2;
+    margin-bottom: 8px;
   }
 
   &__rating {
-    display: flex;
-    gap: 4px;
-    font-size: 14px;
-    color: $color-star-inactive;
-
-    .icon-star {
-      &.is-active {
-        color: $color-accent;
-      }
-    }
+    margin-bottom: 8px;
+    display: inline-block;
+    width: 93px;
+    height: 15px;
+    background: linear-gradient(to right,
+        var(--star-fill) calc(var(--rating) / 5 * 100%),
+        var(--star-empty) calc(var(--rating) / 5 * 100%));
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M10.1156 3.74466L8.79573 1.08313C8.08331 -0.361045 6.91344 -0.361045 6.19352 1.08313L4.87366 3.74466C4.69368 4.11515 4.21373 4.47053 3.81628 4.53858L1.42404 4.93932C-0.105789 5.1964 -0.45825 6.31544 0.636629 7.41937L2.49642 9.29453C2.81139 9.6121 2.98387 10.2246 2.88638 10.6631L2.35394 12.9844C1.93399 14.8142 2.90888 15.5325 4.5137 14.5722L6.75595 13.2339C7.16841 12.9919 7.83583 12.9919 8.24079 13.2339L10.483 14.5722C12.0954 15.5325 13.0628 14.8217 12.6428 12.9844L12.1104 10.6631C12.0129 10.2246 12.1854 9.6121 12.5003 9.29453L14.3601 7.41937C15.4625 6.31544 15.1025 5.1964 13.5727 4.93932L11.1805 4.53858C10.7755 4.47053 10.2956 4.11515 10.1156 3.74466Z" fill="black"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M10.1156 3.74466L8.79573 1.08313C8.08331 -0.361045 6.91344 -0.361045 6.19352 1.08313L4.87366 3.74466C4.69368 4.11515 4.21373 4.47053 3.81628 4.53858L1.42404 4.93932C-0.105789 5.1964 -0.45825 6.31544 0.636629 7.41937L2.49642 9.29453C2.81139 9.6121 2.98387 10.2246 2.88638 10.6631L2.35394 12.9844C1.93399 14.8142 2.90888 15.5325 4.5137 14.5722L6.75595 13.2339C7.16841 12.9919 7.83583 12.9919 8.24079 13.2339L10.483 14.5722C12.0954 15.5325 13.0628 14.8217 12.6428 12.9844L12.1104 10.6631C12.0129 10.2246 12.1854 9.6121 12.5003 9.29453L14.3601 7.41937C15.4625 6.31544 15.1025 5.1964 13.5727 4.93932L11.1805 4.53858C10.7755 4.47053 10.2956 4.11515 10.1156 3.74466Z" fill="black"/></svg>');
+    -webkit-mask-size: 19px 15px;
+    mask-size: 19px 15px;
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    -webkit-mask-position: left top;
+    mask-position: left top;
   }
 
   &__date {
-    font-size: 13px;
-    color: $color-text-muted;
+    font-size: fluid(14, 15);
   }
 
-  // --- Основний текст ---
   &__text {
     margin: 0 0 15px 0;
     font-size: fluid(15, 17);
     line-height: 1.5;
-    color: $color-text-main;
     flex-grow: 1; // Забезпечує однакову висоту карткам
   }
 
-  // --- Відділення та кнопка "Детальніше" ---
+
   &__department {
     margin: 0 0 12px 0;
     font-size: 14px;
-    color: $color-text-main;
 
     strong {
       font-weight: 700;
@@ -123,9 +103,10 @@ $font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   &__department-link {
-    color: $color-accent;
+
     text-decoration: none;
     transition: opacity 0.2s ease;
+    color: rgba(139, 30, 30, 1);
 
     &:hover {
       text-decoration: underline;
@@ -136,9 +117,8 @@ $font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   &__more {
     display: inline-block;
     align-self: flex-start;
-    font-size: 14px;
-    font-weight: 500;
-    color: $color-accent;
+
+    color: rgba(139, 30, 30, 1);
     text-decoration: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
 
