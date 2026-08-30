@@ -63,7 +63,7 @@
   &--thanks {
     & .img {
       max-width: fluid(213, 306);
-      
+
       @media (min-width: $breakpoint-md) {
         margin: 0 auto;
       }
@@ -206,43 +206,17 @@
 
 }
 
-.s-search {
-  min-height: 70vh;
-  padding: 50px 0 100px 0;
 
-  @media (max-width: $breakpoint-md) {
-    padding: 20px 0 70px 0;
-  }
+
+.s-search-results {
+  min-height: 50vh;
+  padding: 40px 0 fluid(50, 100) 0;
 
   & .heading {
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
 
-  & .description {
-    margin-bottom: 25px;
-    @include fontSize(20, 30);
-  }
-
-  & .product {
-    &__grid {
-      gap: 45px 20px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-
-      @media (max-width: $breakpoint-lg) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px 15px;
-      }
-
-      @media (max-width: $breakpoint-md) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px 15px;
-      }
-
-      /* @media (max-width: 450px) {
-         grid-template-columns: repeat(1, 1fr);
-         gap: 24px 15px;
-       }*/
-    }
+  & .doctor-card__grid {
+    margin-bottom: 50px;
   }
 }

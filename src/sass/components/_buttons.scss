@@ -65,8 +65,14 @@
       // Перехід для стрілки
       transition: transform 0.25s ease;
     }
+  }
 
-    // 3. Легка анімація при наведенні
-
+  &--load-more {
+    font-size: 20px;
+    color: rgba(139, 30, 30, 1);
+    margin:30px 0 25px  0;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
   }
 }

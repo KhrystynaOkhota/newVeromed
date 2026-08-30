@@ -66,6 +66,11 @@
     right: 0;
     z-index: 3;
   }
+  &__grid{
+     display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 20px;
+  }
 }
 
 .s-last-news {

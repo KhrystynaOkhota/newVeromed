@@ -182,19 +182,56 @@ jQuery(function ($) {
         }
     });
 
-    // 7. СЛАЙДЕР ЦІНИ (UI Slider)
-    if ($('#slider').length) {
-        $("#slider").slider({
-            range: true,
-            min: 0,
-            max: 7000,
-            values: [8, 6666],
-            slide: function (event, ui) {
-                $(".from").val(ui.values[0]);
-                $(".to").val(ui.values[1]);
+    
+
+
+    _functions.initSelect = function (parent) {
+        $('' + parent + ' .SelectBox').each(function () {
+            console.log($(this));
+            if ($(this).attr("multiple")) {
+                $(this).SumoSelect({
+                    floatWidth: 0,
+                    nativeOnDevice: [],
+                    okCancelInMulti: true,
+                    csvDispCount: 1,
+                    captionFormat: '{0} Selected',
+                    locale: ['Ok', 'Cancel', 'All'],
+                    placeholder: '',
+                });
+            } else if ($(this).hasClass("search")) {
+                let textSearch = $(this).attr("data-text-search") ? $(this).attr("data-text-search") : '';
+                let textNoMatch = $(this).attr("data-text-no-match") ? $(this).attr("data-text-no-match") : '';
+                console.log(textNoMatch);
+                $(this).SumoSelect({
+                    forceCustomRendering: true,
+                    search: true,
+                    searchText: textSearch,
+                    noMatch: `${textNoMatch} "{0}"`,
+                    // floatWidth: 0,
+                    placeholder: "",
+                    // nativeOnDevice: []
+                });
+            } else {
+                $(this).SumoSelect({
+                    floatWidth: 0,
+                    nativeOnDevice: [],
+                    placeholder: '',
+                });
             }
+
+            $(this).on('sumo:opened', function () {
+                $(this).closest('.input-field').addClass('focus');
+            });
+
+            $(this).on('sumo:closed', function () {
+                $(this).closest('.input-field').removeClass('focus');
+            });
         });
-    }
+    };
+
+    _functions.initSelect('html');
+
+
 });
 
 // ==========================================================================
@@ -382,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // SumoSelect
     // =============================
 
-   /* if (jQuery('.select-entry').length) {
-        jQuery('select').SumoSelect();
-    };*/
+    /* if (jQuery('.select-entry').length) {
+         jQuery('select').SumoSelect();
+     };*/
 });

@@ -1,6 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+/*
 .SumoSelect {
   width: 100%;
   padding: 20px;
@@ -161,3 +162,207 @@
 
 }
 
+*/
+/*--------------------*/
+/* Select             */
+/*--------------------*/
+
+
+
+
+
+
+.SumoSelect {
+    --sel-p: 1rem;
+    --sel-h: 3.75rem;
+    --sel-fz: 1rem;
+    --sel-items: 5;
+    --opt-p: 0.625rem;
+    --opt-lh: calc(var(--sel-fz) * 1.125);
+    --max-height: calc((var(--opt-p) * 2 + var(--opt-lh)) * var(--sel-items) + var(--opt-p) * 2);
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+}
+
+.SumoUnder {
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+    backface-visibility: hidden;
+    display: none;
+}
+
+.SumoSelect > .CaptionCont {
+    z-index: 1;
+    text-align: left;
+    height: var(--sel-h);
+    padding: var(--sel-p);
+    padding-right: calc(var(--sel-p) * 2.5);
+    background: var(--clr-white);
+    border-radius: var(--rd-3);
+    color: var(--clr-black-80);
+    border: 0.0625rem solid var(--clr-border);
+    transition: var(--transition-1);
+}
+
+.SumoSelect > .CaptionCont > span {
+    cursor: pointer;
+    padding-right: 0;
+    font-size: var(--sel-fz);
+    font-weight: 400;
+    line-height: calc(var(--sel-h) - var(--sel-p) * 2);
+    color: currentColor;
+    backface-visibility: hidden;
+}
+
+.SumoSelect > .CaptionCont > span.placeholder {
+    font-style: normal;
+    color: currentColor;
+}
+
+.SumoSelect > .CaptionCont > label {
+    display: inline-block;
+    cursor: pointer;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: currentColor;
+    right: var(--sel-p);
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--transition-1);
+}
+
+.SumoSelect > .CaptionCont > label i {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M0.292893 0.296503C-0.0976308 0.687028 -0.0976313 1.32019 0.292893 1.71072L5.18512 6.59816C5.96628 7.37856 7.23208 7.37825 8.01286 6.59747L12.9032 1.70711C13.2937 1.31658 13.2937 0.683417 12.9032 0.292894C12.5127 -0.0976321 11.8795 -0.0976302 11.489 0.292894L7.30336 4.47854C6.91284 4.86907 6.27967 4.86907 5.88915 4.47854L1.70711 0.296503C1.31658 -0.0940211 0.683417 -0.0940211 0.292893 0.296503Z" fill="%236F6F6F"/></svg>') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: 14px 8px !important;
+        width: 14px !important;
+        height: 8px !important;
+        border: none !important;
+        /* Прибираємо дефолтні css-бордери стрілки, якщо вони є */
+        transition: transform 0.2s ease;
+        right: 20px !important;
+}
+
+.input-field:has(.input-placeholder) > .SumoSelect > .CaptionCont > span {
+    line-height: calc(var(--sel-h) - var(--sel-p));
+}
+
+.SumoSelect > .optWrapper {
+    display: block;
+    overflow: auto;
+    z-index: 2;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 0.0625rem solid var(--clr-border);
+    border-top: none;
+    border-radius: 0 0 var(--rd-2) var(--rd-2);
+    opacity: 0;
+    visibility: hidden;
+    backface-visibility: hidden;
+    background-color: var(--clr-white);
+    box-shadow: 0 0.625rem 1rem 0 rgba(0, 0, 0, 0.07);
+    transition: 0s;
+}
+
+.SumoSelect > .optWrapper > .options {
+    font-size: var(--sel-fz);
+    max-height: var(--max-height);
+    padding: var(--opt-p) 0;
+    border-radius: 0 !important;
+}
+
+.SumoSelect > .optWrapper > .options li.opt {
+    padding: 0;
+    border-bottom: 0;
+}
+
+.SumoSelect > .optWrapper > .options li label {
+    white-space: unset;
+    text-align: left;
+    padding: var(--opt-p) var(--sel-p);
+    font-size: var(--sel-fz);
+    line-height: var(--opt-lh);
+    font-weight: 400;
+    color: var(--clr-black-60);
+    transition: var(--transition-1);
+}
+
+.SumoSelect > .optWrapper > .options li.opt.selected label {
+    color: var(--clr-primary);
+}
+
+.SumoSelect > .optWrapper > .options > .opt.disabled:first-child {
+    display: none !important;
+}
+
+.SumoSelect > .optWrapper > .options li.group > label {
+    padding: var(--opt-p) var(--sel-p);
+    font-weight: 600;
+}
+
+.SumoSelect > .optWrapper > .options li ul li.opt {
+    padding-left: var(--opt-p);
+}
+
+.SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
+    box-shadow: none;
+    border-color: var(--clr-border);
+}
+
+.SumoSelect.open > .CaptionCont {
+    border-color: var(--clr-border);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.SumoSelect.open > .CaptionCont > label {
+    transform: translateY(-50%) rotateX(180deg);
+}
+
+.SumoSelect.open > .optWrapper {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: var(--transition-1);
+    transition-delay: 0.2s;
+}
+
+.SumoSelect.disabled {
+    opacity: 0.5;
+}
+
+.SumoSelect.disabled > .CaptionCont {
+    cursor: not-allowed;
+}
+
+.SumoSelect.disabled > .CaptionCont > span {
+    cursor: not-allowed;
+}
+
+@media (min-width: 1200px) {
+    .SumoSelect > .optWrapper > .options li.opt:hover label {
+        background-color: var(--clr-grey);
+    }
+}
+
+@media (max-width: 1199px) {
+    .SumoSelect {
+        --sel-h: 3.25rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .SumoSelect {
+        --sel-p: 0.75rem;
+        --sel-h: 3.75rem;
+        --sel-fz: 1rem;
+    }
+}

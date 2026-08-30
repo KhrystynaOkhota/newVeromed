@@ -61,12 +61,15 @@
 .s-mission {
   padding: fluid(50, 100) 0;
   border-bottom: 1px solid rgba(30, 30, 30, 0.1);
+
   & .heading {
     margin-bottom: fluid(21, 37);
+
     @media (max-width: $breakpoint-md) {
       text-align: center;
     }
   }
+
   .mission {
     &__img {
       width: 55%;
@@ -125,6 +128,37 @@
       @media (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
         gap: 12px;
+      }
+    }
+  }
+}
+
+.s-partners {
+  padding: fluid(50,100) 0;
+  & .heading {
+    margin-bottom: fluid(21, 30);
+  }
+
+  & .partner {
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: fluid(15,20);
+
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &__img {
+      width: 65%;
+      height: 65%;
+      object-fit: contain;
+      object-position: center;
+      &--wrap {
+        border-radius: 20px;
+        border: 5px solid rgba(242, 242, 242, 1);
+        min-height: 180px;
       }
     }
   }

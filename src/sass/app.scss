@@ -29,6 +29,7 @@
 @use "components/_forms";
 @use "components/_breadcrumb";
 @use "components/_pagination";
+@use "components/_sumo-select-custom";
 
 // Складніші інтерактивні UI-компоненти
 @use "components/_modals";
@@ -64,5 +65,5 @@
 
 
 //@use "pages/_account";
-//@use "pages/_other";
+@use "pages/_other";
 //@use "pages/_woocommerce";
