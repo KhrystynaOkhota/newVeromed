@@ -35,11 +35,12 @@
   &__btn {
     margin-top: 14px;
   }
+
   &__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 50px 20px;
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 20px;
+  }
 }
 
 .s-doctors-slider {
@@ -53,11 +54,24 @@
       align-items: center;
     }
   }
-
+& .swiper-container{
+   @media (min-width: $breakpoint-md) {
+     
+      margin-top:40px;
+    }
+}
   .heading {
     @media (max-width: $breakpoint-md) {
       text-align: center;
       margin-bottom: 21px;
+    }
+  }
+
+  & .btn--outline {
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      max-width: 400px;
+      margin: 25px auto 0 auto;
     }
   }
 }

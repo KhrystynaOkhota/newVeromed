@@ -59,7 +59,8 @@ button {
       grid-template-columns: 1fr;
     }
   }
-display: flex;
+
+  display: flex;
   flex-direction: column;
   gap: 6px;
   position: relative;
@@ -67,11 +68,12 @@ display: flex;
   &--full {
     grid-column: 1 / -1;
   }
+
   &__label {
     display: block;
     font-size: fluid(15, 16);
     color: #6F6F6F;
-    
+
   }
 
   &__input,

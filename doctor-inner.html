@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Veromed</title>
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+
+    <link rel="stylesheet" href="assets/css/app.css" />
+
+</head>
+
+<body>
+
+    <header class="site-header d-none" id="siteHeader">
+        <!-- Верхній бар (Desktop) -->
+        <div class="header-top">
+            <div class="header-top__container">
+                <div class="header-top__left">
+                    <div class="header-top__item header-top__city">
+                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z" />
+                        </svg>
+                        <span>Оберіть ваше місто:</span>
+                        <select class="header-top__city-select">
+                            <option value="lviv" selected>Львів</option>
+                            <option value="kyiv">Київ</option>
+                        </select>
+                    </div>
+                    <div class="header-top__item">
+                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z" />
+                        </svg>
+                        <span>Львів, вул. Генерала Юнаківа, 9</span>
+                    </div>
+                </div>
+                <div class="header-top__right">
+                    <a href="mailto:call.centre.veromed@gmail.com"
+                        class="header-top__item header-top__link js-email-link">
+                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span>call.centre.veromed@gmail.com</span>
+                    </a>
+
+                    <ul class="polylang-switcher lang-switcher js-lang-source">
+                        <li class="lang-item lang-item-uk current-lang">
+                            <a href="/" lang="uk" hreflang="uk">
+                                <img src="https://flagcdn.com/w40/ua.png" alt="UA" width="20" height="20">
+                            </a>
+                        </li>
+                        <li class="lang-item lang-item-en">
+                            <a href="/en/" lang="en" hreflang="en">
+                                <img src="https://flagcdn.com/w40/us.png" alt="EN" width="20" height="20">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Головна шапка (в мобільній версії залишається завжди зверху) -->
+        <div class="header-main">
+            <div class="header-main__container">
+                <a href="/" class="logo">
+                    <img src="assets/img/logo-color.svg" alt="logo Veromed" class="logo__icon">
+                </a>
+
+                <form role="search" method="get" class="search-form header-main__search js-search-form" action="/">
+                    <input type="search" class="search-field search-form__input" placeholder="Пошук" value="" name="s">
+                    <button type="submit" class="search-submit search-form__btn" aria-label="Шукати">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" stroke="currentColor" stroke-width="2"
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </button>
+                </form>
+
+                <div class="header-main__contacts js-contacts-source">
+                    <a href="tel:+380672626680" class="header-main__phone">+380 (67) 262-66-80</a>
+                    <div class="socials">
+                        <a href="#" class="socials__link socials__link--tg" aria-label="Telegram">TG</a>
+                        <a href="#" class="socials__link socials__link--wa" aria-label="WhatsApp">WA</a>
+                        <a href="#" class="socials__link socials__link--viber" aria-label="Viber">VB</a>
+                    </div>
+                </div>
+
+                <a href="#appointment" class="btn btn--primary header-main__btn js-cta-btn">Записатися на прийом</a>
+
+                <a href="tel:+380672626680" class="header-main__mobile-phone" aria-label="Зателефонувати">
+                    <svg viewBox="0 0 24 24" width="22" height="22">
+                        <path fill="#8b1e22"
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                </a>
+
+                <!-- Кнопка Бургера (трансформується в хрестик) -->
+                <button class="burger-btn" id="burgerToggle" aria-label="Меню">
+                    <span class="burger-btn__line"></span>
+                    <span class="burger-btn__line"></span>
+                    <span class="burger-btn__line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Навігація Desktop -->
+        <nav class="header-nav main-navigation js-menu-source">
+            <div class="header-nav__container">
+                <ul id="primary-menu" class="menu nav-menu">
+                    <li class="menu-item current-menu-item"><a href="#">Послуги</a></li>
+                    <li class="menu-item"><a href="#">Вартість послуг</a></li>
+                    <li class="menu-item"><a href="#">Результати</a></li>
+                    <li class="menu-item"><a href="#">Блог</a></li>
+                    <li class="menu-item"><a href="#">Наші лікарі</a></li>
+                    <li class="menu-item"><a href="#">Питання лікарю</a></li>
+                    <li class="menu-item"><a href="#">Про нас</a></li>
+                    <li class="menu-item"><a href="#">Контакт</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Мобільне розгортається вниз строго під header-main -->
+        <div class="mobile-dropdown" id="mobileDropdown">
+            <div class="mobile-dropdown__container">
+                <div class="mobile-dropdown__search-target"></div>
+                <div class="mobile-dropdown__nav-target"></div>
+                <div class="mobile-dropdown__footer" id="mobileDropdownFooter"></div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                    <div class="kama_breadcrumbs">
+                        <span>
+                            <a href="">
+                                <span>Головна</span>
+                            </a>
+                        </span>
+                        <span class="kb_sep">></span>
+                        <span>
+                            <a href="">
+                                <span>Наші лікарі</span>
+                            </a>
+                        </span>
+                        <span class="kb_sep">></span>
+                        <span class="kb_title">Баніра Юлія Володимирівна</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="s-doctor">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-16 col-xs-16 column">
+                        <div class="doctor__name text-center text-bold h2 d-block d-md-none">Баніра Юлія Володимирівна
+                        </div>
+                        <p class="doctor__specialty text-center text-bold d-block d-md-none">Акушер-гінеколог, фахівець
+                            УЗ-діагностики</p>
+                        <div class="doctor__img--wrap">
+                            <img src="assets/img/team-5.png" alt="Баніра Юлія Володимирівна — Акушер-гінеколог"
+                                class="doctor-card__img" loading="lazy" width="320" height="426">
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-16 col-xs-16 column">
+
+                        <h1 class="doctor__name text-bold h2 d-none d-md-inline-block">Баніра Юлія Володимирівна</h1>
+                        <p class="doctor__specialty text-bold d-none d-md-inline-block">Акушер-гінеколог, фахівець
+                            УЗ-діагностики</p>
+
+                        <ul class="price-list">
+                            <li class="price-list__item">
+                                <span class="price-list__title text-s">Передопераційна консультація
+                                    анестезіолога</span>
+                                <strong class="price-list__cost text-s text-bold">1 500 грн</strong>
+
+                            </li>
+
+                            <li class="price-list__item">
+                                <span class="price-list__title text-s">Консультація
+                                    гастроентеролога</span>
+                                <strong class="price-list__cost text-s text-bold">1 500 грн</strong>
+
+                            </li>
+                            <li class="price-list__item">
+                                <span class="price-list__title text-s">Консультація
+                                    гастроентеролога</span>
+                                <strong class="price-list__cost text-s text-bold">1 500 грн</strong>
+
+                            </li>
+                        </ul>
+                        <a href="" class="btn btn--primary open-popup" data-rel="cta">
+                            Записатися на прийом
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="tab">
+                            <div class="tab__list ">
+                                <div class="tab__item is--active text-semibold text-center">Про лікар</div>
+                                <div class="tab__item text-semibold text-center">Послуги та напрямки роботи</div>
+                                <div class="tab__item text-semibold text-center">Освіта</div>
+                            </div>
+                            <div class="tab__content">
+                                <div class="tab__panel --relative ">
+                                    <div class="doctor-details__grid">
+                                        <div class="doctor-details">
+                                            <div class="doctor-details__term text-bold">Спеціалізація:</div>
+                                            <div class="doctor-details__description">акушер - гінеколог</div>
+                                        </div>
+
+                                        <div class="doctor-details">
+                                            <div class="doctor-details__term text-bold">Кваліфікаційна категорія:</div>
+                                            <div class="doctor-details__description">вища категорія</div>
+                                        </div>
+
+                                        <div class="doctor-details">
+                                            <div class="doctor-details__term text-bold">Наукове звання:</div>
+                                            <div class="doctor-details__description"></div>
+                                        </div>
+
+                                        <div class="doctor-details">
+                                            <div class="doctor-details__term text-bold">Стаж роботи:</div>
+                                            <div class="doctor-details__description">19 років</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab__panel --relative ">
+                                    <div class="cms-content">
+                                        <h3>test h3</h3>
+                                        <p>test p</p>
+                                        <ul>
+                                            <li>Профілактичні гінекологічні огляди та консультації.</li>
+                                            <li>Діагностика і лікування запальних захворювань жіночої репродуктивної
+                                                системи.</li>
+                                            <li>Діагностика та лікування інфекцій, що передаються статевим шляхом
+                                                (ІПСШ).</li>
+                                            <li>Кольпоскопія та оцінка стану шийки матки.</li>
+                                            <li>Ультразвукова діагностика органів малого таза.</li>
+                                            <li>УЗД молочних залоз.</li>
+                                            <li>УЗД щитоподібної залози.</li>
+                                            <li>Встановлення та видалення внутрішньоматкових контрацептивів (спіралей).
+                                            </li>
+                                            <li>Діагностика та корекція гормональних порушень.</li>
+                                            <li>Ведення пацієнток із міомою матки, ендометріозом, синдромом
+                                                полікістозних яєчників та іншими гінекологічними захворюваннями.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab__panel --relative ">
+                                    <div class="cms-content">
+                                        <p>В 2008 році закінчив Львівський національний університет ім. Данила
+                                            Галицького, факультет лікувальна справа</p>
+                                        <p>&nbsp;</p>
+                                        <p>З 2008 року по 2011 рік проходив інтернатуру на базі хірургічного відділення
+                                            Львівської обласної клінічної лікарні та Лікарні швидкої медичної допомоги
+                                            за спеціальністю хірургія.</p>
+                                        <p>&nbsp;</p>
+                                        <p>З 2011 року працює лікарем-хірургом Львівської обласної клінічної лікарні.
+                                        </p>
+                                        <p>&nbsp;</p>
+                                        <p>2008 р., 2009 р.- Учасник майстер-класу «Актуальні питання флебології»</p>
+                                        <p>&nbsp;</p>
+                                        <p>2010 р. – учасник III зїзду судинних хірургів і ангіологів України</p>
+                                        <p>&nbsp;</p>
+                                        <p>У 2011 році пройшов курси УЗД «доплерографія магістральних судин»</p>
+                                        <p>&nbsp;</p>
+                                        <p>2013 р. – Україно-французький семінар «Варикозна хвороба вен нижніх
+                                            кінцівок», ННЦ «Институт кардіології ім. акад. М.Д. Стражеско»</p>
+                                        <p>&nbsp;</p>
+                                        <p>Учасник IV, V, VI Всеукраїнської конференції з міжнародою участю “Сухарівскі
+                                            читаня: ангіологія і судинна хірургія сьогодні”;</p>
+                                        <p>&nbsp;</p>
+                                        <p>Учасник семінару «Лазерні технології в хірургіїї варикозної хвороби»</p>
+                                        <p>&nbsp;</p>
+                                        <p>Провів понад 7000 ендовенозних лазерних коагуляції (ЕВЛК) з приводу
+                                            варикозної хвороби вен нижніх кінцівок.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-reviews-slider swiper-entry">
+            <div class="container">
+                <div class="row m-row">
+                    <div
+                        class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 d-flex align-justify align-middle">
+                        <h2 class="heading h2 text-bold">Відгуки пацієнтів</h2>
+                        <a href="reviews.html" class="btn btn--outline d-none d-md-inline-block">Всі відгуки</a>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="description text-s">
+                            Ми завжди прагнемо підвищити рівень сервісу надаваних медичних послуг в мережі клінік
+                            "Veromed", і вдячні вам за залишений позитивний відгук. Ми беремо до уваги всі коментарі та
+                            побажання, які відносяться до нашої роботи. Дякуємо за ваш вибір.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-container"
+                            data-options='{"slidesPerView": 1, "spaceBetween": 30, "loop": false, "customFraction": true, "breakpoints": {"520": {"slidesPerView": 1}, "767": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}}'>
+
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+
+                                                <div class="review-card__rating" style="--rating: 3;"
+                                                    aria-label="Оцінка: 3 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text text-s">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department ">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+
+                                                <div class="review-card__rating" style="--rating: 4;"
+                                                    aria-label="Оцінка: 4 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more">Детальніше</a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">БМ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Богдана Мацина</h3>
+
+                                                <div class="review-card__rating" style="--rating: 0;"
+                                                    aria-label="Оцінка: 0 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text text-s">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department text-s">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="review-card">
+                                        <div class="review-card__top">
+                                            <div class="review-card__avatar text-black">MZ</div>
+                                            <div class="review-card__info">
+                                                <h3 class="review-card__author text-bold">Mykola Zarudniak</h3>
+                                                <div class="review-card__rating" style="--rating: 3;"
+                                                    aria-label="Оцінка: 3 з 5">
+                                                </div>
+                                                <time class="review-card__date" datetime="2026-04-12">12 квітня
+                                                    2026</time>
+                                            </div>
+                                        </div>
+
+                                        <p class="review-card__text">
+                                            Доброго дня. Були на прийомі у лікаря-ревматолога Цуркан Роксоляни
+                                            Євгенівни. Дуже хороша лікарка, яка назначила...
+                                        </p>
+
+                                        <p class="review-card__department text-s">
+                                            <b class="text-s">Відділення:</b> <a href="#"
+                                                class="review-card__department-link text-s">Ревматологія</a>
+                                        </p>
+
+                                        <a href="#" class="review-card__more text-s">Детальніше</a>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="reviews.html" class="btn btn-primary d-block d-md-none">Всі відгуки</a>
+                    </div>
+                </div>
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-entry__bottom-bar d-flex align-justify align-middle">
+                            <div class="custom-fraction-wrap">
+                                <span class="custom-current">01</span>
+                                <span class="custom-fraction-separator">/</span>
+                                <span class="custom-total">05</span>
+                            </div>
+
+
+                            <div class="swiper-button__wrap">
+                                <button type="button" class="swiper-button-prev">
+                                    <i class="icon-arrow-left"></i>
+                                </button>
+                                <button type="button" class="swiper-button-next">
+                                    <i class="icon-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <a href="blog.html" class="btn btn-primary d-block d-md-none">Усі новини</a>
+                </div>
+            </div>
+        </section>
+        <section class="s-last-news swiper-entry">
+            <div class="container">
+
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <h2 class="heading h2 heading-font text-bold">Дипломи та сертифікати</h2>
+                        <div class="swiper-container"
+                            data-options='{"slidesPerView": 1, "spaceBetween": 24, "loop": false, "customFraction": true, "breakpoints": {"576": {"slidesPerView": 2}, "768": {"slidesPerView": 2}, "1200": {"slidesPerView": 4}}}'>
+
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
+                                                loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
+                                                    флеболога у Львові</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
+                                                Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-2.jpg" alt="Небезпечгні родимки"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Як розрізнити небезпечну родимку від
+                                                    звичайної: дерматоскопія та коливидаляти</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Токарська Діана Михайлівна, дерматолог, хірург-дерматолог,
+                                                трихолог. Стаж 8 років. Медичний центр VeroMed, Львів.
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-3.jpg" alt="Болючі місячні (дісменорея)"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Болючі місячні (дисменорея): коли це норма, а
+                                                    коли — симптом захворювання</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Болючі місячні (дисменорея) — це не те, що треба «перетерпіти» чи
+                                                «перерости». У половині випадків біль внизу живота під час...
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
+                                                loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
+                                                    флеболога у Львові</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
+                                                Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-2.jpg" alt="Небезпечгні родимки"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Як розрізнити небезпечну родимку від
+                                                    звичайної: дерматоскопія та коливидаляти</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Токарська Діана Михайлівна, дерматолог, хірург-дерматолог,
+                                                трихолог. Стаж 8 років. Медичний центр VeroMed, Львів.
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-3.jpg" alt="Болючі місячні (дісменорея)"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Болючі місячні (дисменорея): коли це норма, а
+                                                    коли — симптом захворювання</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Болючі місячні (дисменорея) — це не те, що треба «перетерпіти» чи
+                                                «перерости». У половині випадків біль внизу живота під час...
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-entry__bottom-bar d-flex align-justify align-middle">
+                            <div class="custom-fraction-wrap">
+                                <span class="custom-current">01</span>
+                                <span class="custom-fraction-separator">/</span>
+                                <span class="custom-total">05</span>
+                            </div>
+
+
+                            <div class="swiper-button__wrap">
+                                <button type="button" class="swiper-button-prev">
+                                    <i class="icon-arrow-left"></i>
+                                </button>
+                                <button type="button" class="swiper-button-next">
+                                    <i class="icon-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <a href="blog.html" class="btn btn--outline d-block d-md-none text-center">Усі новини</a>
+                </div>
+            </div>
+        </section>
+        <section class="s-last-news swiper-entry">
+            <div class="container">
+
+                <div class="row m-row s-last-news__inner">
+                    <div class="column col-xl-10 col-lg-10 col-md-10 col-sm-16 col-xs-16">
+                        <h2 class="heading h2 heading-font text-bold">Блог лікаря</h2>
+                    </div>
+                    <div class="column col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-4 text-right">
+                        <a href="news.html" class="btn btn--outline d-none d-md-inline-block">Всі новини</a>
+                    </div>
+                </div>
+
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-container"
+                            data-options='{"slidesPerView": 1, "spaceBetween": 24, "loop": false, "customFraction": true, "breakpoints": {"576": {"slidesPerView": 1}, "768": {"slidesPerView": 2}, "1200": {"slidesPerView": 3}}}'>
+
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
+                                                loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
+                                                    флеболога у Львові</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
+                                                Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-2.jpg" alt="Небезпечгні родимки"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Як розрізнити небезпечну родимку від
+                                                    звичайної: дерматоскопія та коливидаляти</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Токарська Діана Михайлівна, дерматолог, хірург-дерматолог,
+                                                трихолог. Стаж 8 років. Медичний центр VeroMed, Львів.
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-3.jpg" alt="Болючі місячні (дісменорея)"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Болючі місячні (дисменорея): коли це норма, а
+                                                    коли — симптом захворювання</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Болючі місячні (дисменорея) — це не те, що треба «перетерпіти» чи
+                                                «перерости». У половині випадків біль внизу живота під час...
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-1.jpg" alt="Варикоз" class="article__img"
+                                                loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Варикоз: симптоми, стадії та лікування у
+                                                    флеболога у Львові</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Мислович Олег Юрійович, хірург-флеболог, фахівець УЗ-діагностики.
+                                                Стаж — понад 23 роки. Виконав понад 7 000 процедур
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-05-23">Травень 23, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-2.jpg" alt="Небезпечгні родимки"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Як розрізнити небезпечну родимку від
+                                                    звичайної: дерматоскопія та коливидаляти</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Автор: Токарська Діана Михайлівна, дерматолог, хірург-дерматолог,
+                                                трихолог. Стаж 8 років. Медичний центр VeroMed, Львів.
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <article class="article">
+                                        <a href="article.html" class="article__btn btn btn--round"
+                                            aria-label="Читати детальніше">
+                                            <svg class="icon">
+                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="article__img--wrap inverted-radius-top">
+                                            <img src="assets/img/article-3.jpg" alt="Болючі місячні (дісменорея)"
+                                                class="article__img" loading="lazy">
+
+                                        </div>
+
+                                        <div class="article__content">
+                                            <h3 class="article__title">
+                                                <a href="news-single.html">Болючі місячні (дисменорея): коли це норма, а
+                                                    коли — симптом захворювання</a>
+                                            </h3>
+
+                                            <p class="article__excerpt text-s">
+                                                Болючі місячні (дисменорея) — це не те, що треба «перетерпіти» чи
+                                                «перерости». У половині випадків біль внизу живота під час...
+                                            </p>
+
+                                            <time class="article__date" datetime="2026-04-19">Квітень 19, 2026</time>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-row">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                        <div class="swiper-entry__bottom-bar d-flex align-justify align-middle">
+                            <div class="custom-fraction-wrap">
+                                <span class="custom-current">01</span>
+                                <span class="custom-fraction-separator">/</span>
+                                <span class="custom-total">05</span>
+                            </div>
+
+
+                            <div class="swiper-button__wrap">
+                                <button type="button" class="swiper-button-prev">
+                                    <i class="icon-arrow-left"></i>
+                                </button>
+                                <button type="button" class="swiper-button-next">
+                                    <i class="icon-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <a href="blog.html" class="btn btn--outline d-block d-md-none text-center">Усі новини</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-contacts ">
+
+            <div class="container ">
+                <div class="row m-row ">
+                    <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
+                        <div class="s-contacts__inner overlap">
+                            <div class="tab">
+                                <div class="tab__list ">
+                                    <div class="tab__item text-semibold text-center">Львів</div>
+                                    <div class="tab__item text-semibold text-center">Мукачево</div>
+                                    <div class="tab__item text-semibold text-center">Ужгород</div>
+                                    <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
+                                </div>
+
+
+
+                                <div class="tab__content">
+                                    <div class="tab__panel --relative ">
+                                        Львів
+
+
+                                        <address class="contacts contacts--column">
+                                            <ul class="contacts__list">
+                                                <li class="contacts__item">
+                                                    <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#location"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <a class="contacts__link"
+                                                        href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9"
+                                                        target="_blank" rel="noopener noreferrer">
+                                                        м. Львів, вул. Генерала Юнаківа, 9
+                                                    </a>
+                                                </li>
+
+                                                <li class="contacts__item">
+                                                    <span class="contacts__icon contacts__icon--phone"
+                                                        aria-hidden="true">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="img/icons/sprite.svg#phone"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <a class="contacts__link contacts__link--bold"
+                                                        href="tel:+380671207452">
+                                                        <b> +380 (67) 120-74-52</b>
+                                                    </a>
+                                                </li>
+
+                                                <li class="contacts__item">
+                                                    <span class="contacts__icon contacts__icon--email"
+                                                        aria-hidden="true">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#mail"></use>
+                                                        </svg>
+                                                    </span>
+                                                    <a class="contacts__link"
+                                                        href="mailto:call.centre.veromed@gmail.com">
+                                                        call.centre.veromed@gmail.com
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </address>
+
+                                        <div class="socials">
+                                            <ul class="socials__list" role="list">
+                                                <li class="socials__item">
+                                                    <a href="#" class="socials__link" aria-label="Instagram"
+                                                        target="_blank" rel="noopener">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#instagram"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li class="socials__item">
+                                                    <a href="#" class="socials__link" aria-label="Facebook"
+                                                        target="_blank" rel="noopener">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#facebook"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li class="socials__item">
+                                                    <a href="#" class="socials__link" aria-label="YouTube"
+                                                        target="_blank" rel="noopener">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#youtube"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li class="socials__item">
+                                                    <a href="#" class="socials__link" aria-label="TikTok"
+                                                        target="_blank" rel="noopener">
+                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                            <use href="assets/img/sprite.svg#tiktok"></use>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="schedule">
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Графік роботи</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00 – 15:00</li>
+                                                    <li class="schedule__item">Нд: вихідний</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="schedule__group">
+                                                <h3 class="schedule__title">Час роботи call-центру</h3>
+                                                <ul class="schedule__list">
+                                                    <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
+                                                    <li class="schedule__item">Сб: 09:00–15:00</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <a href="" class="btn btn--primary">Записатися на прийом</a>
+                                    </div>
+
+
+                                    <div class="tab__panel --relative ">
+                                        Мукачево
+                                    </div>
+                                    <div class="tab__panel --relative ">
+                                        Ужгород
+                                    </div>
+                                    <div class="tab__panel --relative ">
+                                        Івано-Франківськ
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map__wrap">
+                <div id="map" class="map"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="container">
+                <h2 class="visually-hidden">Інформація про компанію та навігація</h2>
+
+                <div class="footer__top">
+
+                    <address class="contacts contacts--row">
+                        <ul class="contacts__list">
+                            <li class="contacts__item">
+                                <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#location"></use>
+                                    </svg>
+                                </span>
+                                <a class="contacts__link"
+                                    href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9" target="_blank"
+                                    rel="noopener noreferrer">
+                                    м. Львів, вул. Генерала Юнаківа, 9
+                                </a>
+                            </li>
+
+                            <li class="contacts__item">
+                                <span class="contacts__icon contacts__icon--phone" aria-hidden="true">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="img/icons/sprite.svg#phone"></use>
+                                    </svg>
+                                </span>
+                                <a class="contacts__link contacts__link--bold" href="tel:+380671207452">
+                                    <b> +380 (67) 120-74-52</b>
+                                </a>
+                            </li>
+
+                            <li class="contacts__item">
+                                <span class="contacts__icon contacts__icon--email" aria-hidden="true">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#mail"></use>
+                                    </svg>
+                                </span>
+                                <a class="contacts__link" href="mailto:call.centre.veromed@gmail.com">
+                                    call.centre.veromed@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </address>
+
+                    <div class="socials socials--light">
+                        <ul class="socials__list" role="list">
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="Instagram" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#instagram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="Facebook" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="YouTube" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#youtube"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link" aria-label="TikTok" target="_blank" rel="noopener">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#tiktok"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="footer__body">
+                    <a href="/" class="footer__logo d-none d-lg-block" aria-label="VeroMed — На головну">
+                        <img src="assets/img/logo.svg" alt="" width="180" height="60" loading="lazy">
+                    </a>
+
+                    <div class="footer-nav__grid">
+
+                        <div class="footer-nav">
+                            <h3 class="footer-nav__title text-extrabold">Веромед</h3>
+                            <div>
+                                <ul class="menu">
+                                    <li class="menu-item "><a href="#">Спеціальні пропозиції</a></li>
+                                    <li class="menu-item "><a href="#">Блог</a></li>
+                                    <li class="menu-item current-menu-item ">
+                                        <a href="#" aria-current="page">Про нас</a>
+                                    </li>
+                                    <li class="menu-item "><a href="#">Наші лікарі</a></li>
+                                    <li class="menu-item "><a href="#">Наші партнери</a></li>
+                                    <li class="menu-item "><a href="#">Питання лікарю</a></li>
+                                    <li class="menu-item "><a href="#">Вартість послуг</a></li>
+                                    <li class="menu-item "><a href="#">Публічна оферта</a></li>
+                                    <li class="menu-item "><a href="#">Статті</a></li>
+                                    <li class="menu-item "><a href="#">Відгуки</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Колонка 3 -->
+                        <div class="footer-nav">
+                            <h3 class="footer-nav__title text-extrabold">Послуги</h3>
+                            <div class="">
+                                <ul class="menu">
+                                    <li class="menu-item "><a href="#">Флебологія</a></li>
+                                    <li class="menu-item "><a href="#">Блефаропластика</a></li>
+                                    <li class="menu-item "><a href="#">Ліпосакція</a></li>
+                                    <li class="menu-item "><a href="#">Абдомінопластика у Львові</a></li>
+                                    <li class="menu-item "><a href="#">Трансплантація волосся</a></li>
+                                    <li class="menu-item "><a href="#">Трихологія</a></li>
+                                    <li class="menu-item "><a href="#">Дерматолог у Львові</a></li>
+                                    <li class="menu-item "><a href="#">Дерматоонкологія</a></li>
+                                    <li class="menu-item"><a href="#">Проктолог у Львові</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer__bottom">
+                    <div class="footer__description">
+                        <p>«VeroMed» — це багатопрофільний медичний центр, що відповідає найвищим світовим стандартам
+                            надання медичної допомоги.</p>
+                        <p>Наші спеціалісти забезпечать Вас лише якісним медичним обслуговуванням. Колектив центру — це
+                            велика дружня сім'я. І ми з великою любов'ю і турботою відносимось до кожного нашого
+                            пацієнта. Лікарі медичного центру «VeroMed» постійно підтримують і підвищують рівень своїх
+                            професійних навиків на основі передових досягнень світової медицини. І все це завдяки
+                            вузькій спеціалізації кожного нашого працівника.</p>
+                    </div>
+
+                    <div class="footer__copyright">
+                        <div>© 2026 Веромед. Всі права захищені. Заборонено використання матеріалів сайту без згоди його
+                            авторів і зворотнього посилання. Ми використовуємо за замовчуванням державну мову, але
+                            повідомляємо, що сайт може відкриватися на мові, яка встановлена на браузері/інтерфейсі
+                            користувача</div>
+                        <div class="footer__developer">Design and development — <a href="">WebTune</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <div class="popup-wrapper">
+        <div class="bg-layer"></div>
+
+        <div class="popup-content cta" data-rel="cta">
+            <div class="layer-close"></div>
+            <div class="popup-container ">
+                <div class="btn-close d-flex align-middle align-center"><img src="assets/img/close.svg"
+                        alt="close icon">
+                </div>
+
+                <div class="popup-form text-center">
+                    <h4 class="popup-form__heading heading-accent h2 text-bold">Записатись на прийом</h4>
+                    <form class="">
+
+                        <div class="form-field__grid">
+                            <div class="form-field form-field--full">
+                                <label class="form-field__label text-left" for="user-name">Як до вас звертатися?</label>
+                                <input class="form-field__input" type="text" id="p-user-name" name="name"
+                                    placeholder="Ваше ім’я">
+                            </div>
+
+                            <div class="form-field form-field--full">
+                                <label class="form-field__label text-left" for="user-phone">Ваш номер телефону</label>
+                                <input class="form-field__input" type="tel" id="p-user-phone" name="phone"
+                                    value="+38 (_ _ _) _ _ _  - _ _ - _ _" aria-invalid="true"
+                                    aria-describedby="phone-error">
+
+                            </div>
+
+
+
+                            <div class="form-field form-field--full">
+                                <label class="form-field__label text-left" for="user-direction">Обрати напрямок</label>
+                                <div class="form-select">
+                                    <select class="form-field__select" name="direction">
+                                        <option value="" disabled selected hidden>Вибрати</option>
+                                        <option value="1">Напрямок 1</option>
+                                        <option value="2">Напрямок 2</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-field form-field--full">
+                                <button class="btn btn--primary" type="submit">
+                                    Записатися на прийом
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9h5L2xSWEvRFgLc7y4d16KPUDydNgs9Y"
+        type="text/javascript"></script>
+
+    <script src="./assets/js/jquery-3.7.0.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.sumoselect.min.js"></script>
+    <script src="assets/js/sumoselectCustom.js"></script>
+
+
+    <script src="src/scripts/app-swiper.js"></script>
+    <script src="src/scripts/app.js"></script>
+    <script src="src/scripts/js_app.js"></script>
+
+    <script src="src/scripts/app_map.js"></script>
+
+</body>
+
+</html>

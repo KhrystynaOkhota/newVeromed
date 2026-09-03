@@ -12,377 +12,90 @@
     <meta name="description" content="" />
 
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
-
-    <link rel="stylesheet" href="assets/css/app.css" />
+    <!--<link rel="stylesheet" href="assets/css/jquery-ui.css" />-->
+    <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
+    <link rel="stylesheet" href="assets/css/app.min.css" />
 
 </head>
 
 <body>
 
-    <header class="site-header d-none" id="siteHeader">
-        <!-- Верхній бар (Desktop) -->
-        <div class="header-top">
-            <div class="header-top__container">
-                <div class="header-top__left">
-                    <div class="header-top__item header-top__city">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
-                            <path fill="currentColor"
-                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z" />
-                        </svg>
-                        <span>Оберіть ваше місто:</span>
-                        <select class="header-top__city-select">
-                            <option value="lviv" selected>Львів</option>
-                            <option value="kyiv">Київ</option>
-                        </select>
-                    </div>
-                    <div class="header-top__item">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
-                            <path fill="currentColor"
-                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z" />
-                        </svg>
-                        <span>Львів, вул. Генерала Юнаківа, 9</span>
-                    </div>
-                </div>
-                <div class="header-top__right">
-                    <a href="mailto:call.centre.veromed@gmail.com"
-                        class="header-top__item header-top__link js-email-link">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16">
-                            <path fill="currentColor"
-                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                        </svg>
-                        <span>call.centre.veromed@gmail.com</span>
-                    </a>
-
-                    <ul class="polylang-switcher lang-switcher js-lang-source">
-                        <li class="lang-item lang-item-uk current-lang">
-                            <a href="/" lang="uk" hreflang="uk">
-                                <img src="https://flagcdn.com/w40/ua.png" alt="UA" width="20" height="20">
-                            </a>
-                        </li>
-                        <li class="lang-item lang-item-en">
-                            <a href="/en/" lang="en" hreflang="en">
-                                <img src="https://flagcdn.com/w40/us.png" alt="EN" width="20" height="20">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Головна шапка (в мобільній версії залишається завжди зверху) -->
-        <div class="header-main">
-            <div class="header-main__container">
-                <a href="/" class="logo">
-                    <img src="assets/img/logo-color.svg" alt="logo Veromed" class="logo__icon">
-                </a>
-
-                <form role="search" method="get" class="search-form header-main__search js-search-form" action="/">
-                    <input type="search" class="search-field search-form__input" placeholder="Пошук" value="" name="s">
-                    <button type="submit" class="search-submit search-form__btn" aria-label="Шукати">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path fill="none" stroke="currentColor" stroke-width="2"
-                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                        </svg>
-                    </button>
-                </form>
-
-                <div class="header-main__contacts js-contacts-source">
-                    <a href="tel:+380672626680" class="header-main__phone">+380 (67) 262-66-80</a>
-                    <div class="socials">
-                        <a href="#" class="socials__link socials__link--tg" aria-label="Telegram">TG</a>
-                        <a href="#" class="socials__link socials__link--wa" aria-label="WhatsApp">WA</a>
-                        <a href="#" class="socials__link socials__link--viber" aria-label="Viber">VB</a>
-                    </div>
-                </div>
-
-                <a href="#appointment" class="btn btn--primary header-main__btn js-cta-btn">Записатися на прийом</a>
-
-                <a href="tel:+380672626680" class="header-main__mobile-phone" aria-label="Зателефонувати">
-                    <svg viewBox="0 0 24 24" width="22" height="22">
-                        <path fill="#8b1e22"
-                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                    </svg>
-                </a>
-
-                <!-- Кнопка Бургера (трансформується в хрестик) -->
-                <button class="burger-btn" id="burgerToggle" aria-label="Меню">
-                    <span class="burger-btn__line"></span>
-                    <span class="burger-btn__line"></span>
-                    <span class="burger-btn__line"></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Навігація Desktop -->
-        <nav class="header-nav main-navigation js-menu-source">
-            <div class="header-nav__container">
-                <ul id="primary-menu" class="menu nav-menu">
-                    <li class="menu-item current-menu-item"><a href="#">Послуги</a></li>
-                    <li class="menu-item"><a href="#">Вартість послуг</a></li>
-                    <li class="menu-item"><a href="#">Результати</a></li>
-                    <li class="menu-item"><a href="#">Блог</a></li>
-                    <li class="menu-item"><a href="#">Наші лікарі</a></li>
-                    <li class="menu-item"><a href="#">Питання лікарю</a></li>
-                    <li class="menu-item"><a href="#">Про нас</a></li>
-                    <li class="menu-item"><a href="#">Контакт</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Мобільне розгортається вниз строго під header-main -->
-        <div class="mobile-dropdown" id="mobileDropdown">
-            <div class="mobile-dropdown__container">
-                <div class="mobile-dropdown__search-target"></div>
-                <div class="mobile-dropdown__nav-target"></div>
-                <div class="mobile-dropdown__footer" id="mobileDropdownFooter"></div>
-            </div>
-        </div>
-    </header>
 
 
     <main class="main">
+
+
         <div class="container">
             <div class="row">
-                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
                     <div class="kama_breadcrumbs">
                         <span>
-                            <a href="" itemprop="item">
+                            <a href="">
                                 <span>Головна</span>
                             </a>
-                            <span class="kb_sep">></span>
-                            <span class="kb_title"> Наші лікарі</span>
                         </span>
+                        <span class="kb_sep">></span>
+                        <span>
+                            <a href="">
+                                <span>Спеціальні пропозиції</span>
+                            </a>
+                        </span>
+                        <span class="kb_sep">></span>
+                        <span class="kb_title">-10% на комплексне обстеження</span>
                     </div>
-                    <h1 class="heading h2 text-bold">
-                        Наші лікарі
-                    </h1>
-
                 </div>
             </div>
         </div>
-        <section class="s-doctors">
+        <section class="s-promotion-hero">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                    
-                        <h1 class="heading h2 text-bold">
-                            Наші лікарі
-                        </h1>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-126">
-                        <div class="recipes__filter d-flex align-middle align-justify">
-                            <div class="filter-bar d-flex align-left align-middle">
-                                <div class="filter-bar__item">
-
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Напрямок/спеціальність</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Напрямок 1</option>
-                                            <option value="2">Напрямок 2</option>
-                                        </select>
-                                    </div>
-
-
-
-                                </div>
-                                <div class="filter-bar__item">
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Автор (лікар)</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Автор 1</option>
-                                            <option value="2">Автор 2</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <div class="filter-bar__item">
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Тип матеріалу</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Тип матеріалу 1</option>
-                                            <option value="2">Тип матеріалу 2</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div class="filter-bar__item">
-                                    <select class="orderby">
-                                        <option value="sort">Сортувати</option>
-                                        <option value="sort2">Спочатку нові</option>
-                                        <option value="sort3">тест</option>
-                                    </select>
-
-                                </div>
-                            </div>
+                <div class="row m-row">
+                    <div class="column col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16">
+                        <div class="heading h2 d-block d-md-none"><b>-10%</b> на комплексне обстеження</div>
+                        <div class="promotion__img--wrap">
+                            <img src="assets/img/offer-1.png" alt="Руки в рукавичках тримають модель клітини"
+                                class="promotion__img">
                         </div>
                     </div>
-                </div>
-                <div class="row m-row ">
-                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                        <div class="doctor-card__grid">
-                            <div class="doctor-card">
-                                <a href="doctor-card.html" class="doctor-card__link btn btn--round"
-                                    aria-label="Детальніше про лікаря">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
-                                </a>
-                                <div class="doctor-card__img-wrap inverted-radius-top">
-                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
-                                        class="doctor-card__img">
+                    <div class="column col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16">
+                        <h1 class="heading h2 d-none d-md-block"><b>-10%</b> на комплексне обстеження</h1>
+                        <div class="description cms-content">
 
-                                </div>
-
-                                <div class="doctor-card__content">
-                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
-                                    <p class="doctor-card__specialty text-s">
-                                        Хірург-флеболог, фахівець УЗ-діагностики
-                                    </p>
-
-                                </div>
-
-                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
-                                    Записатися на прийом
-                                </a>
-                            </div>
-                            <div class="doctor-card">
-                                <a href="doctor-card.html" class="doctor-card__link btn btn--round"
-                                    aria-label="Детальніше про лікаря">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
-                                </a>
-                                <div class="doctor-card__img-wrap inverted-radius-top">
-                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
-                                        class="doctor-card__img">
-
-                                </div>
-
-                                <div class="doctor-card__content">
-                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
-                                    <p class="doctor-card__specialty text-s">
-                                        Хірург-флеболог, фахівець УЗ-діагностики
-                                    </p>
-
-                                </div>
-                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
-                                    Записатися на прийом
-                                </a>
-                            </div>
-                            <div class="doctor-card">
-                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
-                                    aria-label="Детальніше про лікаря">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
-                                </a>
-                                <div class="doctor-card__img-wrap inverted-radius-top">
-                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
-                                        class="doctor-card__img">
-
-                                </div>
-
-                                <div class="doctor-card__content">
-                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
-                                    <p class="doctor-card__specialty text-s">
-                                        Хірург-флеболог, фахівець УЗ-діагностики
-                                    </p>
-
-                                </div>
-                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
-                                    Записатися на прийом
-                                </a>
-                            </div>
-                            <div class="doctor-card">
-                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
-                                    aria-label="Детальніше про лікаря">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
-                                </a>
-                                <div class="doctor-card__img-wrap inverted-radius-top">
-                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
-                                        class="doctor-card__img">
-
-                                </div>
-
-                                <div class="doctor-card__content">
-                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
-                                    <p class="doctor-card__specialty text-s">
-                                        Хірург-флеболог, фахівець УЗ-діагностики
-                                    </p>
-
-                                </div>
-                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
-                                    Записатися на прийом
-                                </a>
-                            </div>
-                            <div class="doctor-card">
-                                <a href="doctor-single.html" class="doctor-card__link btn btn--round"
-                                    aria-label="Детальніше про лікаря">
-                                    <svg class="icon">
-                                        <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                    </svg>
-                                </a>
-                                <div class="doctor-card__img-wrap inverted-radius-top">
-                                    <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
-                                        class="doctor-card__img">
-
-                                </div>
-
-                                <div class="doctor-card__content">
-                                    <h3 class="doctor-card__name">Мислович Олег Юрійович</h3>
-                                    <p class="doctor-card__specialty text-s">
-                                        Хірург-флеболог, фахівець УЗ-діагностики
-                                    </p>
-
-                                </div>
-                                <a href="" class="doctor-card__btn btn btn--outline open-popup" data-rel="cta">
-                                    Записатися на прийом
-                                </a>
-                            </div>
+                            <p><b>Червень</b> — це місяць, присвячений профілактиці та ранньому виявленню раку шийки
+                                матки.
+                                Саме
+                                своєчасне обстеження дозволяє виявити зміни на ранніх стадіях та значно підвищує
+                                ефективність лікування.</p>
+                            <p> У медичному центрі VeroMed протягом акційного періоду діє знижка 10% на комплексне
+                                обстеження жіночого здоров'я. Подбайте про себе вже сьогодні — профілактика займає лише
+                                небагато часу, але може зберегти здоров'я та життя.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
-
-                        <nav class="navigation pagination">
-                            <div class="nav-links d-flex">
-                                <a class="prev page-numbers">
-
-                                    <svg width="16" height="16" class="icon-arrow">
-                                        <use href="/assets/img/symbols.svg#ar-right" />
-                                    </svg>
-                                </a>
-                                <a class="page-numbers">1</a>
-                                <span class="page-numbers current">2</span>
-                                <a class="page-numbers">3</a>
-                                <span class="page-numbers dots">…</span>
-                                <a class="page-numbers">7</a>
-                                <a class="next page-numbers">
-                                    <i class="icon-ar-right"></i>
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="decor__wrap">
-                <img src="assets/img/decor.svg" alt="" class="decor">
+                
             </div>
 
+            <div class="promotion__details">
+                <h2 class="promotion__subtitle">Що входить до комплексного обстеження:</h2>
+
+                <ul class="promotion__list">
+                    <li class="promotion__item">консультація лікаря-гінеколога;</li>
+                    <li class="promotion__item">гінекологічний огляд;</li>
+                    <li class="promotion__item">кольпоскопія;</li>
+                    <li class="promotion__item">ПАП-тест (за показаннями);</li>
+                    <li class="promotion__item">необхідні лабораторні дослідження (відповідно до рекомендацій лікаря).
+                    </li>
+                </ul>
+
+                <p class="promotion__note">
+                    <strong>Акція діє протягом червня. Попередній запис обов'язковий.</strong>
+                </p>
+
+                <a href="" class="btn btn--primary open-popup" data-rel="cta">
+                    Записатися на прийом
+                </a>
+            </div>
         </section>
-
 
         <section class="s-contacts ">
 
@@ -526,8 +239,8 @@
                 <div id="map" class="map"></div>
             </div>
         </section>
-
     </main>
+
 
     <footer class="footer">
         <div class="footer__inner">
@@ -680,9 +393,6 @@
             </div>
         </div>
     </footer>
-
-
-
 
     <div class="popup-wrapper">
         <div class="bg-layer"></div>

@@ -1,0 +1,80 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.case {
+  padding: fluid(10,20) fluid(10,20) 20px fluid(10,20);
+  border-radius: 20px;
+  background-color: rgba(242, 242, 242, 1);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    @media (max-width: $breakpoint-md) {
+       grid-template-columns:  1fr;
+    }
+  }
+
+  &__img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 20px;
+
+    &--wrap {
+      position: relative;
+    }
+
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: fluid(15,20);
+      margin-bottom: 20px;
+    }
+  }
+
+  &__badge {
+    background-color: rgba(30, 30, 30, .6);
+    border-radius: 5px;
+    padding: fluid(3, 6) fluid(6, 10) fluid(3, 6) fluid(6, 10);
+    color: rgba(255, 255, 255, 1);
+    font-size: fluid(12, 15);
+    min-width: fluid(40, 60);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+
+  }
+
+  &__description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+.s-results {
+  padding: fluid(30, 40) 0 fluid(50, 100) 0;
+
+  & .heading {
+    margin-bottom: 17px;
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  }
+
+  & .description {
+    margin-bottom: 30px;
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+    }
+  }
+  & .decor{
+    &--right{
+      top:50%;
+      left:auto;
+      transform: translateY(-50%);
+    }
+  }
+}

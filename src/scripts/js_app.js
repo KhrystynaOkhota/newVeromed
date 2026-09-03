@@ -182,7 +182,7 @@ jQuery(function ($) {
         }
     });
 
-    
+
 
 
     _functions.initSelect = function (parent) {
@@ -240,11 +240,50 @@ jQuery(function ($) {
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. АКОРДЕОНИ
-    $(document).on('click', '.accordeon-title', function () {
-        var accordeon = $(this).closest('.accordeon');
-        accordeon.find('.accordeon-title.active').not(this).removeClass('active').next().slideUp();
-        $(this).toggleClass('active').next().slideToggle();
+    document.addEventListener('click', function (e) {
+        const $title = $(e.target).closest('.accordeon-title');
+        if (!$title.length) return;
+
+        const $item = $title.closest('.accordeon-item');
+        const $accordeon = $title.closest('.accordeon');
+        const isOpen = $item.hasClass('active');
+
+        // 1. Закриваємо контент інших відкритих ітемів та знімаємо з них active
+        $accordeon.find('.accordeon-item.active').not($item).removeClass('active').find('.accordeon-title').next().slideUp();
+
+        // 2. Переключаємо active тільки на accordeon-item та відкриваємо/закриваємо контент
+        $item.toggleClass('active', !isOpen);
+        $title.next().slideToggle(!isOpen);
     });
+    /*document.addEventListener('click', function (e) {
+     const $target = $(e.target);
+     const $title = $target.closest('.accordeon-title');
+     const $closeBtn = $target.closest('.js-accordeon-close');
+ 
+     // Клік по кнопці «Закрити»
+     if ($closeBtn.length) {
+         e.preventDefault();
+         const $item = $closeBtn.closest('.accordeon-item');
+         
+         $item.removeClass('active');
+         $item.find('.accordeon-title').next().slideUp();
+         return;
+     }
+ 
+     // Клік по заголовку
+     if (!$title.length) return;
+ 
+     const $item = $title.closest('.accordeon-item');
+     const $accordeon = $title.closest('.accordeon');
+     const isOpen = $item.hasClass('active');
+ 
+     // 1. Закриваємо інші відкриті елементи
+     $accordeon.find('.accordeon-item.active').not($item).removeClass('active').find('.accordeon-title').next().slideUp();
+ 
+     // 2. Переключаємо поточний елемент
+     $item.toggleClass('active', !isOpen);
+     $title.next().slideToggle(!isOpen);
+ });*/
 
     // 2. КЛІКЕР КІЛЬКОСТІ (INCREMENT / DECREMENT)
     document.addEventListener('click', (e) => {

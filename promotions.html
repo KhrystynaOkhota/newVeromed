@@ -20,6 +20,7 @@
 
 <body>
 
+
     <header class="site-header d-none" id="siteHeader">
         <!-- Верхній бар (Desktop) -->
         <div class="header-top">
@@ -142,33 +143,77 @@
 
 
     <main class="main">
-
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                    <div class="kama_breadcrumbs">
+                        <span>
+                            <a href="" itemprop="item">
+                                <span>Головна</span>
+                            </a>
+                            <span class="kb_sep">></span>
+                            <span class="kb_title"> Спеціальні пропозиції</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="s-promotions">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                        <div class="kama_breadcrumbs">
-                            <span>
-                                <a href="" itemprop="item">
-                                    <span>Головна</span>
-                                </a>
-                                <span class="kb_sep">></span>
-                                <span class="kb_title"> Спеціальні пропозиції</span>
-                            </span>
-                        </div>
                         <h1 class="heading h2 text-bold">
                             Спеціальні пропозиції
                         </h1>
                         <div class="description cms-content text-s">
-                            <b>Дбайте про своє здоров'я разом із VeroMed</b> та користуйтеся спеціальними пропозиціями
-                            на консультації, діагностику й лікування. Актуальні акції допоможуть отримати необхідну
+                            <b>Дбайте про своє здоров'я разом із VeroMed</b> та користуйтеся спеціальними
+                            пропозиціями
+                            на консультації, діагностику й лікування. Актуальні акції допоможуть отримати
+                            необхідну
                             медичну допомогу ще вигідніше.
+                        </div>
+                        <div class="services-filter">
+                            <!-- Mobile Select / Toggle Trigger -->
+                            <button type="button" class="services-filter__trigger" aria-expanded="false"
+                                aria-controls="services-menu">
+                                <span class="services-filter__trigger-text">Обери свою послугу</span>
+                                <svg class="services-filter__icon" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+
+                            <!-- Navigation / Tab List -->
+                            <nav class="services-filter__nav" id="services-menu">
+                                <ul class="services-filter__list">
+                                    <li class="services-filter__item">
+                                        <button class="services-filter__btn services-filter__btn--active" type="button">
+                                            Флебологія. Варикозна хвороба вен
+                                        </button>
+                                    </li>
+                                    <li class="services-filter__item">
+                                        <button class="services-filter__btn" type="button">Трансплантація
+                                            волосся</button>
+                                    </li>
+                                    <li class="services-filter__item">
+                                        <button class="services-filter__btn" type="button">Дерматологія</button>
+                                    </li>
+                                    <li class="services-filter__item">
+                                        <button class="services-filter__btn" type="button">Пластична
+                                            хірургія</button>
+                                    </li>
+                                    <li class="services-filter__item">
+                                        <button class="services-filter__btn" type="button">Блефаропластика</button>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
-
                 <div class="row m-row ">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+
                         <div class="promo-card__grid">
                             <article class="promo-card promo-card--sm promo-card--img-bottom">
                                 <div class="promo-card__content">
@@ -256,8 +301,10 @@
                         </div>
                     </div>
                     <div class="column col-xl-9 col-lg-8 col-md-16 col-sm-16 col-xs-16">
-                        <h2 class="cta__heading h2 text-bold">Ми завжди готові відповісти на ваші запитання!</h2>
-                        <div class="cta__description">Наші кваліфіковані лікарі чекають на ваш дзвінок! Запишіться на
+                        <h2 class="cta__heading h2 text-bold">Ми завжди готові відповісти на ваші запитання!
+                        </h2>
+                        <div class="cta__description">Наші кваліфіковані лікарі чекають на ваш дзвінок!
+                            Запишіться на
                             прийом за телефоном, або за допомогою форми зворотнього зв’язку</div>
                         <a class="cta__phone " href="tel:+380672626680">
                             <b>+380 (67) 262-66-80</b>
@@ -268,13 +315,15 @@
 
                                 <div class="form-field__grid">
                                     <div class="form-field form-field--full">
-                                        <label class="form-field__label" for="user-name">Як до вас звертатися?</label>
+                                        <label class="form-field__label" for="user-name">Як до вас
+                                            звертатися?</label>
                                         <input class="form-field__input" type="text" id="user-name" name="name"
                                             placeholder="Вік">
                                     </div>
 
                                     <div class="form-field is-invalid">
-                                        <label class="form-field__label" for="user-phone">Ваш номер телефону</label>
+                                        <label class="form-field__label" for="user-phone">Ваш номер
+                                            телефону</label>
                                         <input class="form-field__input" type="tel" id="user-phone" name="phone"
                                             value="+38 (000) 99f -86- w5" aria-invalid="true"
                                             aria-describedby="phone-error">
@@ -287,7 +336,8 @@
                                     </div>
 
                                     <div class="form-field form-field--full">
-                                        <label class="form-field__label" for="user-direction">Обрати напрямок</label>
+                                        <label class="form-field__label" for="user-direction">Обрати
+                                            напрямок</label>
                                         <div class="form-select select-entry">
                                             <select class="form-field__select" name="direction">
                                                 <option value="" disabled selected hidden>Вибрати</option>
@@ -680,6 +730,35 @@
 
     <script src="src/scripts/app_map.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.querySelector('.services-filter__trigger');
+            const nav = document.querySelector('.services-filter__nav');
+            const buttons = document.querySelectorAll('.services-filter__btn');
+            const triggerText = document.querySelector('.services-filter__trigger-text');
+
+            // Toggle mobile menu
+            trigger?.addEventListener('click', () => {
+                const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+                trigger.setAttribute('aria-expanded', !isOpen);
+                nav.classList.toggle('services-filter__nav--open');
+            });
+
+            // Tab click logic & mobile trigger label update
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('services-filter__btn--active'));
+                    btn.classList.add('services-filter__btn--active');
+
+                    if (window.innerWidth < 992) {
+                        triggerText.textContent = btn.textContent.trim();
+                        trigger.setAttribute('aria-expanded', 'false');
+                        nav.classList.remove('services-filter__nav--open');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

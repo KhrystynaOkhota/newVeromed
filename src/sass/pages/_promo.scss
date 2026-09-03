@@ -151,3 +151,136 @@
     }
   }
 }
+
+
+.services-filter {
+  position: relative;
+  width: 100%;
+
+  // Mobile Select Trigger
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    cursor: pointer;
+    text-align: left;
+
+    @media (min-width: 992px) {
+      display: none; // Сховуємо на десктопі
+    }
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+
+    .services-filter__trigger[aria-expanded="true"] & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Navigation Dropdown (Mobile) & Track (Desktop)
+  &__nav {
+    @media (max-width: 991px) {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background-color: #f4f4f4;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+      padding: 8px 0;
+
+      &--open {
+        display: block;
+      }
+    }
+
+    @media (min-width: 992px) {
+      display: block !important;
+      background-color: #f4f4f4;
+      border-radius: 12px;
+      padding: 6px;
+      overflow-x: auto;
+      scrollbar-width: none; // Firefox
+
+      &::-webkit-scrollbar {
+        display: none; // Chrome/Safari
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+  }
+
+  &__item {
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+
+    @media (max-width: 991px) {
+      padding: 12px 20px;
+      color: #1a1a1a;
+      text-align: left;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      &--active {
+        color: #8b1e1e; // Активний колір тексту на мобілці
+        font-weight: 700;
+      }
+    }
+
+    @media (min-width: 992px) {
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #1a1a1a;
+
+      &--active {
+        background-color: #8b1e1e; // Бордовий pill на десктопі
+        color: #ffffff;
+      }
+
+      &:not(&--active):hover {
+        color: #8b1e1e;
+      }
+    }
+  }
+}

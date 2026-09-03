@@ -549,35 +549,37 @@
 
 
     <main class="main">
-
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                    <div class="kama_breadcrumbs">
+                        <span>
+                            <a href="" itemprop="item">
+                                <span>Головна</span>
+                            </a>
+                            <span class="kb_sep">></span>
+                            <span class="kb_title">Блог</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="s-news">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                        <div class="kama_breadcrumbs">
-                            <span>
-                                <a href="" itemprop="item">
-                                    <span>Головна</span>
-                                </a>
-                                <span class="kb_sep"> <i class="icon-arrow-forward"></i></span>
-                                <span class="kb_title">Блог</span>
-                            </span>
-                        </div>
                         <h1 class="heading h2 text-bold">
                             Блог
                         </h1>
-                        <div class="description text-s ">
-                            Актуальні статті, поради лікарів та корисна інформація про здоровя, профілактику,
-                            діагностику й сучасні методи лікування.
+                        <div class="description">
+                            <b>Актуальні статті, поради лікарів та корисна інформація про здоровя, профілактику,
+                                діагностику й сучасні методи лікування.</b>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
                         <div class="recipes__filter d-flex align-middle align-justify">
                             <div class="filter-bar d-flex align-left align-middle">
                                 <div class="filter-bar__item">
-                                   
+
                                     <div class="select-entry">
                                         <label class="f" for="user-direction">Напрямок/спеціальність</label>
                                         <select class="form-field__select" name="direction">
@@ -602,7 +604,7 @@
 
                                 </div>
                                 <div class="filter-bar__item">
-                                   <div class="select-entry">
+                                    <div class="select-entry">
                                         <label class="f" for="user-direction">Тип матеріалу</label>
                                         <select class="form-field__select" name="direction">
                                             <option value="" disabled selected hidden>Вибрати</option>
@@ -623,10 +625,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row m-row ">
-                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+
                         <div class="article__grid">
                             <article class="article">
                                 <a href="article.html" class="article__btn btn btn--round"
@@ -796,7 +795,7 @@
 
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
-
+                        <a href="" class="btn  btn--load-more">Завантажити ще</a>
                         <nav class="navigation pagination">
                             <div class="nav-links d-flex">
                                 <a class="prev page-numbers">
@@ -818,10 +817,12 @@
                     </div>
                 </div>
             </div>
-            <div class="decor__wrap">
+            <div class="decor__wrap decor--right">
                 <img src="assets/img/decor.svg" alt="" class="decor">
             </div>
-
+            <div class="decor__wrap decor--left">
+                <img src="assets/img/decor.svg" alt="" class="decor">
+            </div>
         </section>
 
 

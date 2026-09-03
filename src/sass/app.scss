@@ -40,7 +40,7 @@
 // Специфічні блоки та віджети
 //@use "components/_same-sections"; // Схожі секції
 //@use "components/_subscription";  // Блок підписки
-//@use "components/_editor-style";  // Стилі для контенту з адмінки (WYSIWYG)
+@use "components/_editor-style";  // Стилі для контенту з адмінки (WYSIWYG)
 
 // ==========================================================================
 // 5. PAGES (Стилі для конкретних сторінок вашого сайту)
@@ -60,7 +60,7 @@
 @use "pages/_doctors";
 @use "pages/_review";
 @use "pages/_services";
-//@use "pages/_checkout";
+@use "pages/_results";
 //@use "pages/_delivery";
 
 

@@ -13,7 +13,7 @@ _functions.applyOffersTransform = function (swiper) {
 
   for (let i = 0; i < slides.length; i++) {
     const slide = slides[i];
-    const $card = $(slide).find(".article, .offer-card");
+    const $card = $(slide).find(".article, .promo-card");
     if (!$card.length) continue;
 
     const progress = slide.progress;
@@ -141,7 +141,7 @@ _functions.applyOffersTransform = function (swiper) {
           transitionTimingFunction: easing,
         });
         $(sw.slides)
-          .find(".article, .offer-card")
+          .find(".article, .promo-card")
           .css({
             transitionDuration: `${duration}ms`,
             transitionTimingFunction: easing,

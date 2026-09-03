@@ -127,7 +127,31 @@
   }
 }
 
-.s-reviews-slider {}
+.s-reviews-slider {
+  & .heading {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 21px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  & .description {
+    margin-bottom: fluid(30, 34);
+
+    @media (min-width: $breakpoint-md) {
+      margin-top: 42px;
+    }
+  }
+
+  & .btn--outline {
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+      max-width: 400px;
+      margin: 25px auto 0 auto;
+    }
+  }
+}
 
 .s-reviews {
   padding: fluid(30, 40) 0 fluid(50, 100) 0;

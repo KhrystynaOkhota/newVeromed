@@ -89,6 +89,9 @@
   max-width: 1290px;
   margin: auto;
   padding: 0 20px;
+   @media (max-width: $breakpoint-md) {
+    padding: 0 15px;
+  }
 }
 
 .container-fluid {
@@ -97,6 +100,9 @@
   padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
+   @media (max-width: $breakpoint-md) {
+    padding: 0 15px;
+  }
 }
 
 .row {
