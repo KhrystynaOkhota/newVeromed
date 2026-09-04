@@ -100,6 +100,9 @@ button {
     }
   }
 
+  &__textarea {
+    border-radius: 20px;
+  }
 
   &__btn {
 
@@ -124,7 +127,7 @@ button {
   line-height: 1;
   font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: rgba(27, 27, 27, 1);
+  color: rgba(111, 111, 111, 1);
 
   opacity: 1;
   transition: opacity 0.5s;
@@ -135,7 +138,7 @@ button {
   line-height: 1;
   font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: rgba(27, 27, 27, 1);
+  color: rgba(111, 111, 111, 1);
 
   opacity: 1;
   transition: opacity 0.5s;
@@ -146,7 +149,7 @@ button {
   line-height: 1;
   font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: rgba(27, 27, 27, 1);
+  color: rgba(111, 111, 111, 1);
 
   opacity: 1;
   transition: opacity 0.5s;
@@ -381,7 +384,7 @@ select:-webkit-autofill:focus {
       width: 13px;
       height: 13px;
       border-radius: 50%;
-      background: #312783;
+      background: rgba(139, 30, 30, 1);
       transition: all 0.4s ease-out;
     }
   }
@@ -389,5 +392,79 @@ select:-webkit-autofill:focus {
   &__text {
     font-size: 16px;
     color: #1B1B1B;
+  }
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  &__wrap {
+    gap:30px;
+    display: grid;
+  }
+
+  // Приховуємо стандартний чекбокс браузера
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    // Стан, коли вибрано
+    &:checked~.checkbox-option__custom {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Кастомний квадрат
+  &__custom {
+    flex-shrink: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    border: 1px solid rgba(139, 30, 30, 1); // Бордова рамка
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 0;
+    display: inline-block;
+    position: relative;
+    transition: all 0.4s ease-out;
+
+    // Внутрішній квадрат (з'являється при :checked)
+    &::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: rgba(139, 30, 30, 1); // Бордова заливка
+      transition: all 0.4s ease-out;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: rgba(111, 111, 111, 1);
+  }
+
+  &__link {
+    color: #8B181B;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

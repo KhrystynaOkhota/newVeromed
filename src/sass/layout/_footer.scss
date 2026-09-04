@@ -233,4 +233,12 @@
       }
     }
   }
+
+  &--radius {
+    .footer__inner {
+      @media (min-width: 1300px) {
+        border-radius: 50px;
+      }
+    }
+  }
 }

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
     <!--<link rel="stylesheet" href="assets/css/jquery-ui.css" />-->
     <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
-    <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
+
     <link rel="stylesheet" href="assets/css/app.min.css" />
 
 </head>
@@ -267,20 +267,22 @@
                             <a href="" itemprop="item">
                                 <span>Головна</span>
                             </a>
-                            <span class="kb_sep"> <i class="icon-arrow-forward"></i></span>
-                            <span class="kb_title">Блог</span>
+                            <span class="kb_sep">></span>
+                            <span class="kb_title">Відгуки</span>
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <section class="s-reviews">
             <div class="container">
                 <div class="row m-row">
                     <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
                         <h1 class="heading h2 text-bold">Відгуки</h1>
                         <div class="flt-panel"></div>
-                        <div class="review__grid">
+                        <div class="review-card__grid">
                             <article class="review-card">
                                 <div class="review-card__top">
                                     <div class="review-card__avatar text-black">БМ</div>
@@ -387,163 +389,171 @@
                 </div>
             </div>
         </section>
+
+
         <section class="s-leave-review">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                  
-                        <div class="review-form">
-                            <div class="review-form__container">
-                                <h2 class="review-form__title">Залишити відгук</h2>
-                                <p class="review-form__subtitle">
-                                    Відгук буде опублікований після перевірки модератором протягом 1–2 робочих днів.
-                                </p>
+                        <h2 class="heading h2 text-bold">Залишити відгук</h2>
+                        <div class="description text-bold text-s">Відгук буде опублікований після перевірки модератором
+                            протягом 1–2 робочих днів.</div>
+                        <form>
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="form-field SelectBox">
+                                        <label class="form-field__label">Напрямок <span>*</span></label>
+                                        <select>
+                                            <option value="1">Флебологія</option>
+                                            <option value="2">Гінекологія</option>
+                                            <option value="3">Дерматологія</option>
+                                            <option value="4">Флебологія</option>
+                                            <option value="5">Гінекологія</option>
+                                            <option value="6">Дерматологія</option>
+                                            <option value="7">Флебологія</option>
+                                            <option value="8">Гінекологія</option>
+                                            <option value="9">Дерматологія</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <label class="form-field__label text-left" for="doctor">Лікар</label>
+                                        <input class="form-field__input" type="text" id="doctor" name="phone"
+                                            placeholder="Лікар">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-5 col-lg-5 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <label class="form-field__label text-left" for="user-phone">Ваш номер
+                                            телефону</label>
+                                        <input class="form-field__input" type="tel" id="user-phone" name="phone"
+                                            placeholder="+38 (_ _ _) _ _ _  - _ _ - _ _">
+                                    </div>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <label class="form-field__label text-left" for="user-email">Email</label>
+                                        <input class="form-field__input" type="email" id="user-email" name="email"
+                                            placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-8 col-sm-16 col-xs-16 column">
 
-                                <form action="#" method="POST" class="review-form__body" enctype="multipart/form-data">
+                                    <div class="form-field">
+                                        <span class="form-field__label text-left">Тип звернення</span>
 
-                                    <!-- Рядок 1: Напрямок та Лікар -->
-                                    <div class="review-form__row review-form__row--2-cols">
-                                        <div class="review-form__field">
-                                            <label class="review-form__label" for="review-direction">Напрямок <span
-                                                    class="review-form__required">*</span></label>
-                                            <select id="review-direction" name="direction"
-                                                class="review-form__select SumoSelect" required>
-                                                <option value="" disabled selected>Флебологія</option>
-                                                <option value="1">Гінекологія</option>
-                                                <option value="2">Дерматологія</option>
-                                            </select>
-                                        </div>
+                                        <div class="form-field__options">
+                                            <label class="radio-option">
+                                                <input type="radio" name="appeal_type" value="gratitude"
+                                                    class="radio-option__input" checked>
+                                                <span class="radio-option__custom"></span>
+                                                <span class="radio-option__text">Подяка</span>
+                                            </label>
 
-                                        <div class="review-form__field">
-                                            <label class="review-form__label" for="review-doctor">Лікар</label>
-                                            <input type="text" id="review-doctor" name="doctor"
-                                                class="review-form__input" placeholder="Мислович О.Ю.">
+                                            <label class="radio-option">
+                                                <input type="radio" name="appeal_type" value="complaint"
+                                                    class="radio-option__input">
+                                                <span class="radio-option__custom"></span>
+                                                <span class="radio-option__text">Скарга</span>
+                                            </label>
+
+                                            <label class="radio-option">
+                                                <input type="radio" name="appeal_type" value="comment"
+                                                    class="radio-option__input">
+                                                <span class="radio-option__custom"></span>
+                                                <span class="radio-option__text">Коментар</span>
+                                            </label>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Рядок 2: Телефон, Email та Тип звернення -->
-                                    <div class="review-form__row review-form__row--3-cols">
-                                        <div class="review-form__field">
-                                            <label class="review-form__label" for="review-phone">Телефон <span
-                                                    class="review-form__required">*</span></label>
-                                            <input type="tel" id="review-phone" name="phone" class="review-form__input"
-                                                placeholder="+ 38 (___) ___ - __ - __" required>
-                                        </div>
-
-                                        <div class="review-form__field">
-                                            <label class="review-form__label" for="review-email">Email</label>
-                                            <input type="email" id="review-email" name="email"
-                                                class="review-form__input" placeholder="Email">
-                                        </div>
-
-                                        <div class="review-form__field">
-                                            <span class="review-form__label">Тип звернення</span>
-                                            <div class="review-form__radios">
-                                                <label class="review-form__radio">
-                                                    <input type="radio" name="appeal_type" value="thanks"
-                                                        class="review-form__radio-input">
-                                                    <span class="review-form__radio-text">Подяка</span>
-                                                </label>
-                                                <label class="review-form__radio">
-                                                    <input type="radio" name="appeal_type" value="complaint"
-                                                        class="review-form__radio-input">
-                                                    <span class="review-form__radio-text">Скарга</span>
-                                                </label>
-                                                <label class="review-form__radio">
-                                                    <input type="radio" name="appeal_type" value="comment"
-                                                        class="review-form__radio-input" checked>
-                                                    <span class="review-form__radio-text">Коментар</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Рядок 3: Ваш відгук -->
-                                    <div class="review-form__field">
-                                        <label class="review-form__label" for="review-text">Ваш відгук <span
-                                                class="review-form__required">*</span></label>
-                                        <textarea id="review-text" name="message" class="review-form__textarea"
+                            <div class="row">
+                                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <label class="form-field__label" for="review-text">Ваш відгук
+                                            <span>*</span></label>
+                                        <textarea id="review-text" name="message" class="form-field__textarea"
                                             placeholder="Розкажіть про свій досвід — що сподобалось, як пройшла процедура або консультація..."
                                             required></textarea>
                                     </div>
 
-                                    <!-- Рядок 4: Оцінка (Зірочки) -->
-                                    <div class="review-form__field">
-                                        <span class="review-form__label">Оцінка <span
-                                                class="review-form__required">*</span></span>
-                                        <div class="review-form__rating star-rating">
-                                            <input type="radio" id="star5" name="rating" value="5" required><label
-                                                for="star5" title="5 зірок">★</label>
-                                            <input type="radio" id="star4" name="rating" value="4"><label for="star4"
-                                                title="4 зірки">★</label>
-                                            <input type="radio" id="star3" name="rating" value="3"><label for="star3"
-                                                title="3 зірки">★</label>
-                                            <input type="radio" id="star2" name="rating" value="2"><label for="star2"
-                                                title="2 зірки">★</label>
-                                            <input type="radio" id="star1" name="rating" value="1"><label for="star1"
-                                                title="1 зірка">★</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Рядок 5: Фото або відео -->
-                                    <div class="review-form__field">
-                                        <span class="review-form__label">Фото або відео</span>
-                                        <div class="review-form__upload">
-                                            <label class="review-form__upload-btn">
-                                                <span>ДОДАТИ ФОТО</span>
-                                                <input type="file" name="photos[]" accept="image/jpeg,image/png"
-                                                    multiple class="visually-hidden">
-                                            </label>
-                                            <label class="review-form__upload-btn">
-                                                <span>ДОДАТИ ВІДЕО</span>
-                                                <input type="file" name="videos[]" accept="video/mp4,video/mov" multiple
-                                                    class="visually-hidden">
-                                            </label>
-                                            <span class="review-form__upload-info">
-                                                Фото: JPG, PNG до 10 МБ · Відео: MP4, MOV до 100 МБ · до 5 файлів
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Чекбокси згоди -->
-                                    <div class="review-form__checkboxes">
-                                        <label class="review-form__checkbox">
-                                            <input type="checkbox" name="agree_terms"
-                                                class="review-form__checkbox-input" required>
-                                            <span class="review-form__checkbox-custom"></span>
-                                            <span class="review-form__checkbox-text">
-                                                Я даю згоду на публікацію відгуку на сайті та обробку персональних даних
-                                                відповідно до <a href="#">Політики конфіденційності</a> <span
-                                                    class="review-form__required">*</span>
-                                            </span>
-                                        </label>
-
-                                        <label class="review-form__checkbox">
-                                            <input type="checkbox" name="agree_experience"
-                                                class="review-form__checkbox-input" required>
-                                            <span class="review-form__checkbox-custom"></span>
-                                            <span class="review-form__checkbox-text">
-                                                Підтверджую, що відгук базується на особистому досвіді відвідування
-                                                клініки VeroMed
-                                            </span>
-                                        </label>
-                                    </div>
-
-                                    <!-- Кнопка відправки -->
-                                    <div class="review-form__submit-wrapper">
-                                        <button type="submit" class="review-form__submit-btn">
-                                            Надіслати відгук
-                                        </button>
-                                    </div>
-
-                                </form>
+                                </div>
                             </div>
-                        </section>
+
+                            <div class="row">
+                                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <span class="form-field__label text-left">Оцінка <span
+                                                class="required">*</span></span>
+
+                                        <div class="rating-stars">
+                                            <input type="radio" id="star-5" name="rating" value="5"
+                                                class="rating-stars__input" required>
+                                            <label for="star-5" class="rating-stars__label" title="5 зірок"></label>
+
+                                            <input type="radio" id="star-4" name="rating" value="4"
+                                                class="rating-stars__input">
+                                            <label for="star-4" class="rating-stars__label" title="4 зірки"></label>
+
+                                            <input type="radio" id="star-3" name="rating" value="3"
+                                                class="rating-stars__input">
+                                            <label for="star-3" class="rating-stars__label" title="3 зірки"></label>
+
+                                            <input type="radio" id="star-2" name="rating" value="2"
+                                                class="rating-stars__input">
+                                            <label for="star-2" class="rating-stars__label" title="2 зірки"></label>
+
+                                            <input type="radio" id="star-1" name="rating" value="1"
+                                                class="rating-stars__input">
+                                            <label for="star-1" class="rating-stars__label" title="1 зірка"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+
+
+                                        <div class="checkbox-option__wrap">
+                                            <label class="checkbox-option">
+                                                <input type="checkbox" name="privacy_consent"
+                                                    class="checkbox-option__input" required>
+                                                <span class="checkbox-option__custom"></span>
+                                                <span class="checkbox-option__text">
+                                                    Я даю згоду на публікацію відгуку на сайті та обробку персональних
+                                                    даних відповідно до
+                                                    <a href="/privacy-policy" class="checkbox-option__link">Політики
+                                                        конфіденційності</a> <span class="required">*</span>
+                                                </span>
+                                            </label>
+
+                                            <label class="checkbox-option">
+                                                <input type="checkbox" name="experience_consent"
+                                                    class="checkbox-option__input" checked>
+                                                <span class="checkbox-option__custom"></span>
+                                                <span class="checkbox-option__text">
+                                                    Підтверджую, що відгук базується на особистому досвіді відвідування
+                                                    клініки VeraMed
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn--primary ">Надіслати відгук</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="s-contacts ">
+
+        <section class="s-contacts s-contacts--footer">
             <div class="container ">
                 <div class="row m-row ">
                     <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
@@ -875,7 +885,7 @@
                                 <label class="form-field__label text-left" for="user-direction">Обрати напрямок</label>
                                 <div class="form-select">
                                     <select class="form-field__select" name="direction">
-                                        <option value="" disabled selected hidden>Вибрати</option>
+                                        <option value="">Вибрати</option>
                                         <option value="1">Напрямок 1</option>
                                         <option value="2">Напрямок 2</option>
                                     </select>
@@ -901,7 +911,7 @@
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.sumoselect.min.js"></script>
-    <script src="assets/js/sumoselectCustom.js"></script>
+    <!--<script src="assets/js/sumoselectCustom.js"></script>-->
 
 
     <script src="src/scripts/app-swiper.js"></script>
@@ -909,6 +919,93 @@
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
+
+
+    <script>
+
+        _functions.initSelect = function (parent) {
+            var $container = parent ? $(parent) : $(document);
+
+            // Шукаємо теги select всередині обгортки .SelectBox
+            $container.find('.SelectBox select').each(function () {
+                var $select = $(this);
+
+                // Ініціалізація SumoSelect
+                $select.SumoSelect({
+                    floatWidth: 0,
+                    nativeOnDevice: [],
+                    placeholder: ''
+                });
+
+                // Додавання/видалення фокусу
+                $select.on('sumo:opened', function () {
+                    $(this).closest('.SelectBox').addClass('focus');
+                });
+
+                $select.on('sumo:closed', function () {
+                    $(this).closest('.SelectBox').removeClass('focus');
+                });
+            });
+        };
+
+        $(document).ready(function () {
+            // 1. Запуск SumoSelect
+            _functions.initSelect('body');
+
+            // 2. Перевірка наявності значення при завантаженні
+            $('.SelectBox select').each(function () {
+                if ($(this).val()) {
+                    $(this).closest('.SelectBox').addClass('value');
+                } else {
+                    $(this).closest('.SelectBox').removeClass('value');
+                }
+            });
+        });
+
+        // 3. Перемикання класу при зміні значення
+        $(document).on('change', '.SelectBox select', function () {
+            if ($(this).val()) {
+                $(this).closest('.SelectBox').addClass('value');
+            } else {
+                $(this).closest('.SelectBox').removeClass('value');
+            }
+        });
+
+    </script>
+
+    <!--<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const photoInput = document.getElementById('photo-input');
+            const videoInput = document.getElementById('video-input');
+            const previewContainer = document.getElementById('media-preview');
+
+            const MAX_FILES = 5;
+            let selectedFiles = [];
+
+            const handleFileSelection = (event) => {
+                const files = Array.from(event.target.files);
+
+                if (selectedFiles.length + files.length > MAX_FILES) {
+                    alert(`Максимально можна завантажити ${MAX_FILES} файлів.`);
+                    return;
+                }
+
+                files.forEach(file => {
+                    selectedFiles.push(file);
+
+                    const item = document.createElement('div');
+                    item.className = 'media-upload__preview-item';
+                    item.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
+                    previewContainer.appendChild(item);
+                });
+
+                event.target.value = ''; // Скидаємо значення інпуту
+            };
+
+            photoInput.addEventListener('change', handleFileSelection);
+            videoInput.addEventListener('change', handleFileSelection);
+        });
+    </script>-->
 </body>
 
 </html>

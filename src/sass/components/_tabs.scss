@@ -4,7 +4,7 @@
 
 .tab {
   &__list {
-   display: flex;
+    display: flex;
     align-items: center;
     gap: 12px;
     gap: fluid(10, 20);
@@ -17,15 +17,12 @@
 
   &__item {
     white-space: nowrap; // Запобігає переносу довгих назв
-    border: 1px solid #FF3C00;
-    color: #FF3C00;
+
     background: transparent;
-    padding: 10px;
+  
     cursor: pointer;
     position: relative;
     @include transition(.5);
-    font-size: fluid(14, 16);
-
 
     @media (max-width: $breakpoint-md) {
       max-width: 100%;
@@ -33,8 +30,7 @@
     }
 
     &.is--active {
-      color: #C8C6E5;
-      border-color: #C8C6E5;
+     
     }
   }
 

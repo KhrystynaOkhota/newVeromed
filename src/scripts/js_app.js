@@ -95,7 +95,54 @@ jQuery(function ($) {
             });
         }
     }
+  /*  _functions.initSelect = function (parent) {
+        var $container = parent ? $(parent) : $(document);
 
+        // Шукаємо теги select всередині обгортки .SelectBox
+        $container.find('.SelectBox select').each(function () {
+            var $select = $(this);
+
+            // Ініціалізація SumoSelect
+            $select.SumoSelect({
+                floatWidth: 0,
+                nativeOnDevice: [],
+                placeholder: ''
+            });
+
+            // Додавання/видалення фокусу
+            $select.on('sumo:opened', function () {
+                $(this).closest('.SelectBox').addClass('focus');
+            });
+
+            $select.on('sumo:closed', function () {
+                $(this).closest('.SelectBox').removeClass('focus');
+            });
+        });
+    };
+
+    $(document).ready(function () {
+        // 1. Запуск SumoSelect
+        _functions.initSelect('body');
+
+        // 2. Перевірка наявності значення при завантаженні
+        $('.SelectBox select').each(function () {
+            if ($(this).val()) {
+                $(this).closest('.SelectBox').addClass('value');
+            } else {
+                $(this).closest('.SelectBox').removeClass('value');
+            }
+        });
+    });
+
+    // 3. Перемикання класу при зміні значення
+    $(document).on('change', '.SelectBox select', function () {
+        if ($(this).val()) {
+            $(this).closest('.SelectBox').addClass('value');
+        } else {
+            $(this).closest('.SelectBox').removeClass('value');
+        }
+    });
+*/
     // Єдиний оптимізований слухач скролу (нативний, з passive: true для швидкодії)
     window.addEventListener('scroll', _functions.scrollCall, { passive: true });
 
@@ -184,7 +231,7 @@ jQuery(function ($) {
 
 
 
-
+/*
     _functions.initSelect = function (parent) {
         $('' + parent + ' .SelectBox').each(function () {
             console.log($(this));
@@ -230,7 +277,7 @@ jQuery(function ($) {
     };
 
     _functions.initSelect('html');
-
+*/
 
 });
 

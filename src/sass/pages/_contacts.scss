@@ -1,333 +1,26 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
-/*
-.s-contacts {
-  padding: fluid(40, 80) 0 fluid(0, 100) 0;
-  background: rgba(244, 244, 244, 1);
 
-  .map-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: max-content;
-    padding: 14px;
-    background-color: #fff;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
-
-    @media (max-width: $breakpoint-md) {
-
-      width: 100%;
-      max-width: 285px;
-
-      transform: translate(0, -50%);
-      left: 0;
-
-    }
-
-    &__icon {
-      position: absolute;
-      top: -45px;
-      right: 55px;
-      z-index: 3;
-      width: 38px;
-      height: 56px;
-      object-fit: contain;
-    }
-
-    &__location {
-      margin-bottom: 32px;
-      font-size: 14px;
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: calc(100% + 16px);
-        left: 0;
-        width: 80%;
-        height: 1px;
-        background: rgba(238, 238, 253, 1);
-
-        @media (max-width: $breakpoint-md) {
-          width: 100%;
-        }
-      }
-    }
-
-    &__more {
-      @include fontSize(14, 18);
-      color: rgba(232, 16, 16, 1);
-      cursor: pointer;
-
-      i {
-        padding-left: 16px;
-      }
-
-      & svg {
-        fill: currentColor;
-        margin-left: 16px;
-      }
-    }
-  }
-
-  &__inner {
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  .heading {
-    margin-bottom: fluid(12, 40);
-  }
-
-  .description {
-    margin-bottom: fluid(15, 40);
-    font-size: fluid(14, 16);
-    line-height: 1.4;
-  }
-
-  .social {
-    gap: 10px;
-
-    &--messengers {
-      margin-top: 16px;
-    }
-
-    &__item {
-      a {
-        display: inline-flex; // Ensures block/alignment controls work perfectly for dimensions
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        border-radius: 0;
-        box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
-       
-
-        i {
-          color: $accent-color;
-          font-size: 15px;
-        }
-
-        & svg {
-          color: $accent-color;
-          fill: $accent-color;
-           transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        &:hover {
-          & svg{
-            color:#ff3c00;
-            fill:#ff3c00;
-          }
-        }
-      }
-    }
-  }
-
-  .contact {
-    &__wrap {
-      display: grid;
-      gap: 24px;
-      padding: 32px;
-      background: #FFFFFF;
-      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
-    }
-
-    &__item {
-      &:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      .icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-        object-fit: contain;
-      }
-
-      .text {
-        @include fontSize(12, 14);
-        margin-top: 8px;
-        color: rgba(27, 27, 27, 1);
-      }
-    }
-  }
-
-  .contacts {
-    font-style: normal;
-    
-
-    &__wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      padding: 32px;
-      background: #fff;
-      box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.06);
-    }
-
-    &__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--wp--preset--color--main-text, #000);
-      text-decoration: none;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: var(--wp--preset--color--primary);
-      }
-
-      &--phone {
-        color: rgba(255, 60, 0, 1);
-      }
-
-      &--email {
-        font-size: 16px;
-        font-weight: 700;
-      }
-    }
-
-    &__icon {
-      width: 16px;
-      height: auto;
-      flex-shrink: 0;
-
-      &--location {
-        width: 12px
-      }
-    }
-
-    &__text {
-      font-size: 14px;
-      color: rgba(27, 27, 27, 1);
-    }
-  }
-}
-
-.s-cta {
-  margin-bottom: fluid(100, 200);
-
-  .heading {
-    @include fontSize(24, 32); // Swapped to match fluid syntax intent if applicable, or kept as property:
-    font-size: fluid(24, 32);
-    line-height: 1.4;
-    margin-bottom: fluid(16, 24);
-  }
-
-  .description {
-    margin-bottom: fluid(24, 32);
-  }
-
-  .btn-primary {
-    width: 100%;
-    background: rgba(255, 60, 0, 1);
-  }
-
-  .decor-large {
-    position: absolute;
-    bottom: 250px;
-    right: -128px;
-    width: 365px;
-    height: 525px;
-
-    @media (max-width: $breakpoint-md) {
-      display: none;
-    }
-  }
-
-  &__inner {
-    padding: fluid(24, 40);
-    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
-  }
-
-  .bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    &__wrap {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: -1;
-      width: 55%;
-      height: 100%;
-
-      @media (max-width: $breakpoint-md) {
-        top: auto;
-        bottom: 0;
-        width: 100%;
-        height: 75%;
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
-
-        @media (max-width: $breakpoint-md) {
-          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
-        }
-      }
-    }
-  }
-}
-
-*/
 
 .s-contacts {
-  padding: 50px 0 55px 0;
-  position: relative;
-
-  @media (min-width: $breakpoint-md) {
-    margin-top: 50px;
+  & .heading {
+    margin-bottom: fluid(21, 37);
   }
 
-  @media (max-width: $breakpoint-md) {
-    padding-bottom: 0;
-  }
-
-  &__inner {
-    background-color: #fff;
-
-    @media (min-width: $breakpoint-md) {
-      border-radius: 20px;
-      padding: 30px 20px;
-    }
-  }
-
-  .map {
+  & .map {
     width: 100%;
     height: 100%;
-    min-height: 300px;
+    min-height: 500px;
 
     &__wrap {
-      border-radius: 50px 50px 0 0;
+
       overflow: hidden;
       height: 100%;
-      position: absolute;
-      top: 0;
       width: 100%;
-      left: 0;
 
       @media (min-width: 1300px) {
         width: calc(100% - 100px);
-        position: absolute;
-        top: 0;
-        left: 50px;
-        z-index: -1;
-      }
-
-      @media (max-width: $breakpoint-md) {
-        position: relative;
+        margin: 0 auto;
       }
     }
   }
@@ -347,13 +40,20 @@
 
     &__item {
       white-space: nowrap;
-      border: 1px solid rgba(205, 203, 198, 1);
-      color: rgba(205, 203, 198, 1);
+      background: transparent;
+      border: 1px solid rgba(111, 111, 111, 0.3);
+      color: rgba(111, 111, 111, 1);
       background: rgba(0, 0, 0, 0);
       padding: 13.5px 15px;
       border-radius: 10px;
       cursor: pointer;
       position: relative;
+
+      &.is--active {
+        background-color: rgba(172, 36, 36, 0.15);
+        border-color: transparent;
+        color: rgba(139, 30, 30, 1);
+      }
     }
   }
 
@@ -431,34 +131,161 @@
       }
     }
   }
+
+  & .contact-form {
+    padding: fluid(24, 43) fluid(10, 30) fluid(32, 51) fluid(10, 30);
+    border-radius: 30px;
+    background: rgba(242, 242, 242, 1);
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 30px;
+    }
+
+    &__heading {
+      margin-bottom: 21px;
+      font-size: fluid(25, 35);
+
+      @media (max-width: $breakpoint-md) {
+        text-align: center;
+      }
+    }
+  }
+
+  &--full {
+    @media (min-width: $breakpoint-md) {
+      padding: 20px 0 50px 0;
+    }
+
+    .map {
+      @media (min-width: $breakpoint-md) {
+        min-height: 700px;
+      }
+
+      &__wrap {
+        @media (min-width: $breakpoint-md) {
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+
+  &--footer {
+    padding: 50px 0 55px 0;
+    position: relative;
+
+    @media (min-width: $breakpoint-md) {
+      margin-top: 50px;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding-bottom: 0;
+    }
+
+    .map {
+      &__wrap {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @media (min-width: 1300px) {
+          left: 50px;
+          z-index: -1;
+          border-radius: 50px 50px 0 0;
+        }
+
+        @media (max-width: $breakpoint-md) {
+          position: relative;
+
+        }
+      }
+    }
+
+    .tab {
+      background-color: #fff;
+
+      @media (min-width: $breakpoint-md) {
+        border-radius: 20px;
+        padding: 30px 20px;
+      }
+    }
+  }
 }
 
 .s-visit-cta {
   margin-bottom: fluid(50, 100);
 
   & .visit-cta {
-    margin-top: 130px;
-
     background-color: #F2F2F2;
     border-radius: 20px;
 
     color: #ffff;
     position: relative;
 
+    @media (min-width: $breakpoint-md) {
+      margin-top: 130px;
+    }
+
     &__content {
+      overflow: hidden;
       background-color: #8B1E1E;
       border-radius: 20px;
-      padding: 45px 0 90px 30px;
+      padding: fluid(25, 45) 0 fluid(25, 90) fluid(11, 30);
+
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 20px;
+      }
+
+      & .visit-cta {
+
+        &__heading,
+        &__description {
+          max-width: 260px;
+
+          @media (max-width: $breakpoint-md) {
+            max-width: 90%;
+            text-align: center;
+          }
+        }
+      }
+
+      & .decor {
+        width: 245px;
+        height: auto;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        opacity: .3;
+      }
     }
 
-    &__title {
+    &__action {
+      display: grid;
+      gap: 23px;
+      color: rgba(30, 30, 30, 1);
+      padding: 0 fluid(30, 50);
+
+      & .btn--primary {
+        max-width: 275px;
+        margin: 0 auto;
+      }
+    }
+
+    &__heading {
       font-size: fluid(25, 40);
-      margin-bottom: 31px;
-      max-width: 260px;
+      margin-bottom: fluid(11, 31);
+      //max-width: 260px;
     }
 
-    &__desc {
-      max-width: 260px;
+    &__description {
+      //max-width: 260px;
+      font-size: fluid(16, 20);
+    }
+
+    &__phone {
+      font-size: fluid(25, 30);
+      font-weight: bold;
     }
 
     &__img {
@@ -467,6 +294,13 @@
         left: 27%;
         bottom: 0;
         max-width: 409px;
+
+        @media (max-width: $breakpoint-md) {
+          position: relative;
+          left: auto;
+          max-width: 200px;
+          margin: 20px auto 0 auto;
+        }
       }
     }
   }

@@ -86,19 +86,20 @@
 }
 
 .s-stats {
-  @media (min-width: 1300px) {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
+  padding: fluid(50, 90) 0 fluid(45, 100) 0;
 
-  &__inner {
+  &.bg {
     background-color: #F2F2F2;
-    padding: fluid(50, 90) 0 fluid(45, 100) 0;
+
 
     @media (min-width: 1300px) {
       border-radius: 20px;
+      width: calc(100% - 100px);
+      margin: 0 auto;
     }
   }
+
+  &__inner {}
 
   .heading {
     @media (max-width: $breakpoint-md) {
@@ -316,7 +317,8 @@
 
 
 .s-special-offers {
-overflow: hidden;
+  overflow: hidden;
+
   .swiper-container {
     overflow: visible;
     padding: 35px 0;
@@ -337,3 +339,4 @@ overflow: hidden;
     }
   }
 }
+

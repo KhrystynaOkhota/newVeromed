@@ -360,3 +360,69 @@ $color-accent: #8b1e1e;
     }
   }
 }
+
+
+
+
+
+.s-services-price {
+  padding: 50px 0 50px 0;
+
+  & .heading {
+    margin-bottom: 27px;
+  }
+
+  & .accordeon {
+    margin-bottom: 30px;
+  }
+}
+
+.s-treatment-results {
+  padding: 50px 0;
+
+  & .case {
+
+    @media (min-width: $breakpoint-md) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: fluid(10, 20);
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &__heading {
+      font-size: fluid(20, 30);
+      margin-bottom: fluid(17, 30);
+    }
+
+    &__img {
+      height: 100%;
+
+      &--grid {
+        @media (min-width: $breakpoint-md) {
+          padding: 20px;
+          margin-bottom: 0;
+          background-color: rgba(242, 242, 242, 1);
+          border-radius: 20px;
+          max-height: 450px;
+        }
+      }
+
+    }
+
+    &__content {
+      @media (min-width: $breakpoint-md) {
+        padding: fluid(20, 40) 20px 120px fluid(20, 60);
+      }
+    }
+  }
+
+  & .swiper-entry__bottom-bar {
+    @media (min-width: $breakpoint-md) {
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+      width: calc(50% - 10px - #{fluid(20, 60)});
+    }
+  }
+}

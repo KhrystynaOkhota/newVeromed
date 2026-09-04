@@ -72,21 +72,29 @@
 
   .mission {
     &__img {
-      width: 55%;
-      height: 55%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      max-width: 100%;
 
       &--wrap {
         width: fluid(46, 52);
-        height: fluid(46, 52);
+        height: auto;
       }
     }
 
     &__top {
       display: grid;
-      grid-template-columns: fluid(62, 72) 1fr;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: fluid(16, 24);
+      grid-template-columns: 1fr;
+      gap: 15px;
+
+      @media (max-width: $breakpoint-md) {
+
+
+        grid-template-columns: 46px 1fr;
+        gap: 20px;
+        align-items: center;
+      }
     }
 
     &__title {
@@ -94,7 +102,7 @@
     }
 
     &__description {
-      margin-top: 24px;
+      margin-top: fluid(10, 15);
       line-height: 1.4;
       @include fontSize(15, 17);
       color: #1B1B1B;
@@ -108,33 +116,28 @@
 
     }
 
-    &__wrap {
-      margin-top: 56px;
-
-      @media (max-width: $breakpoint-md) {
-        margin-top: 32px;
-      }
+    &__grid {
 
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px 20px;
-      margin-top: 35px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
 
       @media (max-width: $breakpoint-lg) {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+
       }
 
       @media (max-width: $breakpoint-sm) {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 22px;
       }
     }
   }
 }
 
 .s-partners {
-  padding: fluid(50,100) 0;
+  padding: fluid(50, 100) 0;
+
   & .heading {
     margin-bottom: fluid(21, 30);
   }
@@ -143,7 +146,7 @@
     &__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: fluid(15,20);
+      gap: fluid(15, 20);
 
       @media (max-width: $breakpoint-md) {
         grid-template-columns: repeat(2, 1fr);
@@ -155,11 +158,158 @@
       height: 65%;
       object-fit: contain;
       object-position: center;
+
       &--wrap {
         border-radius: 20px;
         border: 5px solid rgba(242, 242, 242, 1);
         min-height: 180px;
       }
     }
+  }
+}
+
+.s-hero-about {
+
+  padding: fluid(86, 125) 0 fluid(70, 125) 0;
+  position: relative;
+
+
+
+  & .bg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    &__wrap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      @media (min-width: 1300px) {
+
+        top: 0;
+        width: calc(100% - 100px);
+
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  & .content {
+    width: fluid(344, 540);
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    z-index: 7;
+    position: relative;
+    backdrop-filter: blur(42px);
+    background: linear-gradient(153.26deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 101.54%);
+    color: #fff;
+    padding: 10px;
+
+
+    & .title {
+      margin-bottom: 20px;
+      font-size: fluid(25, 55);
+      line-height: 1;
+    }
+
+
+    & .description {
+      margin-bottom: fluid(20, 40);
+      font-size: fluid(17, 22);
+    }
+  }
+
+  & .socials {
+    background: rgba(255, 255, 255, 1);
+    padding: 11px 20px 10px 20px;
+    border-radius: 30px;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+
+    &__title {
+      color: rgba(111, 111, 111, 1);
+      font-size: 16px;
+      margin-right: 8px;
+    }
+
+  }
+}
+
+
+
+.s-about-clinic {
+  padding: fluid(50, 100) 0;
+  background-color: #F2F2F2;
+
+  @media (min-width: 1300px) {
+    border-radius: 20px;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+  }
+
+  .intro-block {
+    margin-bottom: fluid(30, 50);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+    align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+
+    &--unequal {
+
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: 1fr 1.7fr;
+      }
+
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      &-wrap {
+        height: 100%;
+        max-height: 470px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+    }
+
+    & .heading {
+      margin-bottom: fluid(17, 43);
+    }
+
+    & .accent {
+      padding-left: 20px;
+      margin-top: 20px;
+      border-left: 5px solid rgba(139, 30, 30, 1);
+    }
+  }
+
+  .text-block {
+    & .btn--primary {
+      margin-top: fluid(24, 30);
+      width: 100%;
+      max-width: 470px;
+    }
+  }
+}
+
+.intro-block--reverse .intro-block__text {
+  @media (min-width: $breakpoint-md) {
+    order: 2;
+    /* Міняє порядок елементів місцями */
   }
 }

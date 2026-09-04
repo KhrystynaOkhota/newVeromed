@@ -54,12 +54,14 @@
       align-items: center;
     }
   }
-& .swiper-container{
-   @media (min-width: $breakpoint-md) {
-     
-      margin-top:40px;
+
+  & .swiper-container {
+    @media (min-width: $breakpoint-md) {
+
+      margin-top: 40px;
     }
-}
+  }
+
   .heading {
     @media (max-width: $breakpoint-md) {
       text-align: center;
@@ -82,6 +84,140 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 50px 20px;
+    }
+  }
+}
+
+.s-qualifications {
+  & .heading {
+    margin-bottom: 20px;
+  }
+
+  .qualification {
+    background: rgba(242, 242, 242, 1);
+    padding: 9px 20px;
+    border-radius: 20px;
+    max-height: 220px;
+
+    &__img {
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+    }
+  }
+}
+
+.s-blog-doctors {
+  & .decor--left {
+    top: 100px;
+  }
+}
+
+.s-doctor-profile {
+  .doctor {
+    &__name {
+      margin-bottom: fluid(11, 27);
+    }
+
+    &__specialty {
+      font-size: fluid(20, 25);
+      margin-bottom: fluid(15, 19);
+    }
+
+    &__img {
+      margin: 0 auto;
+      object-fit: contain;
+
+      &--wrap {
+        border-radius: 30px;
+        background: rgba(242, 242, 242, 1);
+        padding: 46px 0 0 0;
+        overflow: hidden;
+      }
+    }
+
+    &-details {
+      display: grid;
+      grid-template-columns: minmax(0, #{fluid(150,250)}) auto;
+      gap:10px;
+
+      &__grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      &__term {}
+
+      &__description {}
+    }
+  }
+
+  .price-list {
+    margin-bottom: fluid(30, 50);
+
+    &__item {
+      grid-template-columns: 1fr auto;
+
+      &:last-child {
+        border-bottom: 1px solid #e2e2e2;
+      }
+    }
+
+    &__title {
+      @media (max-width: $breakpoint-md) {
+        grid-column: inherit;
+      }
+    }
+  }
+
+  & .btn--primary {
+    width: 100%;
+  }
+
+  .tab {
+    margin-top: fluid(40, 60);
+    padding-bottom: 46px;
+    border-bottom: 1px solid rgba(30, 30, 30, .1);
+
+    &__list {
+      border-bottom: 1px solid rgba(30, 30, 30, .1);
+      margin-bottom: 33px;
+      gap: fluid(10, 100);
+
+      @media (max-width: $breakpoint-md) {
+        align-items: stretch;
+      }
+    }
+
+    &__item {
+      font-size: fluid(14, 25);
+      padding-bottom: fluid(9, 17);
+      font-weight: bold;
+      position: relative;
+
+      @media (max-width: $breakpoint-md) {
+        min-width: 80px;
+        white-space: normal;
+        display: flex;
+        align-items: center;
+      }
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 5px;
+        border-radius: 5px;
+        background-color: rgba(139, 30, 30, 1);
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        @include transition(.4);
+      }
+
+      &.is--active {
+        &:after {
+          width: 100%;
+        }
+      }
     }
   }
 }
