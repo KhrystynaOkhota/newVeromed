@@ -514,7 +514,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                    <div class="file-upload form-field">
+                                        <span class="file-upload__label form-field__label">Фото або відео</span>
 
+                                        <div class="file-upload__controls">
+                                            <label class="file-upload__btn">
+                                                <input type="file" name="photos[]" class="file-upload__input"
+                                                    accept="image/jpeg,image/png" multiple>
+                                                <span>ДОДАТИ ФОТО</span>
+                                            </label>
+
+                                            <label class="file-upload__btn">
+                                                <input type="file" name="videos[]" class="file-upload__input"
+                                                    accept="video/mp4,video/quicktime" multiple>
+                                                <span>ДОДАТИ ВІДЕО</span>
+                                            </label>
+
+                                            <span class="file-upload__info">
+                                                Фото: JPG, PNG до 10 МБ · Відео: MP4, MOV до 100 МБ · до 5 файлів
+                                            </span>
+                                        </div>
+
+                                        <!-- Контейнер для виводу списку файлів -->
+                                        <div class="file-upload__list"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                     <div class="form-field">
@@ -920,7 +947,7 @@
 
     <script src="src/scripts/app_map.js"></script>
 
-
+<!--
     <script>
 
         _functions.initSelect = function (parent) {
@@ -972,7 +999,27 @@
         });
 
     </script>
+    <script>
+       $(document).ready(function () {
+  $('.file-upload__input').on('change', function (e) {
+    if (this.files) {
+      $.each(this.files, function (index, file) {
+        $(e.target).closest('.file-upload').find('.file-upload__list').append(
+          '<div class="file-upload__item">' +
+            '<span>' + file.name + '</span>' +
+            '<span class="file-upload__remove">&times;</span>' +
+          '</div>'
+        );
+      });
+    }
+  });
 
+  // Видалення назви файла зі списку при кліку на хрестик
+  $(document).on('click', '.file-upload__remove', function () {
+    $(this).closest('.file-upload__item').remove();
+  });
+});
+    </script>-->
     <!--<script>
         document.addEventListener('DOMContentLoaded', () => {
             const photoInput = document.getElementById('photo-input');

@@ -167,36 +167,79 @@
                         <h1 class="heading h2 text-bold">
                             Послуги
                         </h1>
-                        <div class="accordion-container">
-                            <div class="accordion">
-                                <!-- Елемент 1 -->
-                                <div class="accordion-item">
-                                    <button class="accordion-header">Поліклінічні послуги</button>
-                                    <div class="accordion-content">
-                                        <div class="accordion-inner">Контент 1 на всю ширину...</div>
-                                    </div>
-                                </div>
+                       <div class="services-grid">
+  <!-- Картка 1 (Відкрита за замовчуванням) -->
+  <div class="services-card services-card--active">
+    <button type="button" class="services-card__btn">
+      <span class="services-card__icon"><img src="img/icon-1.svg" alt="" /></span>
+      <span class="services-card__title">Поліклінічні послуги</span>
+      <span class="services-card__arrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
 
-                                <!-- Елемент 2 -->
-                                <div class="accordion-item">
-                                    <button class="accordion-header">Діагностика</button>
-                                    <div class="accordion-content">
-                                        <div class="accordion-inner">Контент 2 на всю ширину...</div>
-                                    </div>
-                                </div>
+    <div class="services-card__dropdown">
+      <div class="services-card__dropdown-inner">
+        <div class="services-card__head">
+          <p class="services-card__description"><strong>Поліклініка</strong> — амбулаторний медичний супровід...</p>
+          <button type="button" class="services-card__close" aria-label="Закрити">✕</button>
+        </div>
+        <div class="services-card__links">
+          <a href="#" class="services-card__link">Алергологія</a>
+          <a href="#" class="services-card__link">Виїзна консультація лікаря</a>
+          <a href="#" class="services-card__link">Гастроентерологія</a>
+          <a href="#" class="services-card__link">Гінекологія</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                                <!-- Елемент 3 -->
-                                <div class="accordion-item">
-                                    <button class="accordion-header">Операції</button>
-                                    <div class="accordion-content">
-                                        <div class="accordion-inner">Контент 3 на всю ширину...</div>
-                                    </div>
-                                </div>
-                            </div>
+  <!-- Картка 2 -->
+  <div class="services-card">
+    <button type="button" class="services-card__btn">
+      <span class="services-card__icon"><img src="img/icon-2.svg" alt="" /></span>
+      <span class="services-card__title">Діагностика</span>
+      <span class="services-card__arrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
 
-                            <!-- Сюди виводиться контент активного елемента на всю ширину -->
-                            <div class="accordion-display"></div>
-                        </div>
+    <div class="services-card__dropdown">
+      <div class="services-card__dropdown-inner">
+        <div class="services-card__head">
+          <p class="services-card__description"><strong>Діагностика</strong> — сучасні методи дослідження...</p>
+          <button type="button" class="services-card__close">✕</button>
+        </div>
+        <div class="services-card__links">
+          <a href="#" class="services-card__link">УЗД діагностика</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Картка 3 -->
+  <div class="services-card">
+    <button type="button" class="services-card__btn">
+      <span class="services-card__icon"><img src="img/icon-3.svg" alt="" /></span>
+      <span class="services-card__title">Операції та процедури</span>
+      <span class="services-card__arrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
+
+    <div class="services-card__dropdown">
+      <div class="services-card__dropdown-inner">
+        <div class="services-card__head">
+          <p class="services-card__description"><strong>Операції</strong> — малоінвазивна хірургія...</p>
+          <button type="button" class="services-card__close">✕</button>
+        </div>
+        <div class="services-card__links">
+          <a href="#" class="services-card__link">Флебологія</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
                     </div>
                 </div>
 
@@ -563,258 +606,9 @@
 
     </div>
 
-    <style>
-        /* Базові стилі сітки */
-        .accordion-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .acc-item {
-            flex: 0 0 calc((100% - 24px) / 3);
-            box-sizing: border-box;
-        }
-
-        .acc-header {
-            width: 100%;
-            padding: 16px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.2s ease;
-        }
-
-        .acc-item.active .acc-header {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
-        }
-
-        /* Прихований шаблонний контент */
-        .acc-content {
-            display: none;
-        }
-
-        /* --- ДЕСКТОПНА АНІМАЦІЯ (БЕЗ СТРИБКИВ) --- */
-        .desktop-row-content {
-            flex: 0 0 100%;
-            width: 100%;
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .desktop-row-content.show {
-            grid-template-rows: 1fr;
-        }
-
-        .desktop-row-inner {
-            overflow: hidden;
-            /* Важливо: приховує вміст під час анімації */
-        }
-
-        /* Padding та Border задаються ТІЛЬКИ тут, всередині віданімованого контейнера */
-        .acc-inner-wrapper {
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            margin: 8px 0;
-            /* Відступ зверху і знизу */
-            opacity: 0;
-            transform: translateY(-6px);
-            transition: opacity 0.25s ease 0.1s, transform 0.25s ease 0.1s;
-        }
-
-        .desktop-row-content.show .acc-inner-wrapper {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- МОБІЛЬНИЙ АДАПТИВ (до 768px) --- */
-        @media (max-width: 768px) {
-            .acc-item {
-                flex: 0 0 100%;
-            }
-
-            .acc-content {
-                display: grid;
-                grid-template-rows: 0fr;
-                transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .acc-item.active .acc-content {
-                grid-template-rows: 1fr;
-            }
-
-            .acc-content .desktop-row-inner {
-                overflow: hidden;
-            }
-
-            .acc-item.active .acc-inner-wrapper {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .accordion-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .acc-item {
-            flex: 0 0 calc((100% - 24px) / 3);
-            box-sizing: border-box;
-        }
-
-        .acc-header {
-            width: 100%;
-            padding: 16px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: left;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
-        }
-
-        .acc-item.active .acc-header {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
-        }
-
-        .acc-content {
-            display: none;
-        }
-
-        /* --- ДЕСКТОПНИЙ ВИПАДАЮЧИЙ БЛОК --- */
-        .desktop-row-content {
-            flex: 0 0 100%;
-            width: 100%;
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease;
-        }
-
-        .desktop-row-content.show {
-            grid-template-rows: 1fr;
-        }
-
-        .desktop-row-inner {
-            overflow: hidden;
-            transition: opacity 0.15s ease;
-        }
-
-        /* Внутрішній блок без зовнішніх відступів, щоб не смикало висоту */
-        .acc-inner-wrapper {
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            margin-top: 8px;
-            margin-bottom: 8px;
-        }
-
-        /* --- МОБІЛЬНИЙ АДАПТИВ (до 768px) --- */
-        @media (max-width: 768px) {
-            .acc-item {
-                flex: 0 0 100%;
-            }
-
-            .acc-content {
-                display: grid;
-                grid-template-rows: 0fr;
-                transition: grid-template-rows 0.3s ease;
-            }
-
-            .acc-item.active .acc-content {
-                grid-template-rows: 1fr;
-            }
-
-            .acc-content .desktop-row-inner {
-                overflow: hidden;
-            }
-        }
-
-        /* Мобільна адаптація */
-@media (max-width: 768px) {
-  .acc-item.active .acc-content {
-    display: block !important;
-  }
-}
-    </style>
-
-    <div class="accordion-grid">
-        <!-- Елемент 1 -->
-        <div class="acc-item">
-            <button class="acc-header">Поліклінічні послуги</button>
-            <div class="acc-content">
-                <div class="acc-inner-wrapper">
 
 
-                    <button class="close-btn" aria-label="Закрити">&times;</button>
 
-                    <p><strong>Poliklinika</strong> — амбулаторний медичний супровід.</p>
-                    <div class="services-grid">
-                        <a href="#">Алергологія</a>
-                        <a href="#">Гастроентерологія</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Елемент 2 -->
-        <div class="acc-item">
-            <button class="acc-header">Діагностика</button>
-            <div class="acc-content">
-                <div class="acc-inner-wrapper">
-                    Контент діагностики...
-                </div>
-            </div>
-        </div>
-
-        <!-- Елемент 3 -->
-        <div class="acc-item">
-            <button class="acc-header">Операції та процедури</button>
-            <div class="acc-content">
-                <div class="acc-inner-wrapper">
-                    Контент операцій...
-                </div>
-            </div>
-        </div>
-        <!-- Елемент 2 -->
-        <div class="acc-item">
-            <button class="acc-header">Діагностика</button>
-            <div class="acc-content">
-                <div class="acc-inner-wrapper">
-                    Контент діагностики...
-                </div>
-            </div>
-        </div>
-
-        <!-- Елемент 3 -->
-        <div class="acc-item">
-            <button class="acc-header">Операції та процедури</button>
-            <div class="acc-content">
-                <div class="acc-inner-wrapper">
-                    Контент операцій...
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9h5L2xSWEvRFgLc7y4d16KPUDydNgs9Y"
         type="text/javascript"></script>
 
@@ -831,94 +625,41 @@
 
     <script src="src/scripts/app_map.js"></script>
     <script>
-     const items = Array.from(document.querySelectorAll('.acc-item'));
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.services-card');
 
-// Створюємо єдиний випадаючий блок для десктопа
-let desktopHolder = document.createElement('div');
-desktopHolder.className = 'desktop-row-content';
-desktopHolder.innerHTML = '<div class="desktop-row-inner"></div>';
-const desktopInner = desktopHolder.querySelector('.desktop-row-inner');
+            const closeAll = () => {
+                cards.forEach((c) => c.classList.remove('services-card--active'));
+            };
 
-function openAccordionItem(item, index) {
-  const isMobile = window.innerWidth <= 768;
+            cards.forEach((card) => {
+                const btn = card.querySelector('.services-card__btn');
+                const closeBtn = card.querySelector('.services-card__close');
 
-  items.forEach(i => i.classList.remove('active'));
-  item.classList.add('active');
+                btn?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isActive = card.classList.contains('services-card--active');
 
-  if (!isMobile) {
-    const rowEndIndex = Math.min(Math.floor(index / 3) * 3 + 2, items.length - 1);
-    const rowEndItem = items[rowEndIndex];
-    const newHTML = item.querySelector('.acc-content').innerHTML;
+                    closeAll();
 
-    // Перевіряємо, чи блок вже в потрібному місці в DOM
-    if (desktopHolder.parentElement && desktopHolder.previousElementSibling === rowEndItem) {
-      desktopInner.style.opacity = '0';
-      setTimeout(() => {
-        desktopInner.innerHTML = newHTML;
-        desktopInner.style.opacity = '1';
-      }, 150);
-    } else {
-      desktopHolder.classList.remove('show');
-      setTimeout(() => {
-        desktopInner.innerHTML = newHTML;
-        rowEndItem.after(desktopHolder);
-        requestAnimationFrame(() => {
-          desktopHolder.classList.add('show');
-          desktopInner.style.opacity = '1';
+                    if (!isActive) {
+                        card.classList.add('services-card--active');
+                    }
+                });
+
+                closeBtn?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeAll();
+                });
+            });
+
+            // Закриття при кліку поза областю блоку
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.services-card')) {
+                    closeAll();
+                }
+            });
         });
-      }, desktopHolder.classList.contains('show') ? 200 : 0);
-    }
-  }
-}
-
-// Функція повного та коректного закриття
-function closeAccordion() {
-  items.forEach(i => i.classList.remove('active'));
-  desktopHolder.classList.remove('show');
-
-  // Видаляємо блок з DOM після завершення CSS-анімації
-  setTimeout(() => {
-    if (!desktopHolder.classList.contains('show')) {
-      desktopHolder.remove();
-    }
-  }, 300);
-}
-
-items.forEach((item, index) => {
-  const header = item.querySelector('.acc-header');
-
-  header.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
-
-    if (!isActive) {
-      openAccordionItem(item, index);
-    } else {
-      closeAccordion();
-    }
-  });
-});
-
-// Делегування подій для кнопки-хрестика (для десктопа і мобільних)
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.close-btn')) {
-    closeAccordion();
-  }
-});
-
-// Активація першого елемента при завантаженні сторінки
-if (items.length > 0) {
-  openAccordionItem(items[0], 0);
-}
-
-// Коректний перерозрахунок при зміні розміру екрана
-window.addEventListener('resize', () => {
-  const activeIndex = items.findIndex(i => i.classList.contains('active'));
-  if (activeIndex !== -1) {
-    openAccordionItem(items[activeIndex], activeIndex);
-  } else {
-    closeAccordion();
-  }
-});
     </script>
 </body>
 

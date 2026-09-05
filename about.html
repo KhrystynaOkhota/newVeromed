@@ -709,58 +709,69 @@
 
         </section>
 
-        <section class="s-cta">
+           <section class="s-cta">
+            <div class="s-cta__bg--wrap">
+                <img src="assets/img/cta-bg.jpg" alt="cta img" class="s-cta__bg">
+            </div>
             <div class="container">
-                <div class="row m-row">
+                <div class="row m-row align-end">
                     <div class="column col-xl-7 col-lg-8 col-md-7 col-sm-16 col-xs-16">
                         <div class="cta__img--wrap d-none d-lg-block">
                             <img src="assets/img/cta.png" alt="cta img" class="cta__img">
                         </div>
                     </div>
                     <div class="column col-xl-9 col-lg-8 col-md-16 col-sm-16 col-xs-16">
-                        <h2 class="cta__heading h2 text-bold">Ми завжди готові відповісти на ваші запитання!</h2>
-                        <div class="cta__description">Наші кваліфіковані лікарі чекають на ваш дзвінок! Запишіться на
+                        <h2 class="cta__heading h2 text-bold">Ми завжди готові відповісти на ваші запитання!
+                        </h2>
+                        <div class="cta__description">Наші кваліфіковані лікарі чекають на ваш дзвінок!
+                            Запишіться на
                             прийом за телефоном, або за допомогою форми зворотнього зв’язку</div>
                         <a class="cta__phone " href="tel:+380672626680">
                             <b>+380 (67) 262-66-80</b>
                         </a>
-
                         <div class="cta__form">
-                            <form class="appointment-form">
-
-                                <div class="form-field__grid">
-                                    <div class="form-field form-field--full">
-                                        <label class="form-field__label" for="user-name">Як до вас звертатися?</label>
-                                        <input class="form-field__input" type="text" id="user-name" name="name"
-                                            placeholder="Вік">
+                            <form>
+                                <div class="row">
+                                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                        <div class="form-field">
+                                            <label class="form-field__label" for="user-name">Як до вас
+                                                звертатися?</label>
+                                            <input class="form-field__input" type="text" id="user-name" name="name"
+                                                placeholder="Вік">
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-16 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field ">
+                                            <label class="form-field__label" for="user-phone">Ваш номер
+                                                телефону</label>
+                                            <input class="form-field__input" type="tel" id="user-phone" name="phone"
+                                                value="+38 (000) 99f -86- w5" aria-invalid="true"
+                                                aria-describedby="phone-error">
 
-                                    <div class="form-field is-invalid">
-                                        <label class="form-field__label" for="user-phone">Ваш номер телефону</label>
-                                        <input class="form-field__input" type="tel" id="user-phone" name="phone"
-                                            value="+38 (000) 99f -86- w5" aria-invalid="true"
-                                            aria-describedby="phone-error">
-
+                                        </div>
                                     </div>
-
-                                    <div class="form-field">
-                                        <label class="form-field__label" for="user-date">Дата прийому</label>
-                                        <input class="form-field__input" type="date" id="user-date" name="date">
-                                    </div>
-
-                                    <div class="form-field form-field--full">
-                                        <label class="form-field__label" for="user-direction">Обрати напрямок</label>
-                                        <div class="form-select select-entry">
-                                            <select class="form-field__select" name="direction">
-                                                <option value="" disabled selected hidden>Вибрати</option>
-                                                <option value="1">Напрямок 1</option>
-                                                <option value="2">Напрямок 2</option>
+                                    <div class="col-xl-8 col-lg-16 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label">Обрати
+                                                напрямок </label>
+                                            <select>
+                                                <option value="1">Флебологія</option>
+                                                <option value="2">Гінекологія</option>
+                                                <option value="3">Дерматологія</option>
+                                                <option value="4">Флебологія</option>
+                                                <option value="5">Гінекологія</option>
+                                                <option value="6">Дерматологія</option>
+                                                <option value="7">Флебологія</option>
+                                                <option value="8">Гінекологія</option>
+                                                <option value="9">Дерматологія</option>
                                             </select>
                                         </div>
-
                                     </div>
-
-                                    <div class="form-field form-field--full">
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                         <button class="btn btn--primary" type="submit">
                                             Записатися на прийом
                                         </button>
@@ -772,6 +783,7 @@
                 </div>
             </div>
         </section>
+
 
         <section class="s-partners">
             <div class="container">
