@@ -95,54 +95,54 @@ jQuery(function ($) {
             });
         }
     }
-  /*  _functions.initSelect = function (parent) {
-        var $container = parent ? $(parent) : $(document);
-
-        // Шукаємо теги select всередині обгортки .SelectBox
-        $container.find('.SelectBox select').each(function () {
-            var $select = $(this);
-
-            // Ініціалізація SumoSelect
-            $select.SumoSelect({
-                floatWidth: 0,
-                nativeOnDevice: [],
-                placeholder: ''
-            });
-
-            // Додавання/видалення фокусу
-            $select.on('sumo:opened', function () {
-                $(this).closest('.SelectBox').addClass('focus');
-            });
-
-            $select.on('sumo:closed', function () {
-                $(this).closest('.SelectBox').removeClass('focus');
-            });
-        });
-    };
-
-    $(document).ready(function () {
-        // 1. Запуск SumoSelect
-        _functions.initSelect('body');
-
-        // 2. Перевірка наявності значення при завантаженні
-        $('.SelectBox select').each(function () {
-            if ($(this).val()) {
-                $(this).closest('.SelectBox').addClass('value');
-            } else {
-                $(this).closest('.SelectBox').removeClass('value');
-            }
-        });
-    });
-
-    // 3. Перемикання класу при зміні значення
-    $(document).on('change', '.SelectBox select', function () {
-        if ($(this).val()) {
-            $(this).closest('.SelectBox').addClass('value');
-        } else {
-            $(this).closest('.SelectBox').removeClass('value');
-        }
-    });
-*/
+    /*  _functions.initSelect = function (parent) {
+          var $container = parent ? $(parent) : $(document);
+  
+          // Шукаємо теги select всередині обгортки .SelectBox
+          $container.find('.SelectBox select').each(function () {
+              var $select = $(this);
+  
+              // Ініціалізація SumoSelect
+              $select.SumoSelect({
+                  floatWidth: 0,
+                  nativeOnDevice: [],
+                  placeholder: ''
+              });
+  
+              // Додавання/видалення фокусу
+              $select.on('sumo:opened', function () {
+                  $(this).closest('.SelectBox').addClass('focus');
+              });
+  
+              $select.on('sumo:closed', function () {
+                  $(this).closest('.SelectBox').removeClass('focus');
+              });
+          });
+      };
+  
+      $(document).ready(function () {
+          // 1. Запуск SumoSelect
+          _functions.initSelect('body');
+  
+          // 2. Перевірка наявності значення при завантаженні
+          $('.SelectBox select').each(function () {
+              if ($(this).val()) {
+                  $(this).closest('.SelectBox').addClass('value');
+              } else {
+                  $(this).closest('.SelectBox').removeClass('value');
+              }
+          });
+      });
+  
+      // 3. Перемикання класу при зміні значення
+      $(document).on('change', '.SelectBox select', function () {
+          if ($(this).val()) {
+              $(this).closest('.SelectBox').addClass('value');
+          } else {
+              $(this).closest('.SelectBox').removeClass('value');
+          }
+      });
+  */
     // Єдиний оптимізований слухач скролу (нативний, з passive: true для швидкодії)
     window.addEventListener('scroll', _functions.scrollCall, { passive: true });
 
@@ -231,53 +231,53 @@ jQuery(function ($) {
 
 
 
-/*
-    _functions.initSelect = function (parent) {
-        $('' + parent + ' .SelectBox').each(function () {
-            console.log($(this));
-            if ($(this).attr("multiple")) {
-                $(this).SumoSelect({
-                    floatWidth: 0,
-                    nativeOnDevice: [],
-                    okCancelInMulti: true,
-                    csvDispCount: 1,
-                    captionFormat: '{0} Selected',
-                    locale: ['Ok', 'Cancel', 'All'],
-                    placeholder: '',
+    /*
+        _functions.initSelect = function (parent) {
+            $('' + parent + ' .SelectBox').each(function () {
+                console.log($(this));
+                if ($(this).attr("multiple")) {
+                    $(this).SumoSelect({
+                        floatWidth: 0,
+                        nativeOnDevice: [],
+                        okCancelInMulti: true,
+                        csvDispCount: 1,
+                        captionFormat: '{0} Selected',
+                        locale: ['Ok', 'Cancel', 'All'],
+                        placeholder: '',
+                    });
+                } else if ($(this).hasClass("search")) {
+                    let textSearch = $(this).attr("data-text-search") ? $(this).attr("data-text-search") : '';
+                    let textNoMatch = $(this).attr("data-text-no-match") ? $(this).attr("data-text-no-match") : '';
+                    console.log(textNoMatch);
+                    $(this).SumoSelect({
+                        forceCustomRendering: true,
+                        search: true,
+                        searchText: textSearch,
+                        noMatch: `${textNoMatch} "{0}"`,
+                        // floatWidth: 0,
+                        placeholder: "",
+                        // nativeOnDevice: []
+                    });
+                } else {
+                    $(this).SumoSelect({
+                        floatWidth: 0,
+                        nativeOnDevice: [],
+                        placeholder: '',
+                    });
+                }
+    
+                $(this).on('sumo:opened', function () {
+                    $(this).closest('.input-field').addClass('focus');
                 });
-            } else if ($(this).hasClass("search")) {
-                let textSearch = $(this).attr("data-text-search") ? $(this).attr("data-text-search") : '';
-                let textNoMatch = $(this).attr("data-text-no-match") ? $(this).attr("data-text-no-match") : '';
-                console.log(textNoMatch);
-                $(this).SumoSelect({
-                    forceCustomRendering: true,
-                    search: true,
-                    searchText: textSearch,
-                    noMatch: `${textNoMatch} "{0}"`,
-                    // floatWidth: 0,
-                    placeholder: "",
-                    // nativeOnDevice: []
+    
+                $(this).on('sumo:closed', function () {
+                    $(this).closest('.input-field').removeClass('focus');
                 });
-            } else {
-                $(this).SumoSelect({
-                    floatWidth: 0,
-                    nativeOnDevice: [],
-                    placeholder: '',
-                });
-            }
-
-            $(this).on('sumo:opened', function () {
-                $(this).closest('.input-field').addClass('focus');
             });
-
-            $(this).on('sumo:closed', function () {
-                $(this).closest('.input-field').removeClass('focus');
-            });
-        });
-    };
-
-    _functions.initSelect('html');
-*/
+        };
+    
+        _functions.initSelect('html');
+    */
 
 });
 
@@ -501,11 +501,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // =============================
-    // SumoSelect
-    // =============================
+    _functions.initSelect = function (parent) {
+        var $container = parent ? $(parent) : $(document);
 
-    /* if (jQuery('.select-entry').length) {
-         jQuery('select').SumoSelect();
-     };*/
+        // Шукаємо теги select всередині обгортки .SelectBox
+        $container.find('.SelectBox select').each(function () {
+            var $select = $(this);
+
+            // Ініціалізація SumoSelect
+            $select.SumoSelect({
+                floatWidth: 0,
+                nativeOnDevice: [],
+                placeholder: ''
+            });
+
+            // Додавання/видалення фокусу
+            $select.on('sumo:opened', function () {
+                $(this).closest('.SelectBox').addClass('focus');
+            });
+
+            $select.on('sumo:closed', function () {
+                $(this).closest('.SelectBox').removeClass('focus');
+            });
+        });
+    };
+
+    $(document).ready(function () {
+        // 1. Запуск SumoSelect
+        _functions.initSelect('body');
+
+        // 2. Перевірка наявності значення при завантаженні
+        $('.SelectBox select').each(function () {
+            if ($(this).val()) {
+                $(this).closest('.SelectBox').addClass('value');
+            } else {
+                $(this).closest('.SelectBox').removeClass('value');
+            }
+        });
+    });
+
+    // 3. Перемикання класу при зміні значення
+    $(document).on('change', '.SelectBox select', function () {
+        if ($(this).val()) {
+            $(this).closest('.SelectBox').addClass('value');
+        } else {
+            $(this).closest('.SelectBox').removeClass('value');
+        }
+    });
+
+    $(document).ready(function () {
+        $('.file-upload__input').on('change', function (e) {
+            if (this.files) {
+                $.each(this.files, function (index, file) {
+                    $(e.target).closest('.file-upload').find('.file-upload__list').append(
+                        '<div class="file-upload__item">' +
+                        '<span>' + file.name + '</span>' +
+                        '<span class="file-upload__remove">&times;</span>' +
+                        '</div>'
+                    );
+                });
+            }
+        });
+
+        // Видалення назви файла зі списку при кліку на хрестик
+        $(document).on('click', '.file-upload__remove', function () {
+            $(this).closest('.file-upload__item').remove();
+        });
+    });
+
 });

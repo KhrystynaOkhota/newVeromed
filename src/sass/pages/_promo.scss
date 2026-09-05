@@ -3,52 +3,46 @@
 
 
 .promo-card {
-  // 1. Дефолтні розміри шрифтів та відступів (Large за замовчуванням)
-  --title-size: #{fluid(30,50)};
-  --desc-size: 20px;
-  --card-padding: #{fluid(30, 60)} #{fluid(10, 60)} #{fluid(24, 100)} #{fluid(10, 60)};
-  --gap-bottom: 24px;
-
-  // 2. Модифікатор для меншого блоку
-  &--sm {
-    --title-size: 35px;
-    --desc-size: 17px;
-    --card-padding: 28px;
-    --gap-bottom: 16px;
-  }
-
-  // 3. Базова структура
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   box-sizing: border-box;
   width: 100%;
-  height: 100%; // Забезпечує однакову висоту в Swiper
-  padding: var(--card-padding);
+  height: 100%;
+  padding: #{fluid(30, 60)} #{fluid(10, 60)} #{fluid(24, 100)} #{fluid(10, 60)};
   border-radius: 24px;
   background-color: #f9f5f3;
   overflow: hidden;
+
+  // Модифікатор для меншого блоку
+  &--sm {
+    padding: 28px;
+
+    .promo-card__title {
+      font-size: 35px;
+      margin-bottom: 16px;
+    }
+
+    .promo-card__description {
+      font-size: 17px;
+      padding-bottom: 16px;
+    }
+  }
 
   &__content {
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    max-width: 58%; // Запобігає накладанню тексту на картинку
-
-    @media (max-width: 768px) {
-      max-width: 100%;
-    }
+    max-width: 58%;
   }
 
   &__title {
-    font-size: var(--title-size);
+    font-size: #{fluid(30, 50)};
     line-height: 1.15;
     font-weight: 400;
-    margin: 0 0 var(--gap-bottom) 0;
-
+    margin: 0 0 24px 0;
     max-width: 250px;
 
     .highlight {
@@ -57,39 +51,31 @@
   }
 
   &__description {
-    font-size: var(--desc-size);
+    font-size: 20px;
     line-height: 1.35;
     color: #666;
-
-    // Притискає кнопку донизу, навіть якщо текст різної довжини
     margin: 0 0 auto 0;
-    padding-bottom: var(--gap-bottom);
+    padding-bottom: 24px;
   }
 
   &__action {
-    margin-top: auto; // Гарантує фіксацію кнопки внизу
-
-
+    margin-top: auto;
   }
 
   &__image-ibg {
     position: absolute;
     right: 0;
     width: 48%;
-    height: 100%; // Регулюйте висоту зображення за потреби
+    height: 100%;
     z-index: 1;
     pointer-events: none;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain; // Зберігає весь об'єкт без обрізання
+      object-fit: contain;
     }
   }
-
-  // ==========================================
-  // Модифікатори позиціонування картинок
-  // ==========================================
 
   // 1. Зображення прикріплене до ВЕРХУ
   &--img-top {
@@ -98,8 +84,12 @@
       bottom: auto;
 
       img {
-        object-position: right top; // Фокус у верхній правий кут
+        object-position: center top;
       }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
     }
   }
 
@@ -110,12 +100,72 @@
       bottom: 0;
 
       img {
-        object-position: right bottom; // Фокус у нижній правий кут
+        object-position: center bottom;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      .promo-card__content {
+        display: contents;
+      }
+
+      .promo-card__title {
+        order: 1;
+        padding: 24px 16px 0;
+      }
+
+      .promo-card__description {
+        order: 2;
+        padding: 0 16px 16px;
+        margin-bottom: 0;
+      }
+
+      .promo-card__image-ibg {
+        order: 3;
+      }
+
+      .promo-card__action {
+        position: absolute;
+        bottom: 14px;
+        z-index: 3;
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+
+  // Спільна базова адаптація під мобільні
+  @media (max-width: $breakpoint-md) {
+    padding: 0;
+    min-height: auto;
+
+    .promo-card__title {
+      max-width: 100%;
+    }
+
+    & .btn--primary {
+      width: 100%;
+    }
+
+    &__content {
+      padding: 24px 16px;
+      max-width: 100%;
+    }
+
+    &__image-ibg {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: 0;
+      width: 100%;
+      height: 220px;
+
+      img {
+        object-position: center;
       }
     }
   }
 }
-
 .s-promotions {
   padding-bottom: fluid(50, 100);
 
@@ -127,30 +177,56 @@
     margin-bottom: 30px;
   }
 
-  & .promo-card {
-    &__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
     }
   }
 }
 
-.s-promotion-hero {
-  padding: 50px 0 40px 0;
 
-  & .heading {}
+.s-promo {
+  &__hero {
+    margin-bottom: fluid(24, 40);
+  }
 
-  & .promotion {
+  .promo {
+    &__heading {
+      margin-bottom: fluid(21, 37);
+      font-weight: 400;
+
+      @media (max-width: $breakpoint-md) {
+        text-align: center;
+      }
+    }
+
     &__img {
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+
       &--wrap {
         border-radius: 20px;
-        background: rgba(242, 242, 242, 1);
-        overflow: hidden;
+        background: #f2f2f2;
+
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 20px;
+        }
       }
     }
   }
+
+  & .btn--primary {
+    margin-top: 40px;
+  }
 }
+
 
 
 .services-filter {
