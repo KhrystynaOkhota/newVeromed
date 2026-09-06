@@ -138,7 +138,7 @@
     &-details {
       display: grid;
       grid-template-columns: minmax(0, #{fluid(150,250)}) auto;
-      gap:10px;
+      gap: 10px;
 
       &__grid {
         display: grid;
@@ -219,5 +219,24 @@
         }
       }
     }
+  }
+}
+
+.s-ask-doctor {
+  & .heading {
+    margin-bottom: 17px;
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 21px;
+    }
+  }
+
+  & .description {
+    padding-bottom: 25px;
+  }
+
+  &__form {
+    padding-top: 40px;
+    border-top: 1px solid rgba(30, 30, 30, .1);
   }
 }

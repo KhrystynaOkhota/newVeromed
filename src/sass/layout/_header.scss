@@ -1,647 +1,727 @@
-// ==========================================
-// 1. ЗМІННІ ТА НАЛАШТУВАННЯ
-// ==========================================
-$color-primary: #9e1b21; // Бордовий акцентний колір
-$color-primary-dark: #7d1318; // Темно-бордовий для ховеру
-$color-text: #222222; // Основний колір тексту
-$color-text-muted: #666666; // Вторинний сірий колір
-$color-bg-light: #f4f5f7; // Світлий фон пошуку/елементів
-$color-border: #eaedf1; // Колір бордерів
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
-// Соцмережі
-$color-tg: #27a6e5;
-$color-viber: #7d539d;
-$color-wa: #25d366;
+/*$burgundy: #8c2323;
+$text-dark: #1E1E1E;
+$border-color: #e5e5e5;
+$bg-light: #f9f9f9;
+$breakpoint-lg: 992px;
 
-// Брейкпоінти
-$desktop-bp: 1024px;
-
-// Скидання базових стилів
-* {
-  box-sizing: border-box;
-}
-
-
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-[data-desktop-only] {
-  @media (max-width: #{$desktop-bp - 1px}) {
-    display: none !important;
-  }
-}
-
-[data-mobile-only] {
-  @media (min-width: $desktop-bp) {
-    display: none !important;
-  }
-}
-
-// ==========================================
-// 2. HEADER BLOCK
-// ==========================================
+// ==========================================================================
+// Основні стилі (Base & Mobile First)
+// ==========================================================================
 .header {
+  background: #ffffff;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-
-  // --- Topbar (Верхня лінія) ---
-  &__topbar {
-    font-size: 13px;
-    border-bottom: 1px solid $color-border;
-    padding: 6px 0;
-    color: $color-text-muted;
-
-    &-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  &__location {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__location-label {
-    color: $color-text-muted;
-  }
-
-  &__address {
-    font-style: normal;
-    color: $color-text-muted;
-  }
-
-  &__topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  &__mail {
-    color: $color-primary;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  // --- Main Bar ---
-  &__main {
-    padding: 12px 0;
-
-    &-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-  }
-
-  &__logo {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-
-    img {
-      display: block;
-      height: auto;
-    }
-  }
-
-  &__phone {
-    font-weight: 700;
-    font-size: 14px;
-    color: $color-text;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  &__mobile-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__icon-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-primary;
-    text-decoration: none;
-  }
-}
-
-// ==========================================
-// 3. UI ЕЛЕМЕНТИ (Dropdown, Search, Buttons)
-// ==========================================
-
-// Округлий випадаючий список селектора міста
-.dropdown {
   position: relative;
+  z-index: 100;
+  font-family: inherit;
 
-  &__toggle {
-    background: #ffffff;
-    border: 1px solid $color-border;
-    border-radius: 14px;
-    padding: 3px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    color: $color-text;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-
-    &::after {
-      content: '▾';
-      font-size: 10px;
-      color: $color-text-muted;
-    }
+  .logo {
+    max-height: 67px;
+    width: auto;
   }
 
-  &__menu {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    background: #ffffff;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    list-style: none;
-    padding: 6px 0;
-    margin: 0;
-    z-index: 10;
-    min-width: 140px;
+  // Кнопка запису
 
-    li a {
-      display: block;
-      padding: 6px 14px;
-      color: $color-text;
+  // Соцмережі
+  .header__socials {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .social-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14px;
 
-      &:hover {
-        background-color: $color-bg-light;
-        color: $color-primary;
+      &.telegram {
+        background-color: #2ea5e0;
+      }
+
+      &.whatsapp {
+        background-color: #25d366;
+      }
+
+      &.viber {
+        background-color: #7d51a0;
       }
     }
   }
-}
 
-// Овальне сіре поле пошуку з лупою
-.search-form {
-  position: relative;
-  width: 190px;
 
-  input[type="search"] {
-    width: 100%;
-    height: 38px;
-    padding: 0 36px 0 16px;
-    border: none;
-    border-radius: 19px;
-    background-color: $color-bg-light;
-    font-size: 13px;
-    outline: none;
-    transition: background-color 0.2s;
+  .lang {
+    gap: 17px;
 
-    &:focus {
-      background-color: #ffffff;
-      box-shadow: 0 0 0 1px $color-primary;
-    }
-
-    &::placeholder {
-      color: #999999;
-    }
-  }
-
-  button {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    color: #777777;
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
-  &--mobile {
-    width: 100%;
-
-    input[type="search"] {
-      height: 42px;
-      border-radius: 21px;
-    }
-  }
-}
-
-// Перемикач мов
-.lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  &__item {
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none;
-    color: $color-text-muted;
-    text-transform: uppercase;
-    transition: color 0.2s;
-
-    &.is-active,
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
-  &--center {
     justify-content: center;
-  }
-}
 
-// Круглі кольорові іконки соцмереж
-/*.socials {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  &__link {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
-
-    &:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    svg {
-      fill: #ffffff;
-    }
-
-    // Автоматичне розфарбовування кружечків соцмереж
-    &:nth-child(1) { background-color: $color-tg; }
-    &:nth-child(2) { background-color: $color-viber; }
-    &:nth-child(3) { background-color: $color-wa; }
-  }
-
-  &--center {
-    justify-content: center;
-  }
-}*/
-/*
-// Бордова овальна кнопка прийому
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding: 0 22px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 13px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.2s, transform 0.2s;
-
-  &--primary {
-    background-color: $color-primary;
-    color: #ffffff;
-
-    &:hover {
-      background-color: $color-primary-dark;
-    }
-  }
-
-  &--full {
-    width: 100%;
-    height: 46px;
-    border-radius: 23px;
-    font-size: 14px;
-  }
-}
-*/
-// Кнопка бургера (3 лінії)
-.burger-toggle {
-  background: none;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  &__bar,
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: $color-text;
-    border-radius: 1px;
-  }
-}
-
-// ==========================================
-// 4. WORDPRESS NAV DESKTOP (.header-menu)
-// ==========================================
-.header-menu {
-
-
-  .menu {
-    display: flex;
-    align-items: center;
-    gap: clamp(10px, 1.3vw, 22px);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: space-between;
-
-    &-item {
+    .lang-item {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 100%;
       position: relative;
 
-      a {
-        text-decoration: none;
-        color: rgba(30, 30, 30, 1);
-        font-weight: 700;
-        font-size: 18px;
-        padding: 6px 0;
-        display: block;
-        white-space: nowrap;
-        -webkit-transition: color .2s;
-        transition: color .2s;
-
-        &:hover {
-          color: $color-primary;
-        }
+      &:after {
+        content: '';
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        background-color: transparent;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include transition(.5);
       }
 
-      // WP Active state
-      &.current-menu-item,
-      &.current-menu-ancestor {
-        >a {
-          color: $color-primary;
-          font-weight: 600;
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
-      // Випадаючий список в десктопі
-      &.menu-item-has-children {
-        &:hover>.sub-menu {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
+      &.active,&:hover {
+        &:after {
+          background-color: #F2F2F2;
         }
       }
     }
+  }
 
-    .sub-menu {
+  // Форма пошуку
+  .header__search-form {
+    position: relative;
+    width: 100%;
+
+    input {
+      width: 100%;
+      padding: 9px 40px 9px 18px;
+      border: 1px solid $border-color;
+      border-radius: 25px;
+      outline: none;
+      font-size: 14px;
+
+      &:focus {
+        border-color: $burgundy;
+      }
+    }
+
+    button {
       position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 180px;
-      background-color: #ffffff;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      border-radius: 8px;
-      padding: 8px 0;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: $burgundy;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+}
+
+// ==========================================================================
+// Адаптив: Мобільна версія (< 992px)
+// ==========================================================================
+@media (max-width: #{$breakpoint-lg - 0.02px}) {
+  .header {
+    &__topbar {
+      display: none !important;
+    }
+
+    &__main {
+      padding: 12px 0;
+    }
+
+    // Кнопка мобільного виклику
+    .btn-phone {
+      width: 32px;
+      height: 32px;
+      color: $burgundy;
+      font-size: 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // Бургер кнопка
+    .burger {
+      width: 22px;
+      height: 14px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+
+      span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: $burgundy;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .h-burger.active .burger {
+      span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+
+    // Висувна шторка
+    &__inner {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 375px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 1000;
+      transition: right 0.35s ease;
+      overflow-y: auto;
+      padding: 60px 20px 30px;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+
+      &.is-open {
+        right: 0;
+      }
+    }
+
+    // Меню у шторці
+    &__nav .menu {
+      display: flex;
+      flex-direction: column;
       list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      text-align: center;
+      gap: 14px;
+
+      .menu-item a {
+        text-decoration: none;
+        color: $text-dark;
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+
+    // Контакти у мобільній шторці
+    &__inner-contacts {
+      border-top: 1px solid $border-color;
+      padding-top: 20px;
+      text-align: center;
+
+      .header__email {
+        color: $burgundy;
+        font-size: 13px;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .header__phone {
+        font-weight: 700;
+        color: $text-dark;
+        text-decoration: none;
+      }
+
+      .header__contacts-row {
+        margin-bottom: 15px;
+      }
+
+
+    }
+  }
+}
+
+// ==========================================================================
+// Адаптив: Десктоп (>= 992px)
+// ==========================================================================
+@media (min-width: $breakpoint-lg) {
+  .header {
+
+    // 1. Верхній рядок
+    &__topbar {
+      padding: 17px 0 24px 0;
+      font-size: 18px;
+      color: #1E1E1E;
+
+
+      &-left {
+        gap: 30px;
+      }
+
+      &-right {
+        gap: 20px;
+      }
+
+      .header__email {
+        color: $burgundy;
+        text-decoration: none;
+      }
+    }
+
+    // 2. Центральний рядок
+    &__main {
+
+      .header__search-form {
+        max-width: 340px;
+      }
+
+      .header__contacts {
+        gap: 20px;
+      }
+
+      .header__phone {
+        font-size: 16px;
+        font-weight: 700;
+        color: $text-dark;
+        text-decoration: none;
+      }
+    }
+
+    // 3. Нижній рядок (Меню)
+    &__inner {
+      padding: 18px 0 24px 0;
+    }
+
+    &__nav .menu {
+      list-style: none;
+      padding: 0;
       margin: 0;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: all 0.2s ease;
-      z-index: 20;
+      width: 100%;
 
       .menu-item {
         a {
-          padding: 8px 16px;
-          font-size: 13px;
+          text-decoration: none;
+          color: $text-dark;
+          font-weight: 700;
+          font-size: 18px;
+          transition: color 0.2s ease;
 
           &:hover {
-            background-color: $color-bg-light;
-            color: $color-primary;
+            color: $burgundy;
           }
         }
+
+        &.active a {
+          color: $burgundy;
+        }
       }
     }
   }
 }
 
-// ==========================================
-// 5. MOBILE DRAWER & MENU (меню 1 375px)
-// ==========================================
-.mobile-drawer {
-  inset: 0 0 0 auto;
+// ==========================================================================
+// Оверлей (Overlay)
+// ==========================================================================
+.h-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 375px;
-  height: 100dvh;
-  margin: 0;
-  border: none;
-  padding: 0;
-  background: #ffffff;
-  transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), display 0.3s allow-discrete;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
 
-  &[open] {
-    transform: translateX(0);
-
-    @starting-style {
-      transform: translateX(100%);
-    }
-  }
-
-  &::backdrop {
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    transition: opacity 0.3s, display 0.3s allow-discrete;
-  }
-
-  &[open]::backdrop {
+  &.is-active {
     opacity: 1;
+    visibility: visible;
+  }
+}*/
 
-    @starting-style {
-      opacity: 0;
-    }
+// ==========================================================================
+// 1. Спільні стилі компонента Header (Десктоп + Мобільний)
+// ==========================================================================
+
+.header {
+  background: #ffffff;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+
+  // Логотип
+  .logo {
+    max-height: 38px;
+    width: auto;
   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-  }
-
-  &__controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__close {
-    background: none;
-    border: none;
-    font-size: 26px;
-    line-height: 1;
-    cursor: pointer;
-    color: $color-text;
-    padding: 0 4px;
-  }
-
-  &__body {
-    padding: 8px 20px 24px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex-grow: 1;
-  }
-
-  &__footer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding-top: 16px;
-  }
-
-  &__mail {
-    color: $color-primary;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  &__phone {
-    color: $color-text;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-  }
-}
-
-// Центрований список мобільного меню за макетом
-.mobile-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-
-  .menu-item {
-    text-align: center;
+  // Пошукова форма
+  &__search-form {
+    position: relative;
     width: 100%;
 
-    a {
-      text-decoration: none;
-      color: $color-text;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-block;
-      transition: color 0.2s;
+    input {
+      width: 100%;
+      height: 44px;
+      padding: 10px 48px 10px 24px;
+      border: 1px solid #e2e2e2;
+      border-radius: 50px;
+      background-color: #ffffff;
+      font-size: 15px;
+      color: #2c2c2c;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &::placeholder {
+        color: #a3a3a3;
+      }
+
+      &:focus {
+        border-color: #8c2323;
+        box-shadow: 0 0 0 3px rgba(140, 35, 35, 0.08);
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #8c2323;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      transition: opacity 0.2s ease;
 
       &:hover {
-        color: $color-primary;
+        opacity: 0.8;
       }
     }
+  }
 
-    &.current-menu-item>a {
-      color: $color-primary;
-      font-weight: 600;
+  // Кнопка "Записатися"
+  .btn--primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #8c2323;
+    color: #ffffff !important;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(140, 35, 35, 0.25);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #751d1d;
     }
 
-    // Раскрывающиеся пункты меню на мобильном
-    &.menu-item-has-children {
-      position: relative;
+    &.btn-block {
+      width: 100%;
+    }
+  }
 
-      .sub-menu-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 8px;
-        margin-left: 4px;
+  // Соціальні мережі
+  &__socials {
+    gap: 8px;
 
-        &::after {
-          content: '▾';
-          font-size: 12px;
-          color: $color-text-muted;
-        }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity 0.2s ease;
 
-        &[aria-expanded="true"]::after {
-          content: '▴';
-        }
+      &:hover {
+        opacity: 0.85;
       }
 
-      .sub-menu {
-        display: none;
-        list-style: none;
-        padding: 8px 0 0;
-        margin: 0;
+      &.telegram { background-color: #2ea5e0; }
+      &.whatsapp { background-color: #25d366; }
+      &.viber    { background-color: #7d51a0; }
+    }
+  }
 
-        &.is-open {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
+  // Мовний блок
+  .lang {
+    .lang-item {
+      display: inline-block;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
 
-        a {
-          font-size: 13px;
-          color: $color-text-muted;
-        }
+      &.active,
+      &:hover {
+        opacity: 1;
+      }
+
+      img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        object-fit: cover;
       }
     }
   }
 }
 
-body:has(.mobile-drawer[open]) {
-  overflow: hidden;
+// Оверлей для затемнення
+.h-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// ==========================================================================
+// 2. Мобільна версія (до 991px)
+// ==========================================================================
+
+@media (max-width: 991.98px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header {
+    &__main {
+      position: relative;
+      z-index: 1001;
+      padding: 14px 0;
+      background: #ffffff;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    &__mobile-controls {
+      gap: 18px;
+
+      .btn-phone {
+        display: flex;
+        align-items: center;
+        color: #8c2323;
+        font-size: 20px;
+        text-decoration: none;
+      }
+    }
+
+    // Бургер
+    .burger {
+      width: 20px;
+      height: 14px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #8c2323;
+        transform-origin: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+    }
+
+    // Трансформація у хрестик ✕ при відкритті
+    &.is-active {
+      .burger span {
+        &:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        &:nth-child(2) { opacity: 0; }
+        &:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+      }
+
+      .header__inner {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    // Висувна шторка меню
+    &__inner {
+      position: fixed;
+      top: 67px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 67px);
+      z-index: 1000;
+      background: #ffffff;
+      padding: 20px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    }
+
+    &__nav {
+      margin: 24px 0 auto;
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+
+        .menu-item a {
+          color: #2c2c2c;
+          font-size: 15px;
+          font-weight: 500;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &__inner-contacts {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+
+      .header__email {
+        display: inline-block;
+        margin-bottom: 16px;
+        color: #8c2323;
+        font-size: 13px;
+        text-decoration: none;
+      }
+
+      .header__contacts-row {
+        margin-bottom: 18px;
+      }
+
+      .header__phone {
+        color: #2c2c2c;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .lang {
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// 3. Десктопна версія (від 992px)
+// ==========================================================================
+
+@media (min-width: 992px) {
+  .header {
+    &__topbar {
+      padding: 10px 0;
+      border-bottom: 1px solid #f2f2f2;
+      color: #555555;
+      font-size: 13px;
+
+      &-left { gap: 30px; }
+      &-right { gap: 20px; }
+
+      .header__email {
+        color: #8c2323;
+        text-decoration: none;
+      }
+
+      .lang {
+        gap: 8px;
+
+        .lang-item img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &__main {
+      padding: 15px 0;
+
+      .header__search-form {
+        max-width: 360px;
+      }
+    }
+
+    &__contacts {
+      gap: 20px;
+
+      .header__phone {
+        color: #2c2c2c;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+
+    &__inner {
+      padding: 14px 0;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    &__nav .menu {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      .menu-item {
+        a {
+          color: #2c2c2c;
+          font-size: 14px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #8c2323;
+          }
+        }
+
+        &.active a {
+          color: #8c2323;
+        }
+      }
+    }
+  }
 }

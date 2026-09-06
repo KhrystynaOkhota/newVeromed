@@ -20,242 +20,118 @@
 
 <body>
 
-    <header class="header d-none">
-        <!-- Topbar Desktop -->
-        <div class="header__topbar" data-desktop-only>
-            <div class="header__topbar-container container">
-                <div class="header__location">
-                    <div class="dropdown" data-dropdown>
-                        <span class="header__location-label">
-                            <svg width="14" height="18" aria-hidden="true" class="icon-pin">
-                                <use href="assets/img/sprite.svg#icon-pin"></use>
-                            </svg>
-                            Оберіть ваше місто:
-                        </span>
-                        <button type="button" class="dropdown__toggle" aria-expanded="false"
-                            aria-controls="city-dropdown">
-                            <strong>Львів</strong>
-                            <svg width="10" height="6" aria-hidden="true" class="dropdown__arrow">
-                                <use href="assets/img/sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <ul class="dropdown__menu" id="city-dropdown" hidden>
-                            <li><a href="#" class="dropdown__link">Ужгород</a></li>
-                            <li><a href="#" class="dropdown__link">Мукачево</a></li>
-                            <li><a href="#" class="dropdown__link">Івано-Франківськ</a></li>
-                        </ul>
+    <header class="header js-header bg">
+        <div class="container">
+
+            <!-- 1. Верхня панель (Десктоп) -->
+            <div class="header__topbar d-none d-lg-flex align-right align-middle">
+                <div class="header__topbar-left d-flex align-middle">
+                    <div class="header__city">
+                        <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i
+                            class="icon-arrow-down"></i>
                     </div>
-
-                    <address class="header__address">
-                        <svg width="14" height="18" aria-hidden="true" class="icon-pin">
-                            <use href="assets/img/sprite.svg#icon-pin"></use>
-                        </svg>
-                        Львів, вул. Генерала Юнаківа, 9
-                    </address>
+                    <div class="header__address">
+                        <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
+                    </div>
                 </div>
-
-                <div class="header__topbar-right">
-                    <a href="mailto:call.centre.veromed@gmail.com" class="header__mail">
-                        <svg width="16" height="14" aria-hidden="true">
-                            <use href="assets/img/sprite.svg#icon-mail"></use>
-                        </svg>
-                        call.centre.veromed@gmail.com
+                <div class="header__topbar-right d-flex align-middle">
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
+                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
                     </a>
-
-                    <div class="lang-switch" role="navigation" aria-label="Language selection">
-                        <a href="#" class="lang-switch__item is-active" aria-current="page" lang="uk"
-                            title="Українська">
-                            <img src="assets/img/flag-ua.svg" alt="UA" width="20" height="20">
-                        </a>
-                        <a href="#" class="lang-switch__item" lang="en" title="English">
-                            <img src="assets/img/flag-us.svg" alt="EN" width="20" height="20">
-                        </a>
+                    <div class="lang d-flex align-middle">
+                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Main Header Bar -->
-        <div class="header__main">
-            <div class="header__main-container container">
-                <a href="/" class="header__logo" aria-label="VEROMED Головна">
-                    <img src="assets/img/logo.svg" alt="VEROMED" width="180" height="48" loading="eager">
+            <!-- 2. Головна панель (Логотип, Пошук, Контакти / Мобільна шапка) -->
+            <div class="header__main d-flex align-justify align-middle">
+                <a href="index.html" class="logo__wrap">
+                    <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
                 </a>
 
-                <!-- Search Desktop -->
-                <div class="header__search" data-desktop-only>
-                    <form class="search-form" role="search" action="/search" method="get">
-                        <label for="desktop-search" class="visually-hidden">Пошук по сайту</label>
-                        <input type="search" id="desktop-search" name="s" placeholder="Пошук" autocomplete="off">
-                        <button type="submit" aria-label="Знайти">
-                            <svg width="18" height="18" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-search"></use>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
+                <!-- Овальний пошук (Тільки для ПК) -->
+                <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                </form>
 
-                <!-- Desktop Actions -->
-                <div class="header__actions" data-desktop-only>
-                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262-66-80</a>
-
-                    <div class="socials">
-                        <a href="#" aria-label="Telegram" class="socials__link socials__link--tg">
-                            <svg width="24" height="24" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-tg"></use>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="WhatsApp" class="socials__link socials__link--wa">
-                            <svg width="24" height="24" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-wa"></use>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Viber" class="socials__link socials__link--viber">
-                            <svg width="24" height="24" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-viber"></use>
-                            </svg>
-                        </a>
+                <!-- Контакти (Тільки для ПК) -->
+                <div class="header__contacts d-none d-lg-flex align-middle">
+                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                    <div class="header__socials d-flex align-middle">
+                        <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
+                        <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
+                        <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
                     </div>
-
-                    <a href="#appointment" class="btn btn--primary">Записатися на прийом</a>
+                    <a href="#" class="btn btn--primary open-popup" data-rel="cta">
+                        Записатися на прийом
+                    </a>
                 </div>
 
-                <!-- Mobile Controls Header -->
-                <div class="header__mobile-controls" data-mobile-only>
-                    <a href="tel:+380672626680" class="header__icon-btn" aria-label="Зателефонувати">
-                        <svg width="22" height="22" aria-hidden="true">
-                            <use href="assets/img/sprite.svg#icon-phone"></use>
-                        </svg>
+                <!-- Мобільні кнопки: Дзвінок + Анімований бургер/хрестик -->
+                <div class="header__mobile-controls d-flex d-lg-none align-middle">
+                    <a href="tel:+380672626680" class="btn-phone">
+                        <i class="icon-phone"></i>
                     </a>
-                    <button type="button" class="burger-toggle" id="burgerToggle" aria-expanded="false"
-                        aria-controls="mobileDialog" aria-label="Відкрити меню">
-                        <span class="burger-toggle__bar" aria-hidden="true"></span>
-                    </button>
+                    <div class="burger js-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
+
+            <!-- 3. Шторка меню (Виїжджає ПІД шапкою на всю ширину) -->
+            <div class="header__inner">
+
+                <!-- Пошук у мобільному меню -->
+                <form action="/search" method="GET" class="header__search-form d-lg-none">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                </form>
+
+                <!-- Навігація -->
+                <nav class="header__nav">
+                    <ul class="menu d-flex align-justify align-middle">
+                        <li class="menu-item"><a href="services.html">Послуги</a></li>
+                        <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
+                        <li class="menu-item active"><a href="results.html">Результати</a></li>
+                        <li class="menu-item"><a href="blog.html">Блог</a></li>
+                        <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
+                        <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
+                        <li class="menu-item"><a href="about.html">Про нас</a></li>
+                        <li class="menu-item"><a href="contacts.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Контакти внизу шторки (Мобільний) -->
+                <div class="header__inner-contacts d-lg-none">
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
+                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                    </a>
+                    <div class="header__contacts-row d-flex align-justify align-middle">
+                        <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                        <div class="header__socials d-flex align-middle">
+                            <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
+                            <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
+                            <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                        </div>
+                    </div>
+                    <div class="lang d-flex align-center justify-center">
+                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                    </div>
+                    <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
+                        Записатися на прийом
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-
-        <!-- Navigation Desktop -->
-        <nav class="header__nav" aria-label="Головна навігація" data-desktop-only>
-            <div class="container">
-                <ul id="menu-primary" class="header-menu">
-                    <li class="menu-item menu-item-has-children">
-                        <a href="#">Послуги</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item"><a href="#">Терапія</a></li>
-                            <li class="menu-item"><a href="#">Хірургія</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a href="#">Вартість послуг</a></li>
-                    <li class="menu-item"><a href="#">Результати</a></li>
-                    <li class="menu-item"><a href="#">Блог</a></li>
-                    <li class="menu-item"><a href="#">Наші лікарі</a></li>
-                    <li class="menu-item"><a href="#">Питання лікарю</a></li>
-                    <li class="menu-item"><a href="#">Про нас</a></li>
-                    <li class="menu-item"><a href="#">Контакт</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Mobile Drawer (Dialog API) -->
-        <dialog class="mobile-drawer" id="mobileDialog" aria-label="Мобільне меню">
-            <div class="mobile-drawer__content">
-                <!-- Header inside Drawer -->
-                <div class="mobile-drawer__header">
-                    <a href="/" class="header__logo">
-                        <img src="assets/img/logo.svg" alt="VEROMED" width="140" height="37">
-                    </a>
-                    <div class="mobile-drawer__controls">
-                        <a href="tel:+380672626680" class="header__icon-btn" aria-label="Зателефонувати">
-                            <svg width="20" height="20" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-phone"></use>
-                            </svg>
-                        </a>
-                        <button type="button" class="mobile-drawer__close" id="dialogClose" aria-label="Закрити меню">
-                            <svg width="18" height="18" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-close"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="mobile-drawer__body">
-                    <!-- Search Mobile -->
-                    <form class="search-form search-form--mobile" role="search" action="/search" method="get">
-                        <label for="mobile-search" class="visually-hidden">Пошук по сайту</label>
-                        <input type="search" id="mobile-search" name="s" placeholder="Пошук">
-                        <button type="submit" aria-label="Знайти">
-                            <svg width="18" height="18" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-search"></use>
-                            </svg>
-                        </button>
-                    </form>
-
-                    <!-- Navigation Mobile -->
-                    <nav class="mobile-drawer__nav" aria-label="Мобільна навігація">
-                        <ul id="menu-mobile" class="mobile-menu">
-                            <li class="menu-item menu-item-has-children">
-                                <a href="#">Послуги</a>
-                                <button type="button" class="sub-menu-toggle" aria-expanded="false"
-                                    aria-label="Розгорнути підменю"></button>
-                                <ul class="sub-menu">
-                                    <li class="menu-item"><a href="#">Терапія</a></li>
-                                    <li class="menu-item"><a href="#">Хірургія</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item"><a href="#">Вартість послуг</a></li>
-                            <li class="menu-item"><a href="#">Результати</a></li>
-                            <li class="menu-item"><a href="#">Блог</a></li>
-                            <li class="menu-item"><a href="#">Наші лікарі</a></li>
-                            <li class="menu-item"><a href="#">Питання лікарю</a></li>
-                            <li class="menu-item"><a href="#">Про нас</a></li>
-                            <li class="menu-item"><a href="#">Контакт</a></li>
-                        </ul>
-                    </nav>
-
-                    <!-- Footer Mobile (Exact design match) -->
-                    <div class="mobile-drawer__footer">
-                        <a href="mailto:call.centre.veromed@gmail.com" class="mobile-drawer__mail">
-                            <svg width="16" height="14" aria-hidden="true">
-                                <use href="assets/img/sprite.svg#icon-mail"></use>
-                            </svg>
-                            call.centre.veromed@gmail.com
-                        </a>
-
-                        <div class="mobile-drawer__contacts-row">
-                            <a href="tel:+380672626680" class="mobile-drawer__phone">+380 (67) 262-66-80</a>
-                            <div class="socials socials--compact">
-                                <a href="#" aria-label="Telegram" class="socials__link"><svg width="24" height="24"
-                                        aria-hidden="true">
-                                        <use href="assets/img/sprite.svg#icon-tg"></use>
-                                    </svg></a>
-                                <a href="#" aria-label="WhatsApp" class="socials__link"><svg width="24" height="24"
-                                        aria-hidden="true">
-                                        <use href="assets/img/sprite.svg#icon-wa"></use>
-                                    </svg></a>
-                                <a href="#" aria-label="Viber" class="socials__link"><svg width="24" height="24"
-                                        aria-hidden="true">
-                                        <use href="assets/img/sprite.svg#icon-viber"></use>
-                                    </svg></a>
-                            </div>
-                        </div>
-
-                        <div class="lang-switch lang-switch--center">
-                            <a href="#" class="lang-switch__item is-active" aria-current="page" lang="uk">
-                                <img src="assets/img/flag-ua.svg" alt="UA" width="20" height="20">
-                            </a>
-                            <a href="#" class="lang-switch__item" lang="en">
-                                <img src="assets/img/flag-us.svg" alt="EN" width="20" height="20">
-                            </a>
-                        </div>
-
-                        <a href="#appointment" class="btn btn--primary btn--full">Записатися на прийом</a>
-                    </div>
-                </div>
-            </div>
-        </dialog>
     </header>
-
 
     <main class="main ">
 
@@ -825,7 +701,7 @@
             </div>
         </section>
 
-      
+
         <section class="s-reviews-slider swiper-entry">
             <div class="container">
                 <div class="row m-row">
@@ -1944,6 +1820,24 @@
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
+
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.js-header');
+            const menuToggle = document.querySelector('.js-menu-toggle');
+
+            if (menuToggle && header) {
+                menuToggle.addEventListener('click', () => {
+                    header.classList.toggle('is-active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+        });
+
+
+    </script>
 </body>
 
 </html>
