@@ -12,7 +12,7 @@
     <meta name="description" content="" />
 
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
 
     <link rel="stylesheet" href="assets/css/app.css" />
 
@@ -20,7 +20,7 @@
 
 <body>
 
-      <header class="header js-header bg">
+    <header class="header js-header bg">
         <div class="container">
 
             <!-- 1. Верхня панель (Десктоп) -->
@@ -586,17 +586,16 @@
 
 
 
-                                    <div class="form-field form-field--full">
-                                        <label class="form-field__label text-left" for="user-direction">Обрати
-                                            напрямок</label>
-                                        <div class="form-select">
-                                            <select class="form-field__select" name="direction">
-                                                <option value="" disabled selected hidden>Вибрати</option>
-                                                <option value="1">Напрямок 1</option>
-                                                <option value="2">Напрямок 2</option>
-                                            </select>
-                                        </div>
+
+                                    <div class="form-field SelectBox  form-field--full">
+                                        <label class="form-field__label">Напрямок / спеціальність</label>
+                                        <select name="direction">
+                                            <option value="" disabled selected hidden>Вибрати</option>
+                                            <option value="1">Напрямок 1</option>
+                                            <option value="2">Напрямок 2</option>
+                                        </select>
                                     </div>
+
 
                                     <div class="form-field form-field--full">
                                         <button class="btn btn--primary" type="submit">
@@ -801,16 +800,14 @@
 
 
 
-                            <div class="form-field form-field--full">
-                                <label class="form-field__label text-left" for="user-direction">Обрати напрямок</label>
-                                <div class="form-select">
-                                    <select class="form-field__select" name="direction">
-                                        <option value="" disabled selected hidden>Вибрати</option>
-                                        <option value="1">Напрямок 1</option>
-                                        <option value="2">Напрямок 2</option>
-                                    </select>
-                                </div>
-                            </div>
+                            <div class="form-field SelectBox  form-field--full">
+                                        <label class="form-field__label text-left">Напрямок / спеціальність</label>
+                                        <select name="direction">
+                                            <option value="" disabled selected hidden>Вибрати</option>
+                                            <option value="1">Напрямок 1</option>
+                                            <option value="2">Напрямок 2</option>
+                                        </select>
+                                    </div>
 
                             <div class="form-field form-field--full">
                                 <button class="btn btn--primary" type="submit">
@@ -831,7 +828,7 @@
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.sumoselect.min.js"></script>
-    <script src="assets/js/sumoselectCustom.js"></script>
+
 
 
     <script src="src/scripts/app-swiper.js"></script>
