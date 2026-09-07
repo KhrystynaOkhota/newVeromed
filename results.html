@@ -10,13 +10,122 @@
     <title>Veromed</title>
     <meta name="description" content="" />
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
+    <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
     <link rel="stylesheet" href="assets/css/app.css" />
 
 </head>
 
 <body>
+    <header class="header js-header bg">
+        <div class="container">
 
+            <!-- 1. Верхня панель (Десктоп) -->
+            <div class="header__topbar d-none d-lg-flex align-right align-middle">
+
+                <div class="header__city">
+                    <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i class="icon-arrow-down"></i>
+                </div>
+                <div class="header__address">
+                    <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
+                </div>
+
+                <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
+                    <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                </a>
+                <div class="lang d-flex align-middle">
+                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                </div>
+
+            </div>
+
+            <!-- 2. Головна панель (Логотип, Пошук, Контакти / Мобільна шапка) -->
+            <div class="header__main d-flex align-justify align-middle">
+                <a href="index.html" class="logo__wrap">
+                    <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
+                </a>
+
+                <!-- Овальний пошук (Тільки для ПК) -->
+                <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                </form>
+
+                <!-- Контакти (Тільки для ПК) -->
+                <div class="header__contacts d-none d-lg-flex align-middle">
+                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                    <div class="header__socials d-flex align-middle">
+                        <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
+                        <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
+                        <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                    </div>
+                    <a href="#" class="btn btn--primary open-popup" data-rel="cta">
+                        Записатися на прийом
+                    </a>
+                </div>
+
+                <!-- Мобільні кнопки: Дзвінок + Анімований бургер/хрестик -->
+                <div class="header__mobile-controls d-flex d-lg-none align-middle">
+                    <a href="tel:+380672626680" class="btn-phone">
+                        <i class="icon-phone"></i>
+                    </a>
+                    <div class="burger js-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Шторка меню (Виїжджає ПІД шапкою на всю ширину) -->
+            <div class="header__inner">
+
+                <!-- Пошук у мобільному меню -->
+                <form action="/search" method="GET" class="header__search-form d-lg-none">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                </form>
+
+                <!-- Навігація -->
+                <nav class="header__nav">
+                    <ul class="menu d-flex align-justify align-middle">
+                        <li class="menu-item"><a href="services.html">Послуги</a></li>
+                        <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
+                        <li class="menu-item active"><a href="results.html">Результати</a></li>
+                        <li class="menu-item"><a href="blog.html">Блог</a></li>
+                        <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
+                        <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
+                        <li class="menu-item"><a href="about.html">Про нас</a></li>
+                        <li class="menu-item"><a href="contacts.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Контакти внизу шторки (Мобільний) -->
+                <div class="header__inner-contacts d-lg-none">
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
+                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                    </a>
+                    <div class="header__contacts-row d-flex align-justify align-middle">
+                        <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                        <div class="header__socials d-flex align-middle">
+                            <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
+                            <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
+                            <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                        </div>
+                    </div>
+                    <div class="lang d-flex align-center justify-center">
+                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                    </div>
+                    <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
+                        Записатися на прийом
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
     <main class="main">
         <div class="container">
             <div class="row">
@@ -47,56 +156,80 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="recipes__filter d-flex align-middle align-justify">
-                            <div class="filter-bar d-flex align-left align-middle">
-                                <div class="filter-bar__item">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
 
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Напрямок/спеціальність</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Напрямок 1</option>
-                                            <option value="2">Напрямок 2</option>
-                                        </select>
-                                    </div>
+                        <div class="services-filter">
+                            <!-- Mobile Select / Toggle Trigger -->
+                            <button type="button" class="services-filter__trigger" aria-expanded="false"
+                                aria-controls="services-menu">
+                                <span class="services-filter__trigger-text">Обери свою
+                                    послугу</span>
+                                <svg class="services-filter__icon" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
 
+                            <!-- Navigation Desktop Wrapper with Scroll Arrows -->
+                            <div class="services-filter__wrapper">
+                                <button type="button" class="services-filter__arrow services-filter__arrow--prev"
+                                    aria-label="Прокрутити ліворуч">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10 12L4 8L10 4" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
 
+                                <nav class="services-filter__nav" id="services-menu">
+                                    <ul class="services-filter__list">
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn services-filter__btn--active"
+                                                type="button">
+                                                Флебологія. Варикозна хвороба вен
+                                            </button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Трансплантація
+                                                волосся1</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Дерматологія2</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Пластична
+                                                хірургія3</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Блефаропластика4</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Трансплантація
+                                                волосся5</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Дерматологія6</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Пластична
+                                                хірургія7</button>
+                                        </li>
+                                        <li class="services-filter__item">
+                                            <button class="services-filter__btn" type="button">Блефаропластика8</button>
+                                        </li>
+                                    </ul>
+                                </nav>
 
-                                </div>
-                                <div class="filter-bar__item">
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Автор (лікар)</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Автор 1</option>
-                                            <option value="2">Автор 2</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <div class="filter-bar__item">
-                                    <div class="select-entry">
-                                        <label class="f" for="user-direction">Тип матеріалу</label>
-                                        <select class="form-field__select" name="direction">
-                                            <option value="" disabled selected hidden>Вибрати</option>
-                                            <option value="1">Тип матеріалу 1</option>
-                                            <option value="2">Тип матеріалу 2</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div class="filter-bar__item">
-                                    <select class="orderby">
-                                        <option value="sort">Сортувати</option>
-                                        <option value="sort2">Спочатку нові</option>
-                                        <option value="sort3">тест</option>
-                                    </select>
-
-                                </div>
+                                <button type="button" class="services-filter__arrow services-filter__arrow--next"
+                                    aria-label="Прокрутити праворуч">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 4L12 8L6 12" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="row m-row ">
@@ -117,13 +250,13 @@
                                 <p class="case__description text-light">
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                     dolor. Aenean massa.
-                                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                     dolor. Aenean massa.
-                                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
                                     dolor. Aenean massa.
                                 </p>
                             </article>
-<article class="case" data-category="phlebology">
+                            <article class="case" data-category="phlebology">
                                 <div class="case__img--grid">
                                     <div class="case__img--wrap ">
                                         <span class="case__badge text-center">До</span>
@@ -195,7 +328,7 @@
 
         </section>
 
-           <section class="s-cta">
+        <section class="s-cta">
             <div class="s-cta__bg--wrap">
                 <img src="assets/img/cta-bg.jpg" alt="cta img" class="s-cta__bg">
             </div>
@@ -941,7 +1074,7 @@
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.sumoselect.min.js"></script>
-    
+
 
 
     <script src="src/scripts/app-swiper.js"></script>
@@ -949,47 +1082,86 @@
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
-    <script>
+  
+
+
+     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const burgerToggle = document.getElementById('burgerToggle');
-            const siteHeader = document.getElementById('siteHeader');
+            const trigger = document.querySelector('.services-filter__trigger');
+            const nav = document.querySelector('.services-filter__nav');
+            const buttons = document.querySelectorAll('.services-filter__btn');
+            const triggerText = document.querySelector('.services-filter__trigger-text');
 
-            const searchForm = document.querySelector('.js-search-form');
-            const menuSource = document.querySelector('.js-menu-source .menu');
-            const emailLink = document.querySelector('.js-email-link');
-            const contactsSource = document.querySelector('.js-contacts-source');
-            const langSource = document.querySelector('.js-lang-source');
-            const ctaBtn = document.querySelector('.js-cta-btn');
+            const arrowPrev = document.querySelector('.services-filter__arrow--prev');
+            const arrowNext = document.querySelector('.services-filter__arrow--next');
 
-            const searchTarget = document.querySelector('.mobile-dropdown__search-target');
-            const navTarget = document.querySelector('.mobile-dropdown__nav-target');
-            const footerTarget = document.getElementById('mobileDropdownFooter');
+            // 1. Переключення мобільного меню
+            trigger?.addEventListener('click', () => {
+                const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+                trigger.setAttribute('aria-expanded', !isOpen);
+                nav.classList.toggle('services-filter__nav--open');
+            });
 
-            if (searchForm && searchTarget) {
-                searchTarget.appendChild(searchForm.cloneNode(true));
-            }
+            // 2. Кліки по табах
+            buttons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach((b) => b.classList.remove('services-filter__btn--active'));
+                    btn.classList.add('services-filter__btn--active');
 
-            if (menuSource && navTarget) {
-                navTarget.appendChild(menuSource.cloneNode(true));
-            }
-
-            if (footerTarget) {
-                if (emailLink) footerTarget.appendChild(emailLink.cloneNode(true));
-                if (contactsSource) footerTarget.appendChild(contactsSource.cloneNode(true));
-                if (langSource) footerTarget.appendChild(langSource.cloneNode(true));
-                if (ctaBtn) {
-                    const clonedBtn = ctaBtn.cloneNode(true);
-                    clonedBtn.classList.add('btn--full');
-                    footerTarget.appendChild(clonedBtn);
-                }
-            }
-
-            if (burgerToggle && siteHeader) {
-                burgerToggle.addEventListener('click', () => {
-                    burgerToggle.classList.toggle('is-active');
-                    siteHeader.classList.toggle('is-open');
+                    if (window.innerWidth < 992) {
+                        triggerText.textContent = btn.textContent.trim();
+                        trigger.setAttribute('aria-expanded', 'false');
+                        nav.classList.remove('services-filter__nav--open');
+                    }
                 });
-            }
+            });
+
+            // 3. Перевірка та оновлення стрілок
+            const checkScroll = () => {
+                if (!nav || window.innerWidth < 992) return;
+
+                // Порівнюємо реальну ширину контенту з шириною видимої області
+                const scrollLeft = Math.ceil(nav.scrollLeft);
+                const maxScroll = nav.scrollWidth - nav.clientWidth;
+
+                // Якщо контент ширший за блок (є скрол)
+                if (nav.scrollWidth > nav.clientWidth) {
+                    // Ліва стрілка
+                    if (scrollLeft > 2) {
+                        arrowPrev?.classList.add('services-filter__arrow--visible');
+                    } else {
+                        arrowPrev?.classList.remove('services-filter__arrow--visible');
+                    }
+
+                    // Права стрілка
+                    if (scrollLeft < maxScroll - 2) {
+                        arrowNext?.classList.add('services-filter__arrow--visible');
+                    } else {
+                        arrowNext?.classList.remove('services-filter__arrow--visible');
+                    }
+                } else {
+                    // Якщо всі елементи вміщуються — ховаємо обидві стрілки
+                    arrowPrev?.classList.remove('services-filter__arrow--visible');
+                    arrowNext?.classList.remove('services-filter__arrow--visible');
+                }
+            };
+
+            // Кліки по стрілках прокрутки
+            arrowPrev?.addEventListener('click', () => {
+                nav.scrollBy({ left: -200, behavior: 'smooth' });
+            });
+
+            arrowNext?.addEventListener('click', () => {
+                nav.scrollBy({ left: 200, behavior: 'smooth' });
+            });
+
+            // Слухачі подій
+            nav?.addEventListener('scroll', checkScroll);
+            window.addEventListener('resize', checkScroll);
+
+            // Запуск перевірки при завантаженні
+            checkScroll();
+            setTimeout(checkScroll, 150); // Додатковий виклик після рендерингу стилів
         });
     </script>
 </body>

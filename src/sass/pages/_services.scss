@@ -79,8 +79,7 @@ $color-accent: #8b1e1e;
 
   &__item {
     display: grid;
-    // Десктоп: Назва (1fr) | Ціна (auto) | Кнопка (auto)
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: fluid(30, 80);
     padding: 15px 0;
@@ -89,30 +88,12 @@ $color-accent: #8b1e1e;
     &:last-child {
       border-bottom: none;
     }
-
-    // Мобільна версія як на скрині
-    @media (max-width: 576px) {
-      // Мобілка: Назва займає цілий рядок, ціна та кнопка ділять другий
-      grid-template-columns: 1fr auto;
-      gap: 10px 16px;
-    }
   }
 
-  &__title {
-    @media (max-width: 776px) {
-      grid-column: 1 / -1; // На всю ширину першим рядком
-    }
-  }
+
 
   &__cost {
-
-    font-weight: 700;
-    color: $color-text;
     white-space: nowrap;
-
-    @media (min-width: 577px) {
-      padding-right: 16px;
-    }
   }
 
   &__btn {
@@ -129,6 +110,26 @@ $color-accent: #8b1e1e;
 
     &-icon {
       flex-shrink: 0;
+    }
+  }
+
+  &--with-btn {
+    & .price-list {
+      &__item {
+        grid-template-columns: 1fr auto auto;
+
+        @media (max-width: $breakpoint-md) {
+          // Мобілка: Назва займає цілий рядок, ціна та кнопка ділять другий
+          grid-template-columns: 1fr auto;
+          gap: 10px 16px;
+        }
+      }
+
+      &__title {
+        @media (max-width: $breakpoint-md) {
+          grid-column: 1 / -1; // На всю ширину першим рядком
+        }
+      }
     }
   }
 }
@@ -177,234 +178,493 @@ $color-accent: #8b1e1e;
 
 
 .s-services {
-$primary-color: #801818;
-$text-dark: #231f20;
-$text-muted: #626262;
-$bg-light: #fbf9f9;
-$card-bg: #ffffff;
+  $primary-color: #801818;
+  $text-dark: #231f20;
+  $text-muted: #626262;
+  $bg-light: #fbf9f9;
+  $card-bg: #ffffff;
 
-html {
-  overflow-y: scroll; // Запобігає смиканню екрана при появі скролу
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-
-  @media (max-width: 991px) {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-}
-
-.services-card {
-  position: relative;
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 16px 20px;
-    background-color: $card-bg;
-    border: none;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
-    }
+  html {
+    overflow-y: scroll; // Запобігає смиканню екрана при появі скролу
   }
 
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background-color: $bg-light;
-    flex-shrink: 0;
-
-    img { width: 26px; height: 26px; }
-  }
-
-  &__title {
-    font-size: 16px;
-    font-weight: 700;
-    color: $text-dark;
-    flex-grow: 1;
-    margin: 0 16px;
-    transition: color 0.2s ease;
-  }
-
-  &__arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: $bg-light;
-    color: #333;
-    flex-shrink: 0;
-    transition: background-color 0.2s ease, color 0.2s ease;
-
-    svg {
-      transform: rotate(-90deg);
-      transition: transform 0.25s ease;
-    }
-  }
-
-  // Випадаючий блок
-  &__dropdown {
-    // ДЕСКТОП: Випадає поверх без зсувів сітки
-    @media (min-width: 992px) {
-      position: absolute;
-      top: calc(100% + 12px);
-      z-index: 50;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-6px);
-      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-      pointer-events: none;
-    }
-
-    // МОБІЛЬНИЙ: Класичний акордеон
-    @media (max-width: 991px) {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.3s ease;
-      overflow: hidden;
-    }
-  }
-
-  &__dropdown-inner {
-    background-color: $card-bg;
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-    padding: 24px;
-
-    @media (max-width: 991px) {
-      min-height: 0;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-  }
-
-  &__head {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
-  &__description {
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: $text-muted;
-    margin: 0;
-    strong { color: $text-dark; }
-  }
-
-  &__close {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: #999;
-    padding: 0;
-    line-height: 1;
-
-    &:hover { color: $text-dark; }
-  }
-
-  &__links {
+  .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
 
-    @media (max-width: 991px) { grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 576px) { grid-template-columns: 1fr; }
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    background-color: $bg-light;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 500;
-    color: $text-dark;
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      color: $primary-color;
-      background-color: darken($bg-light, 2%);
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
   }
 
-  // Відкритий стан
-  &--active {
-    .services-card__title { color: $primary-color; }
+  .services-card {
+    position: relative;
 
-    .services-card__arrow {
-      background-color: $primary-color;
-      color: #fff;
-      svg { transform: rotate(0deg); }
-    }
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 16px 20px;
+      background-color: $card-bg;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
-    .services-card__dropdown {
-      @media (min-width: 992px) {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
+      &:hover {
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
       }
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: $bg-light;
+      flex-shrink: 0;
+
+      img {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    &__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: $text-dark;
+      flex-grow: 1;
+      margin: 0 16px;
+      transition: color 0.2s ease;
+    }
+
+    &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: $bg-light;
+      color: #333;
+      flex-shrink: 0;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      svg {
+        transform: rotate(-90deg);
+        transition: transform 0.25s ease;
+      }
+    }
+
+    // Випадаючий блок
+    &__dropdown {
+
+      // ДЕСКТОП: Випадає поверх без зсувів сітки
+      @media (min-width: 992px) {
+        position: absolute;
+        top: calc(100% + 12px);
+        z-index: 50;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        pointer-events: none;
+      }
+
+      // МОБІЛЬНИЙ: Класичний акордеон
+      @media (max-width: 991px) {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+        overflow: hidden;
+      }
+    }
+
+    &__dropdown-inner {
+      background-color: $card-bg;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      padding: 24px;
 
       @media (max-width: 991px) {
-        grid-template-rows: 1fr;
-        margin-top: 8px;
+        min-height: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    &__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    &__description {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: $text-muted;
+      margin: 0;
+
+      strong {
+        color: $text-dark;
+      }
+    }
+
+    &__close {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: #999;
+      padding: 0;
+      line-height: 1;
+
+      &:hover {
+        color: $text-dark;
+      }
+    }
+
+    &__links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: $bg-light;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: $text-dark;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+        background-color: darken($bg-light, 2%);
+      }
+    }
+
+    // Відкритий стан
+    &--active {
+      .services-card__title {
+        color: $primary-color;
+      }
+
+      .services-card__arrow {
+        background-color: $primary-color;
+        color: #fff;
+
+        svg {
+          transform: rotate(0deg);
+        }
+      }
+
+      .services-card__dropdown {
+        @media (min-width: 992px) {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        @media (max-width: 991px) {
+          grid-template-rows: 1fr;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  // Розрахунок позиціонування поверх сітки для десктопу (на 3 колонки):
+  @media (min-width: 992px) {
+    .services-card:nth-child(3n + 1) .services-card__dropdown {
+      width: calc(300% + 40px);
+      left: 0;
+    }
+
+    .services-card:nth-child(3n + 2) .services-card__dropdown {
+      width: calc(300% + 40px);
+      left: calc(-100% - 20px);
+    }
+
+    .services-card:nth-child(3n + 3) .services-card__dropdown {
+      width: calc(300% + 40px);
+      left: calc(-200% - 40px);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.s-services-hero {
+  padding: 20px 0 50px 0;
+
+  @media (max-width: $breakpoint-md) {
+    padding-bottom: 30px;
+    position: relative;
+
+    &:after {
+      content: '';
+      width: calc(100% - 20px);
+      height: 1px;
+      background: rgba(0, 0, 0, .1);
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+    }
+  }
+
+  .price-list {
+    border-bottom: 1px solid #e2e2e2;
+    border-top: 1px solid #e2e2e2;
+    margin-bottom: fluid(30, 40);
+    ;
+  }
+
+  & .content {
+    @media (min-width: 1400px) {
+      padding-left: 20px;
+    }
+  }
+
+  & .heading {
+    margin-bottom: 21px;
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+    }
+  }
+
+  & .description {
+    margin-bottom: fluid(25, 40);
+  }
+
+  & .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: fluid(210, 500);
+
+    &__wrap {
+
+      border-radius: 20px;
+      overflow: hidden;
+
+      @media (min-width: 1400px) {
+        margin-left: calc(-1 * ((100vw - 1270px) / 2 + 20px) + 50px);
+      }
+
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 20px;
+
       }
     }
   }
 }
 
-// Розрахунок позиціонування поверх сітки для десктопу (на 3 колонки):
-@media (min-width: 992px) {
-  .services-card:nth-child(3n + 1) .services-card__dropdown {
-    width: calc(300% + 40px);
-    left: 0;
+.s-info {
+  &--text {
+    padding: fluid(29, 40) 0 fluid(24, 50) 0;
+
+    & .heading {
+      margin-bottom: fluid(13, 20);
+    }
   }
 
-  .services-card:nth-child(3n + 2) .services-card__dropdown {
-    width: calc(300% + 40px);
-    left: calc(-100% - 20px);
+  &--grid {
+    padding: fluid(30, 47) 0 fluid(30, 55) 0;
+    background: rgba(242, 242, 242, 1);
+
+    & .heading {
+      font-size: fluid(20, 25);
+      margin-bottom: 20px;
+    }
+
+    .column {
+      @media (min-width: $breakpoint-xl) {
+        &:nth-child(1) {
+          padding-right: 20px;
+          border-right: 1px solid rgba(30, 30, 30, .1);
+        }
+
+        &:nth-child(2) {
+          padding-left: 40px;
+
+        }
+      }
+
+      @media (max-width: $breakpoint-md) {
+        &:nth-child(1) {
+          padding-bottom: 24px;
+          margin-bottom: 30px;
+
+          &:after {
+            content: '';
+            width: calc(100% - 20px);
+            height: 1px;
+            background: rgba(30, 30, 30, .1);
+            bottom: 0;
+            left: 10px;
+            position: absolute;
+          }
+
+        }
+      }
+    }
+
+    @media (min-width: 1400px) {
+
+      border-radius: 20px;
+      margin-left: 50px;
+      margin-right: 50px;
+
+      & .decor {
+        position: absolute;
+        top: 0;
+        max-width: 275px;
+        max-height: 631px;
+        z-index: 1;
+        opacity: .8;
+
+        &--left {
+          left: -50px;
+        }
+
+        &--right {
+          right: -50px;
+        }
+      }
+    }
   }
 
-  .services-card:nth-child(3n + 3) .services-card__dropdown {
-    width: calc(300% + 40px);
-    left: calc(-200% - 40px);
+  &--media {
+    padding: 50px 0;
+
+    & .heading {
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    & .description {
+      margin-bottom: fluid(20, 40);
+    }
+
+    & .img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      &__wrap {
+        border-radius: 20px;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        max-height: 600px;
+
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 30px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &--video {
+    & .heading {
+      margin-bottom: fluid(15, 30);
+    }
+
+    & .description {
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 25px;
+      }
+    }
+
+    & .video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      &__wrap {
+        width: 80%;
+        height: 100%;
+        max-height: 530px;
+        min-height: 493px;
+        margin-left: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 2 / 3;
+
+        @media (max-width: $breakpoint-xl) {
+          width: 100%;
+        }
+      }
+    }
+
+    padding: 30px 0;
+    background: rgba(242, 242, 242, 1);
+
+    @media (min-width: 1400px) {
+
+      border-radius: 20px;
+      margin-left: 50px;
+      margin-right: 50px;
+
+      & .decor {
+        position: absolute;
+        top: 0;
+        max-width: 275px;
+        max-height: 631px;
+        z-index: 1;
+        opacity: .8;
+
+        &--left {
+          left: -50px;
+        }
+
+        &--right {
+          right: -50px;
+        }
+      }
+    }
   }
 }
-}
-
-
-
-
 
 .s-services-price {
   padding: 50px 0 50px 0;
 
   & .heading {
     margin-bottom: 27px;
+    font-size: fluid(20, 30);
   }
 
   & .accordeon {
@@ -458,6 +718,24 @@ html {
       right: 0;
       bottom: 40px;
       width: calc(50% - 10px - #{fluid(20, 60)});
+    }
+  }
+}
+
+.s-video {
+  margin-bottom: 50px;
+
+  & .video {
+    height: 100%;
+    max-height: 580px;
+    width: 100%;
+    object-fit: cover;
+
+    &__wrap {
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
     }
   }
 }

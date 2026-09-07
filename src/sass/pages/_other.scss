@@ -87,7 +87,36 @@
 
   & .doctor-card__grid {
     margin-bottom: 50px;
+
+
+
+    @media (max-width: $breakpoint-xl) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
   }
+  .article__grid {
+    display: grid;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap:20px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+  
+    }
+}
 }
 
 .s-simple {
@@ -325,4 +354,3 @@
     }
   }
 }
-

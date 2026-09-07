@@ -24,24 +24,22 @@
 
             <!-- 1. Верхня панель (Десктоп) -->
             <div class="header__topbar d-none d-lg-flex align-right align-middle">
-                <div class="header__topbar-left d-flex align-middle">
-                    <div class="header__city">
-                        <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i
-                            class="icon-arrow-down"></i>
-                    </div>
-                    <div class="header__address">
-                        <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
-                    </div>
+
+                <div class="header__city">
+                    <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i class="icon-arrow-down"></i>
                 </div>
-                <div class="header__topbar-right d-flex align-middle">
-                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
-                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
-                    </a>
-                    <div class="lang d-flex align-middle">
-                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
-                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
-                    </div>
+                <div class="header__address">
+                    <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
                 </div>
+
+                <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
+                    <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                </a>
+                <div class="lang d-flex align-middle">
+                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                </div>
+
             </div>
 
             <!-- 2. Головна панель (Логотип, Пошук, Контакти / Мобільна шапка) -->
@@ -899,20 +897,7 @@
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
-    <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.querySelector('.js-header');
-            const menuToggle = document.querySelector('.js-menu-toggle');
-
-            if (menuToggle && header) {
-                menuToggle.addEventListener('click', () => {
-                    header.classList.toggle('is-active');
-                    document.body.classList.toggle('menu-open');
-                });
-            }
-        });
-    </script>
+   
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

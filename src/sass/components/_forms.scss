@@ -576,3 +576,22 @@ select:-webkit-autofill:focus {
 
   }
 }
+
+.form-field {
+  &__input{
+    &--search{
+      padding-right: 50px;
+    }
+  }
+  &__search-btn {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    height: 100%;
+    padding: 0;
+    width: 20px;
+    background: transparent;
+    border: none;
+    background-color: red;
+  }
+}

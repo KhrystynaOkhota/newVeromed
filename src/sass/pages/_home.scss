@@ -271,9 +271,9 @@
       overflow: hidden;
 
       @media (min-width: $breakpoint-md) {
-        min-height: calc(100vh - fluid(86, 180));
-        margin-top: fluid(86, 180);
-        height: calc(100vh - fluid(86, 180));
+        min-height: calc(100vh - fluid(88, 188));
+       // margin-top: fluid(86, 180);
+        height: calc(100vh - fluid(86, 188));
       }
     }
 
@@ -340,3 +340,25 @@
   }
 }
 
+.s-faq {
+  &--home {
+    & .heading {
+      margin-bottom: 20px;
+    }
+
+    .accordeon {
+      &-item {
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  &--services {
+    & .heading {
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+  }
+}

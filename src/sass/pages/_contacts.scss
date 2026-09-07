@@ -215,6 +215,10 @@
 .s-visit-cta {
   margin-bottom: fluid(50, 100);
 
+  @media (max-width: $breakpoint-xl) {
+    display: none;
+  }
+
   & .visit-cta {
     background-color: #F2F2F2;
     border-radius: 20px;
@@ -332,7 +336,8 @@
       position: absolute;
       top: 0;
       bottom: 0;
-overflow: hidden;
+      overflow: hidden;
+
       @media (min-width: 1300px) {
 
         left: 50px;

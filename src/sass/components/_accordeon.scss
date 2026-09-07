@@ -50,7 +50,7 @@
     height: fluid(40, 50);
     margin-left: 16px;
     transition: transform 0.3s ease;
-    box-shadow: 0px 0px 20px 0px #00000026;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
     border-radius: 100%;
 
     &::before {

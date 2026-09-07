@@ -84,6 +84,21 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 50px 20px;
+
+      @media (max-width: $breakpoint-xl) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+     
+
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
     }
   }
 }
@@ -155,16 +170,8 @@
     margin-bottom: fluid(30, 50);
 
     &__item {
-      grid-template-columns: 1fr auto;
-
       &:last-child {
         border-bottom: 1px solid #e2e2e2;
-      }
-    }
-
-    &__title {
-      @media (max-width: $breakpoint-md) {
-        grid-column: inherit;
       }
     }
   }

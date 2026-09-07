@@ -286,6 +286,19 @@ jQuery(function ($) {
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.js-header');
+    const menuToggle = document.querySelector('.js-menu-toggle');
+
+    if (menuToggle && header) {
+        menuToggle.addEventListener('click', () => {
+            header.classList.toggle('is-active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', () => {
+
+
     // 1. АКОРДЕОНИ
     document.addEventListener('click', function (e) {
         const $title = $(e.target).closest('.accordeon-title');

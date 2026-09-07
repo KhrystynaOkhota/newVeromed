@@ -359,12 +359,19 @@ $breakpoint-lg: 992px;
 .header {
   background: #ffffff;
   width: 100%;
-  position: relative;
+  position: fixed;
   z-index: 100;
 
-  // Логотип
+  &__main {
+    @media (max-width: 1350px) {
+      .header__phone {
+        display: none;
+      }
+    }
+  }
+
   .logo {
-    max-height: 38px;
+    max-height: 67px;
     width: auto;
   }
 
@@ -372,7 +379,7 @@ $breakpoint-lg: 992px;
   &__search-form {
     position: relative;
     width: 100%;
-
+ 
     input {
       width: 100%;
       height: 44px;
@@ -420,16 +427,9 @@ $breakpoint-lg: 992px;
   // Кнопка "Записатися"
   .btn--primary {
     display: inline-block;
-    padding: 12px 24px;
-    background: #8c2323;
-    color: #ffffff !important;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(140, 35, 35, 0.25);
-    transition: background-color 0.2s ease;
+    padding-bottom: 15px;
+    font-size: fluid(16, 18);
+
 
     &:hover {
       background: #751d1d;
@@ -460,29 +460,99 @@ $breakpoint-lg: 992px;
         opacity: 0.85;
       }
 
-      &.telegram { background-color: #2ea5e0; }
-      &.whatsapp { background-color: #25d366; }
-      &.viber    { background-color: #7d51a0; }
+      &.telegram {
+        background-color: #2ea5e0;
+      }
+
+      &.whatsapp {
+        background-color: #25d366;
+      }
+
+      &.viber {
+        background-color: #7d51a0;
+      }
     }
   }
 
-  // Мовний блок
-  .lang {
-    .lang-item {
-      display: inline-block;
-      opacity: 0.5;
-      transition: opacity 0.2s ease;
+  &__contacts {}
 
-      &.active,
-      &:hover {
-        opacity: 1;
+  &__email,
+  &__address {
+    font-size: 18px;
+  }
+
+  &__email {
+    color: rgba(139, 30, 30, 1);
+    display: inline-block;
+
+    @media (max-width: $breakpoint-lg) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__phone {
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .menu {
+    &-item {
+      a {
+        color: rgba(30, 30, 30, 1);
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.4s ease;
+
+        &:hover {
+          color: #8c2323;
+        }
+      }
+
+      &.active a {
+        color: #8c2323;
+      }
+    }
+  }
+
+  .lang {
+    gap: 17px;
+
+    justify-content: center;
+
+    .lang-item {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 100%;
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        background-color: transparent;
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include transition(.5);
       }
 
       img {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &.active,
+      &:hover {
+        &:after {
+          background-color: #F2F2F2;
+        }
       }
     }
   }
@@ -520,9 +590,9 @@ $breakpoint-lg: 992px;
     &__main {
       position: relative;
       z-index: 1001;
-      padding: 14px 0;
+      padding: 10px 0;
       background: #ffffff;
-      border-bottom: 1px solid #f2f2f2;
+
     }
 
     &__mobile-controls {
@@ -539,7 +609,7 @@ $breakpoint-lg: 992px;
 
     // Бургер
     .burger {
-      width: 20px;
+      width: 22px;
       height: 14px;
       position: relative;
       display: flex;
@@ -551,7 +621,7 @@ $breakpoint-lg: 992px;
         display: block;
         width: 100%;
         height: 2px;
-        background: #8c2323;
+        background: rgba(139, 30, 30, 1);
         transform-origin: center;
         transition: transform 0.3s ease, opacity 0.3s ease;
       }
@@ -560,9 +630,17 @@ $breakpoint-lg: 992px;
     // Трансформація у хрестик ✕ при відкритті
     &.is-active {
       .burger span {
-        &:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-        &:nth-child(2) { opacity: 0; }
-        &:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        &:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
       }
 
       .header__inner {
@@ -575,13 +653,13 @@ $breakpoint-lg: 992px;
     // Висувна шторка меню
     &__inner {
       position: fixed;
-      top: 67px;
+      top: 88px;
       left: 0;
       width: 100%;
-      height: calc(100vh - 67px);
+      height: calc(100vh - 88px);
       z-index: 1000;
       background: #ffffff;
-      padding: 20px 20px 40px;
+      padding: 30px 15px 60px 15px;
       display: flex;
       flex-direction: column;
       overflow-y: auto;
@@ -589,6 +667,7 @@ $breakpoint-lg: 992px;
       visibility: hidden;
       transform: translateY(-10px);
       transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      border-top: 1px solid rgba(0, 0, 0, .1);
     }
 
     &__nav {
@@ -597,17 +676,17 @@ $breakpoint-lg: 992px;
       .menu {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 25px;
         margin: 0;
         padding: 0;
         list-style: none;
         text-align: center;
 
-        .menu-item a {
-          color: #2c2c2c;
-          font-size: 15px;
-          font-weight: 500;
-          text-decoration: none;
+        &-item {
+          & a {
+            font-weight: 400;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -618,24 +697,12 @@ $breakpoint-lg: 992px;
       border-top: 1px solid #f0f0f0;
       text-align: center;
 
-      .header__email {
-        display: inline-block;
-        margin-bottom: 16px;
-        color: #8c2323;
-        font-size: 13px;
-        text-decoration: none;
-      }
 
       .header__contacts-row {
         margin-bottom: 18px;
       }
 
-      .header__phone {
-        color: #2c2c2c;
-        font-size: 15px;
-        font-weight: 700;
-        text-decoration: none;
-      }
+
 
       .lang {
         gap: 12px;
@@ -652,46 +719,29 @@ $breakpoint-lg: 992px;
 @media (min-width: 992px) {
   .header {
     &__topbar {
-      padding: 10px 0;
-      border-bottom: 1px solid #f2f2f2;
-      color: #555555;
-      font-size: 13px;
-
-      &-left { gap: 30px; }
-      &-right { gap: 20px; }
+      padding: 12px 0 11px 0;
+      color: rgba(30, 30, 30, 1);
+      font-size: 18px;
+      gap: 30px;
 
       .header__email {
         color: #8c2323;
         text-decoration: none;
       }
-
-      .lang {
-        gap: 8px;
-
-        .lang-item img {
-          width: 20px;
-          height: 20px;
-        }
-      }
     }
 
     &__main {
-      padding: 15px 0;
+      padding: 0 0 15px 0;
 
       .header__search-form {
-        max-width: 360px;
+        max-width: fluid(200,360);
       }
+
+
     }
 
     &__contacts {
       gap: 20px;
-
-      .header__phone {
-        color: #2c2c2c;
-        font-size: 15px;
-        font-weight: 700;
-        text-decoration: none;
-      }
     }
 
     &__inner {
@@ -705,23 +755,7 @@ $breakpoint-lg: 992px;
       padding: 0;
       list-style: none;
 
-      .menu-item {
-        a {
-          color: #2c2c2c;
-          font-size: 14px;
-          font-weight: 700;
-          text-decoration: none;
-          transition: color 0.2s ease;
 
-          &:hover {
-            color: #8c2323;
-          }
-        }
-
-        &.active a {
-          color: #8c2323;
-        }
-      }
     }
   }
 }

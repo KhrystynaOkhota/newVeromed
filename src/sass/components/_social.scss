@@ -30,6 +30,15 @@
       transform: translateY(-2px);
       opacity: 0.9;
     }
+    &--viber{
+      background-color: rgba(124, 80, 154, 1);
+    }
+    &--whathapp{
+      background-color: rgba(72, 201, 95, 1);
+    }
+    &--telegram{
+      background-color: rgba(39, 166, 229, 1);
+    }
   }
 
   &--light {
