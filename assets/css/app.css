@@ -4469,6 +4469,13 @@ select:-webkit-autofill:focus {
   height: clamp(59px, 59px + (90 - 59) * (100vw - 375px) / (1440 - 375), 90px);
 }
 
+@media (min-width: 767px) {
+  .s-hero {
+    width: calc(100% - 100px);
+    border-radius: 50px;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 767px) {
   .s-hero {
     padding-bottom: 45px;
@@ -4580,9 +4587,45 @@ select:-webkit-autofill:focus {
 .s-special-offers {
   overflow: hidden;
 }
+@media (min-width: 767px) {
+  .s-special-offers .custom-fraction-wrap {
+    display: none;
+  }
+}
+@media (min-width: 767px) {
+  .s-special-offers .swiper-entry__bottom-bar {
+    border-top: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 767px) {
+  .s-special-offers .swiper-button-next,
+  .s-special-offers .swiper-button-prev {
+    width: 70px;
+    background: rgb(239, 239, 239);
+    border: none;
+    color: #c8c6e5;
+    height: 70px;
+    border-radius: 100%;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    position: absolute;
+  }
+  .s-special-offers .swiper-button-prev {
+    bottom: 100px;
+    left: 0;
+  }
+  .s-special-offers .swiper-button-next {
+    top: 35px;
+    right: 0;
+  }
+  .s-special-offers .swiper-container {
+    padding: 35px 0 100px 0;
+  }
+}
 .s-special-offers .swiper-container {
   overflow: visible;
-  padding: 35px 0;
 }
 .s-special-offers .swiper-slide {
   height: auto;
