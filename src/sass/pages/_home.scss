@@ -200,6 +200,13 @@
 }
 
 .s-hero {
+
+  @media (min-width: $breakpoint-md) {
+    width: calc(100% - 100px);
+    border-radius: 50px;
+    margin: 0 auto;
+  }
+
   @media (max-width: $breakpoint-md) {
     padding-bottom: 45px;
     border-bottom: 1px solid rgba(30, 30, 30, 0.1);
@@ -272,7 +279,7 @@
 
       @media (min-width: $breakpoint-md) {
         min-height: calc(100vh - fluid(88, 188));
-       // margin-top: fluid(86, 180);
+        // margin-top: fluid(86, 180);
         height: calc(100vh - fluid(86, 188));
       }
     }
@@ -319,9 +326,58 @@
 .s-special-offers {
   overflow: hidden;
 
+  .custom-fraction-wrap {
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .swiper-entry__bottom-bar {
+
+    @media (min-width: $breakpoint-md) {
+      border-top: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 70px;
+      background: rgba(239, 239, 239, 1);
+      border: none;
+      color: #c8c6e5;
+
+      height: 70px;
+      border-radius: 100%;
+      -webkit-transition: all .5s ease-out;
+      transition: all .5s ease-out;
+      position: absolute;
+    }
+
+    .swiper-button-prev {
+      bottom: 100px;
+      left: 0;
+    }
+
+    .swiper-button-next {
+      top: 35px;
+      right: 0;
+    }
+
+    .swiper-container {
+
+      padding: 35px 0 100px 0;
+
+    }
+
+  }
+
   .swiper-container {
     overflow: visible;
-    padding: 35px 0;
+
   }
 
   .swiper-slide {

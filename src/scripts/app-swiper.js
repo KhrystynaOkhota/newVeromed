@@ -26,18 +26,18 @@ _functions.applyOffersTransform = function (swiper) {
     let translateYPercent = 0;
     let transformOrigin = "center center"; // Дефолтне значення для центрального слайда
 
-    if (progress < 0) {
+    if (progress > 0) {
       // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
       // Вгору (-18%), зсув вправо та прив'язка до правої грані
       translateYPercent = -absProgress * 18;
-      translateXpx = absProgress * 20;
-      transformOrigin = "center left";
-    } else if (progress > 0) {
+      translateXpx = absProgress ;
+      transformOrigin = "center right";
+    } else if (progress < 0) {
       // НАСТУПНИЙ СЛАЙД (Праворуч):
       // Вниз (+18%), зсув вліво та прив'язка до лівої грані
       translateYPercent = absProgress * 18; // Замініть на -absProgress * 18, якщо треба вгору
-      translateXpx = -absProgress * 20;
-      transformOrigin = "center right";
+      translateXpx = -absProgress ;
+      transformOrigin = "center left";
     }
 
     $card.css({
