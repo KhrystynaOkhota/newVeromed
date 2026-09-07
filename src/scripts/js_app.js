@@ -161,21 +161,21 @@ jQuery(function ($) {
         $(this).toggleClass("burger--active");
         $header.toggleClass("is-open");
 
-        if (!$html.hasClass("overflow-menu")) {
+       if (!$html.hasClass("overflow-menu")) {
             // Меню відкривається
-            pageScrollPosition = window.scrollY || document.documentElement.scrollTop;
+           // pageScrollPosition = window.scrollY || document.documentElement.scrollTop;
             $html.addClass("overflow-menu");
-            $body.css({
+           /* $body.css({
                 position: 'fixed',
                 top: `-${pageScrollPosition}px`,
                 left: '0',
                 width: '100%'
-            });
+            });*/
         } else {
             // Меню закривається
             $html.removeClass("overflow-menu");
-            $body.css({ position: '', top: '', left: '', width: '' });
-            window.scrollTo(0, pageScrollPosition);
+           /* $body.css({ position: '', top: '', left: '', width: '' });
+            window.scrollTo(0, pageScrollPosition);*/
         }
     });
 
