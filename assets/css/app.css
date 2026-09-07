@@ -8137,6 +8137,9 @@ select:-webkit-autofill:focus {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+.s-results .services-filter {
+  margin-bottom: 40px;
+}
 
 .s-other {
   height: 100vh;
