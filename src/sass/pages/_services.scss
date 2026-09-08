@@ -176,255 +176,6 @@ $color-accent: #8b1e1e;
   }
 }
 
-
-.s-services {
-  $primary-color: #801818;
-  $text-dark: #231f20;
-  $text-muted: #626262;
-  $bg-light: #fbf9f9;
-  $card-bg: #ffffff;
-
-  html {
-    overflow-y: scroll; // Запобігає смиканню екрана при появі скролу
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
-
-    @media (max-width: 991px) {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-  }
-
-  .services-card {
-    position: relative;
-
-    &__btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 16px 20px;
-      background-color: $card-bg;
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-      cursor: pointer;
-      text-align: left;
-      transition: background-color 0.2s ease, box-shadow 0.2s ease;
-
-      &:hover {
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
-      }
-    }
-
-    &__icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background-color: $bg-light;
-      flex-shrink: 0;
-
-      img {
-        width: 26px;
-        height: 26px;
-      }
-    }
-
-    &__title {
-      font-size: 16px;
-      font-weight: 700;
-      color: $text-dark;
-      flex-grow: 1;
-      margin: 0 16px;
-      transition: color 0.2s ease;
-    }
-
-    &__arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: $bg-light;
-      color: #333;
-      flex-shrink: 0;
-      transition: background-color 0.2s ease, color 0.2s ease;
-
-      svg {
-        transform: rotate(-90deg);
-        transition: transform 0.25s ease;
-      }
-    }
-
-    // Випадаючий блок
-    &__dropdown {
-
-      // ДЕСКТОП: Випадає поверх без зсувів сітки
-      @media (min-width: 992px) {
-        position: absolute;
-        top: calc(100% + 12px);
-        z-index: 50;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-6px);
-        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-        pointer-events: none;
-      }
-
-      // МОБІЛЬНИЙ: Класичний акордеон
-      @media (max-width: 991px) {
-        display: grid;
-        grid-template-rows: 0fr;
-        transition: grid-template-rows 0.3s ease;
-        overflow: hidden;
-      }
-    }
-
-    &__dropdown-inner {
-      background-color: $card-bg;
-      border-radius: 16px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      padding: 24px;
-
-      @media (max-width: 991px) {
-        min-height: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      }
-    }
-
-    &__head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    &__description {
-      font-size: 13.5px;
-      line-height: 1.5;
-      color: $text-muted;
-      margin: 0;
-
-      strong {
-        color: $text-dark;
-      }
-    }
-
-    &__close {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      color: #999;
-      padding: 0;
-      line-height: 1;
-
-      &:hover {
-        color: $text-dark;
-      }
-    }
-
-    &__links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-
-      @media (max-width: 991px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (max-width: 576px) {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      padding: 12px 16px;
-      background-color: $bg-light;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: $text-dark;
-      text-decoration: none;
-      transition: background-color 0.2s ease, color 0.2s ease;
-
-      &:hover {
-        color: $primary-color;
-        background-color: darken($bg-light, 2%);
-      }
-    }
-
-    // Відкритий стан
-    &--active {
-      .services-card__title {
-        color: $primary-color;
-      }
-
-      .services-card__arrow {
-        background-color: $primary-color;
-        color: #fff;
-
-        svg {
-          transform: rotate(0deg);
-        }
-      }
-
-      .services-card__dropdown {
-        @media (min-width: 992px) {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-          pointer-events: auto;
-        }
-
-        @media (max-width: 991px) {
-          grid-template-rows: 1fr;
-          margin-top: 8px;
-        }
-      }
-    }
-  }
-
-  // Розрахунок позиціонування поверх сітки для десктопу (на 3 колонки):
-  @media (min-width: 992px) {
-    .services-card:nth-child(3n + 1) .services-card__dropdown {
-      width: calc(300% + 40px);
-      left: 0;
-    }
-
-    .services-card:nth-child(3n + 2) .services-card__dropdown {
-      width: calc(300% + 40px);
-      left: calc(-100% - 20px);
-    }
-
-    .services-card:nth-child(3n + 3) .services-card__dropdown {
-      width: calc(300% + 40px);
-      left: calc(-200% - 40px);
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
 .s-services-hero {
   padding: 20px 0 50px 0;
 
@@ -812,8 +563,8 @@ $color-accent: #8b1e1e;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 
     &__icon {
-      width: 48px;
-      height: 48px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background-color: #f7f7f7;
       display: flex;
@@ -822,25 +573,26 @@ $color-accent: #8b1e1e;
       flex-shrink: 0;
 
       img {
-        width: 24px;
-        height: 24px;
+        width: 60%;
+        height: 60%;
         object-fit: contain;
       }
     }
 
     &__text {
-      font-size: 16px;
+      font-size: fluid(18, 20);
       font-weight: 700;
       line-height: 1.2;
-      color: #111;
+      color: rgba(30, 30, 30, 1);
       margin-right: auto;
+      font-family: "Gilroy", sans-serif;
     }
 
     &__arrow {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background-color: #f0f0f0;
+      background-color: rgba(242, 242, 242, 1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -866,7 +618,7 @@ $color-accent: #8b1e1e;
     flex: 0 0 100%;
     max-width: 100%;
     width: 100%;
-    padding-top: 16px;
+    padding-top: 0;
 
     &__inner {
       position: relative;
@@ -874,14 +626,14 @@ $color-accent: #8b1e1e;
       border-radius: 20px;
       padding: 32px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      margin-bottom:30px;
+      margin-bottom: 30px;
     }
 
     &__header {
-      font-size: 14px;
+      font-size: fluid(15, 17);
       line-height: 1.5;
-      color: #555;
-      margin-bottom: 24px;
+      color: rgba(30, 30, 30, 1);
+      margin-bottom:fluid(11, 33);
       padding-right: 40px;
 
       strong {
@@ -948,10 +700,10 @@ $color-accent: #8b1e1e;
   .accordeon-link {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    border: 1px solid #eee;
+    padding: 8px 20px;
+    border: 1px solid rgba(234, 234, 235, 1);
     border-radius: 10px;
-    font-size: 13px;
+    font-size: fluid(15, 17);
     color: #333;
     text-decoration: none;
     background-color: #fff;
@@ -969,7 +721,7 @@ $color-accent: #8b1e1e;
     flex: 0 0 100%;
     max-width: 100%;
     width: 100%;
-    padding-top: 16px;
+    padding-top: 0;
     overflow: hidden; // Запобігає випаданню контенту під час розгортання
 
     &__inner {
