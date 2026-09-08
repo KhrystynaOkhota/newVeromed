@@ -8,7 +8,6 @@ jQuery(function ($) {
     }
 
     const userAgent = navigator.userAgent;
-    // Сучасніший спосіб перевірки платформи Mac
     const is_Mac = (navigator.userAgentData?.platform || navigator.platform).toUpperCase().indexOf('MAC') >= 0;
     const is_IE = /MSIE 9/i.test(userAgent) || /rv:11.0/i.test(userAgent) || /MSIE 10/i.test(userAgent) || /Edge\/\d+/.test(userAgent);
     const is_Chrome = userAgent.indexOf('Chrome') >= 0 && userAgent.indexOf('Edge') < 0;
@@ -53,7 +52,7 @@ jQuery(function ($) {
         _functions.openPopup('.popup-content[data-rel="' + $(this).data('rel') + '"]');
     });
 
-    $(document).on('click', '.popup-wrapper .btn-close, .popup-wrapper .layer-close, .popup-wrapper .btn-back', function (e) {
+    $(document).on('click', '.popup-wrapper .btn--close, .popup-wrapper .layer-close', function (e) {
         e.preventDefault();
         _functions.closePopup();
     });
@@ -64,7 +63,6 @@ jQuery(function ($) {
     _functions.scrollCall = function () {
         const winScr = $(window).scrollTop();
 
-        // Поведінка класу хедера при скролі
         if (winScr > prev_scroll) {
             $("header").addClass("scrolled");
         }
@@ -75,7 +73,6 @@ jQuery(function ($) {
             prev_scroll = 0;
         }
 
-        // Запуск анімації появи елементів сайту
         scrollAnime(winScr);
     };
 
@@ -95,62 +92,13 @@ jQuery(function ($) {
             });
         }
     }
-    /*  _functions.initSelect = function (parent) {
-          var $container = parent ? $(parent) : $(document);
-  
-          // Шукаємо теги select всередині обгортки .SelectBox
-          $container.find('.SelectBox select').each(function () {
-              var $select = $(this);
-  
-              // Ініціалізація SumoSelect
-              $select.SumoSelect({
-                  floatWidth: 0,
-                  nativeOnDevice: [],
-                  placeholder: ''
-              });
-  
-              // Додавання/видалення фокусу
-              $select.on('sumo:opened', function () {
-                  $(this).closest('.SelectBox').addClass('focus');
-              });
-  
-              $select.on('sumo:closed', function () {
-                  $(this).closest('.SelectBox').removeClass('focus');
-              });
-          });
-      };
-  
-      $(document).ready(function () {
-          // 1. Запуск SumoSelect
-          _functions.initSelect('body');
-  
-          // 2. Перевірка наявності значення при завантаженні
-          $('.SelectBox select').each(function () {
-              if ($(this).val()) {
-                  $(this).closest('.SelectBox').addClass('value');
-              } else {
-                  $(this).closest('.SelectBox').removeClass('value');
-              }
-          });
-      });
-  
-      // 3. Перемикання класу при зміні значення
-      $(document).on('change', '.SelectBox select', function () {
-          if ($(this).val()) {
-              $(this).closest('.SelectBox').addClass('value');
-          } else {
-              $(this).closest('.SelectBox').removeClass('value');
-          }
-      });
-  */
-    // Єдиний оптимізований слухач скролу (нативний, з passive: true для швидкодії)
+
     window.addEventListener('scroll', _functions.scrollCall, { passive: true });
 
-    // Первинний виклик для перевірки стану сторінки одразу при завантаженні
     _functions.scrollCall();
     window.addEventListener('load', _functions.scrollCall);
 
-    // 4. Мобільне МЕНЮ (БУРГЕР)
+    // 4. МОБІЛЬНЕ МЕНЮ (БУРГЕР)
     let pageScrollPosition = 0;
 
     $(document).on("click", ".burger", function () {
@@ -161,21 +109,10 @@ jQuery(function ($) {
         $(this).toggleClass("burger--active");
         $header.toggleClass("is-open");
 
-       if (!$html.hasClass("overflow-menu")) {
-            // Меню відкривається
-           // pageScrollPosition = window.scrollY || document.documentElement.scrollTop;
+        if (!$html.hasClass("overflow-menu")) {
             $html.addClass("overflow-menu");
-           /* $body.css({
-                position: 'fixed',
-                top: `-${pageScrollPosition}px`,
-                left: '0',
-                width: '100%'
-            });*/
         } else {
-            // Меню закривається
             $html.removeClass("overflow-menu");
-           /* $body.css({ position: '', top: '', left: '', width: '' });
-            window.scrollTo(0, pageScrollPosition);*/
         }
     });
 
@@ -185,25 +122,6 @@ jQuery(function ($) {
             .closest(".fl-menu-item").toggleClass("is-open")
             .find(".fl-toggle").first().slideToggle(300);
     });
-
-    /* $(document).on("click", ".fl-menu__open", function () {
-         $("body, html").addClass("overflow-hidden");
-         $(this).addClass("is-open");
-         $(".fl-menu__wrap").addClass("is-open");
-         $(".fl-menu__overlay").addClass("is-active");
-     });
-   $(document).on("click", ".fl-menu__close", function () {
-         $("body, html").removeClass("overflow-hidden");
-         $(this).removeClass("is-open");
-         $(".fl-menu__wrap").removeClass("is-open");
-         $(".fl-menu__overlay").removeClass("is-active");
-     });
-     $(document).on("click", ".fl-menu__overlay, .fl-menu__close", function () {
-         $(".fl-menu__overlay").removeClass("is-active");
-         $(".fl-menu__wrap").removeClass("is-open");
-         $("body, html").removeClass("overflow-hidden");
-         $(".btn-filter").removeClass("is-open");
-     });*/
 
     // 6. ПОШУК (Оболонка шапки)
     $(document).on("click", ".js-open-search", function () {
@@ -229,56 +147,6 @@ jQuery(function ($) {
         }
     });
 
-
-
-    /*
-        _functions.initSelect = function (parent) {
-            $('' + parent + ' .SelectBox').each(function () {
-                console.log($(this));
-                if ($(this).attr("multiple")) {
-                    $(this).SumoSelect({
-                        floatWidth: 0,
-                        nativeOnDevice: [],
-                        okCancelInMulti: true,
-                        csvDispCount: 1,
-                        captionFormat: '{0} Selected',
-                        locale: ['Ok', 'Cancel', 'All'],
-                        placeholder: '',
-                    });
-                } else if ($(this).hasClass("search")) {
-                    let textSearch = $(this).attr("data-text-search") ? $(this).attr("data-text-search") : '';
-                    let textNoMatch = $(this).attr("data-text-no-match") ? $(this).attr("data-text-no-match") : '';
-                    console.log(textNoMatch);
-                    $(this).SumoSelect({
-                        forceCustomRendering: true,
-                        search: true,
-                        searchText: textSearch,
-                        noMatch: `${textNoMatch} "{0}"`,
-                        // floatWidth: 0,
-                        placeholder: "",
-                        // nativeOnDevice: []
-                    });
-                } else {
-                    $(this).SumoSelect({
-                        floatWidth: 0,
-                        nativeOnDevice: [],
-                        placeholder: '',
-                    });
-                }
-    
-                $(this).on('sumo:opened', function () {
-                    $(this).closest('.input-field').addClass('focus');
-                });
-    
-                $(this).on('sumo:closed', function () {
-                    $(this).closest('.input-field').removeClass('focus');
-                });
-            });
-        };
-    
-        _functions.initSelect('html');
-    */
-
 });
 
 // ==========================================================================
@@ -296,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
 
     // 1. АКОРДЕОНИ
     document.addEventListener('click', function (e) {
@@ -308,42 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const $accordeon = $title.closest('.accordeon');
         const isOpen = $item.hasClass('active');
 
-        // 1. Закриваємо контент інших відкритих ітемів та знімаємо з них active
         $accordeon.find('.accordeon-item.active').not($item).removeClass('active').find('.accordeon-title').next().slideUp();
 
-        // 2. Переключаємо active тільки на accordeon-item та відкриваємо/закриваємо контент
         $item.toggleClass('active', !isOpen);
         $title.next().slideToggle(!isOpen);
     });
-    /*document.addEventListener('click', function (e) {
-     const $target = $(e.target);
-     const $title = $target.closest('.accordeon-title');
-     const $closeBtn = $target.closest('.js-accordeon-close');
- 
-     // Клік по кнопці «Закрити»
-     if ($closeBtn.length) {
-         e.preventDefault();
-         const $item = $closeBtn.closest('.accordeon-item');
-         
-         $item.removeClass('active');
-         $item.find('.accordeon-title').next().slideUp();
-         return;
-     }
- 
-     // Клік по заголовку
-     if (!$title.length) return;
- 
-     const $item = $title.closest('.accordeon-item');
-     const $accordeon = $title.closest('.accordeon');
-     const isOpen = $item.hasClass('active');
- 
-     // 1. Закриваємо інші відкриті елементи
-     $accordeon.find('.accordeon-item.active').not($item).removeClass('active').find('.accordeon-title').next().slideUp();
- 
-     // 2. Переключаємо поточний елемент
-     $item.toggleClass('active', !isOpen);
-     $title.next().slideToggle(!isOpen);
- });*/
 
     // 2. КЛІКЕР КІЛЬКОСТІ (INCREMENT / DECREMENT)
     document.addEventListener('click', (e) => {
@@ -511,24 +348,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-
     _functions.initSelect = function (parent) {
         var $container = parent ? $(parent) : $(document);
 
-        // Шукаємо теги select всередині обгортки .SelectBox
         $container.find('.SelectBox select').each(function () {
             var $select = $(this);
 
-            // Ініціалізація SumoSelect
             $select.SumoSelect({
                 floatWidth: 0,
                 nativeOnDevice: [],
                 placeholder: ''
             });
 
-            // Додавання/видалення фокусу
             $select.on('sumo:opened', function () {
                 $(this).closest('.SelectBox').addClass('focus');
             });
@@ -540,10 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     $(document).ready(function () {
-        // 1. Запуск SumoSelect
         _functions.initSelect('body');
 
-        // 2. Перевірка наявності значення при завантаженні
         $('.SelectBox select').each(function () {
             if ($(this).val()) {
                 $(this).closest('.SelectBox').addClass('value');
@@ -553,7 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Перемикання класу при зміні значення
     $(document).on('change', '.SelectBox select', function () {
         if ($(this).val()) {
             $(this).closest('.SelectBox').addClass('value');
@@ -576,9 +404,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Видалення назви файла зі списку при кліку на хрестик
         $(document).on('click', '.file-upload__remove', function () {
             $(this).closest('.file-upload__item').remove();
+        });
+    });
+    $(function () {
+        var body = $('body');
+        $('.location__current').on('click', function (e) {
+            e.preventDefault();
+
+            var winW = $(window).width();
+            var $wrap = $(this).closest('.location__wrap');
+
+            if (winW > 1199) {
+                $wrap.toggleClass('open');
+            } else {
+                $wrap.find('.location').slideToggle();
+                $wrap.toggleClass('open');
+            }
+        });
+
+        body.on('click', function (e) {
+            if (!$(e.target).closest('.location__wrap').length) {
+                $('.location__wrap').removeClass('open');
+                if ($(window).width() <= 1199) {
+                    $('.location__wrap .location').slideUp();
+                }
+            }
         });
     });
 

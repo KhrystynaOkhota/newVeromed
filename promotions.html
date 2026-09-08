@@ -22,116 +22,293 @@
 <body>
 
 
-     <header class="header js-header bg">
-        <div class="container">
+    <header class="header js-header bg">
+    <div class="container">
 
-            <!-- 1. Верхня панель (Десктоп) -->
-            <div class="header__topbar d-none d-lg-flex align-right align-middle">
+        <div class="header__topbar d-none d-lg-flex align-right align-middle">
 
-                <div class="header__city">
-                    <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i class="icon-arrow-down"></i>
+            <div class="d-flex align-middle align-right">
+                <div class="header__location d-flex align-middle align-right">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#location"></use>
+                    </svg>
+                    <span class="d-md-none d-xl-flex">Оберіть ваше місто:</span>
                 </div>
-                <div class="header__address">
-                    <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
-                </div>
+                <div class="location__wrap --relative">
 
-                <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
-                    <i class="icon-mail"></i> call.centre.veromed@gmail.com
-                </a>
-                <div class="lang d-flex align-middle">
-                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
-                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
-                </div>
-
-            </div>
-
-            <!-- 2. Головна панель (Логотип, Пошук, Контакти / Мобільна шапка) -->
-            <div class="header__main d-flex align-justify align-middle">
-                <a href="index.html" class="logo__wrap">
-                    <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
-                </a>
-
-                <!-- Овальний пошук (Тільки для ПК) -->
-                <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
-                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
-                </form>
-
-                <!-- Контакти (Тільки для ПК) -->
-                <div class="header__contacts d-none d-lg-flex align-middle">
-                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
-                    <div class="header__socials d-flex align-middle">
-                        <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
-                        <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
-                        <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                    <div class="location__current d-flex align-middle">
+                        <a href="#">Івано-Франківськ</a>
+                        <svg class="icon" aria-hidden="true" width="13" height="8">
+                            <use href="assets/img/sprite.svg#ar-bottom"></use>
+                        </svg>
                     </div>
-                    <a href="#" class="btn btn--primary open-popup" data-rel="cta">
-                        Записатися на прийом
-                    </a>
-                </div>
 
-                <!-- Мобільні кнопки: Дзвінок + Анімований бургер/хрестик -->
-                <div class="header__mobile-controls d-flex d-lg-none align-middle">
-                    <a href="tel:+380672626680" class="btn-phone">
-                        <i class="icon-phone"></i>
-                    </a>
-                    <div class="burger js-menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Шторка меню (Виїжджає ПІД шапкою на всю ширину) -->
-            <div class="header__inner">
-
-                <!-- Пошук у мобільному меню -->
-                <form action="/search" method="GET" class="header__search-form d-lg-none">
-                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
-                </form>
-
-                <!-- Навігація -->
-                <nav class="header__nav">
-                    <ul class="menu d-flex align-justify align-middle">
-                        <li class="menu-item"><a href="services.html">Послуги</a></li>
-                        <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
-                        <li class="menu-item active"><a href="results.html">Результати</a></li>
-                        <li class="menu-item"><a href="blog.html">Блог</a></li>
-                        <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
-                        <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
-                        <li class="menu-item"><a href="about.html">Про нас</a></li>
-                        <li class="menu-item"><a href="contacts.html">Контакт</a></li>
+                    <ul class="location">
+                        <li class="location__item"><a href="#">Львів</a></li>
+                        <li class="location__item"><a href="#">Ужгород</a></li>
+                        <li class="location__item"><a href="#">Мукачево</a></li>
+                        <li class="location__item"><a href="#">Івано-Франківськ</a></li>
                     </ul>
-                </nav>
-
-                <!-- Контакти внизу шторки (Мобільний) -->
-                <div class="header__inner-contacts d-lg-none">
-                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
-                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
-                    </a>
-                    <div class="header__contacts-row d-flex align-justify align-middle">
-                        <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
-                        <div class="header__socials d-flex align-middle">
-                            <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
-                            <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
-                            <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
-                        </div>
-                    </div>
-                    <div class="lang d-flex align-center justify-center">
-                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
-                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
-                    </div>
-                    <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
-                        Записатися на прийом
-                    </a>
                 </div>
 
+            </div>
+
+            <div class="header__address d-flex align-middle align-right">
+                <svg class="icon" aria-hidden="true" width="20" height="20">
+                    <use href="assets/img/sprite.svg#location"></use>
+                </svg>
+                <span>Івано-Франківськ, вул. Генерала Юнаківа, 9</span>
+            </div>
+
+            <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-md-none d-xl-flex align-middle align-right">
+                <svg class="icon" aria-hidden="true" width="20" height="20">
+                    <use href="assets/img/sprite.svg#mail"></use>
+                </svg>
+                <span>call.centre.veromed@gmail.com</span>
+            </a>
+            
+            <div class="lang d-flex align-middle">
+                <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
             </div>
 
         </div>
-    </header>
+
+        <div class="header__main d-flex align-justify align-middle">
+            <a href="index.html" class="logo__wrap">
+                <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
+            </a>
+
+            <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
+                <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                <button type="submit" aria-label="Пошук">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#search"></use>
+                    </svg>
+                </button>
+
+                <div class="header__search-popup">
+                    <div class="header__search-meta">
+                        По результату <span class="header__search-query">«гінеколог»</span> знайдено <span class="header__search-count">6 результатів</span>
+                    </div>
+
+                    <ul class="header__search-list">
+
+                        <li class="header__search-item">
+                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                <div class="search-result-card__avatar">
+                                    <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="header__search-item">
+                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                <div class="search-result-card__avatar">
+                                    <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="header__search-item">
+                            <a href="article.html" class="search-result-card search-result-card--article">
+                                <div class="search-result-card__thumb">
+                                    <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у флеболога у Львові</h4>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="header__search-footer">
+                        <a href="search.html" class="header__search-all-link">Усі результати</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="header__contacts d-none d-lg-flex align-middle">
+                <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                <div class="header__socials d-flex align-middle">
+                    <div class="socials">
+                        <ul class="socials__list" role="list">
+                            <li class="socials__item">
+                                <a href="#" class="socials__link socials__link--telegram" target="_blank" rel="noopener" aria-label="Telegram">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#telegram"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link socials__link--whathapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#whatsapp"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="socials__item">
+                                <a href="#" class="socials__link socials__link--viber" target="_blank" rel="noopener" aria-label="Viber">
+                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                        <use href="assets/img/sprite.svg#viber"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="btn btn--primary open-popup" data-rel="cta">
+                    Записатися на прийом
+                </a>
+            </div>
+
+            <div class="header__mobile-controls d-flex d-lg-none align-middle">
+                <a href="tel:+380672626680" class="btn-phone" aria-label="Зателефонувати">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#phone"></use>
+                    </svg>
+                </a>
+                <button type="button" class="burger js-menu-toggle" aria-label="Переключити меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="header__inner">
+
+            <form action="/search" method="GET" class="header__search-form d-block d-lg-none">
+                <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                <button type="submit" aria-label="Пошук">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#search"></use>
+                    </svg>
+                </button>
+
+                <div class="header__search-popup">
+                    <div class="header__search-meta">
+                        По результату <span class="header__search-query">«гінеколог»</span> знайдено <span class="header__search-count">6 результатів</span>
+                    </div>
+
+                    <ul class="header__search-list">
+
+                        <li class="header__search-item">
+                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                <div class="search-result-card__avatar">
+                                    <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="header__search-item">
+                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                <div class="search-result-card__avatar">
+                                    <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="header__search-item">
+                            <a href="article.html" class="search-result-card search-result-card--article">
+                                <div class="search-result-card__thumb">
+                                    <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                </div>
+                                <div class="search-result-card__info">
+                                    <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у флеболога у Львові</h4>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="header__search-footer">
+                        <a href="search.html" class="header__search-all-link">Усі результати</a>
+                    </div>
+                </div>
+            </form>
+
+            <nav class="header__nav">
+                <ul class="menu d-flex align-justify align-middle">
+                    <li class="menu-item"><a href="services.html">Послуги</a></li>
+                    <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
+                    <li class="menu-item active"><a href="results.html">Результати</a></li>
+                    <li class="menu-item"><a href="blog.html">Блог</a></li>
+                    <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
+                    <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
+                    <li class="menu-item"><a href="about.html">Про нас</a></li>
+                    <li class="menu-item"><a href="contacts.html">Контакт</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__inner-contacts d-lg-none">
+                <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-flex align-left align-middle">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#location"></use>
+                    </svg>
+                    <span>call.centre.veromed@gmail.com</span>
+                </a>
+                <div class="header__contacts-row d-flex align-justify align-middle">
+                    <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                    <div class="header__socials d-flex align-middle">
+                        <div class="socials">
+                            <ul class="socials__list" role="list">
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--telegram" target="_blank" rel="noopener" aria-label="Telegram">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#telegram"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--whathapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#whatsapp"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--viber" target="_blank" rel="noopener" aria-label="Viber">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#viber"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang d-flex align-center justify-center">
+                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                </div>
+                <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
+                    Записатися на прийом
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
 
     <main class="main">
         <div class="container">

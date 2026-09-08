@@ -23,19 +23,49 @@
     <header class="header js-header bg">
         <div class="container">
 
-            <!-- 1. Верхня панель (Десктоп) -->
             <div class="header__topbar d-none d-lg-flex align-right align-middle">
 
-                <div class="header__city">
-                    <i class="icon-pin"></i> Оберіть ваше місто: <strong>Львів</strong> <i class="icon-arrow-down"></i>
-                </div>
-                <div class="header__address">
-                    <i class="icon-pin"></i> Львів, вул. Генерала Юнаківа, 9
+                <div class="d-flex align-middle align-right">
+                    <div class="header__location d-flex align-middle align-right">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#location"></use>
+                        </svg>
+                        <span class="d-md-none d-xl-flex">Оберіть ваше місто:</span>
+                    </div>
+                    <div class="location__wrap --relative">
+
+                        <div class="location__current d-flex align-middle">
+                            <a href="#">Івано-Франківськ</a>
+                            <svg class="icon" aria-hidden="true" width="13" height="8">
+                                <use href="assets/img/sprite.svg#ar-bottom"></use>
+                            </svg>
+                        </div>
+
+                        <ul class="location">
+                            <li class="location__item"><a href="#">Львів</a></li>
+                            <li class="location__item"><a href="#">Ужгород</a></li>
+                            <li class="location__item"><a href="#">Мукачево</a></li>
+                            <li class="location__item"><a href="#">Івано-Франківськ</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
-                <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
-                    <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                <div class="header__address d-flex align-middle align-right">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#location"></use>
+                    </svg>
+                    <span>Івано-Франківськ, вул. Генерала Юнаківа, 9</span>
+                </div>
+
+                <a href="mailto:call.centre.veromed@gmail.com"
+                    class="header__email d-md-none d-xl-flex align-middle align-right">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#mail"></use>
+                    </svg>
+                    <span>call.centre.veromed@gmail.com</span>
                 </a>
+
                 <div class="lang d-flex align-middle">
                     <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
                     <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
@@ -43,54 +73,188 @@
 
             </div>
 
-            <!-- 2. Головна панель (Логотип, Пошук, Контакти / Мобільна шапка) -->
             <div class="header__main d-flex align-justify align-middle">
                 <a href="index.html" class="logo__wrap">
                     <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
                 </a>
 
-                <!-- Овальний пошук (Тільки для ПК) -->
                 <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
                     <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                    <button type="submit" aria-label="Пошук">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#search"></use>
+                        </svg>
+                    </button>
+
+                    <div class="header__search-popup">
+                        <div class="header__search-meta">
+                            По результату <span class="header__search-query">«гінеколог»</span> знайдено <span
+                                class="header__search-count">6 результатів</span>
+                        </div>
+
+                        <ul class="header__search-list">
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="article.html" class="search-result-card search-result-card--article">
+                                    <div class="search-result-card__thumb">
+                                        <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у
+                                            флеболога у Львові</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="header__search-footer">
+                            <a href="search.html" class="header__search-all-link">Усі результати</a>
+                        </div>
+                    </div>
                 </form>
 
-                <!-- Контакти (Тільки для ПК) -->
                 <div class="header__contacts d-none d-lg-flex align-middle">
                     <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
                     <div class="header__socials d-flex align-middle">
-                        <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
-                        <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
-                        <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                        <div class="socials">
+                            <ul class="socials__list" role="list">
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--telegram" target="_blank"
+                                        rel="noopener" aria-label="Telegram">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#telegram"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--whathapp" target="_blank"
+                                        rel="noopener" aria-label="WhatsApp">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#whatsapp"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="socials__item">
+                                    <a href="#" class="socials__link socials__link--viber" target="_blank"
+                                        rel="noopener" aria-label="Viber">
+                                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                                            <use href="assets/img/sprite.svg#viber"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <a href="#" class="btn btn--primary open-popup" data-rel="cta">
                         Записатися на прийом
                     </a>
                 </div>
 
-                <!-- Мобільні кнопки: Дзвінок + Анімований бургер/хрестик -->
                 <div class="header__mobile-controls d-flex d-lg-none align-middle">
-                    <a href="tel:+380672626680" class="btn-phone">
-                        <i class="icon-phone"></i>
+                    <a href="tel:+380672626680" class="btn-phone" aria-label="Зателефонувати">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#phone"></use>
+                        </svg>
                     </a>
-                    <div class="burger js-menu-toggle">
+                    <button type="button" class="burger js-menu-toggle" aria-label="Переключити меню">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </div>
+                    </button>
                 </div>
             </div>
 
-            <!-- 3. Шторка меню (Виїжджає ПІД шапкою на всю ширину) -->
             <div class="header__inner">
 
-                <!-- Пошук у мобільному меню -->
-                <form action="/search" method="GET" class="header__search-form d-lg-none">
+                <form action="/search" method="GET" class="header__search-form d-block d-lg-none">
                     <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                    <button type="submit" aria-label="Пошук"><i class="icon-search"></i></button>
+                    <button type="submit" aria-label="Пошук">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#search"></use>
+                        </svg>
+                    </button>
+
+                    <div class="header__search-popup">
+                        <div class="header__search-meta">
+                            По результату <span class="header__search-query">«гінеколог»</span> знайдено <span
+                                class="header__search-count">6 результатів</span>
+                        </div>
+
+                        <ul class="header__search-list">
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="article.html" class="search-result-card search-result-card--article">
+                                    <div class="search-result-card__thumb">
+                                        <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у
+                                            флеболога у Львові</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="header__search-footer">
+                            <a href="search.html" class="header__search-all-link">Усі результати</a>
+                        </div>
+                    </div>
                 </form>
 
-                <!-- Навігація -->
                 <nav class="header__nav">
                     <ul class="menu d-flex align-justify align-middle">
                         <li class="menu-item"><a href="services.html">Послуги</a></li>
@@ -104,17 +268,44 @@
                     </ul>
                 </nav>
 
-                <!-- Контакти внизу шторки (Мобільний) -->
                 <div class="header__inner-contacts d-lg-none">
-                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email">
-                        <i class="icon-mail"></i> call.centre.veromed@gmail.com
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-flex align-left align-middle">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#location"></use>
+                        </svg>
+                        <span>call.centre.veromed@gmail.com</span>
                     </a>
                     <div class="header__contacts-row d-flex align-justify align-middle">
                         <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
                         <div class="header__socials d-flex align-middle">
-                            <a href="#" class="social-btn telegram"><i class="icon-telegram"></i></a>
-                            <a href="#" class="social-btn whatsapp"><i class="icon-whatsapp"></i></a>
-                            <a href="#" class="social-btn viber"><i class="icon-viber"></i></a>
+                            <div class="socials">
+                                <ul class="socials__list" role="list">
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--telegram" target="_blank"
+                                            rel="noopener" aria-label="Telegram">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#telegram"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--whathapp" target="_blank"
+                                            rel="noopener" aria-label="WhatsApp">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#whatsapp"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--viber" target="_blank"
+                                            rel="noopener" aria-label="Viber">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#viber"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="lang d-flex align-center justify-center">
@@ -130,6 +321,7 @@
 
         </div>
     </header>
+
 
     <main class="main">
 
@@ -151,93 +343,161 @@
 
         <section class="s-services">
             <div class="container">
-                <div class="row">
+                <div class="row m-row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
 
                         <h1 class="heading h2 text-bold">
                             Послуги
                         </h1>
-                        <div class="services-grid d-none">
-                            <!-- Картка 1 (Відкрита за замовчуванням) -->
-                            <div class="services-card services-card--active">
-                                <button type="button" class="services-card__btn">
-                                    <span class="services-card__icon"><img src="img/icon-1.svg" alt="" /></span>
-                                    <span class="services-card__title">Поліклінічні послуги</span>
-                                    <span class="services-card__arrow">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </button>
+                    
+                        <div class="accordeon">
+                            <div class="row accordeon-row m-row">
 
-                                <div class="services-card__dropdown">
-                                    <div class="services-card__dropdown-inner">
-                                        <div class="services-card__head">
-                                            <p class="services-card__description"><strong>Поліклініка</strong> —
-                                                амбулаторний медичний супровід...</p>
-                                            <button type="button" class="services-card__close"
-                                                aria-label="Закрити">✕</button>
-                                        </div>
-                                        <div class="services-card__links">
-                                            <a href="#" class="services-card__link">Алергологія</a>
-                                            <a href="#" class="services-card__link">Виїзна консультація лікаря</a>
-                                            <a href="#" class="services-card__link">Гастроентерологія</a>
-                                            <a href="#" class="services-card__link">Гінекологія</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <!-- Item 1 -->
+                                <div class="service__col column">
+                                    <div class="accordeon-item">
+                                        <button class="accordeon-title" type="button">
+                                            <span class="accordeon-title__icon">
+                                                <img src="assets/img/services-1.svg" alt="Поліклінічні послуги">
+                                            </span>
+                                            <span class="accordeon-title__text">Поліклінічні послуги</span>
+                                            <span class="accordeon-title__arrow"></span>
+                                        </button>
 
-                            <!-- Картка 2 -->
-                            <div class="services-card">
-                                <button type="button" class="services-card__btn">
-                                    <span class="services-card__icon"><img src="img/icon-2.svg" alt="" /></span>
-                                    <span class="services-card__title">Діагностика</span>
-                                    <span class="services-card__arrow">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </button>
-
-                                <div class="services-card__dropdown">
-                                    <div class="services-card__dropdown-inner">
-                                        <div class="services-card__head">
-                                            <p class="services-card__description"><strong>Діагностика</strong> — сучасні
-                                                методи дослідження...</p>
-                                            <button type="button" class="services-card__close">✕</button>
-                                        </div>
-                                        <div class="services-card__links">
-                                            <a href="#" class="services-card__link">УЗД діагностика</a>
+                                        <div class="accordeon-content">
+                                            <div class="accordeon-content__inner">
+                                                <button type="button" class="accordeon-close"
+                                                    aria-label="Закрити"></button>
+                                                <div class="accordeon-content__header">
+                                                    <strong>Поліклініка</strong> — амбулаторний медичний супровід для
+                                                    дорослих і дітей з акцентом на профілактику, діагностику та первинне
+                                                    лікування.
+                                                </div>
+                                                <div class="accordeon-content__grid">
+                                                    <a href="#" class="accordeon-link">Алергологія</a>
+                                                    <a href="#" class="accordeon-link">Виїзна консультація лікаря</a>
+                                                    <a href="#" class="accordeon-link">Гастроентерологія</a>
+                                                    <a href="#" class="accordeon-link">Гінекологія</a>
+                                                    <a href="#" class="accordeon-link">Дерматолог у Львові</a>
+                                                    <a href="#" class="accordeon-link">Дерматонкологія</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Картка 3 -->
-                            <div class="services-card">
-                                <button type="button" class="services-card__btn">
-                                    <span class="services-card__icon"><img src="img/icon-3.svg" alt="" /></span>
-                                    <span class="services-card__title">Операції та процедури</span>
-                                    <span class="services-card__arrow">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </button>
+                                <!-- Item 2 -->
+                                <div class="service__col column">
+                                    <div class="accordeon-item">
+                                        <button class="accordeon-title" type="button">
+                                            <span class="accordeon-title__icon">
+                                                <img src="assets/img/services-2.svg" alt="Діагностика">
+                                            </span>
+                                            <span class="accordeon-title__text">Діагностика</span>
+                                            <span class="accordeon-title__arrow"></span>
+                                        </button>
 
-                                <div class="services-card__dropdown">
-                                    <div class="services-card__dropdown-inner">
-                                        <div class="services-card__head">
-                                            <p class="services-card__description"><strong>Операції</strong> —
-                                                малоінвазивна хірургія...</p>
-                                            <button type="button" class="services-card__close">✕</button>
+                                        <div class="accordeon-content">
+                                            <div class="accordeon-content__inner">
+                                                <button type="button" class="accordeon-close"
+                                                    aria-label="Закрити"></button>
+                                                <div class="accordeon-content__header">
+                                                    <strong>Діагностика</strong> — обстеження та лабораторні
+                                                    дослідження.
+                                                </div>
+                                                <div class="accordeon-content__grid">
+                                                    <a href="#" class="accordeon-link">УЗД</a>
+                                                    <a href="#" class="accordeon-link">Аналізи</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="services-card__links">
-                                            <a href="#" class="services-card__link">Флебологія</a>
+                                    </div>
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="service__col column">
+                                    <div class="accordeon-item">
+                                        <button class="accordeon-title" type="button">
+                                            <span class="accordeon-title__icon">
+                                                <img src="assets/img/services-3.svg" alt="Операції та процедури">
+                                            </span>
+                                            <span class="accordeon-title__text">Операції та процедури</span>
+                                            <span class="accordeon-title__arrow"></span>
+                                        </button>
+
+                                        <div class="accordeon-content">
+                                            <div class="accordeon-content__inner">
+                                                <button type="button" class="accordeon-close"
+                                                    aria-label="Закрити"></button>
+                                                <div class="accordeon-content__header">
+                                                    <strong>Поліклініка</strong> — амбулаторний медичний супровід для
+                                                    дорослих і дітей з акцентом на профілактику, діагностику та первинне
+                                                    лікування.
+                                                </div>
+                                                <div class="accordeon-content__grid">
+                                                    <a href="#" class="accordeon-link">Алергологія</a>
+                                                    <a href="#" class="accordeon-link">Виїзна консультація лікаря</a>
+                                                    <a href="#" class="accordeon-link">Гастроентерологія</a>
+                                                    <a href="#" class="accordeon-link">Гінекологія</a>
+                                                    <a href="#" class="accordeon-link">Дерматолог у Львові</a>
+                                                    <a href="#" class="accordeon-link">Дерматонкологія</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item 4 -->
+                                <div class="service__col column">
+                                    <div class="accordeon-item">
+                                        <button class="accordeon-title" type="button">
+                                            <span class="accordeon-title__icon">
+                                                <img src="assets/img/services-4.svg"
+                                                    alt="Пластична хірургія та косметологія">
+                                            </span>
+                                            <span class="accordeon-title__text">Пластична хірургія та
+                                                косметологія</span>
+                                            <span class="accordeon-title__arrow"></span>
+                                        </button>
+
+                                        <div class="accordeon-content">
+                                            <div class="accordeon-content__inner">
+                                                <button type="button" class="accordeon-close"
+                                                    aria-label="Закрити"></button>
+                                                <div class="accordeon-content__header">
+                                                    <strong>Діагностика</strong> — обстеження та лабораторні
+                                                    дослідження.
+                                                </div>
+                                                <div class="accordeon-content__grid">
+                                                    <a href="#" class="accordeon-link">УЗД</a>
+                                                    <a href="#" class="accordeon-link">Аналізи</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service__col column">
+                                    <div class="accordeon-item">
+                                        <button class="accordeon-title" type="button">
+                                            <span class="accordeon-title__icon">
+                                                <img src="assets/img/services-5.svg" alt="Трансплантація волосся">
+                                            </span>
+                                            <span class="accordeon-title__text">Трансплантація волосся</span>
+                                            <span class="accordeon-title__arrow"></span>
+                                        </button>
+
+                                        <div class="accordeon-content">
+                                            <div class="accordeon-content__inner">
+                                                <button type="button" class="accordeon-close"
+                                                    aria-label="Закрити"></button>
+                                                <div class="accordeon-content__header">
+                                                    <strong>Діагностика</strong> — обстеження та лабораторні
+                                                    дослідження.
+                                                </div>
+                                                <div class="accordeon-content__grid">
+                                                    <a href="#" class="accordeon-link">УЗД</a>
+                                                    <a href="#" class="accordeon-link">Аналізи</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -245,15 +505,8 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            <div class="decor__wrap d-none">
-                <img src="assets/img/decor-right.svg" alt="" class="decor">
-            </div>
-
         </section>
-
 
         <section class="s-contacts s-contacts--footer">
             <div class="container ">
@@ -553,81 +806,75 @@
 
 
 
-
     <div class="popup-wrapper">
         <div class="bg-layer"></div>
 
         <div class="popup-content cta" data-rel="cta">
             <div class="layer-close"></div>
             <div class="popup-container ">
-                <div class="btn-close d-flex align-middle align-center"><img src="assets/img/close.svg"
-                        alt="close icon">
-                </div>
+                <div class="popup-container__inner">
+                    <div class="btn--close d-flex align-middle align-center">
+                        <svg class="icon" aria-hidden="true" width="18" height="18">
+                            <use href="assets/img/sprite.svg#close"></use>
+                        </svg>
+                    </div>
 
-                <div class="popup-form text-center">
-                    <h4 class="popup-form__heading heading-accent h2 text-bold">Записатись на прийом</h4>
-                    <form class="">
+                    <div class="popup-form text-center">
+                        <h4 class="popup-form__heading text-bold">Записатись на прийом</h4>
+                        <form class="">
 
-                        <div class="form-field__grid">
-                            <div class="form-field form-field--full">
-                                <label class="form-field__label text-left" for="user-name">Як до вас звертатися?</label>
-                                <input class="form-field__input" type="text" id="p-user-name" name="name"
-                                    placeholder="Ваше ім’я">
-                            </div>
+                            <div class="row m-row">
+                                <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                    <div class="form-field">
+                                        <label class="form-field__label text-left" for="user-name">Як до вас
+                                            звертатися?</label>
+                                        <input class="form-field__input" type="text" id="p-user-name" name="name"
+                                            placeholder="Ваше ім’я">
+                                    </div>
+                                    <div class="form-field ">
+                                        <label class="form-field__label text-left" for="user-phone">Ваш номер
+                                            телефону</label>
+                                        <input class="form-field__input" type="tel" id="p-user-phone" name="phone"
+                                            value="+38 (_ _ _) _ _ _  - _ _ - _ _" aria-invalid="true"
+                                            aria-describedby="phone-error">
 
-                            <div class="form-field form-field--full">
-                                <label class="form-field__label text-left" for="user-phone">Ваш номер телефону</label>
-                                <input class="form-field__input" type="tel" id="p-user-phone" name="phone"
-                                    value="+38 (_ _ _) _ _ _  - _ _ - _ _" aria-invalid="true"
-                                    aria-describedby="phone-error">
-
-                            </div>
-
-
-
-                            <div class="form-field form-field--full">
-                                <label class="form-field__label text-left" for="user-direction">Обрати напрямок</label>
-                                <div class="form-select">
-                                    <select class="form-field__select" name="direction">
-                                        <option value="" disabled selected hidden>Вибрати</option>
-                                        <option value="1">Напрямок 1</option>
-                                        <option value="2">Напрямок 2</option>
-                                    </select>
+                                    </div>
+                                    <div class="form-field SelectBox  text-left">
+                                        <label class="form-field__label">Напрямок / спеціальність</label>
+                                        <select name="direction">
+                                            <option value="" disabled selected hidden>Вибрати</option>
+                                            <option value="1">Напрямок 1</option>
+                                            <option value="2">Напрямок 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-field ">
+                                        <button class="btn btn--primary" type="submit">
+                                            Записатися на прийом
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="form-field form-field--full">
-                                <button class="btn btn--primary" type="submit">
-                                    Записатися на прийом
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 
-
-
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9h5L2xSWEvRFgLc7y4d16KPUDydNgs9Y"
         type="text/javascript"></script>
 
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.sumoselect.min.js"></script>
-    <script src="assets/js/sumoselectCustom.js"></script>
-
 
     <script src="src/scripts/app-swiper.js"></script>
-    <script src="src/scripts/app.js"></script>
-    <script src="src/scripts/js_app.js"></script>
+
+    <!--<script src="src/scripts/js_app.js"></script>-->
 
     <script src="src/scripts/app_map.js"></script>
-    <script>
+    <!--<script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.services-card');
 
@@ -661,6 +908,102 @@
                 if (!e.target.closest('.services-card')) {
                     closeAll();
                 }
+            });
+        });
+    </script>-->
+
+    <script>
+        $(document).ready(function () {
+            // Автоматично зв'язуємо заголовок та його контент через ID для надійності
+            $('.accordeon-item').each(function (index) {
+                const $item = $(this);
+                const $title = $item.find('.accordeon-title');
+                const $content = $item.find('.accordeon-content');
+
+                const uniqueId = 'acc-content-' + index;
+                $content.attr('id', uniqueId);
+                $title.attr('data-target', '#' + uniqueId);
+            });
+
+            // Функція знаходження останньої колонки в поточному рядку
+            function getRowLastColumn($currentCol) {
+                const $allCols = $currentCol.parent().children('.column');
+                const currentTop = $currentCol.position().top;
+                let $lastCol = $currentCol;
+
+                $allCols.each(function () {
+                    const $col = $(this);
+                    if (Math.abs($col.position().top - currentTop) < 10) {
+                        $lastCol = $col;
+                    }
+                });
+
+                return $lastCol;
+            }
+
+            // Клік на заголовок акордеона
+            $(document).on('click', '.accordeon-title', function (e) {
+                e.preventDefault();
+
+                const $title = $(this);
+                const $item = $title.closest('.accordeon-item');
+                const $col = $item.closest('.column');
+                const targetId = $title.attr('data-target');
+                const $content = $(targetId);
+                const $accordeon = $title.closest('.accordeon');
+                const isOpen = $item.hasClass('active');
+
+                // 1. Якщо клікнули на ВЖЕ ВІДКРИТИЙ пункт — закриваємо його
+                if (isOpen) {
+                    $item.removeClass('active');
+                    $content.removeClass('is-open').stop(true, true).slideUp(300, function () {
+                        $item.append($content); // повертаємо блок назад у його accordeon-item
+                    });
+                    return;
+                }
+
+                // 2. Якщо був відкритий ІНШИЙ пункт — закриваємо його
+                const $prevActiveItem = $accordeon.find('.accordeon-item.active');
+                if ($prevActiveItem.length) {
+                    const prevTargetId = $prevActiveItem.find('.accordeon-title').attr('data-target');
+                    const $prevContent = $(prevTargetId);
+
+                    $prevActiveItem.removeClass('active');
+                    $prevContent.removeClass('is-open').stop(true, true).slideUp(300, function () {
+                        $prevActiveItem.append($prevContent);
+                    });
+                }
+
+                // 3. Відкриваємо НОВИЙ пункт
+                $item.addClass('active');
+                const $lastColInRow = getRowLastColumn($col);
+
+                $content
+                    .hide()
+                    .insertAfter($lastColInRow)
+                    .stop(true, true)
+                    .slideDown({
+                        duration: 350,
+                        easing: 'swing',
+                        start: function () {
+                            $content.addClass('is-open');
+                        }
+                    });
+            });
+
+            // Клік на хрестик закриття
+            $(document).on('click', '.accordeon-close', function (e) {
+                e.preventDefault();
+
+                const $content = $(this).closest('.accordeon-content');
+                const contentId = '#' + $content.attr('id');
+                const $title = $(`.accordeon-title[data-target="${contentId}"]`);
+                const $item = $title.closest('.accordeon-item');
+
+                $item.removeClass('active');
+                $content.removeClass('is-open').stop(true, true).slideUp(300, function () {
+                    $item.append($content);
+                });
             });
         });
     </script>

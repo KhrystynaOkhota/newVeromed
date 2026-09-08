@@ -1,6 +1,9 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+/* ==========================================================================
+   RESET & BASE INPUT STYLES
+   ========================================================================== */
 
 .visually-hidden {
   position: absolute;
@@ -14,29 +17,28 @@
   border: 0;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-}
-
-input[type=number] {
+// Reset number inputs
+input[type="number"] {
   -moz-appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
 }
 
+// Reset search inputs
+input[type="search"] {
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
 
 input {
-  /* -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
- */
   -webkit-border-radius: 0;
 }
 
@@ -47,148 +49,22 @@ button {
   }
 }
 
-.form-field {
-  position: relative;
-
-  &__grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr;
-
-    @media (max-width: $breakpoint-lg) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  position: relative;
-
-  &--full {
-    grid-column: 1 / -1;
-  }
-
-  &__label {
-    display: block;
-    font-size: fluid(15, 16);
-    color: #6F6F6F;
-
-  }
-
-  &__input,
-  &__textarea {
-    background: #F7F8F8;
-    border: none;
-    border: 1px solid #EAEAEA;
-    border-radius: 50px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 1;
-    font-family: 'Gilroy', sans-serif;
-    font-weight: 300;
-    color: #1E1E1E;
-
-    resize: none;
-    padding: 15px 20px 14px 20px;
-
-    &--accent {
-      border-color: rgba(15, 14, 104, 1);
-      padding: 22px 16px;
-    }
-  }
-
-  &__textarea {
-    border-radius: 20px;
-  }
-
-  &__btn {
-
-    margin: 0 auto;
-    padding: 15px 33px 17px 33px;
-    line-height: 100%;
-
-    @media (min-width: $breakpoint-md) {
-      width: max-content;
-    }
-
-    @media (max-width: $breakpoint-md) {
-      margin-top: 10px;
-      max-width: 100%;
-    }
-  }
-}
-
-
-::-webkit-input-placeholder {
-  font-size: 16px;
-  line-height: 1;
+// Universal Placeholders
+::placeholder {
   font-family: 'Gilroy', sans-serif;
-  font-weight: 400;
-  color: rgba(111, 111, 111, 1);
-
-  opacity: 1;
-  transition: opacity 0.5s;
-}
-
-::-moz-placeholder {
   font-size: 16px;
-  line-height: 1;
-  font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  color: rgba(111, 111, 111, 1);
-
-  opacity: 1;
-  transition: opacity 0.5s;
-}
-
-:-ms-input-placeholder {
-  font-size: 16px;
   line-height: 1;
-  font-family: 'Gilroy', sans-serif;
-  font-weight: 400;
-  color: rgba(111, 111, 111, 1);
-
+  color: #6f6f6f;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s ease;
 }
 
-:focus::-webkit-input-placeholder {
+:focus::placeholder {
   opacity: 0;
-  transition: opacity 0.5s;
 }
 
-:focus::-moz-placeholder {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-:focus:-moz-placeholder {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-:focus:-ms-input-placeholder {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-div.wpcf7 .ajax-loader {
-  display: none !important;
-}
-
-
-input:-internal-autofill-selected {
-  appearance: menulist-button;
-  background-image: none !important;
-  background-color: #21242C !important;
-  caret-color: $whiteColor;
-  -webkit-text-fill-color: #fff !important;
-}
-
-/* Change autocomplete styles in WebKit */
+// Autofill styles
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -200,13 +76,135 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   caret-color: $whiteColor;
   -webkit-text-fill-color: $whiteColor;
-  -webkit-box-shadow: 0 0 0px 1000px #21242C inset;
+  -webkit-box-shadow: 0 0 0 1000px #21242c inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+// WordPress CF7 Clean Loader
+div.wpcf7 .ajax-loader {
+  display: none !important;
+}
+
+/* ==========================================================================
+   FORM COMPONENTS
+   ========================================================================== */
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+
+  &__label {
+    display: block;
+    font-size: fluid(15, 16);
+    color: #6f6f6f;
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    width: 100%;
+    padding: 15px 20px 14px;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    color: #1e1e1e;
+    background-color: #f7f8f8;
+    border: 1px solid #eaeaea;
+    border-radius: 50px;
+    resize: none;
+
+    &--accent {
+      padding: 22px 16px;
+      border-color: #0f0e68;
+    }
+
+    &--search {
+      padding-right: 50px;
+    }
+  }
+
+  &__textarea {
+    border-radius: 20px;
+  }
+
+  &__search-btn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 20px;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+
+  &__btn {
+    padding: 15px 33px 17px;
+    margin: 0 auto;
+    line-height: 1;
+
+    @media (min-width: $breakpoint-md) {
+      width: max-content;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+  }
+}
+
+/* ==========================================================================
+   FORM SECTIONS & APPLICATION FORM
+   ========================================================================== */
+
+.form-section {
+  position: relative;
+  margin-bottom: 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(30, 30, 30, 0.1);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .form-field {
+    margin-bottom: 30px;
+  }
 }
 
 .application-form {
   padding: 32px;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 
   @media (max-width: $breakpoint-md) {
     padding: 20px;
@@ -216,17 +214,17 @@ select:-webkit-autofill:focus {
     padding: 16px;
   }
 
-  & .heading {
-    @include fontSize(24, 32);
+  .heading {
     margin-bottom: 24px;
-    color: rgba(0, 0, 0, 1);
+    color: #000000;
+    @include fontSize(24, 32);
   }
 
-  & .description {
+  .description {
     margin-bottom: 32px;
   }
 
-  & .btn-primary {
+  .btn-primary {
     width: 100%;
   }
 
@@ -239,31 +237,31 @@ select:-webkit-autofill:focus {
       padding: 20.5px 0;
       cursor: pointer;
 
-      & i {
-        font-size: 20px;
-        color: rgba(232, 16, 16, 1);
+      i {
         padding-right: 16px;
+        font-size: 20px;
+        color: #e81010;
       }
     }
   }
 
-  & .checkbox-entry {
+  .checkbox-entry {
     padding: 15.5px 0;
 
-    & span {
-      font-weight: 300;
-      font-size: fluid(12, 14);
+    span {
       display: inline-block;
+      font-size: fluid(12, 14);
+      font-weight: 300;
 
-      & a {
+      a {
         font-weight: 400;
-        color: rgba(255, 60, 0, 1);
+        color: #ff3c00;
         text-decoration: underline;
       }
     }
   }
 
-  & .bg {
+  .bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -272,126 +270,93 @@ select:-webkit-autofill:focus {
       position: absolute;
       top: 0;
       right: 0;
-      height: 100%;
-      width: 55%;
       z-index: -1;
+      width: 55%;
+      height: 100%;
 
       @media (max-width: $breakpoint-md) {
         top: auto;
         bottom: 0;
-        height: 70%;
         width: 100%;
+        height: 70%;
       }
 
-      &:after {
+      &::after {
         content: "";
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
 
         @media (max-width: $breakpoint-md) {
-          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
         }
       }
     }
   }
 }
 
+/* ==========================================================================
+   CUSTOM RADIO & CHECKBOXES
+   ========================================================================== */
+
 .radio-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   margin-bottom: 25px;
-  flex-wrap: wrap;
 }
 
-
-/*
-.field {
-  position: relative;
-
-  &__input,
-  &__textarea {
-    background: #fff;
-    border: none;
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-radius: 0;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 1;
-    font-family: 'Gilroy', sans-serif;
-    font-weight: 400;
-    color: rgba(27, 27, 27, 1);
-    resize: none;
-    padding: 15px 20px 16px 20px;
-  }
-
-  &__grid {
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    gap: 20px;
-  }
-}*/
-
 .radio-option {
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
-  position: relative;
   user-select: none;
 
-  // Приховуємо стандартний кружечок браузера
   &__input {
     position: absolute;
+    width: 0;
+    height: 0;
     opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
 
-    // Стан, коли вибрано
-    &:checked~.radio-option__custom {
-
-      &::after {
-        opacity: 1;
-      }
+    &:checked ~ .radio-option__custom::after {
+      opacity: 1;
     }
   }
 
-  // Кастомний кружечок
   &__custom {
-    height: 24px;
-    width: 24px;
-    background-color: #fff;
-    border: 1px solid #C0C0C0;
-    border-radius: 50%;
-    margin-right: 7px;
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+    background-color: #ffffff;
+    border: 1px solid #c0c0c0;
+    border-radius: 50%;
     transition: all 0.4s ease-out;
 
-    // Внутрішня точка (з'являється при :checked)
     &::after {
       content: "";
       position: absolute;
-      opacity: 0;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 13px;
       height: 13px;
+      background: #8b1e1e;
       border-radius: 50%;
-      background: rgba(139, 30, 30, 1);
+      opacity: 0;
+      transform: translate(-50%, -50%);
       transition: all 0.4s ease-out;
     }
   }
 
   &__text {
     font-size: 16px;
-    color: #1B1B1B;
+    color: #1b1b1b;
   }
 }
 
@@ -402,52 +367,45 @@ select:-webkit-autofill:focus {
   user-select: none;
 
   &__wrap {
-    gap: 30px;
     display: grid;
+    gap: 30px;
   }
 
-  // Приховуємо стандартний чекбокс браузера
   &__input {
     position: absolute;
+    width: 0;
+    height: 0;
     opacity: 0;
     cursor: pointer;
-    height: 0;
-    width: 0;
 
-    // Стан, коли вибрано
-    &:checked~.checkbox-option__custom {
-      &::after {
-        opacity: 1;
-      }
+    &:checked ~ .checkbox-option__custom::after {
+      opacity: 1;
     }
   }
 
-  // Кастомний квадрат
   &__custom {
-    flex-shrink: 0;
-    height: 30px;
-    width: 30px;
-    background-color: #fff;
-    border: 1px solid rgba(139, 30, 30, 1); // Бордова рамка
-    border-radius: 5px;
-    margin-right: 15px;
-    margin-top: 0;
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    background-color: #ffffff;
+    border: 1px solid #8b1e1e;
+    border-radius: 5px;
     transition: all 0.4s ease-out;
 
-    // Внутрішній квадрат (з'являється при :checked)
     &::after {
       content: "";
       position: absolute;
-      opacity: 0;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 14px;
       height: 14px;
+      background: #8b1e1e;
       border-radius: 3px;
-      background: rgba(139, 30, 30, 1); // Бордова заливка
+      opacity: 0;
+      transform: translate(-50%, -50%);
       transition: all 0.4s ease-out;
     }
   }
@@ -456,11 +414,11 @@ select:-webkit-autofill:focus {
     font-size: 16px;
     font-weight: 300;
     line-height: 1.4;
-    color: rgba(111, 111, 111, 1);
+    color: #6f6f6f;
   }
 
   &__link {
-    color: #8B181B;
+    color: #8b181b;
     text-decoration: underline;
 
     &:hover {
@@ -469,17 +427,19 @@ select:-webkit-autofill:focus {
   }
 }
 
+/* ==========================================================================
+   FILE UPLOAD COMPONENT
+   ========================================================================== */
+
 .file-upload {
   display: flex;
   flex-direction: column;
   gap: 8px;
 
-  &__label {}
-
   &__controls {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 12px;
   }
 
@@ -488,13 +448,13 @@ select:-webkit-autofill:focus {
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    background-color: #727272;
-    color: #ffffff;
     font-size: 13px;
     font-weight: 500;
+    color: #ffffff;
     letter-spacing: 0.5px;
-    border-radius: 20px;
     cursor: pointer;
+    background-color: #727272;
+    border-radius: 20px;
     user-select: none;
     transition: background-color 0.3s ease;
 
@@ -513,11 +473,10 @@ select:-webkit-autofill:focus {
 
   &__info {
     font-size: 12px;
-    color: #aaaaaa;
     line-height: 1.3;
+    color: #aaaaaa;
   }
 
-  // Список доданих файлів
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -530,68 +489,21 @@ select:-webkit-autofill:focus {
     align-items: center;
     gap: 6px;
     padding: 4px 10px;
-    background-color: #f1f1f1;
-    border-radius: 12px;
     font-size: 12px;
     color: #333333;
+    background-color: #f1f1f1;
+    border-radius: 12px;
   }
 
   &__remove {
-    cursor: pointer;
-    color: #8B181B;
-    font-weight: bold;
     font-size: 14px;
+    font-weight: bold;
     line-height: 1;
+    color: #8b181b;
+    cursor: pointer;
 
     &:hover {
       color: #dc3545;
     }
-  }
-}
-
-.form-section {
-  margin-bottom: 50px;
-  position: relative;
-
-  &:after {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: rgba(30, 30, 30, .1);
-    left: 0;
-    bottom: -10px;
-    position: absolute;
-    display: block;
-  }
-
-  &__title {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  & .form-field {
-    margin-bottom: 30px;
-
-  }
-}
-
-.form-field {
-  &__input{
-    &--search{
-      padding-right: 50px;
-    }
-  }
-  &__search-btn {
-    position: absolute;
-    right: 15px;
-    top: 0;
-    height: 100%;
-    padding: 0;
-    width: 20px;
-    background: transparent;
-    border: none;
-    background-color: red;
   }
 }

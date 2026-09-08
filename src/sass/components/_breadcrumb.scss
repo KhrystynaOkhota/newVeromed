@@ -2,18 +2,16 @@
 @use "../abstracts/mixins" as *;
 
 .kama_breadcrumbs {
-  background-color: transparent;
-  padding: 15px 0;
-  font-weight: 300;
-  font-size: fluid(15, 16);
-  line-height: 1.4;
-  color: rgba(30, 30, 30, 1);
-  margin: 0;
-  width: 100%;
-  z-index: 2;
   position: relative;
-  @include transition(.4);
+  z-index: 2;
+  width: 100%;
+  padding: 15px 0;
   margin-bottom: 20px;
+  font-size: fluid(15, 16);
+  font-weight: 300;
+  line-height: 1.4;
+  color: #1e1e1e;
+  background-color: transparent;
 
   @media (min-width: $breakpoint-md) {
     display: flex;
@@ -22,19 +20,15 @@
 
   @media (max-width: $breakpoint-md) {
     padding: 12px 0;
-    text-align: left;
-    display: block;
   }
 
-  & a {
+  a {
     position: relative;
-
-    &:hover {}
   }
 
-  & .kb {
+  .kb {
     &_title {
-      color: rgba(111, 111, 111, 1);
+      color: #6f6f6f;
     }
 
     &_sep {
@@ -42,21 +36,17 @@
     }
   }
 
-  &:after {
+  &::after {
     content: "";
-    background-color: rgb(242, 242, 242);
-    border-radius: 10px;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    z-index: -1;
     top: 0;
     left: 50%;
+    z-index: -1;
+    width: 100vw;
+    height: 100%;
+    background-color: #f2f2f2;
+    border-radius: 10px;
     transform: translateX(-50%);
-
 
     @media (min-width: 1300px) {
       width: calc(100vw - 100px);
