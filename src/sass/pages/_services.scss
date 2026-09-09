@@ -104,6 +104,7 @@ $color-accent: #8b1e1e;
     text-decoration: none;
     position: relative;
     transition: all ease-out .4s;
+
     & .icon {
       display: inline-flex;
       align-items: center;
@@ -125,6 +126,7 @@ $color-accent: #8b1e1e;
 
     &:hover {
       color: #751d1d;
+
       .icon::before {
         transform: translateX(3px); // Плавний зсув іконки при ховері
       }
@@ -461,6 +463,11 @@ $color-accent: #8b1e1e;
 
     &__img {
       height: 100%;
+
+      @media (max-width: $breakpoint-md) {
+        max-height: 300px;
+        width: 100%;
+      }
 
       &--grid {
         @media (min-width: $breakpoint-md) {
