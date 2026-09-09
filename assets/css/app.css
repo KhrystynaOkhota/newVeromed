@@ -7744,6 +7744,12 @@ div.wpcf7 .ajax-loader {
 .s-treatment-results .case__img {
   height: 100%;
 }
+@media (max-width: 767px) {
+  .s-treatment-results .case__img {
+    max-height: 300px;
+    width: 100%;
+  }
+}
 @media (min-width: 767px) {
   .s-treatment-results .case__img--grid {
     padding: 20px;
