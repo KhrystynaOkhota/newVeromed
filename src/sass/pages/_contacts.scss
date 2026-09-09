@@ -7,6 +7,16 @@
     margin-bottom: fluid(21, 37);
   }
 
+  & .contacts__icon {
+    color:#8b1818;
+    &--email{
+      & + .contacts__link{
+        color:#8b1818;
+      }
+    }
+  }
+
+
   & .map {
     width: 100%;
     height: 100%;

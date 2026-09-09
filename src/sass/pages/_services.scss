@@ -100,16 +100,34 @@ $color-accent: #8b1e1e;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-
     color: $color-accent;
     text-decoration: none;
+    position: relative;
+    transition: all ease-out .4s;
+    & .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
 
-    &:hover {
-      text-decoration: underline;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: currentColor; // Автоматично бере колір тексту кнопки
+        mask: url('../img/calendar.svg') no-repeat center / contain;
+        -webkit-mask: url('../img/calendar.svg') no-repeat center / contain;
+        transition: transform 0.25s ease;
+      }
     }
 
-    &-icon {
-      flex-shrink: 0;
+    &:hover {
+      color: #751d1d;
+      .icon::before {
+        transform: translateX(3px); // Плавний зсув іконки при ховері
+      }
     }
   }
 
@@ -491,6 +509,7 @@ $color-accent: #8b1e1e;
   }
 }
 
+/*
 .s-services {
 
   & .heading {
@@ -743,6 +762,241 @@ $color-accent: #8b1e1e;
         opacity: 1;
         transform: translateY(0);
       }
+    }
+  }
+}*/
+.s-services {
+
+  & .heading {
+    margin-bottom: fluid(21, 37);
+  }
+
+  .service__col {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(100% / 3);
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+    margin-bottom: 20px;
+
+    @media (max-width: $breakpoint-xl) {
+      -ms-flex: 0 0 calc(100% / 2);
+      flex: 0 0 calc(100% / 2);
+      max-width: calc(100% / 2);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .services-accordeon {
+    width: 100%;
+  }
+
+  .services-accordeon-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .services-accordeon-item {
+    width: 100%;
+
+    &.active {
+      .services-accordeon-title {
+        border-color: #8b1520;
+
+        &__text {
+          color: #8b1520;
+        }
+
+        &__arrow {
+          transform: rotate(180deg);
+          background-color: #8b1520;
+
+          &::after {
+            border-color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .services-accordeon-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &__icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #f7f7f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+      }
+    }
+
+    &__text {
+      font-size: fluid(18, 20);
+      font-weight: 700;
+      line-height: 1.2;
+      color: rgba(30, 30, 30, 1);
+      margin-right: auto;
+      font-family: "Gilroy", sans-serif;
+    }
+
+    &__arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(242, 242, 242, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, background-color 0.25s ease;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #333;
+        border-bottom: 2px solid #333;
+        transform: translateY(-2px) rotate(45deg);
+        transition: border-color 0.25s ease;
+      }
+    }
+  }
+
+  .services-accordeon-content {
+    display: none;
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0;
+    overflow: hidden;
+
+    &__inner {
+      position: relative;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+    }
+
+    &.is-open {
+      .services-accordeon-content__inner {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &__header {
+      font-size: fluid(15, 17);
+      line-height: 1.5;
+      color: rgba(30, 30, 30, 1);
+      margin-bottom: fluid(11, 33);
+      padding-right: 40px;
+
+      strong {
+        color: #000;
+      }
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 575px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .services-accordeon-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background-color: #333;
+      transition: background-color 0.2s ease;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      background-color: #8b1520;
+    }
+  }
+
+  .services-accordeon-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    border: 1px solid rgba(234, 234, 235, 1);
+    border-radius: 10px;
+    font-size: fluid(15, 17);
+    color: #333;
+    text-decoration: none;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: #8b1520;
+      color: #8b1520;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
   }
 }

@@ -200,7 +200,7 @@ section {
   }
 
 
-
+  /*
   &-button {
     &__wrap {
       cursor: auto;
@@ -231,7 +231,7 @@ section {
         }
       }
     }
-  }
+  }*/
 
 
 }
@@ -260,6 +260,76 @@ section {
   }
 
 }
+
+
+.swiper-button__wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  // Базові стилі для обох кнопок Swiper
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static; // Скидаємо абсолютне позиціонування Swiper за замовчуванням
+    margin: 0;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: rgba(177, 177, 175, 1); // Основний колір стрілки
+    cursor: pointer;
+    transition: color 0.4s ease;
+
+    // Перебиваємо дефолтний псевдоелемент Swiper
+    &::after {
+      display: none;
+    }
+
+    .icon-arrow {
+      display: block;
+      width: 39px;
+      height: 30px;
+      background-color: currentColor; // Бере колір з color батьківської кнопки
+      mask: url('../img/ar-right.svg') no-repeat center / contain;
+      -webkit-mask: url('../img/ar-right.svg') no-repeat center / contain;
+      transition: transform 0.25s ease;
+    }
+
+    // Ховер-ефекти
+    &:hover:not(.swiper-button-disabled) {
+      color: rgba(139, 30, 30, 1); // Стрілка автоматично стає білою
+    }
+
+    // Неактивний стан Swiper (початок або кінець слайдера)
+    &.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  // Повертаємо іконку для кнопки "Назад"
+  .swiper-button-prev {
+    .icon-arrow {
+      transform: rotate(180deg);
+    }
+
+    &:hover:not(.swiper-button-disabled) .icon-arrow {
+      transform: rotate(180deg) translateX(2px); // Плавний зсув вліво при ховері
+    }
+  }
+
+  // Анімація при ховері для кнопки "Вперед"
+  .swiper-button-next {
+    &:hover:not(.swiper-button-disabled) .icon-arrow {
+      transform: translateX(2px); // Плавний зсув вправо при ховері
+    }
+  }
+}
+
 
 
 

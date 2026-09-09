@@ -10,6 +10,39 @@
     &:first-child {
       border-top: 1px solid #e5e5e5;
     }
+
+    &.active {
+      & .accordeon-icon {
+        transform: rotate(0);
+      }
+    }
+
+  }
+
+  &-icon {
+    width: fluid(40, 50);
+    height: fluid(40, 50);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    background-color: #f2f2f2; // Фон кружечка у звичайному стані
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.25s ease, transform 0.3s ease;
+    transform: rotate(-90deg);
+
+    // 2. Внутрішня стрілка через маску на псевдоелементі
+    &::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: #1e1e1e; // Колір стрілки у звичайному стані
+      mask: url('../img/ar-bottom.svg') no-repeat center / contain;
+      -webkit-mask: url('../img/ar-bottom.svg') no-repeat center / contain;
+      transition: background-color 0.25s ease;
+    }
   }
 
   &-title {
@@ -37,13 +70,14 @@
       color: #b82828;
 
       .accordeon-icon {
-        transform: rotate(180deg);
+        transform: rotate(0);
       }
     }
   }
 
+
   // Іконка стрілки (чистий CSS без картинок)
-  &-icon {
+  /* &-icon {
     position: relative;
     flex-shrink: 0;
     width: fluid(40, 50);
@@ -64,7 +98,7 @@
       border-bottom: 2px solid currentColor;
       transform: translate(-50%, -75%) rotate(45deg);
     }
-  }
+  }*/
 
   // Блок з контентом
   &-content {
