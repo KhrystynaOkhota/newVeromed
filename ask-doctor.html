@@ -12,277 +12,157 @@
     <meta name="description" content="" />
 
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-    
+
     <link rel="stylesheet" href="assets/css/sumoselect.min.css" />
     <link rel="stylesheet" href="assets/css/app.min.css" />
 
 </head>
 
 <body>
-  <header class="header js-header bg">
-    <div class="container">
+    <header class="header js-header bg">
+        <div class="container">
 
-        <div class="header__topbar d-none d-lg-flex align-right align-middle">
+            <div class="header__topbar d-none d-lg-flex align-right align-middle">
 
-            <div class="d-flex align-middle align-right">
-                <div class="header__location d-flex align-middle align-right">
-                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                        <use href="assets/img/sprite.svg#location"></use>
-                    </svg>
-                    <span class="d-md-none d-xl-flex">Оберіть ваше місто:</span>
-                </div>
-                <div class="location__wrap --relative">
-
-                    <div class="location__current d-flex align-middle">
-                        <a href="#">Івано-Франківськ</a>
-                        <svg class="icon" aria-hidden="true" width="13" height="8">
-                            <use href="assets/img/sprite.svg#ar-bottom"></use>
+                <div class="d-flex align-middle align-right">
+                    <div class="header__location d-flex align-middle align-right">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#location"></use>
                         </svg>
+                        <span class="d-md-none d-xl-flex">Оберіть ваше місто:</span>
                     </div>
+                    <div class="location__wrap --relative">
 
-                    <ul class="location">
-                        <li class="location__item"><a href="#">Львів</a></li>
-                        <li class="location__item"><a href="#">Ужгород</a></li>
-                        <li class="location__item"><a href="#">Мукачево</a></li>
-                        <li class="location__item"><a href="#">Івано-Франківськ</a></li>
-                    </ul>
-                </div>
+                        <div class="location__current d-flex align-middle">
+                            <a href="#">Івано-Франківськ</a>
+                            <svg class="icon" aria-hidden="true" width="13" height="8">
+                                <use href="assets/img/sprite.svg#ar-bottom"></use>
+                            </svg>
+                        </div>
 
-            </div>
-
-            <div class="header__address d-flex align-middle align-right">
-                <svg class="icon" aria-hidden="true" width="20" height="20">
-                    <use href="assets/img/sprite.svg#location"></use>
-                </svg>
-                <span>Івано-Франківськ, вул. Генерала Юнаківа, 9</span>
-            </div>
-
-            <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-md-none d-xl-flex align-middle align-right">
-                <svg class="icon" aria-hidden="true" width="20" height="20">
-                    <use href="assets/img/sprite.svg#mail"></use>
-                </svg>
-                <span>call.centre.veromed@gmail.com</span>
-            </a>
-            
-            <div class="lang d-flex align-middle">
-                <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
-                <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
-            </div>
-
-        </div>
-
-        <div class="header__main d-flex align-justify align-middle">
-            <a href="index.html" class="logo__wrap">
-                <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
-            </a>
-
-            <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
-                <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                <button type="submit" aria-label="Пошук">
-                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                        <use href="assets/img/sprite.svg#search"></use>
-                    </svg>
-                </button>
-
-                <div class="header__search-popup">
-                    <div class="header__search-meta">
-                        По результату <span class="header__search-query">«гінеколог»</span> знайдено <span class="header__search-count">6 результатів</span>
-                    </div>
-
-                    <ul class="header__search-list">
-
-                        <li class="header__search-item">
-                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
-                                <div class="search-result-card__avatar">
-                                    <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
-                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="header__search-item">
-                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
-                                <div class="search-result-card__avatar">
-                                    <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
-                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="header__search-item">
-                            <a href="article.html" class="search-result-card search-result-card--article">
-                                <div class="search-result-card__thumb">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у флеболога у Львові</h4>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <div class="header__search-footer">
-                        <a href="search.html" class="header__search-all-link">Усі результати</a>
-                    </div>
-                </div>
-            </form>
-
-            <div class="header__contacts d-none d-lg-flex align-middle">
-                <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
-                <div class="header__socials d-flex align-middle">
-                    <div class="socials">
-                        <ul class="socials__list" role="list">
-                            <li class="socials__item">
-                                <a href="#" class="socials__link socials__link--telegram" target="_blank" rel="noopener" aria-label="Telegram">
-                                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                                        <use href="assets/img/sprite.svg#telegram"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="socials__item">
-                                <a href="#" class="socials__link socials__link--whathapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-                                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                                        <use href="assets/img/sprite.svg#whatsapp"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li class="socials__item">
-                                <a href="#" class="socials__link socials__link--viber" target="_blank" rel="noopener" aria-label="Viber">
-                                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                                        <use href="assets/img/sprite.svg#viber"></use>
-                                    </svg>
-                                </a>
-                            </li>
+                        <ul class="location">
+                            <li class="location__item"><a href="#">Львів</a></li>
+                            <li class="location__item"><a href="#">Ужгород</a></li>
+                            <li class="location__item"><a href="#">Мукачево</a></li>
+                            <li class="location__item"><a href="#">Івано-Франківськ</a></li>
                         </ul>
                     </div>
+
                 </div>
-                <a href="#" class="btn btn--primary open-popup" data-rel="cta">
-                    Записатися на прийом
-                </a>
-            </div>
 
-            <div class="header__mobile-controls d-flex d-lg-none align-middle">
-                <a href="tel:+380672626680" class="btn-phone" aria-label="Зателефонувати">
-                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                        <use href="assets/img/sprite.svg#phone"></use>
-                    </svg>
-                </a>
-                <button type="button" class="burger js-menu-toggle" aria-label="Переключити меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-
-        <div class="header__inner">
-
-            <form action="/search" method="GET" class="header__search-form d-block d-lg-none">
-                <input name="s" type="text" placeholder="Пошук" autocomplete="off">
-                <button type="submit" aria-label="Пошук">
-                    <svg class="icon" aria-hidden="true" width="20" height="20">
-                        <use href="assets/img/sprite.svg#search"></use>
-                    </svg>
-                </button>
-
-                <div class="header__search-popup">
-                    <div class="header__search-meta">
-                        По результату <span class="header__search-query">«гінеколог»</span> знайдено <span class="header__search-count">6 результатів</span>
-                    </div>
-
-                    <ul class="header__search-list">
-
-                        <li class="header__search-item">
-                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
-                                <div class="search-result-card__avatar">
-                                    <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
-                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="header__search-item">
-                            <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
-                                <div class="search-result-card__avatar">
-                                    <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
-                                    <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД</p>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="header__search-item">
-                            <a href="article.html" class="search-result-card search-result-card--article">
-                                <div class="search-result-card__thumb">
-                                    <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
-                                </div>
-                                <div class="search-result-card__info">
-                                    <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у флеболога у Львові</h4>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <div class="header__search-footer">
-                        <a href="search.html" class="header__search-all-link">Усі результати</a>
-                    </div>
-                </div>
-            </form>
-
-            <nav class="header__nav">
-                <ul class="menu d-flex align-justify align-middle">
-                    <li class="menu-item"><a href="services.html">Послуги</a></li>
-                    <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
-                    <li class="menu-item active"><a href="results.html">Результати</a></li>
-                    <li class="menu-item"><a href="blog.html">Блог</a></li>
-                    <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
-                    <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
-                    <li class="menu-item"><a href="about.html">Про нас</a></li>
-                    <li class="menu-item"><a href="contacts.html">Контакт</a></li>
-                </ul>
-            </nav>
-
-            <div class="header__inner-contacts d-lg-none">
-                <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-flex align-left align-middle">
+                <div class="header__address d-flex align-middle align-right">
                     <svg class="icon" aria-hidden="true" width="20" height="20">
                         <use href="assets/img/sprite.svg#location"></use>
+                    </svg>
+                    <span>Івано-Франківськ, вул. Генерала Юнаківа, 9</span>
+                </div>
+
+                <a href="mailto:call.centre.veromed@gmail.com"
+                    class="header__email d-md-none d-xl-flex align-middle align-right">
+                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                        <use href="assets/img/sprite.svg#mail"></use>
                     </svg>
                     <span>call.centre.veromed@gmail.com</span>
                 </a>
-                <div class="header__contacts-row d-flex align-justify align-middle">
+
+                <div class="lang d-flex align-middle">
+                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                </div>
+
+            </div>
+
+            <div class="header__main d-flex align-justify align-middle">
+                <a href="index.html" class="logo__wrap">
+                    <img src="assets/img/logo-color.svg" alt="VEROMED" class="logo">
+                </a>
+
+                <form action="/search" method="GET" class="header__search-form d-none d-lg-block">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#search"></use>
+                        </svg>
+                    </button>
+
+                    <div class="header__search-popup">
+                        <div class="header__search-meta">
+                            По результату <span class="header__search-query">«гінеколог»</span> знайдено <span
+                                class="header__search-count">6 результатів</span>
+                        </div>
+
+                        <ul class="header__search-list">
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="article.html" class="search-result-card search-result-card--article">
+                                    <div class="search-result-card__thumb">
+                                        <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у
+                                            флеболога у Львові</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="header__search-footer">
+                            <a href="search.html" class="header__search-all-link">Усі результати</a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="header__contacts d-none d-lg-flex align-middle">
                     <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
                     <div class="header__socials d-flex align-middle">
                         <div class="socials">
                             <ul class="socials__list" role="list">
                                 <li class="socials__item">
-                                    <a href="#" class="socials__link socials__link--telegram" target="_blank" rel="noopener" aria-label="Telegram">
+                                    <a href="#" class="socials__link socials__link--telegram" target="_blank"
+                                        rel="noopener" aria-label="Telegram">
                                         <svg class="icon" aria-hidden="true" width="20" height="20">
                                             <use href="assets/img/sprite.svg#telegram"></use>
                                         </svg>
                                     </a>
                                 </li>
                                 <li class="socials__item">
-                                    <a href="#" class="socials__link socials__link--whathapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+                                    <a href="#" class="socials__link socials__link--whathapp" target="_blank"
+                                        rel="noopener" aria-label="WhatsApp">
                                         <svg class="icon" aria-hidden="true" width="20" height="20">
                                             <use href="assets/img/sprite.svg#whatsapp"></use>
                                         </svg>
                                     </a>
                                 </li>
                                 <li class="socials__item">
-                                    <a href="#" class="socials__link socials__link--viber" target="_blank" rel="noopener" aria-label="Viber">
+                                    <a href="#" class="socials__link socials__link--viber" target="_blank"
+                                        rel="noopener" aria-label="Viber">
                                         <svg class="icon" aria-hidden="true" width="20" height="20">
                                             <use href="assets/img/sprite.svg#viber"></use>
                                         </svg>
@@ -291,20 +171,155 @@
                             </ul>
                         </div>
                     </div>
+                    <a href="#" class="btn btn--primary open-popup" data-rel="cta">
+                        Записатися на прийом
+                    </a>
                 </div>
-                <div class="lang d-flex align-center justify-center">
-                    <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
-                    <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+
+                <div class="header__mobile-controls d-flex d-lg-none align-middle">
+                    <a href="tel:+380672626680" class="btn-phone" aria-label="Зателефонувати">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#phone"></use>
+                        </svg>
+                    </a>
+                    <button type="button" class="burger js-menu-toggle" aria-label="Переключити меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-                <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
-                    Записатися на прийом
-                </a>
+            </div>
+
+            <div class="header__inner">
+
+                <form action="/search" method="GET" class="header__search-form d-block d-lg-none">
+                    <input name="s" type="text" placeholder="Пошук" autocomplete="off">
+                    <button type="submit" aria-label="Пошук">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#search"></use>
+                        </svg>
+                    </button>
+
+                    <div class="header__search-popup">
+                        <div class="header__search-meta">
+                            По результату <span class="header__search-query">«гінеколог»</span> знайдено <span
+                                class="header__search-count">6 результатів</span>
+                        </div>
+
+                        <ul class="header__search-list">
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-1.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="doctor-detail.html" class="search-result-card search-result-card--doctor">
+                                    <div class="search-result-card__avatar">
+                                        <img src="assets/img/team-4.png" alt="Ковальчук Олена Євгенівна" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Ковальчук Олена Євгенівна</h4>
+                                        <p class="search-result-card__desc">Акушер-гінеколог, підлітковий гінеколог, УЗД
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="header__search-item">
+                                <a href="article.html" class="search-result-card search-result-card--article">
+                                    <div class="search-result-card__thumb">
+                                        <img src="assets/img/article-1.jpg" alt="Варикоз: симптоми" loading="lazy">
+                                    </div>
+                                    <div class="search-result-card__info">
+                                        <h4 class="search-result-card__title">Варикоз: симптоми, стадії та лікування у
+                                            флеболога у Львові</h4>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="header__search-footer">
+                            <a href="search.html" class="header__search-all-link">Усі результати</a>
+                        </div>
+                    </div>
+                </form>
+
+                <nav class="header__nav">
+                    <ul class="menu d-flex align-justify align-middle">
+                        <li class="menu-item"><a href="services.html">Послуги</a></li>
+                        <li class="menu-item"><a href="price.html">Вартість послуг</a></li>
+                        <li class="menu-item active"><a href="results.html">Результати</a></li>
+                        <li class="menu-item"><a href="blog.html">Блог</a></li>
+                        <li class="menu-item"><a href="doctors.html">Наші лікарі</a></li>
+                        <li class="menu-item"><a href="ask-doctor.html">Питання лікарю</a></li>
+                        <li class="menu-item"><a href="about.html">Про нас</a></li>
+                        <li class="menu-item"><a href="contacts.html">Контакт</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__inner-contacts d-lg-none">
+                    <a href="mailto:call.centre.veromed@gmail.com" class="header__email d-flex align-left align-middle">
+                        <svg class="icon" aria-hidden="true" width="20" height="20">
+                            <use href="assets/img/sprite.svg#location"></use>
+                        </svg>
+                        <span>call.centre.veromed@gmail.com</span>
+                    </a>
+                    <div class="header__contacts-row d-flex align-justify align-middle">
+                        <a href="tel:+380672626680" class="header__phone">+380 (67) 262–66–80</a>
+                        <div class="header__socials d-flex align-middle">
+                            <div class="socials">
+                                <ul class="socials__list" role="list">
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--telegram" target="_blank"
+                                            rel="noopener" aria-label="Telegram">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#telegram"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--whathapp" target="_blank"
+                                            rel="noopener" aria-label="WhatsApp">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#whatsapp"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="socials__item">
+                                        <a href="#" class="socials__link socials__link--viber" target="_blank"
+                                            rel="noopener" aria-label="Viber">
+                                            <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                <use href="assets/img/sprite.svg#viber"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lang d-flex align-center justify-center">
+                        <a href="#" class="lang-item active"><img src="assets/img/flag-ua.svg" alt="UA"></a>
+                        <a href="#" class="lang-item"><img src="assets/img/flag-us.svg" alt="EN"></a>
+                    </div>
+                    <a href="#" class="btn btn--primary open-popup btn-block" data-rel="cta">
+                        Записатися на прийом
+                    </a>
+                </div>
+
             </div>
 
         </div>
-
-    </div>
-</header>
+    </header>
 
     <main class="main ">
         <div class="container">
@@ -343,7 +358,7 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">1. ОСОБИСТІ ДАНІ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="fullname">Прізвище, ім'я, по
@@ -355,7 +370,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-5 col-lg-5 col-md-8 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="dob">Дата народження
@@ -381,11 +396,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                                            <div class="form-field">
+                                            <div class="form-field form-field--inline">
                                                 <span class="form-field__label">Стать</span>
-                                                <div class="form-field__options">
+                                                <div class="form-field__options d-flex align-left">
                                                     <label class="radio-option">
                                                         <input type="radio" name="gender" value="female"
                                                             class="radio-option__input" checked>
@@ -408,7 +423,7 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">2. ДЕТАЛІ ВІЗИТУ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
                                             <div class="form-field SelectBox">
                                                 <label class="form-field__label">Локація <span>*</span></label>
@@ -432,8 +447,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="row m-row">
+                                        <div class="col-xl-11 col-lg-11 col-md-10 col-sm-16 col-xs-16 column">
                                             <div class="form-field SelectBox">
                                                 <label class="form-field__label">Бажаний лікар</label>
                                                 <select name="doctor">
@@ -442,7 +457,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="visit-date">Бажана дата
                                                     візиту</label>
@@ -452,28 +467,28 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                            <div class="form-field">
+                                    <div class="row m-row">
+                                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-16 col-xs-16 column">
+                                            <div class="form-field form-field--inline">
                                                 <span class="form-field__label">Стать</span>
-                                                <div class="form-field__options">
-                                                    <label class="radio-option">
-                                                        <input type="radio" name="preferred_gender" value="female"
-                                                            class="radio-option__input" checked>
-                                                        <span class="radio-option__custom"></span>
-                                                        <span class="radio-option__text">Жіноча</span>
-                                                    </label>
-                                                    <label class="radio-option">
-                                                        <input type="radio" name="preferred_gender" value="male"
-                                                            class="radio-option__input">
-                                                        <span class="radio-option__custom"></span>
-                                                        <span class="radio-option__text">Чоловіча</span>
-                                                    </label>
-                                                </div>
+                                                <div class="form-field__options d-flex align-left"></div>
+                                                <label class="radio-option">
+                                                    <input type="radio" name="preferred_gender" value="female"
+                                                        class="radio-option__input" checked>
+                                                    <span class="radio-option__custom"></span>
+                                                    <span class="radio-option__text">Жіноча</span>
+                                                </label>
+                                                <label class="radio-option">
+                                                    <input type="radio" name="preferred_gender" value="male"
+                                                        class="radio-option__input">
+                                                    <span class="radio-option__custom"></span>
+                                                    <span class="radio-option__text">Чоловіча</span>
+                                                </label>
                                             </div>
+
                                         </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                            <div class="form-field d-flex align-middle align-left">
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-16 col-xs-16 column">
+                                            <div class="form-field form-field--inline">
                                                 <span class="form-field__label">Зверталися раніше до операторів
                                                     кол-центру?</span>
                                                 <div class="form-field__options d-flex align-middle align-left">
@@ -499,7 +514,7 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">3. СКАРГИ ТА АНАМНЕЗ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="main-complaint">Основна скарга
@@ -511,8 +526,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                    <div class="row m-row">
+                                        <div class="col-xl-11 col-lg-11 col-md-10 col-sm-16 col-xs-16 column">
                                             <div class="form-field SelectBox">
                                                 <label class="form-field__label">Коли виникли симптоми?</label>
                                                 <select name="symptoms_time">
@@ -522,8 +537,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                            <div class="form-field">
+                                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-16 col-xs-16 column">
+                                            <div class="form-field ">
                                                 <span class="form-field__label">Зверталися раніше з цим питанням?</span>
                                                 <div class="form-field__options d-flex align-middle align-left">
                                                     <label class="radio-option">
@@ -543,7 +558,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="preliminary-diagnosis">Попередній
@@ -560,7 +575,7 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">4. ХРОНІЧНІ ЗАХВОРЮВАННЯ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <div class="checkbox-option__wrap">
@@ -593,37 +608,40 @@
                                         </div>
 
                                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                            <div class="checkbox-option__wrap">
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="diseases[]" value="thyroid"
-                                                        class="checkbox-option__input">
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">Захворювання щитовидної
-                                                        залози</span>
-                                                </label>
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="diseases[]" value="oncology"
-                                                        class="checkbox-option__input">
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">Онкологія в анамнезі</span>
-                                                </label>
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="diseases[]" value="allergy"
-                                                        class="checkbox-option__input">
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">Алергічні захворювання</span>
-                                                </label>
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="diseases[]" value="none"
-                                                        class="checkbox-option__input">
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">Жодне</span>
-                                                </label>
+                                            <div class="form-field">
+                                                <div class="checkbox-option__wrap">
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="diseases[]" value="thyroid"
+                                                            class="checkbox-option__input">
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">Захворювання щитовидної
+                                                            залози</span>
+                                                    </label>
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="diseases[]" value="oncology"
+                                                            class="checkbox-option__input">
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">Онкологія в анамнезі</span>
+                                                    </label>
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="diseases[]" value="allergy"
+                                                            class="checkbox-option__input">
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">Алергічні
+                                                            захворювання</span>
+                                                    </label>
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="diseases[]" value="none"
+                                                            class="checkbox-option__input">
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">Жодне</span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="other-diseases">Інше</label>
@@ -638,7 +656,7 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">5. АЛЕРГІЇ ТА МЕДИКАМЕНТИ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="allergies">Алергічні
@@ -649,7 +667,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
                                                 <label class="form-field__label" for="medications">Препарати, які
@@ -667,21 +685,26 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">6. ДОКУМЕНТИ ТА ФАЙЛИ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                                            <div class="file-upload-dropzone">
-                                                <p class="file-upload-dropzone__text">Перетягніть файли сюди або
-                                                    натисніть
-                                                    для завантаження</p>
-                                                <span class="file-upload-dropzone__info">Виписки, аналізи, знімки
-                                                    УЗД/МРТ —
-                                                    PDF, JPG, PNG — до 10 МБ — до 5 файлів</span>
+                                            <div class="form-field">
+                                                <div class="dropzone" id="dropzone">
+                                                    <p class="dropzone__title">Перетягніть файли сюди або натисніть для
+                                                        завантаження</p>
+                                                    <span class="dropzone__info">Виписки, аналізи, знімки УЗД/МРТ — PDF,
+                                                        JPG, PNG — до 10 МБ — до 5 файлів</span>
 
-                                                <label class="btn btn--outline file-upload-dropzone__btn">
-                                                    <input type="file" name="documents[]" class="file-upload__input"
-                                                        accept="image/jpeg,image/png,application/pdf" multiple hidden>
-                                                    Обрати файли
-                                                </label>
+                                                    <label class="btn btn--outline dropzone__btn">
+                                                        <input type="file" id="dropzone-input" name="documents[]"
+                                                            class="dropzone__input"
+                                                            accept="image/jpeg,image/png,application/pdf" multiple
+                                                            hidden>
+                                                        Обрати файли
+                                                    </label>
+
+                                                    <!-- Контейнер для списку доданих файлів -->
+                                                    <ul class="dropzone__file-list" id="dropzone-file-list"></ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -691,47 +714,50 @@
                                 <fieldset class="form-section">
                                     <legend class="form-section__title">7. ЗГОДА НА ОБРОБКУ ДАНИХ</legend>
 
-                                    <div class="row">
+                                    <div class="row m-row">
                                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                                            <div class="checkbox-option__wrap">
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="privacy_consent"
-                                                        class="checkbox-option__input" checked required>
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">
-                                                        Я даю згоду на обробку моїх персональних даних відповідно до <a
-                                                            href="/privacy-policy"
-                                                            class="checkbox-option__link">Політики
-                                                            конфіденційності</a> та Закону України «Про захист
-                                                        персональних
-                                                        даних» <span class="required">*</span>
-                                                    </span>
-                                                </label>
+                                            <div class="form-field">
+                                                <div class="checkbox-option__wrap">
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="privacy_consent"
+                                                            class="checkbox-option__input" checked required>
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">
+                                                            Я даю згоду на обробку моїх персональних даних відповідно до
+                                                            <a href="/privacy-policy"
+                                                                class="checkbox-option__link">Політики
+                                                                конфіденційності</a> та Закону України «Про захист
+                                                            персональних
+                                                            даних» <span class="required">*</span>
+                                                        </span>
+                                                    </label>
 
-                                                <label class="checkbox-option">
-                                                    <input type="checkbox" name="medical_consent"
-                                                        class="checkbox-option__input" checked required>
-                                                    <span class="checkbox-option__custom"></span>
-                                                    <span class="checkbox-option__text">
-                                                        Я даю згоду на обробку медичної інформації з метою підготовки
-                                                        лікаря
-                                                        до прийому <span class="required">*</span>
-                                                    </span>
-                                                </label>
+                                                    <label class="checkbox-option">
+                                                        <input type="checkbox" name="medical_consent"
+                                                            class="checkbox-option__input" checked required>
+                                                        <span class="checkbox-option__custom"></span>
+                                                        <span class="checkbox-option__text">
+                                                            Я даю згоду на обробку медичної інформації з метою
+                                                            підготовки
+                                                            лікаря
+                                                            до прийому <span class="required">*</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                                            <p class="form-note">Поля, позначені <span>*</span>, обов'язкові для
-                                                заповнення
-                                            </p>
-                                            <button type="submit" class="btn btn--primary">Надіслати анкету</button>
-                                        </div>
-                                    </div>
-                                </fieldset>
 
+                                </fieldset>
+                                <div class="row m-row">
+                                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                        <p class="form-field__note">Поля, позначені <span>*</span>, обов'язкові для
+                                            заповнення
+                                        </p>
+                                        <button type="submit" class="btn btn--primary">Надіслати анкету</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -1037,7 +1063,7 @@
         </div>
     </footer>
 
-     <div class="popup-wrapper">
+    <div class="popup-wrapper">
         <div class="bg-layer"></div>
 
         <div class="popup-content cta" data-rel="cta">
@@ -1105,7 +1131,153 @@
     <script src="src/scripts/app-swiper.js"></script>
     <script src="src/scripts/js_app.js"></script>
     <script src="src/scripts/app_map.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('dropzone-input');
+            const fileList = document.getElementById('dropzone-file-list');
 
+            if (!dropzone || !fileInput || !fileList) return;
+
+            // Налаштування обмежень
+            const CONFIG = {
+                maxFiles: 5,
+                maxSizeBytes: 10 * 1024 * 1024, // 10 MB
+                allowedTypes: ['image/jpeg', 'image/png', 'application/pdf']
+            };
+
+            // Використовуємо DataTransfer для зберігання та керування списком файлів у пам'яті
+            let dataTransfer = new DataTransfer();
+
+            // Запобігаємо стандартній поведінці браузера при drag & drop
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // Підсвічування зони при dragover
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.add('dropzone--dragover');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.remove('dropzone--dragover');
+                }, false);
+            });
+
+            // Обробка перетягнутих файлів
+            dropzone.addEventListener('drop', (e) => {
+                const droppedFiles = e.dataTransfer.files;
+                handleFiles(droppedFiles);
+            });
+
+            // Обробка файлів, вибраних через діалогове вікно
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            // Основна функція обробки та валідації
+            function handleFiles(files) {
+                const currentFilesCount = dataTransfer.items.length;
+                const incomingFiles = Array.from(files);
+
+                if (currentFilesCount + incomingFiles.length > CONFIG.maxFiles) {
+                    alert(`Максимальна кількість файлів: ${CONFIG.maxFiles}`);
+                    return;
+                }
+
+                incomingFiles.forEach(file => {
+                    // Валідація типу
+                    if (!CONFIG.allowedTypes.includes(file.type)) {
+                        alert(`Файл "${file.name}" має недопустимий формат. Дозволено: JPG, PNG, PDF.`);
+                        return;
+                    }
+
+                    // Валідація розміру
+                    if (file.size > CONFIG.maxSizeBytes) {
+                        alert(`Файл "${file.name}" перевищує допустимий розмір 10 МБ.`);
+                        return;
+                    }
+
+                    // Перевірка на дублікати за назвою та розміром
+                    const isDuplicate = Array.from(dataTransfer.files).some(
+                        f => f.name === file.name && f.size === file.size
+                    );
+
+                    if (!isDuplicate) {
+                        dataTransfer.items.add(file);
+                    }
+                });
+
+                // Оновлюємо файли в інпуті
+                fileInput.files = dataTransfer.files;
+
+                // Оновлюємо UI
+                renderFileList();
+            }
+
+            // Рендер списку файлів в DOM
+            function renderFileList() {
+                fileList.innerHTML = '';
+
+                Array.from(dataTransfer.files).forEach((file, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'dropzone__file-item';
+
+                    const fileName = document.createElement('span');
+                    fileName.className = 'dropzone__file-name';
+                    fileName.textContent = `${file.name} (${formatFileSize(file.size)})`;
+
+                    const removeBtn = document.createElement('button');
+                    removeBtn.type = 'button';
+                    removeBtn.className = 'dropzone__file-remove';
+                    removeBtn.innerHTML = '&times;';
+                    removeBtn.setAttribute('aria-label', 'Видалити файл');
+
+                    removeBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        removeFile(index);
+                    });
+
+                    li.appendChild(fileName);
+                    li.appendChild(removeBtn);
+                    fileList.appendChild(li);
+                });
+            }
+
+            // Видалення файлу зі списку
+            function removeFile(index) {
+                const updatedDataTransfer = new DataTransfer();
+
+                Array.from(dataTransfer.files).forEach((file, i) => {
+                    if (i !== index) {
+                        updatedDataTransfer.items.add(file);
+                    }
+                });
+
+                dataTransfer = updatedDataTransfer;
+                fileInput.files = dataTransfer.files;
+                renderFileList();
+            }
+
+            // Хелпер для форматування розміру файлу
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+            }
+        });
+    </script>
     <script>
 
         document.addEventListener('DOMContentLoaded', () => {
