@@ -201,7 +201,7 @@
 
 .s-hero {
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: 1400px) {
     width: calc(100% - 100px);
     border-radius: 50px;
     margin: 0 auto;
@@ -213,6 +213,20 @@
   }
 
   .hero-slider {
+
+    .swiper-container,
+    .swiper-slide {
+      height: auto; // Дозволяє контенту диктувати висоту, якщо вона перевищує min-height
+    }
+
+    .custom {
+
+      &-current,
+      &-separator,
+      &-total {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
 
     &__bar {
 
@@ -248,7 +262,45 @@
   }
 
   .hero-slide {
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+
+      @media (min-width: $breakpoint-md) {
+        // Задаємо мінімальну висоту замість фіксованої height
+        min-height: max(600px, calc(100vh - #{fluid(86, 188)}));
+        height: auto; // Забираємо жорстке обмеження height
+      }
+    }
+
     &__content {
+      padding: 40px;
+      border-radius: 30px;
+      width: 100%;
+      max-width: 1280px;
+      z-index: 7;
+      position: relative;
+      backdrop-filter: blur(42px);
+      background: linear-gradient(153.26deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0) 101.54%);
+      color: #fff;
+
+      @media (min-width: $breakpoint-md) {
+        // Використовуємо падінги або помірний марджин, щоб контент не перекривав hero-slider__bar (bottom: 50px)
+        margin-top: 60px;
+        margin-bottom: 120px; // Залишаємо місце під нижній бар з пагінацією та соцмережами
+      }
+
+      @media (max-width: $breakpoint-md) {
+        margin: -110px 0 0 0;
+      }
+    }
+
+    /*&__content {
       padding: 40px;
       border-radius: 30px;
       width: 100%;
@@ -282,7 +334,7 @@
         // margin-top: fluid(86, 180);
         height: calc(100vh - fluid(86, 188));
       }
-    }
+    }*/
 
     &__bg {
       &--desktop {
@@ -324,7 +376,7 @@
 
 
 .s-special-offers {
-  overflow: hidden;
+
 
   .custom-fraction-wrap {
     @media (min-width: $breakpoint-md) {
@@ -417,4 +469,8 @@
       font-size: 30px;
     }
   }
+}
+
+.s-reviews-slider  + .s-special-offers {
+  margin-top: 50px;
 }

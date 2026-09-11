@@ -7,50 +7,71 @@ jQuery(function ($) {
   // ==========================================
   // 1. Функція розрахунку трансформацій слайдів
   // ==========================================
-_functions.applyOffersTransform = function (swiper) {
-  const slides = swiper.slides;
-  if (!slides || !slides.length) return;
 
-  for (let i = 0; i < slides.length; i++) {
-    const slide = slides[i];
-    const $card = $(slide).find(".article, .promo-card");
-    if (!$card.length) continue;
+  _functions.toggleSliderBar = function (swiper) {
+    const $p = $(swiper.el).closest(".swiper-entry");
+    const $bar = $p.find(".swiper-entry__bottom-bar");
 
-    const progress = slide.progress;
-    const absProgress = Math.abs(progress);
+    if (!$bar.length) return;
 
-    const scale = 1 - Math.min(absProgress * 0.35, 0.35); // scale 0.65
-    const opacity = 1 - Math.min(absProgress * 0.2, 0.2);
-
-    let translateXpx = 0;
-    let translateYPercent = 0;
-    let transformOrigin = "center center"; // Дефолтне значення для центрального слайда
-
-    if (progress > 0) {
-      // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
-      // Вгору (-18%), зсув вправо та прив'язка до правої грані
-      translateYPercent = -absProgress * 18;
-      translateXpx = absProgress ;
-      transformOrigin = "center right";
-    } else if (progress < 0) {
-      // НАСТУПНИЙ СЛАЙД (Праворуч):
-      // Вниз (+18%), зсув вліво та прив'язка до лівої грані
-      translateYPercent = absProgress * 18; // Замініть на -absProgress * 18, якщо треба вгору
-      translateXpx = -absProgress ;
-      transformOrigin = "center left";
+    // Вираховуємо slidesPerView (враховуючи дефолт 1 або брекпоінти)
+    let spv = swiper.params.slidesPerView;
+    if (spv === "auto") {
+      spv = 1;
     }
 
-    $card.css({
-      "transform-origin": transformOrigin, // Передаємо індивідуальну точку якіря
-      "transform": `translate(${translateXpx}px, ${translateYPercent}%) scale(${scale})`,
-    });
+    // Якщо кількість слайдів <= slidesPerView — ховаємо бар
+    if (swiper.slides.length <= spv) {
+      $bar.addClass("d-none"); // або $bar.hide();
+    } else {
+      $bar.removeClass("d-none"); // або $bar.show();
+    }
+  };
 
-    $(slide).css({
-      opacity: opacity,
-      zIndex: Math.round(10 - absProgress),
-    });
-  }
-};
+  _functions.applyOffersTransform = function (swiper) {
+    const slides = swiper.slides;
+    if (!slides || !slides.length) return;
+
+    for (let i = 0; i < slides.length; i++) {
+      const slide = slides[i];
+      const $card = $(slide).find(".article, .promo-card");
+      if (!$card.length) continue;
+
+      const progress = slide.progress;
+      const absProgress = Math.abs(progress);
+
+      const scale = 1 - Math.min(absProgress * 0.35, 0.35); // scale 0.65
+      const opacity = 1 - Math.min(absProgress * 0.2, 0.2);
+
+      let translateXpx = 0;
+      let translateYPercent = 0;
+      let transformOrigin = "center center"; // Дефолтне значення для центрального слайда
+
+      if (progress > 0) {
+        // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
+        // Вгору (-18%), зсув вправо та прив'язка до правої грані
+        translateYPercent = -absProgress * 18;
+        translateXpx = absProgress;
+        transformOrigin = "center right";
+      } else if (progress < 0) {
+        // НАСТУПНИЙ СЛАЙД (Праворуч):
+        // Вниз (+18%), зсув вліво та прив'язка до лівої грані
+        translateYPercent = absProgress * 18; // Замініть на -absProgress * 18, якщо треба вгору
+        translateXpx = -absProgress;
+        transformOrigin = "center left";
+      }
+
+      $card.css({
+        "transform-origin": transformOrigin, // Передаємо індивідуальну точку якіря
+        "transform": `translate(${translateXpx}px, ${translateYPercent}%) scale(${scale})`,
+      });
+
+      $(slide).css({
+        opacity: opacity,
+        zIndex: Math.round(10 - absProgress),
+      });
+    }
+  };
   // ==========================================
   // 2. Формування опцій Swiper
   // ==========================================
@@ -114,7 +135,18 @@ _functions.applyOffersTransform = function (swiper) {
     if (slidesLength <= 1) {
       options.loop = false;
     }
+    options.on = options.on || {};
 
+    const originalInit = options.on.init;
+    options.on.init = function (sw) {
+      if (typeof originalInit === "function") originalInit(sw);
+      _functions.toggleSliderBar(sw);
+    };
+
+    // Перевіряємо при зміні розміру екрану (якщо змінюється slidesPerView)
+    options.on.breakpoint = function (sw) {
+      _functions.toggleSliderBar(sw);
+    };
     // --- Кастомний ефект для слайдера спецпропозицій ---
     if (options.offersTransform || swiper.closest(".offers-slider").length) {
       options.watchSlidesProgress = true;

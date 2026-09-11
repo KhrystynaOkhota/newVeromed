@@ -261,6 +261,20 @@ section {
 
 }
 
+.custom-fraction {
+  &__wrap {
+    display: flex;
+    align-items: baseline;
+    color: #fff;
+  }
+  &__current {
+    font-size: 30px;
+  }
+  &__separator,
+  &__total {
+    font-size: 20px;
+  }
+}
 
 .swiper-button__wrap {
   display: flex;

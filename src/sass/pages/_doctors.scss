@@ -46,6 +46,13 @@
 .s-doctors-slider {
   padding: fluid(50, 100) 0;
 
+  &.s--with-decor {
+    & .decor--right {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
   &__inner {
     @media (min-width: $breakpoint-md) {
       margin-bottom: 40px;
@@ -79,6 +86,7 @@
 }
 
 .s-doctors {
+
   & .doctor-card {
     &__grid {
       display: grid;
@@ -252,7 +260,8 @@
 
     gap: 20px;
   }
-  .form-field__note{
+
+  .form-field__note {
     margin-bottom: 26px;
   }
 }

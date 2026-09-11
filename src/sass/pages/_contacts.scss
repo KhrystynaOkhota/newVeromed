@@ -8,10 +8,11 @@
   }
 
   & .contacts__icon {
-    color:#8b1818;
-    &--email{
-      & + .contacts__link{
-        color:#8b1818;
+    color: #8b1818;
+
+    &--email {
+      &+.contacts__link {
+        color: #8b1818;
       }
     }
   }
@@ -224,10 +225,7 @@
 
 .s-visit-cta {
   margin-bottom: fluid(50, 100);
-
-  @media (max-width: $breakpoint-xl) {
-    display: none;
-  }
+  overflow: visible;
 
   & .visit-cta {
     background-color: #F2F2F2;
@@ -246,7 +244,7 @@
       border-radius: 20px;
       padding: fluid(25, 45) 0 fluid(25, 90) fluid(11, 30);
 
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: $breakpoint-lg) {
         margin-bottom: 20px;
       }
 
@@ -256,7 +254,7 @@
         &__description {
           max-width: 260px;
 
-          @media (max-width: $breakpoint-md) {
+          @media (max-width: $breakpoint-lg) {
             max-width: 90%;
             text-align: center;
           }
@@ -278,7 +276,7 @@
       display: grid;
       gap: 23px;
       color: rgba(30, 30, 30, 1);
-      padding: 0 fluid(30, 50);
+      padding: fluid(30, 50);
 
       & .btn--primary {
         max-width: 275px;
@@ -307,9 +305,13 @@
         position: absolute;
         left: 27%;
         bottom: 0;
-        max-width: 409px;
+        max-width: fluid(350,400);
 
-        @media (max-width: $breakpoint-md) {
+        @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+          display: none;
+        }
+
+        @media (max-width: $breakpoint-lg) {
           position: relative;
           left: auto;
           max-width: 200px;
@@ -332,6 +334,13 @@
     }
   }
 
+  +.s-reviews-slider {
+    margin-top: 50px;
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: 20px;
+    }
+  }
 
   &__bg {
     height: 100%;
