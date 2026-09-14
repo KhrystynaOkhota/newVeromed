@@ -353,147 +353,91 @@
                                 здоровя, профілактику,
                                 діагностику й сучасні методи лікування.</b>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filter__bg --relative">
 
-                        <div class="services-filter">
-                            <!-- Mobile Select / Toggle Trigger -->
-                            <button type="button" class="services-filter__trigger" aria-expanded="false"
-                                aria-controls="services-menu">
-                                <span class="services-filter__trigger-text">Обери свою
-                                    послугу</span>
-                                <svg class="services-filter__icon" width="16" height="16" viewBox="0 0 16 16"
-                                    fill="none">
-                                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
+                <img src="assets/img/decor-large.svg" alt="" class="filter-decor filter-decor--right">
 
-                            <!-- Navigation Desktop Wrapper with Scroll Arrows -->
-                            <div class="services-filter__wrapper">
-                                <button type="button" class="services-filter__arrow services-filter__arrow--prev"
-                                    aria-label="Прокрутити ліворуч">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M10 12L4 8L10 4" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
+                <img src="assets/img/decor-large.svg" alt="" class="filter-decor filter-decor--left">
+                <div class="container overlap">
+                    <div class="row">
+                        <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
 
-                                <nav class="services-filter__nav" id="services-menu">
-                                    <ul class="services-filter__list">
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn services-filter__btn--active"
-                                                type="button">
-                                                Флебологія. Варикозна хвороба вен
-                                            </button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Трансплантація
-                                                волосся1</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Дерматологія2</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Пластична
-                                                хірургія3</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Блефаропластика4</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Трансплантація
-                                                волосся5</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Дерматологія6</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Пластична
-                                                хірургія7</button>
-                                        </li>
-                                        <li class="services-filter__item">
-                                            <button class="services-filter__btn" type="button">Блефаропластика8</button>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <form class="filter">
+                                <div class="row align-end">
 
-                                <button type="button" class="services-filter__arrow services-filter__arrow--next"
-                                    aria-label="Прокрутити праворуч">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M6 4L12 8L6 12" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
 
-                        <form class="filter">
+                                    <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label"
+                                                for="filter-specialty">Напрямок/спеціальність</label>
 
-                            <div class="row align-end">
+                                            <select name="specialty">
+                                                <option value="">Всі</option>
+                                                <option value="1">Гінекологія</option>
+                                                <option value="2">Дерматологія</option>
+                                            </select>
 
-                                <!-- 1. Напрямок / спеціальність -->
-                                <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                    <div class="form-field SelectBox">
-                                        <label class="form-field__label"
-                                            for="filter-specialty">Напрямок/спеціальність</label>
-
-                                        <select name="specialty">
-                                            <option value="">Всі</option>
-                                            <option value="1">Гінекологія</option>
-                                            <option value="2">Дерматологія</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <!-- 2. Автор (лікар) -->
-                                <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                    <div class="form-field SelectBox">
-                                        <label class="form-field__label" for="filter-author">Автор (лікар)</label>
-
-                                        <select id="filter-author" name="author">
-                                            <option value="">Всі</option>
-                                            <option value="1">Шевченко О.М.</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <!-- 3. Тип матеріалу -->
-                                <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                    <div class="form-field SelectBox">
-                                        <label class="form-field__label" for="filter-type">Тип матеріалу</label>
-
-                                        <select class="form-field__select" id="filter-type" name="type">
-                                            <option value="news">Новина клініки</option>
-                                            <option value="promo">Акція</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <!-- 4. Дата публікації -->
-                                <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
-                                    <div class="form-field">
-                                        <label class="form-field__label" for="filter-date">Дата публікації</label>
-                                        <div class="form-field__input-wrapper form-field__input-wrapper--date">
-                                            <input class="form-field__input" type="text" id="filter-date" name="date"
-                                                placeholder="дд / мм / рррр" onfocus="(this.type='date')"
-                                                onblur="(this.type='text')">
                                         </div>
                                     </div>
+
+                                    <!-- 2. Автор (лікар) -->
+                                    <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label" for="filter-author">Автор (лікар)</label>
+
+                                            <select id="filter-author" name="author">
+                                                <option value="">Всі</option>
+                                                <option value="1">Шевченко О.М.</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 3. Тип матеріалу -->
+                                    <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label" for="filter-type">Тип матеріалу</label>
+
+                                            <select class="form-field__select" id="filter-type" name="type">
+                                                <option value="news">Новина клініки</option>
+                                                <option value="promo">Акція</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 4. Дата публікації -->
+                                    <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field">
+                                            <label class="form-field__label" for="filter-date">Дата публікації</label>
+                                            <div class="form-field__input-wrapper form-field__input-wrapper--date">
+                                                <input class="form-field__input" type="text" id="filter-date"
+                                                    name="date" placeholder="дд / мм / рррр"
+                                                    onfocus="(this.type='date')" onblur="(this.type='text')">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 5. Кнопка "Пошук" -->
+                                    <div class="col-xl-2 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                        <button class="btn btn--primary s-filter__btn" type="submit">
+                                            Пошук
+                                        </button>
+                                    </div>
+
                                 </div>
 
-                                <!-- 5. Кнопка "Пошук" -->
-                                <div class="col-xl-2 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
-                                    <button class="btn btn--primary s-filter__btn" type="submit">
-                                        Пошук
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </form>
-
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                         <div class="article__grid">
                             <article class="article">
                                 <a href="article.html" class="article__btn btn btn--round"
@@ -703,12 +647,11 @@
                     </div>
                 </div>
             </div>
-            <div class="decor__wrap decor--right">
-                <img src="assets/img/decor.svg" alt="" class="decor">
-            </div>
-            <div class="decor__wrap decor--left">
-                <img src="assets/img/decor.svg" alt="" class="decor">
-            </div>
+
+            <img src="assets/img/decor.svg" alt="" class="decor decor--right">
+
+            <img src="assets/img/decor.svg" alt="" class="decor decor--left">
+
         </section>
 
 

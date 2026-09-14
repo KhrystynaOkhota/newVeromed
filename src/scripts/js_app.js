@@ -347,49 +347,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
     _functions.initSelect = function (parent) {
         var $container = parent ? $(parent) : $(document);
 
         $container.find('.SelectBox select').each(function () {
             var $select = $(this);
 
+            // Ініціалізація SumoSelect
             $select.SumoSelect({
                 floatWidth: 0,
                 nativeOnDevice: [],
                 placeholder: ''
             });
 
+            // Перевірка початкового значення при ініціалізації
+            var $box = $select.closest('.SelectBox');
+            $box.toggleClass('value', !!$select.val());
+
+            // Обробники подій відкриття / закриття
             $select.on('sumo:opened', function () {
-                $(this).closest('.SelectBox').addClass('focus');
+                $box.addClass('focus');
             });
 
             $select.on('sumo:closed', function () {
-                $(this).closest('.SelectBox').removeClass('focus');
+                $box.removeClass('focus');
             });
         });
     };
 
     $(document).ready(function () {
         _functions.initSelect('body');
-
-        $('.SelectBox select').each(function () {
-            if ($(this).val()) {
-                $(this).closest('.SelectBox').addClass('value');
-            } else {
-                $(this).closest('.SelectBox').removeClass('value');
-            }
-        });
     });
 
+    // Глобальний обробник зміни значення
     $(document).on('change', '.SelectBox select', function () {
-        if ($(this).val()) {
-            $(this).closest('.SelectBox').addClass('value');
-        } else {
-            $(this).closest('.SelectBox').removeClass('value');
-        }
+        $(this).closest('.SelectBox').toggleClass('value', !!$(this).val());
     });
-
     $(document).ready(function () {
         $('.file-upload__input').on('change', function (e) {
             if (this.files) {
