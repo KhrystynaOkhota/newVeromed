@@ -312,9 +312,12 @@
 }
 
 .s-urgent {
-  .decor--right {
-    top: fluid(45, 95);
-    z-index: 1;
+  &.has-flower {
+    &:after {
+      top: 45%;
+      z-index: 1;
+    }
+
   }
 
   &__title {

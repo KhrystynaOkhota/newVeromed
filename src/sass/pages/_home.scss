@@ -369,7 +369,9 @@
 .s-special-offers {
   padding: fluid(50, 100) 0 0 0;
   border-top: 1px solid rgba(30, 30, 30, .1);
-
+ @media (max-width: $breakpoint-md) {
+      padding-bottom: 50px;
+    }
   .custom-fraction-wrap {
     @media (min-width: $breakpoint-md) {
       display: none;

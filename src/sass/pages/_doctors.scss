@@ -45,6 +45,7 @@
 
 .s-doctors-slider {
   padding: fluid(50, 100) 0;
+
   &__inner {
     @media (min-width: $breakpoint-md) {
       margin-bottom: 40px;
@@ -112,7 +113,8 @@
     background: rgba(242, 242, 242, 1);
     padding: 9px 20px;
     border-radius: 20px;
-    max-height: 220px;
+    //max-height: 220px;
+    max-height: max-content;
 
     &__img {
       aspect-ratio: 4 / 3;
@@ -128,6 +130,8 @@
 }
 
 .s-doctor-profile {
+  padding-top: 30px;
+
   .doctor {
     &__name {
       margin-bottom: fluid(11, 27);
@@ -147,6 +151,10 @@
         background: rgba(242, 242, 242, 1);
         padding: 46px 0 0 0;
         overflow: hidden;
+
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 30px;
+        }
       }
     }
 
@@ -168,6 +176,10 @@
 
   .price-list {
     margin-bottom: fluid(30, 50);
+
+    @media (max-width: $breakpoint-md) {
+      border-top: 1px solid #e2e2e2;
+    }
 
     &__item {
       &:last-child {

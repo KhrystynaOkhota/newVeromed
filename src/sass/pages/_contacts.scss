@@ -305,7 +305,7 @@
         position: absolute;
         left: 27%;
         bottom: 0;
-        max-width: fluid(350,400);
+        max-width: fluid(350, 400);
 
         @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
           display: none;
@@ -325,6 +325,7 @@
 .s-cta {
   position: relative;
   padding-top: fluid(10, 20);
+  overflow: visible;
 
   +.s-contacts {
     margin-top: fluid(50, 150);

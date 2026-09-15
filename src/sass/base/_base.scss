@@ -239,7 +239,7 @@ section {
 
 .custom {
   &-current {
-    font-size: 30px;
+    @include fontSize(20, 30);
     color: rgba(111, 111, 111, 1);
   }
 
@@ -251,12 +251,12 @@ section {
     }
 
     &-separator {
-      font-size: 20px;
+       @include fontSize(14, 20);
     }
   }
 
   &-total {
-    font-size: 20px;
+     @include fontSize(14, 20);
     color: rgba(111, 111, 111, 1);
   }
 
@@ -270,12 +270,13 @@ section {
   }
 
   &__current {
-    font-size: 30px;
+    @include fontSize(20, 30);
+
   }
 
   &__separator,
   &__total {
-    font-size: 20px;
+    @include fontSize(14, 20);
   }
 }
 
@@ -290,7 +291,7 @@ section {
     position: static; // Скидаємо абсолютне позиціонування Swiper за замовчуванням
     margin: 0;
     width: 44px;
-    height: 44px;
+    height: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -402,55 +403,70 @@ section {
   @media (min-width: 1400px) {
     position: relative;
 
-    &::after,
-    &::before {
+    // Спільні стилі для обох псевдоелементів
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       width: 320px;
       height: 320px;
-      background-image: url('../img/decor-flower.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+      background: url('../img/decor-flower.svg') no-repeat center / contain;
       pointer-events: none;
       z-index: -1;
+      display: none;
     }
 
-    &--right-center::after {
-      top: 50%;
-      right: 0;
-      transform: translate(40%, -50%);
-    }
-
-    &--right-top::after {
-      top: 0;
-      right: 0;
-      transform: translate(35%, -35%);
-    }
-
-    &--right-bottom::after {
-      bottom: 0;
-      right: 0;
-      transform: translate(35%, 35%);
-    }
-
-    &--left-top::after {
+    // ==========================================
+    // ЛІВА КВІТКА (::before)
+    // ==========================================
+    &--left-top::before {
+      display: block;
       top: 0;
       left: 0;
       transform: translate(-35%, -35%);
     }
 
-    &--left-bottom::after {
+    &--left-center::before {
+      display: block;
+      top: 50%;
+      left: 0;
+      transform: translate(-40%, -50%);
+    }
+
+    &--left-bottom::before {
+      display: block;
       bottom: 0;
       left: 0;
       transform: translate(-35%, 35%);
+    }
+
+    &--right-top::after {
+      display: block;
+      top: 0;
+      right: 0;
+      transform: translate(35%, -35%);
+    }
+
+    &--right-center::after {
+      display: block;
+      top: 50%;
+      right: 0;
+      transform: translate(40%, -50%);
+    }
+
+    &--right-bottom::after {
+      display: block;
+      bottom: 0;
+      right: 0;
+      transform: translate(35%, 35%);
     }
   }
 
   @media (max-width: 1399px) {
 
-    &::after,
-    &:before {
-      display: none;
+    &::before,
+    &::after {
+      display: none !important;
     }
   }
 }
