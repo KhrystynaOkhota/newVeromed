@@ -1,6 +1,10 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+
+
+
+
 .service {
   display: grid;
   grid-template-columns: fluid(59, 90) 1fr;
@@ -176,6 +180,25 @@ $color-accent: #8b1e1e;
 .s-price {
   padding: fluid(10, 20) 0 fluid(50, 100) 0;
 
+  &.has-flower {
+    @media (min-width: 1400px) {
+      &:after {
+        top: 13%;
+        right: -150px;
+        width: 300px;
+        height: 300px;
+
+      }
+
+      &:before {
+        bottom: 13%;
+        left: -150px;
+        width: 300px;
+        height:300px;
+      }
+    }
+  }
+
   & .heading {
     margin-bottom: fluid(21, 27);
   }
@@ -251,7 +274,7 @@ $color-accent: #8b1e1e;
       overflow: hidden;
 
       @media (min-width: 1400px) {
-        margin-left: calc(-1 * ((100vw - 1270px) / 2 + 20px) + 50px);
+        margin-left: calc(-1 * ((100vw - 1295px) / 2 + 20px) + 50px);
       }
 
       @media (max-width: $breakpoint-md) {
@@ -312,29 +335,7 @@ $color-accent: #8b1e1e;
       }
     }
 
-    @media (min-width: 1400px) {
 
-      border-radius: 20px;
-      margin-left: 50px;
-      margin-right: 50px;
-
-      & .decor {
-        position: absolute;
-        top: 0;
-        max-width: 275px;
-        max-height: 631px;
-        z-index: 1;
-        opacity: .8;
-
-        &--left {
-          left: -50px;
-        }
-
-        &--right {
-          right: -50px;
-        }
-      }
-    }
   }
 
   &--media {
@@ -402,33 +403,51 @@ $color-accent: #8b1e1e;
     }
 
     padding: 30px 0;
-    background: rgba(242, 242, 242, 1);
 
-    @media (min-width: 1400px) {
+  }
+}
 
-      border-radius: 20px;
-      margin-left: 50px;
-      margin-right: 50px;
 
-      & .decor {
-        position: absolute;
-        top: 0;
-        max-width: 275px;
-        max-height: 631px;
-        z-index: 1;
-        opacity: .8;
+.s-info---decorated {
+  position: relative;
+  background-color: #f7f8f8;
 
-        &--left {
-          left: -50px;
-        }
+  @media (min-width: 1400px) {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 50px;
+    margin-right: 50px;
 
-        &--right {
-          right: -50px;
-        }
-      }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 275px;
+      height: 630px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &::before {
+      left: -50px;
+
+
+      background-image: url('../img/decor-pattern.svg');
+      background-position: center;
+    }
+
+    &::after {
+      right: -50px;
+
+      background-image: url('../img/decor-pattern.svg');
+      background-position: center;
     }
   }
 }
+
 
 .s-services-price {
   padding: 50px 0 50px 0;

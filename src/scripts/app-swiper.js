@@ -1,33 +1,41 @@
 jQuery(function ($) {
   "use strict";
 
-  // Глобальний об'єкт для функцій (якщо він використовується у вашому проекті)
+  // Глобальний об'єкт для функцій
   window._functions = window._functions || {};
 
   // ==========================================
-  // 1. Функція розрахунку трансформацій слайдів
+  // 1. Універсальна функція перевірки та ховання Bottom Bar
   // ==========================================
-
   _functions.toggleSliderBar = function (swiper) {
     const $p = $(swiper.el).closest(".swiper-entry");
     const $bar = $p.find(".swiper-entry__bottom-bar");
 
     if (!$bar.length) return;
 
-    // Вираховуємо slidesPerView (враховуючи дефолт 1 або брекпоінти)
-    let spv = swiper.params.slidesPerView;
-    if (spv === "auto") {
-      spv = 1;
-    }
+    // 1. Отримуємо кількість оригінальних слайдів (без дублікатів loop)
+    const totalSlides = $(swiper.slides).not(".swiper-slide-duplicate").length;
 
-    // Якщо кількість слайдів <= slidesPerView — ховаємо бар
-    if (swiper.slides.length <= spv) {
-      $bar.addClass("d-none"); // або $bar.hide();
+    // 2. Обчислюємо реальну кількість видимих слайдів у viewport
+    const slideWidth =
+      swiper.slidesGrid.length > 1
+        ? swiper.slidesGrid[1] - swiper.slidesGrid[0]
+        : swiper.size;
+    const visibleSlides = Math.round(swiper.size / slideWidth) || 1;
+
+    // 3. Перевірка: чи є вміст більшим за видиму область
+    const isOverflowing = !swiper.isLocked && totalSlides > visibleSlides;
+
+    if (isOverflowing) {
+      $bar.removeClass("d-none");
     } else {
-      $bar.removeClass("d-none"); // або $bar.show();
+      $bar.addClass("d-none");
     }
   };
 
+  // ==========================================
+  // 2. Функція кастомного трансформації слайдів
+  // ==========================================
   _functions.applyOffersTransform = function (swiper) {
     const slides = swiper.slides;
     if (!slides || !slides.length) return;
@@ -45,24 +53,22 @@ jQuery(function ($) {
 
       let translateXpx = 0;
       let translateYPercent = 0;
-      let transformOrigin = "center center"; // Дефолтне значення для центрального слайда
+      let transformOrigin = "center center";
 
       if (progress > 0) {
-        // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч):
-        // Вгору (-18%), зсув вправо та прив'язка до правої грані
+        // ПОПЕРЕДНІЙ СЛАЙД (Ліворуч)
         translateYPercent = -absProgress * 18;
         translateXpx = absProgress;
         transformOrigin = "center right";
       } else if (progress < 0) {
-        // НАСТУПНИЙ СЛАЙД (Праворуч):
-        // Вниз (+18%), зсув вліво та прив'язка до лівої грані
-        translateYPercent = absProgress * 18; // Замініть на -absProgress * 18, якщо треба вгору
+        // НАСТУПНИЙ СЛАЙД (Праворуч)
+        translateYPercent = absProgress * 18;
         translateXpx = -absProgress;
         transformOrigin = "center left";
       }
 
       $card.css({
-        "transform-origin": transformOrigin, // Передаємо індивідуальну точку якіря
+        "transform-origin": transformOrigin,
         "transform": `translate(${translateXpx}px, ${translateYPercent}%) scale(${scale})`,
       });
 
@@ -72,8 +78,9 @@ jQuery(function ($) {
       });
     }
   };
+
   // ==========================================
-  // 2. Формування опцій Swiper
+  // 3. Формування опцій Swiper
   // ==========================================
   _functions.getSwOptions = function (swiper) {
     let options = swiper.data("options");
@@ -135,37 +142,51 @@ jQuery(function ($) {
     if (slidesLength <= 1) {
       options.loop = false;
     }
-    options.on = options.on || {};
 
+    // Безпечна робота з об'єктом подій
+    options.on = options.on || {};
+    const isOffers =
+      options.offersTransform || swiper.closest(".offers-slider").length;
+
+    if (isOffers) {
+      options.watchSlidesProgress = true;
+    }
+
+    // Єдиний обробник ініціалізації
     const originalInit = options.on.init;
     options.on.init = function (sw) {
       if (typeof originalInit === "function") originalInit(sw);
-      _functions.toggleSliderBar(sw);
-    };
 
-    // Перевіряємо при зміні розміру екрану (якщо змінюється slidesPerView)
-    options.on.breakpoint = function (sw) {
-      _functions.toggleSliderBar(sw);
-    };
-    // --- Кастомний ефект для слайдера спецпропозицій ---
-    if (options.offersTransform || swiper.closest(".offers-slider").length) {
-      options.watchSlidesProgress = true;
-      options.on = options.on || {};
-
-      // Ініціалізація без стартового стрибка
-      options.on.init = function (sw) {
+      if (isOffers) {
         requestAnimationFrame(function () {
           sw.update();
           _functions.applyOffersTransform(sw);
+          _functions.toggleSliderBar(sw);
         });
-      };
+      } else {
+        _functions.toggleSliderBar(sw);
+      }
+    };
 
-      // Плавний перерахунок під час драгу / скролу
+    // Обробники для ресайзу та зміни брекпоінтів
+    const originalBreakpoint = options.on.breakpoint;
+    options.on.breakpoint = function (sw) {
+      if (typeof originalBreakpoint === "function") originalBreakpoint(sw);
+      _functions.toggleSliderBar(sw);
+    };
+
+    const originalResize = options.on.resize;
+    options.on.resize = function (sw) {
+      if (typeof originalResize === "function") originalResize(sw);
+      _functions.toggleSliderBar(sw);
+    };
+
+    // Додаткові події для спец-слайдера
+    if (isOffers) {
       options.on.setTranslate = function (sw) {
         _functions.applyOffersTransform(sw);
       };
 
-      // Плавний transition при закінченні перемикання
       options.on.setTransition = function (sw, duration) {
         const easing = "cubic-bezier(0.25, 1, 0.5, 1)";
         $(sw.slides).css({
@@ -185,7 +206,7 @@ jQuery(function ($) {
   };
 
   // ==========================================
-  // 3. Ініціалізація всіх Swiper контейнерів
+  // 4. Ініціалізація всіх Swiper контейнерів
   // ==========================================
   _functions.initSwiper = function (el) {
     if (!el || !el.length) return;
@@ -197,15 +218,25 @@ jQuery(function ($) {
   });
 
   // ==========================================
-  // 4. Product Gallery Thumbs
+  // 5. Product Gallery Thumbs
   // ==========================================
   $(".product-gallery").each(function () {
-    if ($(".product-gallery__main").length && $(".product-gallery__thumbs").length) {
+    if (
+      $(".product-gallery__main").length &&
+      $(".product-gallery__thumbs").length
+    ) {
       let t = $(this);
       let topContainer = t.find(".product-gallery__main>.swiper-container")[0],
-        bottomContainer = t.find(".product-gallery__thumbs>.swiper-container")[0];
+        bottomContainer = t.find(
+          ".product-gallery__thumbs>.swiper-container"
+        )[0];
 
-      if (topContainer && bottomContainer && topContainer.swiper && bottomContainer.swiper) {
+      if (
+        topContainer &&
+        bottomContainer &&
+        topContainer.swiper &&
+        bottomContainer.swiper
+      ) {
         let top = topContainer.swiper,
           bottom = bottomContainer.swiper;
 
@@ -221,7 +252,7 @@ jQuery(function ($) {
   });
 
   // ==========================================
-  // 5. Custom Fraction Handler
+  // 6. Custom Fraction Handler
   // ==========================================
   $(".custom-fraction").each(function () {
     let $this = $(this),
@@ -240,7 +271,7 @@ jQuery(function ($) {
   });
 
   // ==========================================
-  // 6. Banner Slider & Custom Controls
+  // 7. Banner Slider & Custom Controls
   // ==========================================
   $(".banner-slider").each(function () {
     let swiperEl = $(this).find(".swiper-container")[0];
@@ -273,7 +304,7 @@ jQuery(function ($) {
   });
 
   // ==========================================
-  // 7. Вспоміжні функції для Banner
+  // 8. Допоміжні функції для Banner
   // ==========================================
   _functions.customSlide = function (swiperObj, $customSlides) {
     var slideTo = $customSlides.eq(swiperObj.activeIndex),
@@ -303,7 +334,7 @@ jQuery(function ($) {
   };
 
   // ==========================================
-  // 8. General Swiper Thumbs
+  // 9. General Swiper Thumbs
   // ==========================================
   $(".swiper-thumbs").each(function () {
     if ($(".swiper-thumbs-top").length && $(".swiper-thumbs-bottom").length) {
@@ -311,7 +342,12 @@ jQuery(function ($) {
       let topContainer = t.find(".swiper-thumbs-top>.swiper-container")[0],
         bottomContainer = t.find(".swiper-thumbs-bottom>.swiper-container")[0];
 
-      if (topContainer && bottomContainer && topContainer.swiper && bottomContainer.swiper) {
+      if (
+        topContainer &&
+        bottomContainer &&
+        topContainer.swiper &&
+        bottomContainer.swiper
+      ) {
         let top = topContainer.swiper,
           bottom = bottomContainer.swiper;
 

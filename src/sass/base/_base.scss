@@ -24,6 +24,7 @@ html {
   background-color: rgb(45, 45, 45);
 }
 
+/*
 .decor {
   position: absolute;
   width: 100%;
@@ -44,7 +45,7 @@ html {
     max-width: 364px;
     max-height: 364px;
     z-index: 1;
-    /* Або -1, якщо декор має бути строго під контентом */
+
     pointer-events: none;
   }
 
@@ -62,7 +63,7 @@ html {
     left: -180px;
   }
 }
-
+*/
 .border-radius {
   border-radius: 10px;
   overflow: hidden;
@@ -267,9 +268,11 @@ section {
     align-items: baseline;
     color: #fff;
   }
+
   &__current {
     font-size: 30px;
   }
+
   &__separator,
   &__total {
     font-size: 20px;
@@ -345,7 +348,112 @@ section {
 }
 
 
+.decorated {
+  position: relative;
+  overflow: hidden;
 
+  z-index: 1;
+  background: rgba(242, 242, 242, 1);
+
+  @media (min-width: 1400px) {
+
+    border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 220px; // Ширина паттерна
+      min-height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &::before {
+      left: 30px;
+      background-image: url('../img/decor-pattern-left.svg');
+      background-position: left center;
+    }
+
+    &::after {
+      right: 20px;
+      background-image: url('../img/decor-pattern-right.svg');
+      background-position: right center;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 991px) {
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.has-flower {
+  @media (min-width: 1400px) {
+    position: relative;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background-image: url('../img/decor-flower.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &--right-center::after {
+      top: 50%;
+      right: 0;
+      transform: translate(40%, -50%);
+    }
+
+    &--right-top::after {
+      top: 0;
+      right: 0;
+      transform: translate(35%, -35%);
+    }
+
+    &--right-bottom::after {
+      bottom: 0;
+      right: 0;
+      transform: translate(35%, 35%);
+    }
+
+    &--left-top::after {
+      top: 0;
+      left: 0;
+      transform: translate(-35%, -35%);
+    }
+
+    &--left-bottom::after {
+      bottom: 0;
+      left: 0;
+      transform: translate(-35%, 35%);
+    }
+  }
+
+  @media (max-width: 1399px) {
+
+    &::after,
+    &:before {
+      display: none;
+    }
+  }
+}
 
 .inverted-radius-top {
   --r: 20px;

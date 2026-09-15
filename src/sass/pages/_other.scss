@@ -199,7 +199,33 @@
       margin-bottom: fluid(40, 50);
     }
   }
+
+
+
+
+
+  @media (min-width: 1400px) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 220px;
+      min-height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+      z-index: -1;
+      left: 30px;
+      background-image: url('../img/decor-pattern-left.svg');
+      background-position: left center;
+    }
+  }
 }
+
+
+
+
 
 .s-thanks {
   padding: 90px 0 50px 0;

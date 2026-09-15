@@ -45,14 +45,6 @@
 
 .s-doctors-slider {
   padding: fluid(50, 100) 0;
-
-  &.s--with-decor {
-    & .decor--right {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-
   &__inner {
     @media (min-width: $breakpoint-md) {
       margin-bottom: 40px;
