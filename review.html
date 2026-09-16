@@ -344,12 +344,83 @@
             </div>
         </div>
 
-        <section class="s-reviews">
+        <section class="s-reviews has-flower has-flower--right-top">
+            <div class="container overlap">
+                <div class="row m-row">
+                    <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                       <h1 class="heading h2 text-bold">Відгуки</h1>
+                        <div class="filter">
+                            <form>
+                                <div class="row align-end m-row">
+                                    <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label"
+                                                for="filter-specialty">Напрямок/спеціальність</label>
+
+                                            <select name="specialty">
+                                                <option value="">Всі</option>
+                                                <option value="1">Гінекологія</option>
+                                                <option value="2">Дерматологія</option>
+                                                <option value="1">Гінекологія</option>
+                                                <option value="2">Дерматологія</option>
+                                                <option value="1">Гінекологія</option>
+                                                <option value="2">Дерматологія</option>
+                                                <option value="1">Гінекологія</option>
+                                                <option value="2">Дерматологія</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label" for="filter-author">Автор
+                                                (лікар)</label>
+
+                                            <select id="filter-author" name="author">
+                                                <option value="">Всі</option>
+                                                <option value="1">Шевченко О.М.</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label" for="filter-author">Локації</label>
+                                            <select id="filter-author" name="author">
+                                                <option value="">Всі</option>
+                                                <option value="1">Локація 1</option>
+                                                <option value="2">Локація 2</option>
+                                                <option value="3">Локація 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
+                                        <div class="form-field SelectBox">
+                                            <label class="form-field__label" for="filter-author">Тип</label>
+                                            <select id="filter-author" name="author">
+                                                <option value="">Всі</option>
+                                                <option value="1">Тип1</option>
+                                                <option value="2">Тип2</option>
+                                                <option value="3">Тип3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
+                                        <button class="btn btn--primary s-filter__btn" type="submit">
+                                            Пошук
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
             <div class="container">
                 <div class="row m-row">
                     <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
-                        <h1 class="heading h2 text-bold">Відгуки</h1>
-                        <div class="flt-panel"></div>
+    
                         <div class="review-card__grid">
                             <article class="review-card">
                                 <div class="review-card__top">
@@ -514,15 +585,15 @@
         </section>
 
 
-        <section class="s-leave-review">
+        <section class="s-leave-review has-flower has-flower--left-top">
             <div class="container">
-                <div class="row">
+                <div class="row m-row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                         <h2 class="heading h2 text-bold">Залишити відгук</h2>
                         <div class="description text-bold text-s">Відгук буде опублікований після перевірки модератором
                             протягом 1–2 робочих днів.</div>
                         <form>
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
                                     <div class="form-field SelectBox">
                                         <label class="form-field__label">Напрямок <span>*</span></label>
@@ -547,7 +618,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-5 col-lg-5 col-md-8 col-sm-16 col-xs-16 column">
                                     <div class="form-field">
                                         <label class="form-field__label text-left" for="user-phone">Ваш номер
@@ -594,7 +665,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                     <div class="form-field">
                                         <label class="form-field__label" for="review-text">Ваш відгук
@@ -607,7 +678,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                     <div class="form-field">
                                         <span class="form-field__label text-left">Оцінка <span
@@ -637,7 +708,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                     <div class="file-upload form-field">
                                         <span class="file-upload__label form-field__label">Фото або відео</span>
@@ -665,7 +736,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row m-row">
                                 <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                                     <div class="form-field">
 

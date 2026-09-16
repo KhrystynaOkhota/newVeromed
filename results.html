@@ -319,6 +319,7 @@
     </header>
 
     <main class="main">
+        <!--тільки на сторінці однієї статті потрібно додати  клас overflow-visible на інших не потрібно-->
 
         <div class="kama_breadcrumbs__wrap">
             <div class="container">
@@ -353,9 +354,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
-
+                        <!--
                         <div class="services-filter">
-                            <!-- Mobile Select / Toggle Trigger -->
+                           
                             <button type="button" class="services-filter__trigger" aria-expanded="false"
                                 aria-controls="services-menu">
                                 <span class="services-filter__trigger-text">Обери свою
@@ -367,7 +368,7 @@
                                 </svg>
                             </button>
 
-                            <!-- Navigation Desktop Wrapper with Scroll Arrows -->
+                           
                             <div class="services-filter__wrapper">
                                 <button type="button" class="services-filter__arrow services-filter__arrow--prev"
                                     aria-label="Прокрутити ліворуч">
@@ -425,7 +426,75 @@
                                 </button>
                             </div>
                         </div>
+                    -->
 
+                        <div class="scrollable-tabs">
+
+                            <button type="button" class="scrollable-tabs__trigger" aria-expanded="false"
+                                aria-controls="scrollable-tabs-menu">
+                                <span class="scrollable-tabs__trigger-text">Обери свою послугу</span>
+                                <svg class="scrollable-tabs__icon" width="16" height="16" viewBox="0 0 16 16"
+                                    fill="none">
+                                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+
+
+                            <div class="scrollable-tabs__wrapper">
+                                <button type="button" class="scrollable-tabs__arrow scrollable-tabs__arrow--prev"
+                                    aria-label="Прокрутити ліворуч">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M10 12L4 8L10 4" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+
+                                <nav class="scrollable-tabs__track" id="scrollable-tabs-menu">
+                                    <ul class="scrollable-tabs__list">
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn scrollable-tabs__btn--active"
+                                                type="button">
+                                                Флебологія. Варикозна хвороба вен
+                                            </button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Трансплантація
+                                                волосся</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Дерматологія</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Пластична
+                                                хірургия</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Блефаропластика</button>
+                                        </li>
+
+                                         <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Дерматологія2</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Пластична
+                                                хірургия2</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Блефаропластика2</button>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <button type="button" class="scrollable-tabs__arrow scrollable-tabs__arrow--next"
+                                    aria-label="Прокрутити праворуч">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M6 4L12 8L6 12" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row m-row ">
@@ -517,9 +586,6 @@
                         </nav>
                     </div>
                 </div>
-            </div>
-            <div class="decor__wrap decor--right">
-                <img src="assets/img/decor.svg" alt="" class="decor">
             </div>
 
         </section>
@@ -815,7 +881,7 @@
         <section class="s-doctors-slider swiper-entry">
             <div class="container">
                 <div class="row m-row">
-                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16">
+                    <div class="column col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 s-doctors-slider__inner">
                         <h3 class="heading h2 heading-font text-bold">Наші лікарі</h3>
 
                     </div>
@@ -834,9 +900,7 @@
                                     <div class="doctor-card">
                                         <a href="doctor-single.html" class="doctor-card__link btn btn--round"
                                             aria-label="Детальніше про лікаря">
-                                            <svg class="icon">
-                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                            </svg>
+
                                         </a>
                                         <div class="doctor-card__img-wrap inverted-radius-top">
                                             <img src="assets/img/team-1.png" alt="Мислович Олег Юрійович"
@@ -857,9 +921,7 @@
                                     <div class="doctor-card">
                                         <a href="doctor-single.html" class="doctor-card__link btn btn--round"
                                             aria-label="Детальніше про лікаря">
-                                            <svg class="icon">
-                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                            </svg>
+
                                         </a>
                                         <div class="doctor-card__img-wrap inverted-radius-top">
                                             <img src="assets/img/team-2.png" alt="Мислович Олег Юрійович"
@@ -880,9 +942,7 @@
                                     <div class="doctor-card">
                                         <a href="doctor-single.html" class="doctor-card__link btn btn--round"
                                             aria-label="Детальніше про лікаря">
-                                            <svg class="icon">
-                                                <use href="assets/img/sprite.svg#arrow-top-right"></use>
-                                            </svg>
+
                                         </a>
                                         <div class="doctor-card__img-wrap inverted-radius-top">
                                             <img src="assets/img/team-3.png" alt="Мислович Олег Юрійович"
@@ -915,10 +975,10 @@
 
                             <div class="swiper-button__wrap">
                                 <button type="button" class="swiper-button-prev">
-                                    <i class="icon-arrow-left"></i>
+                                    <span class="icon-arrow"></span>
                                 </button>
                                 <button type="button" class="swiper-button-next">
-                                    <i class="icon-arrow-right"></i>
+                                    <span class="icon-arrow"></span>
                                 </button>
                             </div>
 
@@ -931,125 +991,140 @@
         </section>
 
         <section class="s-contacts s-contacts--footer">
-            <div class="map__wrap">
-                <div id="map" class="map"></div>
-            </div>
+
             <div class="container ">
                 <div class="row m-row ">
-                    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 col-xs-12 column">
-                        <div class="s-contacts__inner overlap">
-                            <div class="tab">
-                                <div class="tab__list ">
-                                    <div class="tab__item text-medium text-center">Львів</div>
-                                    <div class="tab__item text-medium text-center">Мукачево</div>
-                                    <div class="tab__item text-medium text-center">Ужгород</div>
-                                    <div class="tab__item text-medium text-center">Івано-Франківськ</div>
-                                </div>
+                    <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
+                        <div class="tab overlap">
+                            <div class="tab__list ">
+                                <div class="tab__item text-semibold text-center">Львів</div>
+                                <div class="tab__item text-semibold text-center">Мукачево</div>
+                                <div class="tab__item text-semibold text-center">Ужгород</div>
+                                <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
+                            </div>
 
 
 
-                                <div class="tab__content">
-                                    <div class="tab__panel --relative ">
-                                        Львів
+                            <div class="tab__content">
+                                <div class="tab__panel --relative ">
+                                    Львів
 
 
-                                        <address class="contacts contacts--column">
-                                            <ul class="contacts__list">
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#location"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link"
-                                                        href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9"
-                                                        target="_blank" rel="noopener noreferrer">
-                                                        м. Львів, вул. Генерала Юнаківа, 9
-                                                    </a>
-                                                </li>
+                                    <address class="contacts contacts--column">
+                                        <ul class="contacts__list">
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link"
+                                                    href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9"
+                                                    target="_blank" rel="noopener noreferrer">
+                                                    м. Львів, вул. Генерала Юнаківа, 9
+                                                </a>
+                                            </li>
 
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--phone"
-                                                        aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="img/icons/sprite.svg#phone"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link contacts__link--bold"
-                                                        href="tel:+380671207452">
-                                                        <b> +380 (67) 120-74-52</b>
-                                                    </a>
-                                                </li>
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--phone" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#phone"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link contacts__link--bold" href="tel:+380671207452">
+                                                    <b> +380 (67) 120-74-52</b>
+                                                </a>
+                                            </li>
 
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--email"
-                                                        aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#mail"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link"
-                                                        href="mailto:call.centre.veromed@gmail.com">
-                                                        call.centre.veromed@gmail.com
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </address>
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--email" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#mail"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link" href="mailto:call.centre.veromed@gmail.com">
+                                                    call.centre.veromed@gmail.com
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </address>
 
-                                        <div class="socials">
-                                            <ul class="socials__list" role="list">
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="Instagram"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#instagram"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="Facebook"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#facebook"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="YouTube"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#youtube"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="TikTok"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#tiktok"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
+                                    <div class="socials">
+                                        <ul class="socials__list" role="list">
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="Instagram" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#instagram"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="Facebook" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#facebook"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="YouTube" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#youtube"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="TikTok" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#tiktok"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="schedule">
+                                        <div class="schedule__group">
+                                            <h3 class="schedule__title">Графік роботи</h3>
+                                            <ul class="schedule__list">
+                                                <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
+                                                <li class="schedule__item">Сб: 09:00 – 15:00</li>
+                                                <li class="schedule__item">Нд: вихідний</li>
                                             </ul>
                                         </div>
 
+                                        <div class="schedule__group">
+                                            <h3 class="schedule__title">Час роботи call-центру</h3>
+                                            <ul class="schedule__list">
+                                                <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
+                                                <li class="schedule__item">Сб: 09:00–15:00</li>
+                                            </ul>
+                                        </div>
                                     </div>
 
+                                    <a href="" class="btn btn--primary">Записатися на прийом</a>
+                                </div>
 
-                                    <div class="tab__panel --relative ">
-                                        Мукачево
-                                    </div>
-                                    <div class="tab__panel --relative ">
-                                        Ужгород
-                                    </div>
-                                    <div class="tab__panel --relative ">
-                                        Івано-Франківськ
-                                    </div>
+
+                                <div class="tab__panel --relative ">
+                                    Мукачево
+                                </div>
+                                <div class="tab__panel --relative ">
+                                    Ужгород
+                                </div>
+                                <div class="tab__panel --relative ">
+                                    Івано-Франківськ
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+            </div>
+            <div class="map__wrap">
+                <div id="map" class="map"></div>
             </div>
         </section>
     </main>
@@ -1281,7 +1356,7 @@
 
 
 
-    <script>
+    <!--<script>
         document.addEventListener('DOMContentLoaded', () => {
             const trigger = document.querySelector('.services-filter__trigger');
             const nav = document.querySelector('.services-filter__nav');
@@ -1358,6 +1433,77 @@
             // Запуск перевірки при завантаженні
             checkScroll();
             setTimeout(checkScroll, 150); // Додатковий виклик після рендерингу стилів
+        });
+    </script>-->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollableTabsBlocks = document.querySelectorAll('.scrollable-tabs');
+
+            scrollableTabsBlocks.forEach((tabs) => {
+                const trigger = tabs.querySelector('.scrollable-tabs__trigger');
+                const track = tabs.querySelector('.scrollable-tabs__track');
+                const buttons = tabs.querySelectorAll('.scrollable-tabs__btn');
+                const triggerText = tabs.querySelector('.scrollable-tabs__trigger-text');
+
+                const arrowPrev = tabs.querySelector('.scrollable-tabs__arrow--prev');
+                const arrowNext = tabs.querySelector('.scrollable-tabs__arrow--next');
+
+                // 1. Переключення мобільного dropdown
+                trigger?.addEventListener('click', () => {
+                    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+                    trigger.setAttribute('aria-expanded', !isOpen);
+                    track?.classList.toggle('scrollable-tabs__track--open');
+                });
+
+                // 2. Кліки по табах
+                buttons.forEach((btn) => {
+                    btn.addEventListener('click', () => {
+                        buttons.forEach((b) => b.classList.remove('scrollable-tabs__btn--active'));
+                        btn.classList.add('scrollable-tabs__btn--active');
+
+                        if (window.innerWidth < 992) {
+                            if (triggerText) triggerText.textContent = btn.textContent.trim();
+                            trigger?.setAttribute('aria-expanded', 'false');
+                            track?.classList.remove('scrollable-tabs__track--open');
+                        }
+                    });
+                });
+
+                // 3. Перевірка та оновлення видимості стрілок
+                const checkScroll = () => {
+                    if (!track || window.innerWidth < 992) return;
+
+                    const scrollLeft = Math.ceil(track.scrollLeft);
+                    const maxScroll = track.scrollWidth - track.clientWidth;
+
+                    if (track.scrollWidth > track.clientWidth) {
+                        arrowPrev?.classList.toggle('scrollable-tabs__arrow--visible', scrollLeft > 2);
+                        arrowNext?.classList.toggle('scrollable-tabs__arrow--visible', scrollLeft < maxScroll - 2);
+                    } else {
+                        arrowPrev?.classList.remove('scrollable-tabs__arrow--visible');
+                        arrowNext?.classList.remove('scrollable-tabs__arrow--visible');
+                    }
+                };
+
+                // Кліки по стрілках
+                arrowPrev?.addEventListener('click', () => {
+                    track?.scrollBy({ left: -200, behavior: 'smooth' });
+                });
+
+                arrowNext?.addEventListener('click', () => {
+                    track?.scrollBy({ left: 200, behavior: 'smooth' });
+                });
+
+                // Події
+                track?.addEventListener('scroll', checkScroll);
+                window.addEventListener('resize', checkScroll);
+
+                // Первинний розрахунок після завантаження
+                checkScroll();
+                setTimeout(checkScroll, 150);
+            });
         });
     </script>
 </body>

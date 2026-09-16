@@ -185,7 +185,7 @@
     position: relative;
 
     @media (min-width: $breakpoint-md) {
-      margin-top: 50px;
+      //margin-top: 50px;
     }
 
     @media (max-width: $breakpoint-md) {
@@ -326,6 +326,9 @@
   position: relative;
   padding-top: fluid(10, 20);
   overflow: visible;
+
+  margin-bottom: fluid(50, 100);
+
 
   +.s-contacts {
     margin-top: fluid(50, 150);

@@ -55,12 +55,6 @@
     }
   }
 
-  & .swiper-container {
-    @media (min-width: $breakpoint-md) {
-
-      margin-top: 40px;
-    }
-  }
 
   .heading {
     @media (max-width: $breakpoint-md) {

@@ -64,7 +64,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 3;
+
   }
 
   &__grid {
@@ -75,7 +75,7 @@
 }
 
 .s-last-news {
-  padding: fluid(50, 100) 0;
+  padding: 0 0 fluid(50, 100) 0;
 
   &__inner {
     margin-bottom: fluid(21, 40);
@@ -92,17 +92,9 @@
 
 .s-news {
   padding-top: 20px;
-  padding-bottom: fluid(100, 200);
+  padding-bottom: fluid(50, 100);
 
-  & .decor {
-    &--right {
-      top: 25%;
-    }
 
-    &--left {
-      bottom: 20%;
-    }
-  }
 
   .pagination {
     margin-top: 0;
@@ -155,6 +147,20 @@
 
     }
   }
+
+  &.has-flower {
+    &--right-top {
+      &:after {
+        top: 420px;
+      }
+    }
+
+    &--left-bottom {
+      &:before {
+        bottom: 390px;
+      }
+    }
+  }
 }
 
 
@@ -188,6 +194,29 @@
       }
 
     }
+
+
+    @media (min-width: 1400px) {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 275px;
+        height: 630px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        pointer-events: none;
+        right: -50px;
+        background-image: url(../img/decor-pattern.svg);
+        background-position: left center;
+        z-index: 1;
+      }
+
+
+    }
   }
 
   &--faq {}
@@ -199,6 +228,7 @@
   overflow: visible;
   padding-bottom: fluid(50, 100);
   border-bottom: 1px solid rgba(30, 30, 30, 0.1);
+  margin-bottom: fluid(50, 100);
 
   & .heading {
     margin-bottom: 17px;
@@ -387,34 +417,61 @@
 .filter {
   padding: 27px 0 34px 0;
 
-  position: relative;
+  &__wrap {
+    margin-bottom: 30px;
+    position: relative;
+  }
 
-  &-decor {
+  &__decorated {
     position: absolute;
-    width: 275px;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: rgba(242, 242, 242, 1);
+    height: 100%;
+    width: 100%;
+    top: 0;
 
-    &--left {
-      left: -75px;
+    left: 0;
 
-    }
+    @media (min-width: 1400px) {
+      border-radius: 20px;
+      overflow: hidden;
+      position: absolute;
+      width: calc(100% - 100px);
+      left: 50px;
 
-    &--right {
-      right: -50px;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 275px;
+        height: 630px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &::before {
+        left: -50px;
+
+
+        background-image: url('../img/decor-pattern.svg');
+        background-position: center;
+      }
+
+      &::after {
+        right: -50px;
+
+        background-image: url('../img/decor-pattern.svg');
+        background-position: center;
+      }
     }
   }
 
-
-  &__bg {
-    margin-bottom: 30px;
-    overflow: hidden;
-
-    @media (min-width: 1400px) {
-      background-color: rgba(242, 242, 242, 1);
-      border-radius: 10px;
-      width: calc(100% - 100px);
-      margin: 0 auto 20px auto;
+  & .form-field {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 20px;
     }
   }
 }

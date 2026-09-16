@@ -155,12 +155,12 @@ img {
 
 .section,
 section {
-  overflow: hidden;
+  //overflow-x: hidden;
   position: relative;
 }
 
 .main {
-  // overflow: hidden;
+  overflow: hidden;
   min-height: 50vh;
   padding-top: 188px;
 
@@ -170,6 +170,10 @@ section {
 
   &-wrapper {
     z-index: 1;
+  }
+
+  &.overflow-visible {
+    overflow: visible;
   }
 }
 
@@ -251,12 +255,12 @@ section {
     }
 
     &-separator {
-       @include fontSize(14, 20);
+      @include fontSize(14, 20);
     }
   }
 
   &-total {
-     @include fontSize(14, 20);
+    @include fontSize(14, 20);
     color: rgba(111, 111, 111, 1);
   }
 
@@ -423,28 +427,29 @@ section {
       display: block;
       top: 0;
       left: 0;
-      transform: translate(-35%, -35%);
+      transform: translateX( -50%);
     }
 
     &--left-center::before {
       display: block;
       top: 50%;
       left: 0;
-      transform: translate(-40%, -50%);
+
     }
 
     &--left-bottom::before {
       display: block;
       bottom: 0;
       left: 0;
-      transform: translate(-35%, 35%);
+
     }
 
     &--right-top::after {
       display: block;
       top: 0;
       right: 0;
-      transform: translate(35%, -35%);
+      transform: translateX(50%);
+
     }
 
     &--right-center::after {

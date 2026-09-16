@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as *;
 
 .case {
-  padding: fluid(10,20) fluid(10,20) 20px fluid(10,20);
+  padding: fluid(10, 20) fluid(10, 20) 20px fluid(10, 20);
   border-radius: 20px;
   background-color: rgba(242, 242, 242, 1);
 
@@ -10,8 +10,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
     @media (max-width: $breakpoint-md) {
-       grid-template-columns:  1fr;
+      grid-template-columns: 1fr;
     }
   }
 
@@ -27,7 +28,7 @@
     &--grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: fluid(15,20);
+      gap: fluid(15, 20);
       margin-bottom: 20px;
     }
   }
@@ -53,10 +54,10 @@
 }
 
 .s-results {
-  padding: fluid(30, 40) 0 fluid(50, 100) 0;
+  padding: fluid(10, 20) 0 fluid(50, 100) 0;
 
   & .heading {
-    margin-bottom: 17px;
+    margin-bottom: 15px;
 
     @media (max-width: $breakpoint-md) {
       margin-bottom: 30px;
@@ -66,19 +67,217 @@
 
   & .description {
     margin-bottom: 30px;
+
     @media (max-width: $breakpoint-md) {
       text-align: center;
     }
   }
-  & .decor{
-    &--right{
-      top:50%;
-      left:auto;
+
+  & .decor {
+    &--right {
+      top: 50%;
+      left: auto;
       transform: translateY(-50%);
     }
   }
+
   .services-filter {
 
     margin-bottom: 40px;
+  }
 }
+
+
+
+
+
+.scrollable-tabs {
+  position: relative;
+  width: 100%;
+
+  // Мобільний тригер (dropdown / select)
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f4f4f4;
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+
+    .scrollable-tabs__trigger[aria-expanded="true"] & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Обгортка для десктопу та стрілок
+  &__wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  // Стрілки прокрутки
+  &__arrow {
+    display: none;
+
+    @media (min-width: 992px) {
+      position: absolute;
+      top: 50%;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      cursor: pointer;
+      pointer-events: none;
+      transform: translateY(-50%);
+      transition: opacity 0.25s ease, visibility 0.25s ease, background-color 0.2s ease;
+
+      &--visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      &:hover {
+        background-color: #8b1e1e;
+        color: #ffffff;
+      }
+
+      &--prev {
+        left: -12px;
+      }
+
+      &--next {
+        right: -12px;
+      }
+    }
+  }
+
+  // Стрічка скролу (Track / Nav)
+  &__track {
+    @media (max-width: 991px) {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      left: 0;
+      z-index: 10;
+      display: none;
+      padding: 8px 0;
+      border-radius: 12px;
+      background-color: #f4f4f4;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+      &--open {
+        display: block;
+      }
+    }
+
+    @media (min-width: 992px) {
+      display: block !important;
+      width: 100%;
+      max-width: 100%;
+      padding: 6px;
+      border-radius: 12px;
+      background-color: #f4f4f4;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+      width: max-content;
+    }
+  }
+
+  &__item {
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+
+    @media (min-width: 992px) {
+      flex-shrink: 0;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    @media (max-width: 991px) {
+      padding: 12px 20px;
+      text-align: left;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      &--active {
+        color: #8b1e1e;
+        font-weight: 700;
+      }
+    }
+
+    @media (min-width: 992px) {
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-align: center;
+
+      &--active {
+        background-color: #8b1e1e;
+        color: #ffffff;
+      }
+
+      &:not(&--active):hover {
+        color: #8b1e1e;
+      }
+    }
+  }
 }
