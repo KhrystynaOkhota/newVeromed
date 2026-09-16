@@ -427,21 +427,21 @@ section {
       display: block;
       top: 0;
       left: 0;
-      transform: translateX( -50%);
+      transform: translateX(-50%);
     }
 
     &--left-center::before {
       display: block;
       top: 50%;
       left: 0;
-
+      transform: translate(-50%, -50%);
     }
 
     &--left-bottom::before {
       display: block;
       bottom: 0;
       left: 0;
-
+      transform: translateX(-50%);
     }
 
     &--right-top::after {
@@ -456,7 +456,7 @@ section {
       display: block;
       top: 50%;
       right: 0;
-      transform: translate(40%, -50%);
+      transform: translate(50%, -50%);
     }
 
     &--right-bottom::after {

@@ -194,7 +194,7 @@ $color-accent: #8b1e1e;
         bottom: 13%;
         left: -150px;
         width: 300px;
-        height:300px;
+        height: 300px;
       }
     }
   }
@@ -340,6 +340,27 @@ $color-accent: #8b1e1e;
 
   &--media {
     padding: 50px 0;
+   
+
+    @media (max-width: $breakpoint-md) {
+      padding-bottom: 0;
+    }
+
+    & .container {
+       position: relative;
+      @media (min-width: $breakpoint-md) {
+        &:after {
+          content: '';
+          width: calc(100% - 40px);
+          height: 1px;
+          background-color: rgba(111, 111, 111, .1);
+          position: absolute;
+          bottom: -50px;
+          left: 20px;
+        }
+      }
+    }
+
 
     & .heading {
       font-size: 25px;

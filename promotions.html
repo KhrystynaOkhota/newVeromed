@@ -359,42 +359,65 @@
                             необхідну
                             медичну допомогу ще вигідніше.
                         </div>
-                        <div class="services-filter">
-                            <!-- Mobile Select / Toggle Trigger -->
-                            <button type="button" class="services-filter__trigger" aria-expanded="false"
-                                aria-controls="services-menu">
-                                <span class="services-filter__trigger-text">Обери свою послугу</span>
-                                <svg class="services-filter__icon" width="16" height="16" viewBox="0 0 16 16"
+                         <div class="scrollable-tabs">
+
+                            <button type="button" class="scrollable-tabs__trigger" aria-expanded="false"
+                                aria-controls="scrollable-tabs-menu">
+                                <span class="scrollable-tabs__trigger-text">Обери свою послугу</span>
+                                <svg class="scrollable-tabs__icon" width="16" height="16" viewBox="0 0 16 16"
                                     fill="none">
                                     <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </button>
 
-                            <!-- Navigation / Tab List -->
-                            <nav class="services-filter__nav" id="services-menu">
-                                <ul class="services-filter__list">
-                                    <li class="services-filter__item">
-                                        <button class="services-filter__btn services-filter__btn--active" type="button">
-                                            Флебологія. Варикозна хвороба вен
-                                        </button>
-                                    </li>
-                                    <li class="services-filter__item">
-                                        <button class="services-filter__btn" type="button">Трансплантація
-                                            волосся</button>
-                                    </li>
-                                    <li class="services-filter__item">
-                                        <button class="services-filter__btn" type="button">Дерматологія</button>
-                                    </li>
-                                    <li class="services-filter__item">
-                                        <button class="services-filter__btn" type="button">Пластична
-                                            хірургія</button>
-                                    </li>
-                                    <li class="services-filter__item">
-                                        <button class="services-filter__btn" type="button">Блефаропластика</button>
-                                    </li>
-                                </ul>
-                            </nav>
+
+                            <div class="scrollable-tabs__wrapper">
+                                <button type="button" class="scrollable-tabs__arrow scrollable-tabs__arrow--prev"
+                                    aria-label="Прокрутити ліворуч">
+                                </button>
+
+                                <nav class="scrollable-tabs__track" id="scrollable-tabs-menu">
+                                    <ul class="scrollable-tabs__list">
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn scrollable-tabs__btn--active"
+                                                type="button">
+                                                Флебологія. Варикозна хвороба вен
+                                            </button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Трансплантація
+                                                волосся</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Дерматологія</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Пластична
+                                                хірургия</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Блефаропластика</button>
+                                        </li>
+
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Дерматологія2</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Пластична
+                                                хірургия2</button>
+                                        </li>
+                                        <li class="scrollable-tabs__item">
+                                            <button class="scrollable-tabs__btn" type="button">Блефаропластика2</button>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <button type="button" class="scrollable-tabs__arrow scrollable-tabs__arrow--next"
+                                    aria-label="Прокрутити праворуч">
+                                
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -574,138 +597,136 @@
                 </div>
             </div>
         </section>
-        <section class="s-contacts s-contacts--footer">
+       <section class="s-contacts s-contacts--footer">
 
             <div class="container ">
                 <div class="row m-row ">
                     <div class="col-xl-7 col-lg-9 col-md-11 col-sm-16 col-xs-16 column">
-                        <div class="s-contacts__inner overlap">
-                            <div class="tab">
-                                <div class="tab__list ">
-                                    <div class="tab__item text-semibold text-center">Львів</div>
-                                    <div class="tab__item text-semibold text-center">Мукачево</div>
-                                    <div class="tab__item text-semibold text-center">Ужгород</div>
-                                    <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
+                        <div class="tab overlap">
+                            <div class="tab__list ">
+                                <div class="tab__item text-semibold text-center">Львів</div>
+                                <div class="tab__item text-semibold text-center">Мукачево</div>
+                                <div class="tab__item text-semibold text-center">Ужгород</div>
+                                <div class="tab__item text-semibold text-center">Івано-Франківськ</div>
+                            </div>
+
+
+
+                            <div class="tab__content">
+                                <div class="tab__panel --relative ">
+                                    Львів
+
+
+                                    <address class="contacts contacts--column">
+                                        <ul class="contacts__list">
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link"
+                                                    href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9"
+                                                    target="_blank" rel="noopener noreferrer">
+                                                    м. Львів, вул. Генерала Юнаківа, 9
+                                                </a>
+                                            </li>
+
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--phone" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#phone"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link contacts__link--bold" href="tel:+380671207452">
+                                                    <b> +380 (67) 120-74-52</b>
+                                                </a>
+                                            </li>
+
+                                            <li class="contacts__item">
+                                                <span class="contacts__icon contacts__icon--email" aria-hidden="true">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#mail"></use>
+                                                    </svg>
+                                                </span>
+                                                <a class="contacts__link" href="mailto:call.centre.veromed@gmail.com">
+                                                    call.centre.veromed@gmail.com
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </address>
+
+                                    <div class="socials">
+                                        <ul class="socials__list" role="list">
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="Instagram" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#instagram"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="Facebook" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#facebook"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="YouTube" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#youtube"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li class="socials__item">
+                                                <a href="#" class="socials__link" aria-label="TikTok" target="_blank"
+                                                    rel="noopener">
+                                                    <svg class="icon" aria-hidden="true" width="20" height="20">
+                                                        <use href="assets/img/sprite.svg#tiktok"></use>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="schedule">
+                                        <div class="schedule__group">
+                                            <h3 class="schedule__title">Графік роботи</h3>
+                                            <ul class="schedule__list">
+                                                <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
+                                                <li class="schedule__item">Сб: 09:00 – 15:00</li>
+                                                <li class="schedule__item">Нд: вихідний</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="schedule__group">
+                                            <h3 class="schedule__title">Час роботи call-центру</h3>
+                                            <ul class="schedule__list">
+                                                <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
+                                                <li class="schedule__item">Сб: 09:00–15:00</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <a href="" class="btn btn--primary">Записатися на прийом</a>
                                 </div>
 
-                                <div class="tab__content">
-                                    <div class="tab__panel --relative ">
-                                        Львів
 
-                                        <address class="contacts contacts--column">
-                                            <ul class="contacts__list">
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--pin" aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#location"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link"
-                                                        href="https://maps.google.com/?q=Львів,+вул.+Генерала+Юнаківа,+9"
-                                                        target="_blank" rel="noopener noreferrer">
-                                                        м. Львів, вул. Генерала Юнаківа, 9
-                                                    </a>
-                                                </li>
-
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--phone"
-                                                        aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="img/icons/sprite.svg#phone"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link contacts__link--bold"
-                                                        href="tel:+380671207452">
-                                                        <b> +380 (67) 120-74-52</b>
-                                                    </a>
-                                                </li>
-
-                                                <li class="contacts__item">
-                                                    <span class="contacts__icon contacts__icon--email"
-                                                        aria-hidden="true">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#mail"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <a class="contacts__link"
-                                                        href="mailto:call.centre.veromed@gmail.com">
-                                                        call.centre.veromed@gmail.com
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </address>
-
-                                        <div class="socials">
-                                            <ul class="socials__list" role="list">
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="Instagram"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#instagram"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="Facebook"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#facebook"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="YouTube"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#youtube"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="socials__item">
-                                                    <a href="#" class="socials__link" aria-label="TikTok"
-                                                        target="_blank" rel="noopener">
-                                                        <svg class="icon" aria-hidden="true" width="20" height="20">
-                                                            <use href="assets/img/sprite.svg#tiktok"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="schedule">
-                                            <div class="schedule__group">
-                                                <h3 class="schedule__title">Графік роботи</h3>
-                                                <ul class="schedule__list">
-                                                    <li class="schedule__item">Пн–Пт: 09:00 – 19:00</li>
-                                                    <li class="schedule__item">Сб: 09:00 – 15:00</li>
-                                                    <li class="schedule__item">Нд: вихідний</li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="schedule__group">
-                                                <h3 class="schedule__title">Час роботи call-центру</h3>
-                                                <ul class="schedule__list">
-                                                    <li class="schedule__item">Пн–Пт: 09:00–19:00</li>
-                                                    <li class="schedule__item">Сб: 09:00–15:00</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <a href="" class="btn btn--primary">Записатися на прийом</a>
-                                    </div>
-
-
-                                    <div class="tab__panel --relative ">
-                                        Мукачево
-                                    </div>
-                                    <div class="tab__panel --relative ">
-                                        Ужгород
-                                    </div>
-                                    <div class="tab__panel --relative ">
-                                        Івано-Франківськ
-                                    </div>
+                                <div class="tab__panel --relative ">
+                                    Мукачево
+                                </div>
+                                <div class="tab__panel --relative ">
+                                    Ужгород
+                                </div>
+                                <div class="tab__panel --relative ">
+                                    Івано-Франківськ
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -713,7 +734,6 @@
                 <div id="map" class="map"></div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -929,47 +949,18 @@
         type="text/javascript"></script>
 
     <script src="./assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
+   
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/jquery.sumoselect.min.js"></script>
-    <!--<script src="assets/js/sumoselectCustom.js"></script>-->
-
+   
 
     <script src="src/scripts/app-swiper.js"></script>
-    <script src="src/scripts/app.js"></script>
+
     <script src="src/scripts/js_app.js"></script>
 
     <script src="src/scripts/app_map.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const trigger = document.querySelector('.services-filter__trigger');
-            const nav = document.querySelector('.services-filter__nav');
-            const buttons = document.querySelectorAll('.services-filter__btn');
-            const triggerText = document.querySelector('.services-filter__trigger-text');
 
-            // Toggle mobile menu
-            trigger?.addEventListener('click', () => {
-                const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-                trigger.setAttribute('aria-expanded', !isOpen);
-                nav.classList.toggle('services-filter__nav--open');
-            });
-
-            // Tab click logic & mobile trigger label update
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    buttons.forEach(b => b.classList.remove('services-filter__btn--active'));
-                    btn.classList.add('services-filter__btn--active');
-
-                    if (window.innerWidth < 992) {
-                        triggerText.textContent = btn.textContent.trim();
-                        trigger.setAttribute('aria-expanded', 'false');
-                        nav.classList.remove('services-filter__nav--open');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

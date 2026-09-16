@@ -130,6 +130,12 @@
       }
     }
   }
+
+  &.has-flower {
+    &--left-bottom::before {
+      transform: translate(-50%, 50%);
+    }
+  }
 }
 
 .s-partners {

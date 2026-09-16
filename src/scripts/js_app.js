@@ -427,4 +427,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+
+
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollableTabsBlocks = document.querySelectorAll('.scrollable-tabs');
+
+    scrollableTabsBlocks.forEach((tabs) => {
+        const trigger = tabs.querySelector('.scrollable-tabs__trigger');
+        const track = tabs.querySelector('.scrollable-tabs__track');
+        const buttons = tabs.querySelectorAll('.scrollable-tabs__btn');
+        const triggerText = tabs.querySelector('.scrollable-tabs__trigger-text');
+
+        const arrowPrev = tabs.querySelector('.scrollable-tabs__arrow--prev');
+        const arrowNext = tabs.querySelector('.scrollable-tabs__arrow--next');
+
+        // 1. Переключення мобільного dropdown
+        trigger?.addEventListener('click', () => {
+            const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', !isOpen);
+            track?.classList.toggle('scrollable-tabs__track--open');
+        });
+
+        // 2. Кліки по табах
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                buttons.forEach((b) => b.classList.remove('scrollable-tabs__btn--active'));
+                btn.classList.add('scrollable-tabs__btn--active');
+
+                if (window.innerWidth < 992) {
+                    if (triggerText) triggerText.textContent = btn.textContent.trim();
+                    trigger?.setAttribute('aria-expanded', 'false');
+                    track?.classList.remove('scrollable-tabs__track--open');
+                }
+            });
+        });
+
+        // 3. Перевірка та оновлення видимості стрілок
+        const checkScroll = () => {
+            if (!track || window.innerWidth < 992) return;
+
+            const scrollLeft = Math.ceil(track.scrollLeft);
+            const maxScroll = track.scrollWidth - track.clientWidth;
+
+            if (track.scrollWidth > track.clientWidth) {
+                arrowPrev?.classList.toggle('scrollable-tabs__arrow--visible', scrollLeft > 2);
+                arrowNext?.classList.toggle('scrollable-tabs__arrow--visible', scrollLeft < maxScroll - 2);
+            } else {
+                arrowPrev?.classList.remove('scrollable-tabs__arrow--visible');
+                arrowNext?.classList.remove('scrollable-tabs__arrow--visible');
+            }
+        };
+
+        // Кліки по стрілках
+        arrowPrev?.addEventListener('click', () => {
+            track?.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+
+        arrowNext?.addEventListener('click', () => {
+            track?.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+
+        // Події
+        track?.addEventListener('scroll', checkScroll);
+        window.addEventListener('resize', checkScroll);
+
+        // Первинний розрахунок після завантаження
+        checkScroll();
+        setTimeout(checkScroll, 150);
+    });
 });

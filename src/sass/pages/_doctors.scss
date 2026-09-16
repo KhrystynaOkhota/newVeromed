@@ -70,9 +70,25 @@
       margin: 25px auto 0 auto;
     }
   }
+
+  &.has-line {
+    border-bottom: 1px solid rgba(111, 111, 111, .1);
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+  }
+
+  &.has-flower {
+    &--left-bottom {
+      &:before {
+        transform: translate(-50%,50%);
+      }
+    }
+  }
 }
 
 .s-doctors {
+  padding-top: 20px;
+  padding-bottom: fluid(70, 150);
 
   & .doctor-card {
     &__grid {
@@ -96,9 +112,26 @@
       }
     }
   }
+
+  &.has-flower {
+    &--right-top {
+      &:after {
+        transform: translate(50%, 50%);
+      }
+    }
+
+    &--left-bottom {
+      &:before {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
 }
 
 .s-qualifications {
+  padding-bottom: 50px;
+
   & .heading {
     margin-bottom: 20px;
   }
@@ -125,6 +158,7 @@
 
 .s-doctor-profile {
   padding-top: 30px;
+  padding-bottom: 50px;
 
   .doctor {
     &__name {

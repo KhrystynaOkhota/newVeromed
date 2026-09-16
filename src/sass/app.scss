@@ -37,33 +37,16 @@
 @use "components/_accordeon";
 @use "components/_filter";
 
-// Специфічні блоки та віджети
-//@use "components/_same-sections"; // Схожі секції
-//@use "components/_subscription";  // Блок підписки
+@use "components/_scrollable-tabs"; 
 @use "components/_editor-style";  // Стилі для контенту з адмінки (WYSIWYG)
-
-// ==========================================================================
-// 5. PAGES (Стилі для конкретних сторінок вашого сайту)
-// ==========================================================================
-// Головна та інформаційні сторінки
 @use "pages/_home";
 @use "pages/_about";
-//@use "pages/_direction";
+
 @use "pages/_contacts";
 @use "pages/_promo";
-
-// Блог та контент
 @use "pages/_blog";
-//@use "pages/_recipe";
-
-// Інтернет-магазин (Каталог, Картки, Процес замовлення)
 @use "pages/_doctors";
 @use "pages/_review";
 @use "pages/_services";
 @use "pages/_results";
-//@use "pages/_delivery";
-
-
-//@use "pages/_account";
 @use "pages/_other";
-//@use "pages/_woocommerce";
