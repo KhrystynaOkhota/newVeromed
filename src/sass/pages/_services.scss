@@ -519,6 +519,12 @@
 }
 
 .s-services {
+  padding-bottom: 150px;
+
+  &.has-flower--right-top::after {
+    transform: translate(50%, 30%);
+  }
+
   .heading {
     margin-bottom: fluid(21, 37);
   }

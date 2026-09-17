@@ -2,96 +2,101 @@
 @use "../abstracts/mixins" as *;
 
 
+@use "../abstracts/mixins" as *;
+
 .pagination {
+  position: relative;
+  display: flex;
+  justify-content: center;
   width: 100%;
   background-color: transparent;
 
-  &-container {
-
-    //  padding: 100px 0 150px 0;
-    @media (max-width: $breakpoint-lg) {
-      //   padding-bottom: 100px;
-    }
-  }
-
-  & .screen-reader-text {
+  .screen-reader-text {
     display: none;
   }
 
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-
-  & .nav-links {
+  .nav-links {
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     gap: 20px;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 768px) {
       gap: 10px;
     }
 
-    @media (max-width: $breakpoint-sm) {
+    @media (max-width: 576px) {
       gap: 5px;
     }
 
     .page-numbers {
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
-
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin: 0;
       font-size: 18px;
       font-weight: 700;
       text-align: center;
-      color: rgba(30, 30, 30, 1);
-      width: 50px;
-      height: 50px;
-      background: rgba(242, 242, 242, 1);
+      color: #1e1e1e;
+      background: #f2f2f2;
       border-radius: 10px;
       cursor: pointer;
-      @include transition(.4);
-      margin: 0;
+      transition: all 0.3s ease;
 
-      @media (max-width: $breakpoint-md) {
+      @media (max-width: 768px) {
         width: 40px;
         height: 40px;
         font-size: 16px;
       }
 
-      @media (max-width: $breakpoint-sm) {
+      @media (max-width: 576px) {
         width: 30px;
         height: 30px;
         font-size: 14px;
       }
 
+      
+
+      // Загальні стилі для кнопок із маскою (prev / next)
+      &.prev,
+      &.next {
+        font-size: 0; // Ховаємо можливий текст всередині тегу
+
+        &::before {
+          content: "";
+          display: block;
+          width: 16px;
+          height: 16px;
+          background-color: #1e1e1e;
+          -webkit-mask: url("../img/forward-left.svg") no-repeat center / contain;
+          mask: url("../img/forward-left.svg") no-repeat center / contain;
+          transition: background-color 0.3s ease;
+
+          @media (max-width: 576px) {
+            width: 12px;
+            height: 12px;
+          }
+        }
+      }
+
+      // Поворот маски для кнопки Next
+      &.next::before {
+        transform: rotate(180deg);
+      }
+
       &:hover,
       &.current {
-        color: rgba(242, 242, 242, 1);
-        background: rgba(139, 30, 30, 1);
+        color: #f2f2f2;
+        background: #8b1e1e;
+
+        // Зміна кольору маски при ховері та активному стані
+        &::before {
+          background-color: #f2f2f2;
+        }
       }
     }
-  }
-
-  &__more {
-    border: 1px solid red;
   }
 }
