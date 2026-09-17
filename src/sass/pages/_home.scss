@@ -66,7 +66,8 @@
 }
 
 .s-locations {
-  padding-bottom: fluid(50,100);
+  padding-bottom: fluid(50, 100);
+
   @media (min-width: 1300px) {
     padding-left: 50px;
     padding-right: 50px;
@@ -207,12 +208,14 @@
       height: auto; // Дозволяє контенту диктувати висоту, якщо вона перевищує min-height
     }
 
-    .custom {
+    .custom-fraction {
 
-      &-current,
-      &-separator,
-      &-total {
-        color: rgba(255, 255, 255, 1);
+      &__separator,
+      &__total,
+      &__current {
+        @media (max-width: $breakpoint-md) {
+          color: rgba(111, 111, 111, 1);
+        }
       }
     }
 
@@ -363,6 +366,10 @@
   .swiper-button-prev,
   .swiper-button-next {
     color: #fff;
+
+    @media (max-width: $breakpoint-md) {
+      color: rgba(111, 111, 111, 1);
+    }
   }
 }
 
@@ -370,9 +377,11 @@
 .s-special-offers {
   padding: fluid(50, 100) 0 0 0;
   border-top: 1px solid rgba(30, 30, 30, .1);
- @media (max-width: $breakpoint-md) {
-      padding-bottom: 50px;
-    }
+
+  @media (max-width: $breakpoint-md) {
+    padding-bottom: 50px;
+  }
+
   .custom-fraction-wrap {
     @media (min-width: $breakpoint-md) {
       display: none;

@@ -42,6 +42,14 @@
     align-items: center;
     gap: 20px;
 
+    @media (max-width: $breakpoint-md) {
+      gap: 10px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      gap: 5px;
+    }
+
     .page-numbers {
       display: flex;
       -webkit-box-pack: center;
@@ -63,11 +71,21 @@
       @include transition(.4);
       margin: 0;
 
-      @media (max-width: $breakpoint-md) {}
+      @media (max-width: $breakpoint-md) {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
 
       &:hover,
       &.current {
-        color:rgba(242, 242, 242, 1);
+        color: rgba(242, 242, 242, 1);
         background: rgba(139, 30, 30, 1);
       }
     }

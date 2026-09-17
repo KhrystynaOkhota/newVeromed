@@ -80,7 +80,7 @@
   &.has-flower {
     &--left-bottom {
       &:before {
-        transform: translate(-50%,50%);
+        transform: translate(-50%, 50%);
       }
     }
   }
@@ -295,5 +295,19 @@
 
   .form-field__note {
     margin-bottom: 26px;
+  }
+
+  &.has-flower {
+    &--right-top {
+      &:after {
+        transform: translate(43%, 50%);
+      }
+    }
+
+    &--left-center {
+      &:before {
+        transform: translate(-50%, 100%);
+      }
+    }
   }
 }

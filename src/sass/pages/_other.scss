@@ -80,7 +80,13 @@
 .s-search-results {
   min-height: 50vh;
   padding: 40px 0 fluid(50, 100) 0;
-
+&.has-flower {
+    &--right-top {
+      &:after {
+        transform: translate(50%, 145%);
+      }
+    }
+  }
   & .heading {
     margin-bottom: 35px;
   }
@@ -161,6 +167,11 @@
     font-size: fluid(40, 50);
     margin-bottom: fluid(30, 40);
     width: 140%;
+
+    @media (max-width: $breakpoint-md) {
+      width: 100%;
+
+    }
   }
 
   & .description {
@@ -181,6 +192,11 @@
       align-items: flex-start;
       gap: 30px;
       width: 140%;
+
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+
+      }
 
       @media (max-width: (475px)) {
         align-items: center;
