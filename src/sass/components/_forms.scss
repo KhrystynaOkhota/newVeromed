@@ -175,6 +175,56 @@ div.wpcf7 .ajax-loader {
     }
   }
 
+  &__input--date {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 48px; // Комфортна область тапу для тачскрінів
+    padding: 14px 45px 14px 20px; // Додано правий відступ (45px), щоб текст не налізав на іконку
+
+    font-family: "Gilroy", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #1e1e1e;
+
+    background-color: #f7f8f8;
+    border: 1px solid #eaeaea;
+    border-radius: 50px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    // Вирівнювання тексту на iOS Safari
+    &::-webkit-date-and-time-value {
+      text-align: left;
+      margin: 0;
+    }
+
+    // Налаштування та відображення іконки календаря
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      transform: translateY(-50%);
+
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      padding: 0;
+
+      opacity: 0.6; // Видимість іконки
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+    }
+  }
+
   &__textarea {
     border-radius: 20px;
   }
