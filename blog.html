@@ -365,7 +365,7 @@
                     <div class="row">
                         <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                             <div class="filter">
-                                <form >
+                                <form>
                                     <div class="row align-end">
                                         <div class="col-xl-4 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
                                             <div class="form-field SelectBox">
@@ -411,13 +411,9 @@
                                         </div>
                                         <div class="col-xl-3 col-lg-8 col-md-8 col-sm-16 col-xs-16 column">
                                             <div class="form-field">
-                                                <label class="form-field__label" for="filter-date">Дата
-                                                    публікації</label>
-                                                <div class="form-field__input-wrapper form-field__input-wrapper--date">
-                                                    <input class="form-field__input" type="text" id="filter-date"
-                                                        name="date" placeholder="дд / мм / рррр"
-                                                        onfocus="(this.type='date')" onblur="(this.type='text')">
-                                                </div>
+                                                <label class="form-field__label " for="user-date">Дата публікації</label>
+                                                <input class="form-field__input form-field__input--date js-datepicker"
+                                                    type="text" placeholder="дд / мм / рррр" id="user-date" name="date">
                                             </div>
                                         </div>
                                         <div class="col-xl-2 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
@@ -436,7 +432,7 @@
                 <div class="row">
                     <div class="col-xl-16 col-lg-16 col-md-16 col-sm-16 col-xs-16 column">
                         <div class="article__grid">
-                             <article class="article">
+                            <article class="article">
                                 <a href="article.html" class="article__btn btn btn--round"
                                     aria-label="Читати детальніше">
 
@@ -696,7 +692,7 @@
                                 <span class="page-numbers dots">…</span>
                                 <a class="page-numbers">7</a>
                                 <a class="next page-numbers">
-                                    
+
                                 </a>
                             </div>
                         </nav>
@@ -1171,6 +1167,49 @@
             setTimeout(checkScroll, 150); // Додатковий виклик після рендерингу стилів
         });
     </script>
+
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Обов'язково: Файл української локалізації -->
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/uk.js"></script>
+
+    <script>
+        const currentLang = document.documentElement.lang || 'uk';
+
+        const config = {
+            // Якщо мова 'uk' — беремо український об'єкт, інакше 'default' (англійська)
+            locale: currentLang === 'uk' ? flatpickr.l10ns.uk : 'default',
+
+            dateFormat: "Y-m-d",
+            altInput: true,
+            altFormat: "d F Y",
+            minDate: "today",
+
+            // Обов'язково true, щоб кастомний Flatpickr з altFormat працював на смартфонах
+            disableMobile: true,
+            // Копіюємо placeholder з оригінального інпута при ініціалізації
+            onReady: function (selectedDates, dateStr, instance) {
+                if (instance.altInput) {
+                    const originalPlaceholder = instance.element.getAttribute('placeholder');
+                    if (originalPlaceholder) {
+                        instance.altInput.setAttribute('placeholder', originalPlaceholder);
+                    }
+                }
+            }
+        };
+
+
+        // Ініціалізація для всіх елементів з класом .js-datepicker
+        document.querySelectorAll('.js-datepicker').forEach(element => {
+            flatpickr(element, config);
+        });
+    </script>
+
 </body>
 
 </html>

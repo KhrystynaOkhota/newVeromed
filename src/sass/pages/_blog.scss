@@ -433,23 +433,25 @@
       }
 
       &:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        width: 245px;
-        height: 590px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        pointer-events: none;
+        @media (min-width: 768px) {
+          content: "";
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          width: 245px;
+          height: 590px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          pointer-events: none;
 
-        right: 0;
-        background-image: url(../img/decor-long.svg);
+          right: 0;
+          background-image: url(../img/decor-long.svg);
 
-        transform: translate(30%, -50%);
-        z-index: 1;
+          transform: translate(30%, -50%);
+          z-index: 1;
+        }
       }
     }
 

@@ -144,6 +144,20 @@ div.wpcf7 .ajax-loader {
     grid-column: 1 / -1;
   }
 
+  &__icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    & img {
+      pointer-events: none;
+    }
+  }
+
   &__label {
     display: block;
     font-size: fluid(15, 16);
@@ -176,6 +190,7 @@ div.wpcf7 .ajax-loader {
   }
 
   &__input--date {
+    cursor: pointer;
     position: relative;
     display: block;
     width: 100%;
@@ -222,6 +237,10 @@ div.wpcf7 .ajax-loader {
         opacity: 1;
       }
 
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
     }
   }
 
@@ -688,4 +707,30 @@ div.wpcf7 .ajax-loader {
       opacity: 0.7;
     }
   }
+}
+
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: $accent-color !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  border-color: $accent-color !important;
 }
