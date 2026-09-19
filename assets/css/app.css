@@ -5165,6 +5165,7 @@ div.wpcf7 .ajax-loader {
   .s-hero .hero-slide__inner {
     min-height: max(600px, 100vh - clamp(86px, 86px + (188 - 86) * (100vw - 375px) / (1960 - 375), 188px));
     height: auto;
+    border-radius: 30px;
   }
 }
 .s-hero .hero-slide__content {
@@ -5186,7 +5187,7 @@ div.wpcf7 .ajax-loader {
 }
 @media (max-width: 767px) {
   .s-hero .hero-slide__content {
-    margin: -110px 0 0 0;
+    margin: -150px 0 0 0;
   }
 }
 .s-hero .hero-slide {
@@ -5244,7 +5245,7 @@ div.wpcf7 .ajax-loader {
 }
 @media (max-width: 767px) {
   .s-hero .hero-slide__bg--wrap {
-    height: 283px;
+    height: 400px;
     width: 100%;
   }
 }
