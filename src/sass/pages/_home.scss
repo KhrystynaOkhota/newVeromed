@@ -266,6 +266,7 @@
         // Задаємо мінімальну висоту замість фіксованої height
         min-height: max(600px, calc(100vh - #{fluid(86, 188)}));
         height: auto; // Забираємо жорстке обмеження height
+        border-radius: 30px;
       }
     }
 
@@ -287,7 +288,7 @@
       }
 
       @media (max-width: $breakpoint-md) {
-        margin: -110px 0 0 0;
+        margin: -150px 0 0 0;
       }
     }
 
@@ -346,7 +347,7 @@
 
       &--wrap {
         @media (max-width: $breakpoint-md) {
-          height: 283px;
+          height: 400px;
           width: 100%;
         }
       }
