@@ -3003,6 +3003,20 @@ div.wpcf7 .ajax-loader {
 .form-field--full {
   grid-column: 1/-1;
 }
+.form-field__icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
+}
+.form-field__icon img {
+  pointer-events: none;
+}
 .form-field__label {
   display: block;
   font-size: clamp(15px, 15px + (16 - 15) * (100vw - 375px) / (1960 - 375), 16px);
@@ -3030,6 +3044,7 @@ div.wpcf7 .ajax-loader {
   padding-right: 50px;
 }
 .form-field__input--date {
+  cursor: pointer;
   position: relative;
   display: block;
   width: 100%;
@@ -3067,6 +3082,21 @@ div.wpcf7 .ajax-loader {
   transition: opacity 0.2s ease;
 }
 .form-field__input--date::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+.form-field__input--date:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+.form-field__input--date:focus::-moz-placeholder {
+  opacity: 1;
+}
+.form-field__input--date:focus:-ms-input-placeholder {
+  opacity: 1;
+}
+.form-field__input--date:focus::-ms-input-placeholder {
+  opacity: 1;
+}
+.form-field__input--date:focus::placeholder {
   opacity: 1;
 }
 .form-field__textarea {
@@ -3571,6 +3601,31 @@ div.wpcf7 .ajax-loader {
 }
 .dropzone__file-remove:hover {
   opacity: 0.7;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: #8b1818 !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  border-color: #8b1818 !important;
 }
 
 .kama_breadcrumbs {
@@ -6679,24 +6734,26 @@ div.wpcf7 .ajax-loader {
     text-align: center;
   }
 }
-.s-article .consultation__content:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 245px;
-  height: 590px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  pointer-events: none;
-  right: 0;
-  background-image: url(../img/decor-long.svg);
-  -webkit-transform: translate(30%, -50%);
-      -ms-transform: translate(30%, -50%);
-          transform: translate(30%, -50%);
-  z-index: 1;
+@media (min-width: 768px) {
+  .s-article .consultation__content:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 245px;
+    height: 590px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    right: 0;
+    background-image: url(../img/decor-long.svg);
+    -webkit-transform: translate(30%, -50%);
+        -ms-transform: translate(30%, -50%);
+            transform: translate(30%, -50%);
+    z-index: 1;
+  }
 }
 .s-article .consultation__img {
   margin: -65px auto 0 auto;
